@@ -471,60 +471,6 @@
                 </androidx.cardview.widget.CardView>
 
 
-
-                <!-- v408  Radio   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVv408"
-                    style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="@string/Q_v408" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:text="@string/v408" />
-                        </LinearLayout>
-
-                        <RadioGroup
-                            android:id="@+id/v408"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <RadioButton
-                                android:id="@+id/v408a"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:checked="@{vhc.v408.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV408(`1`)}"
-                                android:text="@string/v408a" />
-
-                            <RadioButton
-                                android:id="@+id/v408b"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:checked="@{vhc.v408.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV408(`2`)}"
-                                android:text="@string/v408b" />
-                        </RadioGroup>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
                 <!-- v409  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVv409"
