@@ -74,35 +74,42 @@
                                 android:text="@string/Q_v401" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/v401" />
+
                         </LinearLayout>
 
                         <RadioGroup
                             android:id="@+id/v401"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <RadioButton
                                 android:id="@+id/v401a"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{vhc.v401.equals(`1`)}"
                                 android:onClick="@{()->vhc.setV401(`1`)}"
                                 android:text="@string/v401a" />
 
                             <RadioButton
                                 android:id="@+id/v401b"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{vhc.v401.equals(`2`)}"
                                 android:onClick="@{()->vhc.setV401(`2`)}"
                                 android:text="@string/v401b" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- v402  Radio   -->
                 <androidx.cardview.widget.CardView
