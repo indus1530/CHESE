@@ -531,6 +531,66 @@
                 </androidx.cardview.widget.CardView>
 
 
+                <!-- ws509  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVws509"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_ws509" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/ws509" />
+
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/ws509"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/ws509a"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{wsg.ws509.equals(`1`)}"
+                                android:onClick="@{()->wsg.setWs509(`1`)}"
+                                android:text="@string/ws509a" />
+
+                            <RadioButton
+                                android:id="@+id/ws509b"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{wsg.ws509.equals(`2`)}"
+                                android:onClick="@{()->wsg.setWs509(`2`)}"
+                                android:text="@string/ws509b" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
                 <!-- ws510  Input   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVws510"
