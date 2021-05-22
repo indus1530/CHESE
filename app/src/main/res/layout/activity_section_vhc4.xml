@@ -50,22 +50,6 @@
                 android:orientation="vertical">
 
 
-                <!-- secvnote  Title   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVsecvnote"
-                    style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/secvnote" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
 
                 <!-- v401  Radio   -->
                 <androidx.cardview.widget.CardView
