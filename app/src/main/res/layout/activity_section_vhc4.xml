@@ -291,6 +291,66 @@
                 </androidx.cardview.widget.CardView>
 
 
+                <!-- v405  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVv405"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_v405" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/v405" />
+
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/v405"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/v405a"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{vhc.v405.equals(`1`)}"
+                                android:onClick="@{()->vhc.setV405(`1`)}"
+                                android:text="@string/v405a" />
+
+                            <RadioButton
+                                android:id="@+id/v405b"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{vhc.v405.equals(`2`)}"
+                                android:onClick="@{()->vhc.setV405(`2`)}"
+                                android:text="@string/v405b" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
 
 
                 <!-- v406  Radio   -->
