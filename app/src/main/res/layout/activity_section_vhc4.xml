@@ -858,6 +858,7 @@
                                 android:id="@+id/v414"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:gravity="center"
                                 android:hint="@string/v414"
                                 android:text="@={vhc.v414}" />
