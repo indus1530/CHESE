@@ -1,7 +1,7 @@
 package edu.aku.hassannaqvi.chese.database
 
 import edu.aku.hassannaqvi.chese.core.MainApp.PROJECT_NAME
-import edu.aku.hassannaqvi.chese.data.model.Form
+import edu.aku.hassannaqvi.chese.data.model.Forms
 import edu.aku.hassannaqvi.chese.models.Districts
 import edu.aku.hassannaqvi.chese.models.HealthFacilities
 import edu.aku.hassannaqvi.chese.models.Users
@@ -13,34 +13,34 @@ object CreateSQL {
     const val DATABASE_VERSION = 1
 
     const val SQL_CREATE_FORMS = ("CREATE TABLE "
-            + Form.FormsTable.TABLE_NAME + "("
-            + Form.FormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + Form.FormsTable.COLUMN_PROJECT_NAME + " TEXT,"
-            + Form.FormsTable.COLUMN_UID + " TEXT,"
-            + Form.FormsTable.COLUMN_USERNAME + " TEXT,"
-            + Form.FormsTable.COLUMN_SYSDATE + " TEXT,"
-            + Form.FormsTable.COLUMN_ISTATUS + " TEXT,"
-            + Form.FormsTable.COLUMN_ISTATUS96x + " TEXT,"
-            + Form.FormsTable.COLUMN_ENDINGDATETIME + " TEXT,"
-            + Form.FormsTable.COLUMN_DEVICEID + " TEXT,"
-            + Form.FormsTable.COLUMN_DEVICETAGID + " TEXT,"
-            + Form.FormsTable.COLUMN_SYNCED + " TEXT,"
-            + Form.FormsTable.COLUMN_SYNCED_DATE + " TEXT,"
-            + Form.FormsTable.COLUMN_APPVERSION + " TEXT,"
-            + Form.FormsTable.COLUMN_DISTRICT_CODE + " TEXT,"
-            + Form.FormsTable.COLUMN_DISTRICT_NAME + " TEXT,"
-            + Form.FormsTable.COLUMN_HF_CODE + " TEXT,"
-            + Form.FormsTable.COLUMN_HF_NAME + " TEXT,"
-            + Form.FormsTable.COLUMN_REPORTING_MONTH + " TEXT,"
-            + Form.FormsTable.COLUMN_REPORTING_YEAR + " TEXT,"
-            + Form.FormsTable.COLUMN_SA + " TEXT,"
-            + Form.FormsTable.COLUMN_SB + " TEXT,"
-            + Form.FormsTable.COLUMN_SC + " TEXT,"
-            + Form.FormsTable.COLUMN_SD + " TEXT,"
-            + Form.FormsTable.COLUMN_SE + " TEXT,"
-            + Form.FormsTable.COLUMN_SF + " TEXT,"
-            + Form.FormsTable.COLUMN_SG + " TEXT,"
-            + Form.FormsTable.COLUMN_SH + " TEXT"
+            + Forms.FormsTable.TABLE_NAME + "("
+            + Forms.FormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + Forms.FormsTable.COLUMN_PROJECT_NAME + " TEXT,"
+            + Forms.FormsTable.COLUMN_UID + " TEXT,"
+            + Forms.FormsTable.COLUMN_USERNAME + " TEXT,"
+            + Forms.FormsTable.COLUMN_SYSDATE + " TEXT,"
+            + Forms.FormsTable.COLUMN_ISTATUS + " TEXT,"
+            + Forms.FormsTable.COLUMN_ISTATUS96x + " TEXT,"
+            + Forms.FormsTable.COLUMN_ENDINGDATETIME + " TEXT,"
+            + Forms.FormsTable.COLUMN_DEVICEID + " TEXT,"
+            + Forms.FormsTable.COLUMN_DEVICETAGID + " TEXT,"
+            + Forms.FormsTable.COLUMN_SYNCED + " TEXT,"
+            + Forms.FormsTable.COLUMN_SYNCED_DATE + " TEXT,"
+            + Forms.FormsTable.COLUMN_APPVERSION + " TEXT,"
+            + Forms.FormsTable.COLUMN_DISTRICT_CODE + " TEXT,"
+            + Forms.FormsTable.COLUMN_DISTRICT_NAME + " TEXT,"
+            + Forms.FormsTable.COLUMN_HF_CODE + " TEXT,"
+            + Forms.FormsTable.COLUMN_HF_NAME + " TEXT,"
+            + Forms.FormsTable.COLUMN_REPORTING_MONTH + " TEXT,"
+            + Forms.FormsTable.COLUMN_REPORTING_YEAR + " TEXT,"
+            + Forms.FormsTable.COLUMN_SV2 + " TEXT,"
+            + Forms.FormsTable.COLUMN_SV3 + " TEXT,"
+            + Forms.FormsTable.COLUMN_SV4 + " TEXT,"
+            + Forms.FormsTable.COLUMN_SD + " TEXT,"
+            + Forms.FormsTable.COLUMN_SE + " TEXT,"
+            + Forms.FormsTable.COLUMN_SF + " TEXT,"
+            + Forms.FormsTable.COLUMN_SG + " TEXT,"
+            + Forms.FormsTable.COLUMN_SH + " TEXT"
             + " );")
 
 

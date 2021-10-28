@@ -51,7 +51,7 @@ import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.adapters.SyncListAdapter;
 import edu.aku.hassannaqvi.chese.core.AppInfo;
 import edu.aku.hassannaqvi.chese.core.MainApp;
-import edu.aku.hassannaqvi.chese.data.model.Form;
+import edu.aku.hassannaqvi.chese.data.model.Forms;
 import edu.aku.hassannaqvi.chese.data.model.SyncModel;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySyncBinding;
@@ -146,7 +146,7 @@ public class SyncActivity extends AppCompatActivity {
                 MainApp.uploadData.clear();
 
                 // FORMS RSD
-                uploadTables.add(new SyncModel(Form.FormsTable.TABLE_NAME));
+                uploadTables.add(new SyncModel(Forms.FormsTable.TABLE_NAME));
                 MainApp.uploadData.add(db.getUnsyncedForms());
 
                 MainApp.downloadData = new String[uploadTables.size()];

@@ -11,7 +11,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Random;
 
-import edu.aku.hassannaqvi.chese.data.model.Form;
+import edu.aku.hassannaqvi.chese.data.model.Forms;
 import edu.aku.hassannaqvi.chese.models.Users;
 
 public class MainApp extends Application {
@@ -39,7 +39,7 @@ public class MainApp extends Application {
     public static File sdDir;
     public static String[] downloadData;
 
-    public static Form form;
+    public static Forms form;
     public static AppInfo appInfo;
     public static Users user;
     public static Boolean admin = false;

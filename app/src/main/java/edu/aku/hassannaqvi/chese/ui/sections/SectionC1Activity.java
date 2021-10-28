@@ -14,7 +14,7 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import edu.aku.hassannaqvi.chese.R;
-import edu.aku.hassannaqvi.chese.data.model.Form;
+import edu.aku.hassannaqvi.chese.data.model.Forms;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionC1Binding;
 import edu.aku.hassannaqvi.chese.ui.RegisterActivity;
@@ -39,7 +39,7 @@ public class SectionC1Activity extends AppCompatActivity {
 
     private boolean updateDB() {
         DatabaseHelper db = appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(Form.FormsTable.COLUMN_SC, form.sCtoString());
+        int updcount = db.updatesFormColumn(Forms.FormsTable.COLUMN_SV4, form.sV4toString());
         if (updcount == 1) {
             return true;
         } else {
@@ -79,7 +79,7 @@ public class SectionC1Activity extends AppCompatActivity {
         form.setId(String.valueOf(rowid));
         if (rowid > 0) {
             form.setUid(form.getDeviceId() + form.getId());
-            db.updatesFormColumn(Form.FormsTable.COLUMN_UID, form.getUid());
+            db.updatesFormColumn(Forms.FormsTable.COLUMN_UID, form.getUid());
             return true;
         } else {
             Toast.makeText(this, "Failed to update DB", Toast.LENGTH_SHORT).show();

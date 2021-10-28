@@ -10,7 +10,7 @@
 
         <variable
             name="form"
-            type="edu.aku.hassannaqvi.chese.data.model.Form" />
+            type="edu.aku.hassannaqvi.chese.data.model.Forms" />
     </data>
 
 

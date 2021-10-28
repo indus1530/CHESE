@@ -23,7 +23,7 @@ import java.util.Locale;
 
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.core.MainApp;
-import edu.aku.hassannaqvi.chese.data.model.Form;
+import edu.aku.hassannaqvi.chese.data.model.Forms;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionIdentificationBinding;
 import edu.aku.hassannaqvi.chese.models.Districts;
@@ -62,7 +62,7 @@ public class SectionIdentificationActivity extends AppCompatActivity {
 
         //if (!form.getId().equals("")) return;
 
-        form = new Form();
+        form = new Forms();
         form.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
         form.setUserName(MainApp.userName);
         form.setDeviceId(MainApp.appInfo.getDeviceID());
@@ -89,7 +89,7 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         form.setId(String.valueOf(rowid));
         if (rowid > 0) {
             form.setUid(form.getDeviceId() + form.getId());
-            db.updatesFormColumn(Form.FormsTable.COLUMN_UID, form.getUid());
+            db.updatesFormColumn(Forms.FormsTable.COLUMN_UID, form.getUid());
             return true;
         } else {
             Toast.makeText(this, "Failed to update DB", Toast.LENGTH_SHORT).show();
@@ -200,7 +200,7 @@ public class SectionIdentificationActivity extends AppCompatActivity {
     }
 
     private boolean hfFormExists() {
-        form = new Form();
+        form = new Forms();
         form = db.getFormByHF(hfCodes.get(bi.facilityname.getSelectedItemPosition()), bi.reportMonth.getSelectedItem().toString());
         return form != null;
     }

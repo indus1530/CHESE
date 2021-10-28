@@ -55,19 +55,19 @@ public class RegisterActivity extends AppCompatActivity {
     private void updateSections() {
 
         try {
-            if (!new JSONObject(form.sAtoString()).get("f106").equals("")) {
+            if (!new JSONObject(form.sV2toString()).get("f106").equals("")) {
                 bi.formA.setEnabled(false);
                 bi.btnEnd.setVisibility(View.VISIBLE);
                 bi.formAv.setCompoundDrawablesWithIntrinsicBounds(R.drawable.camera_checked, 0, 0, 0);
             }
 
-            if (!new JSONObject(form.sBtoString()).get("f203").equals("")) {
+            if (!new JSONObject(form.sV3toString()).get("f203").equals("")) {
                 bi.formB.setEnabled(false);
                 bi.btnEnd.setVisibility(View.VISIBLE);
                 bi.formBv.setCompoundDrawablesWithIntrinsicBounds(R.drawable.camera_checked, 0, 0, 0);
             }
 
-            if (!new JSONObject(form.sCtoString()).get("f342").equals("")) {
+            if (!new JSONObject(form.sV4toString()).get("f342").equals("")) {
                 bi.formC.setEnabled(false);
                 bi.btnEnd.setVisibility(View.VISIBLE);
                 bi.formCv.setCompoundDrawablesWithIntrinsicBounds(R.drawable.camera_checked, 0, 0, 0);

@@ -15,7 +15,7 @@ import com.edittextpicker.aliazaz.EditTextPicker;
 import com.validatorcrawler.aliazaz.Validator;
 
 import edu.aku.hassannaqvi.chese.R;
-import edu.aku.hassannaqvi.chese.data.model.Form;
+import edu.aku.hassannaqvi.chese.data.model.Forms;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionHBinding;
 import edu.aku.hassannaqvi.chese.ui.RegisterActivity;
@@ -48,7 +48,7 @@ public class SectionHActivity extends AppCompatActivity {
 
     private boolean updateDB() {
         DatabaseHelper db = appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(Form.FormsTable.COLUMN_SH, form.sHtoString());
+        int updcount = db.updatesFormColumn(Forms.FormsTable.COLUMN_SH, form.sHtoString());
         if (updcount == 1) {
             return true;
         } else {
@@ -107,7 +107,7 @@ public class SectionHActivity extends AppCompatActivity {
         form.setId(String.valueOf(rowid));
         if (rowid > 0) {
             form.setUid(form.getDeviceId() + form.getId());
-            db.updatesFormColumn(Form.FormsTable.COLUMN_UID, form.getUid());
+            db.updatesFormColumn(Forms.FormsTable.COLUMN_UID, form.getUid());
             return true;
         } else {
             Toast.makeText(this, "Failed to update DB", Toast.LENGTH_SHORT).show();
