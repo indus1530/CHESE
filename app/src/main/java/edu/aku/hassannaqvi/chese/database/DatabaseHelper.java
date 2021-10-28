@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.Forms;
-import edu.aku.hassannaqvi.chese.data.model.Forms.FormsTable;
 import edu.aku.hassannaqvi.chese.models.Districts;
 import edu.aku.hassannaqvi.chese.models.HealthFacilities;
 import edu.aku.hassannaqvi.chese.models.Users;
@@ -47,6 +47,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CreateSQL.SQL_CREATE_DISTRICTS);
 
         db.execSQL(CreateSQL.SQL_CREATE_FORMS);
+        db.execSQL(CreateSQL.SQL_CREATE_VHC);
+        db.execSQL(CreateSQL.SQL_CREATE_WSG);
         db.execSQL(CreateSQL.SQL_CREATE_VERSIONAPP);
 
         db.execSQL(CreateSQL.SQL_CREATE_HEALTH_FACILITIES);
@@ -82,14 +84,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_HF_NAME, form.getHfName());
         values.put(FormsTable.COLUMN_REPORTING_MONTH, form.getReportingMonth());
         values.put(FormsTable.COLUMN_REPORTING_YEAR, form.getReportingYear());
-        values.put(FormsTable.COLUMN_SV2, form.getsV2());
-        values.put(FormsTable.COLUMN_SV3, form.getsV3());
-        values.put(FormsTable.COLUMN_SV4, form.getsV4());
-        values.put(FormsTable.COLUMN_SD, form.getsD());
-        values.put(FormsTable.COLUMN_SE, form.getsE());
-        values.put(FormsTable.COLUMN_SF, form.getsF());
-        values.put(FormsTable.COLUMN_SG, form.getsG());
-        values.put(FormsTable.COLUMN_SH, form.getsH());
+        values.put(FormsTable.COLUMN_A101, form.getA101());
+        values.put(FormsTable.COLUMN_A102, form.getA102());
+        values.put(FormsTable.COLUMN_A103, form.getA103());
+        values.put(FormsTable.COLUMN_A104N, form.getA104n());
+        values.put(FormsTable.COLUMN_A104C, form.getA104c());
+        values.put(FormsTable.COLUMN_A105, form.getA105());
 
         values.put(FormsTable.COLUMN_ISTATUS, form.getiStatus());
         values.put(FormsTable.COLUMN_ISTATUS96x, form.getiStatus96x());
@@ -447,10 +447,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(column, value);
 
-        String selection = Forms.FormsTable._ID + " =? ";
+        String selection = FormsTable._ID + " =? ";
         String[] selectionArgs = {String.valueOf(MainApp.form.getId())};
 
-        return db.update(Forms.FormsTable.TABLE_NAME,
+        return db.update(FormsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -462,16 +462,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // New value for one column
         ContentValues values = new ContentValues();
-        values.put(Forms.FormsTable.COLUMN_ISTATUS, MainApp.form.getiStatus());
+        values.put(FormsTable.COLUMN_ISTATUS, MainApp.form.getiStatus());
         //values.put(Form.FormsTable.COLUMN_ISTATUS, MainApp.form.getHh26());
-        values.put(Forms.FormsTable.COLUMN_ISTATUS96x, MainApp.form.getiStatus96x());
-        values.put(Forms.FormsTable.COLUMN_ENDINGDATETIME, MainApp.form.getEndTime());
+        values.put(FormsTable.COLUMN_ISTATUS96x, MainApp.form.getiStatus96x());
+        values.put(FormsTable.COLUMN_ENDINGDATETIME, MainApp.form.getEndTime());
 
         // Which row to update, based on the ID
-        String selection = Forms.FormsTable.COLUMN_ID + " =? ";
+        String selection = FormsTable.COLUMN_ID + " =? ";
         String[] selectionArgs = {String.valueOf(MainApp.form.getId())};
 
-        return db.update(Forms.FormsTable.TABLE_NAME,
+        return db.update(FormsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -717,15 +717,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(Forms.FormsTable.COLUMN_SYNCED, true);
-        values.put(Forms.FormsTable.COLUMN_SYNCED_DATE, new Date().toString());
+        values.put(FormsTable.COLUMN_SYNCED, true);
+        values.put(FormsTable.COLUMN_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = Forms.FormsTable.COLUMN_ID + " = ?";
+        String where = FormsTable.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
 
         int count = db.update(
-                Forms.FormsTable.TABLE_NAME,
+                FormsTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
