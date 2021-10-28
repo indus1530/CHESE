@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/CHESE/app/src/main/res/layout/activity_section_a.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/SMK_RSD/app/src/main/res/layout/activity_section_cfp.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/SMK_RSD/app/src/main/res/layout/activity_section_epi.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/SMK_RSD/app/src/main/res/layout/activity_section_fpr.xml" value="0.535" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/SMK_RSD/app/src/main/res/layout/activity_section_identification.xml" value="0.395" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/SMK_RSD/app/src/main/res/layout/activity_section_mhr.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/SMK_RSD/app/src/main/res/layout/activity_section_obs.xml" value="0.535" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/SMK_RSD/app/src/main/res/layout/activity_section_str.xml" value="0.535" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable-v24/camera.xml" value="0.5828125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable-v24/camera_unchecked.xml" value="0.5828125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable-v24/ic_arrow_forward.xml" value="0.37375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.33828125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable-v24/ic_stop.xml" value="0.38203125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable-v24/mainmenu.xml" value="0.33828125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable-v24/new_form.xml" value="0.33828125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable-v24/outline_btn.xml" value="0.38203125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable/action_button.xml" value="0.5828125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable/camera.xml" value="0.5828125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable/camera_checked.xml" value="0.5828125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable/capsule.xml" value="0.5828125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable/checkbox_check.xml" value="0.38203125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable/checkbox_empty.xml" value="0.38203125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable/custom_checkbox.xml" value="0.38203125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable/new_form.xml" value="0.33828125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/drawable/secondary_button.xml" value="0.38203125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_camera.xml" value="0.51375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_main.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_register.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_section_a.xml" value="0.4" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_section_b.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_section_c.xml" value="0.2559971356963838" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_section_c1.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_section_c2.xml" value="0.4" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_section_d.xml" value="0.3864864864864865" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_section_e.xml" value="0.340963280877444" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_section_epi.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_section_f.xml" value="0.536" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_section_g.xml" value="0.48441734417344173" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_section_h.xml" value="0.4542566709021601" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_section_identification.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_section_mhr.xml" value="0.4485570890840652" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_section_obs.xml" value="0.3983286908077994" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/activity_sync.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/end_section_dialog.xml" value="0.3578125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/UEN_RSD/app/src/main/res/layout/item_dialog_2.xml" value="0.3578125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
