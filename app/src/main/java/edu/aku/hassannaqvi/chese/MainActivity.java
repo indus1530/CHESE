@@ -10,7 +10,6 @@ import edu.aku.hassannaqvi.chese.core.AndroidManager;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.Forms;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionAActivity;
-import edu.aku.hassannaqvi.chese.ui.sections.SectionDActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionEActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionFActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionGActivity;
@@ -18,6 +17,7 @@ import edu.aku.hassannaqvi.chese.ui.sections.SectionHActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionIdentificationActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionWSG2Activity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionWSG3Activity;
+import edu.aku.hassannaqvi.chese.ui.sections.SectionWSG5Activity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.secd:
                 MainApp.form = new Forms();
-                startActivity(new Intent(this, SectionDActivity.class));
+                startActivity(new Intent(this, SectionWSG5Activity.class));
                 break;
             case R.id.sece:
                 MainApp.form = new Forms();
