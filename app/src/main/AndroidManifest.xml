@@ -69,7 +69,7 @@
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionFActivity"
+            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionVHC3Activity"
             android:label="@string/secthree"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"

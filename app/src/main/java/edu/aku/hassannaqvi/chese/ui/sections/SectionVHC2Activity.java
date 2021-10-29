@@ -22,7 +22,6 @@ import edu.aku.hassannaqvi.chese.ui.RegisterActivity;
 
 public class SectionVHC2Activity extends AppCompatActivity {
     ActivitySectionVhc2Binding bi;
-    int photoCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +83,6 @@ public class SectionVHC2Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
     }
 

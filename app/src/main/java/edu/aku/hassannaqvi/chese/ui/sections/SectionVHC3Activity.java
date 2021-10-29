@@ -21,14 +21,14 @@ import edu.aku.hassannaqvi.chese.ui.RegisterActivity;
 import edu.aku.hassannaqvi.chese.ui.TakePhoto;
 
 
-public class SectionFActivity extends AppCompatActivity {
+public class SectionVHC3Activity extends AppCompatActivity {
     ActivitySectionFBinding bi;
     int photoCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_vhc3);
         bi.setCallback(this);
         bi.setForm(form);
         setupSkips();

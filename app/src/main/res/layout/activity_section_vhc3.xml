@@ -1,0 +1,651 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vhc"
+            type="edu.aku.hassannaqvi.chese.data.model.VHC" />
+
+        <variable
+            name="callback"
+            type="edu.aku.hassannaqvi.chese.ui.sections.SectionVHC3Activity" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <!-- CUSTOM TOOLBAR -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ToolbarTheme"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@string/secv3title"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:id="@+id/GrpName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <!-- v301  Input-Numeric   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVv301"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_v301" />
+
+                        <TextView
+                            android:layout_width="180dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/v301" />
+
+                        <TextView
+                            android:id="@+id/v301"
+                            style="@style/sub_labels"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@={vhc.v301}" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- v302  Input   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVv302"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_v302" />
+
+                        <TextView
+                            android:layout_width="180dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/v302" />
+
+                        <EditText
+                            android:id="@+id/v302"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/v302"
+                            android:text="@={vhc.v302}" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- v303  Input-Numeric   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVv303"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_v303" />
+
+                        <TextView
+                            android:layout_width="180dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/v303" />
+
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/v303"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:hint="##"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:text="@={vhc.v303}"
+                            app:maxValue="80"
+                            app:minValue="14"
+                            app:type="range" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- v304  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVv304"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_v304" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/v304" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/v304"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/v304a"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v304.equals(`1`)}"
+                                android:onClick="@{()->vhc.setV304(`1`)}"
+                                android:text="@string/v304a" />
+
+                            <RadioButton
+                                android:id="@+id/v304b"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v304.equals(`2`)}"
+                                android:onClick="@{()->vhc.setV304(`2`)}"
+                                android:text="@string/v304b" />
+
+                            <RadioButton
+                                android:id="@+id/v304c"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v304.equals(`3`)}"
+                                android:onClick="@{()->vhc.setV304(`3`)}"
+                                android:text="@string/v304c" />
+
+                            <RadioButton
+                                android:id="@+id/v304d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v304.equals(`4`)}"
+                                android:onClick="@{()->vhc.setV304(`4`)}"
+                                android:text="@string/v304d" />
+
+                            <RadioButton
+                                android:id="@+id/v304e"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v304.equals(`5`)}"
+                                android:onClick="@{()->vhc.setV304(`5`)}"
+                                android:text="@string/v304e" />
+
+                            <RadioButton
+                                android:id="@+id/v304f"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v304.equals(`6`)}"
+                                android:onClick="@{()->vhc.setV304(`6`)}"
+                                android:text="@string/v304f" />
+
+                            <RadioButton
+                                android:id="@+id/v304g"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v304.equals(`7`)}"
+                                android:onClick="@{()->vhc.setV304(`7`)}"
+                                android:text="@string/v304g" />
+
+                            <RadioButton
+                                android:id="@+id/v304h"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v304.equals(`8`)}"
+                                android:onClick="@{()->vhc.setV304(`8`)}"
+                                android:text="@string/v304h" />
+
+                            <RadioButton
+                                android:id="@+id/v304i"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v304.equals(`9`)}"
+                                android:onClick="@{()->vhc.setV304(`9`)}"
+                                android:text="@string/v304i" />
+
+                            <RadioButton
+                                android:id="@+id/v304j"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v304.equals(`10`)}"
+                                android:onClick="@{()->vhc.setV304(`10`)}"
+                                android:text="@string/v304j" />
+
+                            <RadioButton
+                                android:id="@+id/v304k"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v304.equals(`11`)}"
+                                android:onClick="@{()->vhc.setV304(`11`)}"
+                                android:text="@string/v304k" />
+
+                            <RadioButton
+                                android:id="@+id/v30498"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v304.equals(`98`)}"
+                                android:onClick="@{()->vhc.setV304(`98`)}"
+                                android:text="@string/v30498" />
+
+                            <RadioButton
+                                android:id="@+id/v30499"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v304.equals(`99`)}"
+                                android:onClick="@{()->vhc.setV304(`99`)}"
+                                android:text="@string/v30499" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- v305  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVv305"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_v305" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/v305" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/v305"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/v305a"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v305.equals(`1`)}"
+                                android:onClick="@{()->vhc.setV305(`1`)}"
+                                android:text="@string/v305a" />
+
+                            <RadioButton
+                                android:id="@+id/v305b"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v305.equals(`2`)}"
+                                android:onClick="@{()->vhc.setV305(`2`)}"
+                                android:text="@string/v305b" />
+
+                            <RadioButton
+                                android:id="@+id/v305c"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v305.equals(`3`)}"
+                                android:onClick="@{()->vhc.setV305(`3`)}"
+                                android:text="@string/v305c" />
+
+                            <RadioButton
+                                android:id="@+id/v305d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v305.equals(`4`)}"
+                                android:onClick="@{()->vhc.setV305(`4`)}"
+                                android:text="@string/v305d" />
+
+                            <RadioButton
+                                android:id="@+id/v305e"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v305.equals(`5`)}"
+                                android:onClick="@{()->vhc.setV305(`5`)}"
+                                android:text="@string/v305e" />
+
+                            <RadioButton
+                                android:id="@+id/v305f"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v305.equals(`6`)}"
+                                android:onClick="@{()->vhc.setV305(`6`)}"
+                                android:text="@string/v305f" />
+
+                            <RadioButton
+                                android:id="@+id/v305g"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v305.equals(`7`)}"
+                                android:onClick="@{()->vhc.setV305(`7`)}"
+                                android:text="@string/v305g" />
+
+                            <RadioButton
+                                android:id="@+id/v305h"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v305.equals(`8`)}"
+                                android:onClick="@{()->vhc.setV305(`8`)}"
+                                android:text="@string/v305h" />
+
+                            <RadioButton
+                                android:id="@+id/v30598"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v305.equals(`98`)}"
+                                android:onClick="@{()->vhc.setV305(`98`)}"
+                                android:text="@string/v30598" />
+
+                            <RadioButton
+                                android:id="@+id/v30599"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v305.equals(`99`)}"
+                                android:onClick="@{()->vhc.setV305(`99`)}"
+                                android:text="@string/v30599" />
+
+                            <RadioButton
+                                android:id="@+id/lhwv305i"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v305.equals(`9`)}"
+                                android:onClick="@{()->vhc.setV305(`9`)}"
+                                android:text="@string/lhwv305i" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- v306  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVv306"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_v306" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/v306" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/v306"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/v306a"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v306.equals(`1`)}"
+                                android:onClick="@{()->vhc.setV306(`1`)}"
+                                android:text="@string/v306a" />
+
+                            <RadioButton
+                                android:id="@+id/v306b"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v306.equals(`2`)}"
+                                android:onClick="@{()->vhc.setV306(`2`)}"
+                                android:text="@string/v306b" />
+
+                            <RadioButton
+                                android:id="@+id/v306c"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v306.equals(`3`)}"
+                                android:onClick="@{()->vhc.setV306(`3`)}"
+                                android:text="@string/v306c" />
+
+                            <RadioButton
+                                android:id="@+id/v306d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v306.equals(`4`)}"
+                                android:onClick="@{()->vhc.setV306(`4`)}"
+                                android:text="@string/v306d" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- v307  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVv307"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_v307" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/v307" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/v307"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/v307a"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v307.equals(`1`)}"
+                                android:onClick="@{()->vhc.setV307(`1`)}"
+                                android:text="@string/v307a" />
+
+                            <RadioButton
+                                android:id="@+id/v307b"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v307.equals(`2`)}"
+                                android:onClick="@{()->vhc.setV307(`2`)}"
+                                android:text="@string/v307b" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- v308  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVv308"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_v308" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/v308" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/v308"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/v308a"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v308.equals(`1`)}"
+                                android:onClick="@{()->vhc.setV308(`1`)}"
+                                android:text="@string/v308a" />
+
+                            <RadioButton
+                                android:id="@+id/v308b"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v308.equals(`2`)}"
+                                android:onClick="@{()->vhc.setV308(`2`)}"
+                                android:text="@string/v308b" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <!--EndButton LinearLayout-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal"
+                    android:padding="24dp">
+
+                    <Button
+                        android:id="@+id/btn_End"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:onClick="btnEnd"
+                        android:text="Cancel"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_Continue"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/capsule"
+                        android:backgroundTint="@color/colorAccent"
+                        android:backgroundTintMode="src_atop"
+                        android:onClick="btnContinue"
+                        android:text="Save"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+                <!--EndButton LinearLayout-->
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+</layout>
