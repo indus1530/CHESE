@@ -13,6 +13,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
+import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCTable;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
@@ -49,14 +50,14 @@ public class SectionVHC2Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, RegisterActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
 
 
     public void btnEnd(View view) {
         finish();
-        startActivity(new Intent(this, RegisterActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
     }
 
 

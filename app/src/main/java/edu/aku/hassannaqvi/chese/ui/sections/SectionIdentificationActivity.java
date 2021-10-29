@@ -21,7 +21,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.Forms;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
@@ -88,7 +90,7 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         form.setId(String.valueOf(rowid));
         if (rowid > 0) {
             form.setUid(form.getDeviceId() + form.getId());
-            db.updatesFormColumn(Forms.FormsTable.COLUMN_UID, form.getUid());
+            db.updatesFormColumn(TableContracts.FormsTable.COLUMN_UID, form.getUid());
             return true;
         } else {
             Toast.makeText(this, "Failed to update DB", Toast.LENGTH_SHORT).show();
@@ -104,7 +106,7 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         }
         // if (addForm()) {
         finish();
-        startActivity(new Intent(this, RegisterActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
         //}
     }
 

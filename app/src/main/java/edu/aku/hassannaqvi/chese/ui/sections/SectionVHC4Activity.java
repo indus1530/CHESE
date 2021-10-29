@@ -50,14 +50,14 @@ public class SectionVHC4Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, RegisterActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
 
 
     public void btnEnd(View view) {
         finish();
-        startActivity(new Intent(this, RegisterActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
     }
 
 
