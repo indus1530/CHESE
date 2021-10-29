@@ -28,7 +28,6 @@ import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionIdentificationBinding;
 import edu.aku.hassannaqvi.chese.models.Districts;
 import edu.aku.hassannaqvi.chese.models.HealthFacilities;
-import edu.aku.hassannaqvi.chese.ui.RegisterActivity;
 import edu.aku.hassannaqvi.chese.utils.DateUtilsKt;
 
 public class SectionIdentificationActivity extends AppCompatActivity {

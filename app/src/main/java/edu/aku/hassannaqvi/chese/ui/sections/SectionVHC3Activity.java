@@ -17,7 +17,6 @@ import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCTable;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc3Binding;
-import edu.aku.hassannaqvi.chese.ui.RegisterActivity;
 
 
 public class SectionVHC3Activity extends AppCompatActivity {

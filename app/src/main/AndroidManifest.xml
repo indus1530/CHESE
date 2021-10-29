@@ -25,7 +25,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.UENRSD"
+        android:theme="@style/Theme.CHESE"
         android:usesCleartextTraffic="true">
 
         <activity
@@ -52,66 +52,47 @@
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.RegisterActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.UENRSD"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity
             android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionAActivity"
-            android:label="@string/secone"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionWSG5Activity"
-            android:label="@string/sectwo"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionVHC3Activity"
-            android:label="@string/secthree"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
             android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionWSG2Activity"
-            android:label="@string/secfour"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
             android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionWSG3Activity"
-            android:label="@string/secsix"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
             android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionWSG4Activity"
-            android:label="@string/secsix"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
             android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionVHC2Activity"
-            android:label="@string/secfive"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
             android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionVHC4Activity"
-            android:label="@string/secseven"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.English"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionHActivity"
-            android:label="@string/secseven"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />

@@ -17,7 +17,6 @@ import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGTable;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionWsg5Binding;
-import edu.aku.hassannaqvi.chese.ui.RegisterActivity;
 
 
 public class SectionWSG5Activity extends AppCompatActivity {
