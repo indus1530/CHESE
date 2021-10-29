@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.chese.ui.sections;
 
 import static edu.aku.hassannaqvi.chese.core.MainApp.appInfo;
 import static edu.aku.hassannaqvi.chese.core.MainApp.form;
+import static edu.aku.hassannaqvi.chese.core.MainApp.wsg;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,21 +15,21 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import edu.aku.hassannaqvi.chese.R;
-import edu.aku.hassannaqvi.chese.data.model.Forms;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGTable;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
-import edu.aku.hassannaqvi.chese.databinding.ActivitySectionC1Binding;
+import edu.aku.hassannaqvi.chese.databinding.ActivitySectionWsg3Binding;
 import edu.aku.hassannaqvi.chese.ui.RegisterActivity;
 
 
-public class SectionC1Activity extends AppCompatActivity {
-    ActivitySectionC1Binding bi;
+public class SectionWSG3Activity extends AppCompatActivity {
+    ActivitySectionWsg3Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_c1);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_wsg3);
         bi.setCallback(this);
-        bi.setForm(form);
+        bi.setWsg(wsg);
         setSupportActionBar(bi.toolbar);
     }
 
@@ -39,7 +40,7 @@ public class SectionC1Activity extends AppCompatActivity {
 
     private boolean updateDB() {
         DatabaseHelper db = appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(Forms.FormsTable.COLUMN_SV4, form.sV4toString());
+        int updcount = db.updatesWSGColumn(WSGTable.COLUMN_SWS3, wsg.sWS3toString());
         if (updcount == 1) {
             return true;
         } else {
@@ -75,11 +76,11 @@ public class SectionC1Activity extends AppCompatActivity {
     private boolean addForm() {
         if (!form.getId().equals("")) return true;
         DatabaseHelper db = appInfo.dbHelper;
-        long rowid = db.addForm(form);
-        form.setId(String.valueOf(rowid));
+        long rowid = db.addWSG(wsg);
+        wsg.setId(String.valueOf(rowid));
         if (rowid > 0) {
-            form.setUid(form.getDeviceId() + form.getId());
-            db.updatesFormColumn(Forms.FormsTable.COLUMN_UID, form.getUid());
+            wsg.setUid(wsg.getDeviceId() + wsg.getId());
+            db.updatesFormColumn(WSGTable.COLUMN_UID, wsg.getUid());
             return true;
         } else {
             Toast.makeText(this, "Failed to update DB", Toast.LENGTH_SHORT).show();

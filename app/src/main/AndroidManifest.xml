@@ -83,7 +83,7 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionC1Activity"
+            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionWSG3Activity"
             android:label="@string/secsix"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
