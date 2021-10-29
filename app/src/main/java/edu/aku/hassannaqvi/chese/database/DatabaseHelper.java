@@ -17,8 +17,12 @@ import java.util.Collection;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.FormsTable;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCTable;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGTable;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.Forms;
+import edu.aku.hassannaqvi.chese.data.model.VHC;
+import edu.aku.hassannaqvi.chese.data.model.WSG;
 import edu.aku.hassannaqvi.chese.models.Districts;
 import edu.aku.hassannaqvi.chese.models.HealthFacilities;
 import edu.aku.hassannaqvi.chese.models.Users;
@@ -104,6 +108,69 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         newRowId = db.insert(
                 FormsTable.TABLE_NAME,
                 FormsTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+
+    public Long addWSG(WSG wsg) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(WSGTable.COLUMN_PROJECT_NAME, wsg.getProjectName());
+        values.put(WSGTable.COLUMN_UID, wsg.getUid());
+        values.put(WSGTable.COLUMN_USERNAME, wsg.getUserName());
+        values.put(WSGTable.COLUMN_SYSDATE, wsg.getSysDate());
+        values.put(WSGTable.COLUMN_DISTRICT_CODE, wsg.getDistrictCode());
+        values.put(WSGTable.COLUMN_DISTRICT_NAME, wsg.getDistrictName());
+        values.put(WSGTable.COLUMN_HF_CODE, wsg.getHfCode());
+        values.put(WSGTable.COLUMN_HF_NAME, wsg.getHfName());
+        values.put(WSGTable.COLUMN_REPORTING_MONTH, wsg.getReportingMonth());
+        values.put(WSGTable.COLUMN_REPORTING_YEAR, wsg.getReportingYear());
+        values.put(WSGTable.COLUMN_SWS2, wsg.sWS2toString());
+        values.put(WSGTable.COLUMN_SWS3, wsg.sWS3toString());
+        values.put(WSGTable.COLUMN_SWS4, wsg.sWS4toString());
+        values.put(WSGTable.COLUMN_SWS5, wsg.sWS5toString());
+        values.put(WSGTable.COLUMN_ISTATUS, wsg.getiStatus());
+        values.put(WSGTable.COLUMN_ISTATUS96x, wsg.getiStatus96x());
+        values.put(WSGTable.COLUMN_ENDINGDATETIME, wsg.getEndTime());
+        values.put(WSGTable.COLUMN_DEVICETAGID, wsg.getDeviceTag());
+        values.put(WSGTable.COLUMN_DEVICEID, wsg.getDeviceId());
+        values.put(WSGTable.COLUMN_APPVERSION, wsg.getAppver());
+        long newRowId;
+        newRowId = db.insert(
+                WSGTable.TABLE_NAME,
+                WSGTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+
+    public Long addVHC(VHC vhc) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(VHCTable.COLUMN_PROJECT_NAME, vhc.getProjectName());
+        values.put(VHCTable.COLUMN_UID, vhc.getUid());
+        values.put(VHCTable.COLUMN_USERNAME, vhc.getUserName());
+        values.put(VHCTable.COLUMN_SYSDATE, vhc.getSysDate());
+        values.put(VHCTable.COLUMN_DISTRICT_CODE, vhc.getDistrictCode());
+        values.put(VHCTable.COLUMN_DISTRICT_NAME, vhc.getDistrictName());
+        values.put(VHCTable.COLUMN_HF_CODE, vhc.getHfCode());
+        values.put(VHCTable.COLUMN_HF_NAME, vhc.getHfName());
+        values.put(VHCTable.COLUMN_REPORTING_MONTH, vhc.getReportingMonth());
+        values.put(VHCTable.COLUMN_REPORTING_YEAR, vhc.getReportingYear());
+        values.put(VHCTable.COLUMN_SV2, vhc.sV2toString());
+        values.put(VHCTable.COLUMN_SV3, vhc.sV3toString());
+        values.put(VHCTable.COLUMN_SV4, vhc.sV4toString());
+        values.put(VHCTable.COLUMN_ISTATUS, vhc.getiStatus());
+        values.put(VHCTable.COLUMN_ISTATUS96x, vhc.getiStatus96x());
+        values.put(VHCTable.COLUMN_ENDINGDATETIME, vhc.getEndTime());
+        values.put(VHCTable.COLUMN_DEVICETAGID, vhc.getDeviceTag());
+        values.put(VHCTable.COLUMN_DEVICEID, vhc.getDeviceId());
+        values.put(VHCTable.COLUMN_APPVERSION, vhc.getAppver());
+        long newRowId;
+        newRowId = db.insert(
+                VHCTable.TABLE_NAME,
+                VHCTable.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
@@ -451,6 +518,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(MainApp.form.getId())};
 
         return db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+    public int updatesWSGColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = WSGTable._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.wsg.getId())};
+
+        return db.update(WSGTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+    public int updatesVHCColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = VHCTable._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.vhc.getId())};
+
+        return db.update(VHCTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);

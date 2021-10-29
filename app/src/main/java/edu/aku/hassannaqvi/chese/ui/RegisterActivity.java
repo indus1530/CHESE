@@ -19,13 +19,13 @@ import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.databinding.ActivityRegisterBinding;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionAActivity;
-import edu.aku.hassannaqvi.chese.ui.sections.SectionBActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionC1Activity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionDActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionEActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionFActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionGActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionHActivity;
+import edu.aku.hassannaqvi.chese.ui.sections.SectionWSG2Activity;
 
 public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "RegisterActivity";
@@ -142,7 +142,7 @@ public class RegisterActivity extends AppCompatActivity {
                     oF = new Intent(this, SectionAActivity.class);
                     break;
                 case R.id.formB:
-                    oF = new Intent(this, SectionBActivity.class);
+                    oF = new Intent(this, SectionWSG2Activity.class);
                     break;
                 case R.id.formC:
                     oF = new Intent(this, SectionC1Activity.class);

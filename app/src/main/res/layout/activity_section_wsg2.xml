@@ -1,0 +1,771 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="wsg"
+            type="edu.aku.hassannaqvi.chese.data.model.WSG" />
+
+        <variable
+            name="callback"
+            type="edu.aku.hassannaqvi.chese.ui.sections.SectionWSG2Activity" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <!-- CUSTOM TOOLBAR -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ToolbarTheme"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@string/secws2title"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:id="@+id/GrpName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <!-- ws201  Input   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVws201"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_ws201" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/ws201" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/ws201"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/ws201"
+                            android:text="@={wsg.ws201}" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ws202  Input   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVws202"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_ws202" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/ws202" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/ws202"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/ws202"
+                            android:text="@={wsg.ws202}" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ws203  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVws203"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_ws203" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/ws203" />
+
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/ws203"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/ws203a"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{wsg.ws203.equals(`1`)}"
+                                android:onClick="@{()->wsg.setWs203(`1`)}"
+                                android:text="@string/ws203a" />
+
+                            <RadioButton
+                                android:id="@+id/ws203b"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{wsg.ws203.equals(`2`)}"
+                                android:onClick="@{()->wsg.setWs203(`2`)}"
+                                android:text="@string/ws203b" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ws204  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVws204"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_ws204" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/ws204" />
+
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/ws204"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/ws204a"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{wsg.ws204.equals(`1`)}"
+                                android:onClick="@{()->wsg.setWs204(`1`)}"
+                                android:text="@string/ws204a" />
+
+                            <RadioButton
+                                android:id="@+id/ws204b"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{wsg.ws204.equals(`2`)}"
+                                android:onClick="@{()->wsg.setWs204(`2`)}"
+                                android:text="@string/ws204b" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ws205  Input-Numeric   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVws205"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_ws205" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/ws205" />
+
+                        </LinearLayout>
+
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/ws205"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:hint="#"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:text="@={wsg.ws205}"
+                            app:maxValue="4"
+                            app:minValue="0"
+                            app:type="range" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ws206  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVws206"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_ws206" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/ws206" />
+
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/ws206"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/ws206a"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{wsg.ws206.equals(`1`)}"
+                                android:onClick="@{()->wsg.setWs206(`1`)}"
+                                android:text="@string/ws206a" />
+
+                            <RadioButton
+                                android:id="@+id/ws206b"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{wsg.ws206.equals(`2`)}"
+                                android:onClick="@{()->wsg.setWs206(`2`)}"
+                                android:text="@string/ws206b" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ws207  Input-Numeric   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVws207"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_ws207" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/ws207" />
+
+                        </LinearLayout>
+
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/ws207"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:hint="#"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:text="@={wsg.ws207}"
+                            app:maxValue="4"
+                            app:minValue="0"
+                            app:type="range" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ws208  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVws208"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_ws208" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/ws208" />
+
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/ws208"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/ws208a"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws208.equals(`1`)}"
+                                android:onClick="@{()->wsg.setWs208(`1`)}"
+                                android:text="@string/ws208a" />
+
+                            <RadioButton
+                                android:id="@+id/ws208b"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws208.equals(`2`)}"
+                                android:onClick="@{()->wsg.setWs208(`2`)}"
+                                android:text="@string/ws208b" />
+
+                            <RadioButton
+                                android:id="@+id/ws208c"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws208.equals(`3`)}"
+                                android:onClick="@{()->wsg.setWs208(`3`)}"
+                                android:text="@string/ws208c" />
+
+                            <RadioButton
+                                android:id="@+id/ws208d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws208.equals(`4`)}"
+                                android:onClick="@{()->wsg.setWs208(`4`)}"
+                                android:text="@string/ws208d" />
+
+                            <RadioButton
+                                android:id="@+id/ws208e"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws208.equals(`5`)}"
+                                android:onClick="@{()->wsg.setWs208(`5`)}"
+                                android:text="@string/ws208e" />
+
+                            <RadioButton
+                                android:id="@+id/ws20896"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws208.equals(`96`)}"
+                                android:onClick="@{()->wsg.setWs208(`96`)}"
+                                android:text="@string/ws20896" />
+
+                            <EditText
+                                android:id="@+id/ws20896x"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                                android:hint="@string/ws20896"
+                                android:tag="ws20896"
+                                android:text="@={wsg.ws20896x}"
+                                android:visibility="@{wsg.ws208.equals(`96`)? View.VISIBLE : View.GONE}" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ws209  Input-Numeric   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVws209"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_ws209" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/ws209" />
+
+                        </LinearLayout>
+
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/ws209"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:hint="##"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:text="@={wsg.ws209}"
+                            app:maxValue="20"
+                            app:minValue="0"
+                            app:type="range" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- ws210  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVws210"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_ws210" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/ws210" />
+
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/ws210"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/ws210a"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`1`)}"
+                                android:onClick="@{()->wsg.setWs210(`1`)}"
+                                android:text="@string/ws210a" />
+
+                            <RadioButton
+                                android:id="@+id/ws210b"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`2`)}"
+                                android:onClick="@{()->wsg.setWs210(`2`)}"
+                                android:text="@string/ws210b" />
+
+                            <RadioButton
+                                android:id="@+id/ws210c"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`3`)}"
+                                android:onClick="@{()->wsg.setWs210(`3`)}"
+                                android:text="@string/ws210c" />
+
+                            <RadioButton
+                                android:id="@+id/ws210d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`4`)}"
+                                android:onClick="@{()->wsg.setWs210(`4`)}"
+                                android:text="@string/ws210d" />
+
+                            <RadioButton
+                                android:id="@+id/ws210e"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`5`)}"
+                                android:onClick="@{()->wsg.setWs210(`5`)}"
+                                android:text="@string/ws210e" />
+
+                            <RadioButton
+                                android:id="@+id/ws210f"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`6`)}"
+                                android:onClick="@{()->wsg.setWs210(`6`)}"
+                                android:text="@string/ws210f" />
+
+                            <RadioButton
+                                android:id="@+id/ws210g"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`7`)}"
+                                android:onClick="@{()->wsg.setWs210(`7`)}"
+                                android:text="@string/ws210g" />
+
+                            <RadioButton
+                                android:id="@+id/ws210h"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`8`)}"
+                                android:onClick="@{()->wsg.setWs210(`8`)}"
+                                android:text="@string/ws210h" />
+
+                            <RadioButton
+                                android:id="@+id/ws210i"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`9`)}"
+                                android:onClick="@{()->wsg.setWs210(`9`)}"
+                                android:text="@string/ws210i" />
+
+                            <RadioButton
+                                android:id="@+id/ws210j"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`10`)}"
+                                android:onClick="@{()->wsg.setWs210(`10`)}"
+                                android:text="@string/ws210j" />
+
+                            <RadioButton
+                                android:id="@+id/ws210k"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`11`)}"
+                                android:onClick="@{()->wsg.setWs210(`11`)}"
+                                android:text="@string/ws210k" />
+
+                            <RadioButton
+                                android:id="@+id/ws210l"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`12`)}"
+                                android:onClick="@{()->wsg.setWs210(`12`)}"
+                                android:text="@string/ws210l" />
+
+                            <RadioButton
+                                android:id="@+id/ws210m"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`13`)}"
+                                android:onClick="@{()->wsg.setWs210(`13`)}"
+                                android:text="@string/ws210m" />
+
+                            <RadioButton
+                                android:id="@+id/ws210n"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`14`)}"
+                                android:onClick="@{()->wsg.setWs210(`14`)}"
+                                android:text="@string/ws210n" />
+
+                            <RadioButton
+                                android:id="@+id/ws21096"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{wsg.ws210.equals(`96`)}"
+                                android:onClick="@{()->wsg.setWs210(`96`)}"
+                                android:text="@string/ws21096" />
+
+                            <EditText
+                                android:id="@+id/ws21096x"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                                android:hint="@string/ws21096"
+                                android:tag="ws21096"
+                                android:text="@={wsg.ws21096x}"
+                                android:visibility="@{wsg.ws210.equals(`96`) ? View.VISIBLE : View.GONE}" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!--EndButton LinearLayout-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal"
+                    android:padding="24dp">
+
+                    <Button
+                        android:id="@+id/btn_End"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:onClick="btnEnd"
+                        android:text="Cancel"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_Continue"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/capsule"
+                        android:backgroundTint="@color/colorAccent"
+                        android:backgroundTintMode="src_atop"
+                        android:onClick="btnContinue"
+                        android:text="Save"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+                <!--EndButton LinearLayout-->
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>
