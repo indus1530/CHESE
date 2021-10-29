@@ -16,17 +16,18 @@ import com.validatorcrawler.aliazaz.Validator;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCTable;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
-import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc3Binding;
+import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc4Binding;
 import edu.aku.hassannaqvi.chese.ui.RegisterActivity;
 
 
-public class SectionVHC3Activity extends AppCompatActivity {
-    ActivitySectionVhc3Binding bi;
+public class SectionVHC4Activity extends AppCompatActivity {
+    ActivitySectionVhc4Binding bi;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_vhc3);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_vhc4);
         bi.setCallback(this);
         bi.setVhc(vhc);
     }
@@ -34,7 +35,7 @@ public class SectionVHC3Activity extends AppCompatActivity {
 
     private boolean updateDB() {
         DatabaseHelper db = appInfo.getDbHelper();
-        int updcount = db.updatesVHCColumn(VHCTable.COLUMN_SV3, vhc.sV3toString());
+        int updcount = db.updatesVHCColumn(VHCTable.COLUMN_SV4, vhc.sV4toString());
         if (updcount == 1) {
             return true;
         } else {
@@ -81,9 +82,11 @@ public class SectionVHC3Activity extends AppCompatActivity {
         }
     }
 
+
     @Override
     public void onBackPressed() {
         setResult(RESULT_CANCELED);
     }
+
 
 }
