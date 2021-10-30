@@ -159,6 +159,7 @@
 
                 </androidx.cardview.widget.CardView>
 
+
                 <!-- v304  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVv304"
@@ -182,10 +183,10 @@
                                 android:text="@string/Q_v304" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/v304" />
+
                         </LinearLayout>
 
                         <RadioGroup
@@ -296,9 +297,13 @@
                                 android:checked="@{vhc.v304.equals(`99`)}"
                                 android:onClick="@{()->vhc.setV304(`99`)}"
                                 android:text="@string/v30499" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- v305  Radio   -->
                 <androidx.cardview.widget.CardView
