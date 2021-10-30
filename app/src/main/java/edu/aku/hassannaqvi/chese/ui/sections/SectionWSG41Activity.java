@@ -17,17 +17,16 @@ import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGTable;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
-import edu.aku.hassannaqvi.chese.databinding.ActivitySectionWsg4Binding;
+import edu.aku.hassannaqvi.chese.databinding.ActivitySectionWsg41Binding;
 
 
-public class SectionWSG4Activity extends AppCompatActivity {
-    ActivitySectionWsg4Binding bi;
-    int photoCount = 0;
+public class SectionWSG41Activity extends AppCompatActivity {
+    ActivitySectionWsg41Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_wsg4);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_wsg41);
         bi.setCallback(this);
         bi.setWsg(wsg);
     }
