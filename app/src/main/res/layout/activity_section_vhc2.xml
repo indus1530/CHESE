@@ -212,31 +212,39 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:text="@string/v204" />
+
                         </LinearLayout>
 
                         <RadioGroup
                             android:id="@+id/v204"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <RadioButton
                                 android:id="@+id/v204a"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:checked="@{vhc.v204.equals(`1`)}"
                                 android:onClick="@{()->vhc.setV204(`1`)}"
                                 android:text="@string/v204a" />
 
                             <RadioButton
                                 android:id="@+id/v204b"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:checked="@{vhc.v204.equals(`2`)}"
                                 android:onClick="@{()->vhc.setV204(`2`)}"
                                 android:text="@string/v204b" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- v205  Radio   -->
                 <androidx.cardview.widget.CardView
