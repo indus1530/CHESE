@@ -54,11 +54,6 @@
                     android:id="@+id/fldGrpCVv201"
                     style="@style/cardView">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -76,26 +71,25 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:text="@string/v201" />
+
+                            <EditText
+                                android:id="@+id/v201"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:hint="@string/v201"
+                                android:text="@={vhc.v201}" />
+
                         </LinearLayout>
 
-                        <EditText
-                            android:id="@+id/v201"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/v201"
-                            android:text="@={vhc.v201}" />
-                    </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- v202  Input   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVv202"
                     style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -114,16 +108,20 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:text="@string/v202" />
+
+                            <EditText
+                                android:id="@+id/v202"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:hint="@string/v202"
+                                android:text="@={vhc.v202}" />
+
                         </LinearLayout>
 
-                        <EditText
-                            android:id="@+id/v202"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/v202"
-                            android:text="@={vhc.v202}" />
-                    </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- v203  Radio   -->
                 <androidx.cardview.widget.CardView
