@@ -530,35 +530,42 @@
                                 android:text="@string/Q_v307" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/v307" />
+
                         </LinearLayout>
 
                         <RadioGroup
                             android:id="@+id/v307"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <RadioButton
                                 android:id="@+id/v307a"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:checked="@{vhc.v307.equals(`1`)}"
                                 android:onClick="@{()->vhc.setV307(`1`)}"
                                 android:text="@string/v307a" />
 
                             <RadioButton
                                 android:id="@+id/v307b"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:checked="@{vhc.v307.equals(`2`)}"
                                 android:onClick="@{()->vhc.setV307(`2`)}"
                                 android:text="@string/v307b" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- v308  Radio   -->
                 <androidx.cardview.widget.CardView
