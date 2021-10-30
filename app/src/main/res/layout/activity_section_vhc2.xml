@@ -150,31 +150,40 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:text="@string/v203" />
+
+                            <RadioGroup
+                                android:id="@+id/v203"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/v203a"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:checked="@{vhc.v203.equals(`1`)}"
+                                    android:onClick="@{()->vhc.setV203(`1`)}"
+                                    android:text="@string/v203a" />
+
+                                <RadioButton
+                                    android:id="@+id/v203b"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:checked="@{vhc.v203.equals(`2`)}"
+                                    android:onClick="@{()->vhc.setV203(`2`)}"
+                                    android:text="@string/v203b" />
+
+                            </RadioGroup>
+
                         </LinearLayout>
 
-                        <RadioGroup
-                            android:id="@+id/v203"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <RadioButton
-                                android:id="@+id/v203a"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:checked="@{vhc.v203.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV203(`1`)}"
-                                android:text="@string/v203a" />
-
-                            <RadioButton
-                                android:id="@+id/v203b"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:checked="@{vhc.v203.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV203(`2`)}"
-                                android:text="@string/v203b" />
-                        </RadioGroup>
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- v204  Radio   -->
                 <androidx.cardview.widget.CardView
