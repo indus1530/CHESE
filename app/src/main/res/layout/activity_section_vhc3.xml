@@ -457,10 +457,10 @@
                                 android:text="@string/Q_v306" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/v306" />
+
                         </LinearLayout>
 
                         <RadioGroup
@@ -499,9 +499,13 @@
                                 android:checked="@{vhc.v306.equals(`4`)}"
                                 android:onClick="@{()->vhc.setV306(`4`)}"
                                 android:text="@string/v306d" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- v307  Radio   -->
                 <androidx.cardview.widget.CardView
