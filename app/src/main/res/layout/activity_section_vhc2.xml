@@ -128,11 +128,6 @@
                     android:id="@+id/fldGrpCVv203"
                     style="@style/cardView">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -180,8 +175,6 @@
 
                         </LinearLayout>
 
-                    </LinearLayout>
-
                 </androidx.cardview.widget.CardView>
 
 
@@ -208,9 +201,8 @@
                                 android:text="@string/Q_v204" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/v204" />
 
                         </LinearLayout>
@@ -269,10 +261,10 @@
                                 android:text="@string/Q_v205" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/v205" />
+
                         </LinearLayout>
 
                         <RadioGroup
@@ -313,6 +305,14 @@
                                 android:text="@string/v205d" />
 
                             <RadioButton
+                                android:id="@+id/v205e"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{vhc.v205.equals(`5`)}"
+                                android:onClick="@{()->vhc.setV205(`5`)}"
+                                android:text="@string/v205e" />
+
+                            <RadioButton
                                 android:id="@+id/v20596"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -330,26 +330,17 @@
                                 android:text="@={vhc.v20596x}"
                                 android:visibility='@{v20596.checked? View.VISIBLE : View.GONE}' />
 
-                            <RadioButton
-                                android:id="@+id/v205e"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:checked="@{vhc.v205.equals(`5`)}"
-                                android:onClick="@{()->vhc.setV205(`5`)}"
-                                android:text="@string/v205e" />
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- v206  Input-Numeric   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVv206"
                     style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -368,21 +359,22 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:text="@string/v206" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/v206"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:hint="##"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                android:text="@={vhc.v206}"
+                                app:maxValue="20"
+                                app:minValue="0"
+                                app:type="range" />
+
                         </LinearLayout>
-
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/v206"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/v206"
-                            android:inputType="number"
-                            android:maxLength="2"
-                            android:text="@={vhc.v206}"
-                            app:maxValue="20"
-                            app:minValue="0"
-                            app:type="range" />
-
-                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
