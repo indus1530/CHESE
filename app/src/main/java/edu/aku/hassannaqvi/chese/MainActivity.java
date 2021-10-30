@@ -72,10 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 MainApp.form = new Forms();
                 startActivity(new Intent(this, SectionVHC4Activity.class));
                 break;
-            case R.id.sech:
-                MainApp.form = new Forms();
-                startActivity(new Intent(this, SectionHActivity.class));
-                break;
             case R.id.openDBManager:
                 MainApp.form = new Forms();
                 startActivity(new Intent(this, AndroidManager.class));
