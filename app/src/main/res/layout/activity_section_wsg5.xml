@@ -34,6 +34,7 @@
             android:theme="@style/ToolbarTheme"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:title="@string/secws5title"
+            app:subtitle="@string/sec5note"
             app:titleTextAppearance="@style/Toolbar.TitleText" />
 
 
@@ -48,25 +49,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-
-                <!-- sec5note  Title   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVsec5note"
-                    style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/sec5note" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
 
 
                 <!-- ws501  Radio   -->
@@ -92,9 +74,8 @@
                                 android:text="@string/Q_ws501" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/ws501" />
 
                         </LinearLayout>
@@ -102,20 +83,23 @@
                         <RadioGroup
                             android:id="@+id/ws501"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <RadioButton
                                 android:id="@+id/ws501a"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{wsg.ws501.equals(`1`)}"
                                 android:onClick="@{()->wsg.setWs501(`1`)}"
                                 android:text="@string/ws501a" />
 
                             <RadioButton
                                 android:id="@+id/ws501b"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{wsg.ws501.equals(`2`)}"
                                 android:onClick="@{()->wsg.setWs501(`2`)}"
                                 android:text="@string/ws501b" />
@@ -125,6 +109,7 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- ws502  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -149,10 +134,10 @@
                                 android:text="@string/Q_ws502" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/ws502" />
+
                         </LinearLayout>
 
                         <RadioGroup
