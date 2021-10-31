@@ -143,26 +143,33 @@
                         <RadioGroup
                             android:id="@+id/ws502"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <RadioButton
                                 android:id="@+id/ws502a"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{wsg.ws502.equals(`1`)}"
                                 android:onClick="@{()->wsg.setWs502(`1`)}"
                                 android:text="@string/ws502a" />
 
                             <RadioButton
                                 android:id="@+id/ws502b"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{wsg.ws502.equals(`2`)}"
                                 android:onClick="@{()->wsg.setWs502(`2`)}"
                                 android:text="@string/ws502b" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- ws503  Radio   -->
                 <androidx.cardview.widget.CardView
