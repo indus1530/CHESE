@@ -254,29 +254,32 @@
                                 android:text="@string/Q_ws504" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/ws504" />
+
                         </LinearLayout>
 
                         <RadioGroup
                             android:id="@+id/ws504"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <RadioButton
                                 android:id="@+id/ws504a"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{wsg.ws504.equals(`1`)}"
                                 android:onClick="@{()->wsg.setWs504(`1`)}"
                                 android:text="@string/ws504a" />
 
                             <RadioButton
                                 android:id="@+id/ws504b"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{wsg.ws504.equals(`2`)}"
                                 android:onClick="@{()->wsg.setWs504(`2`)}"
                                 android:text="@string/ws504b" />
