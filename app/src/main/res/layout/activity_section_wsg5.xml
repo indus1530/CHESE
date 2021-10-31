@@ -314,34 +314,40 @@
                                 android:text="@string/Q_ws505" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/ws505" />
+
                         </LinearLayout>
 
                         <RadioGroup
                             android:id="@+id/ws505"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <RadioButton
                                 android:id="@+id/ws505a"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{wsg.ws505.equals(`1`)}"
                                 android:onClick="@{()->wsg.setWs505(`1`)}"
                                 android:text="@string/ws505a" />
 
                             <RadioButton
                                 android:id="@+id/ws505b"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{wsg.ws505.equals(`2`)}"
                                 android:onClick="@{()->wsg.setWs505(`2`)}"
                                 android:text="@string/ws505b" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
 
                 <!-- ws506  Radio   -->
