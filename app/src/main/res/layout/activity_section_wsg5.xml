@@ -350,6 +350,7 @@
 
                 </androidx.cardview.widget.CardView>
 
+
                 <!-- ws506  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVws506"
@@ -373,34 +374,40 @@
                                 android:text="@string/Q_ws506" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/ws506" />
+
                         </LinearLayout>
 
                         <RadioGroup
                             android:id="@+id/ws506"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <RadioButton
                                 android:id="@+id/ws506a"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{wsg.ws506.equals(`1`)}"
                                 android:onClick="@{()->wsg.setWs506(`1`)}"
                                 android:text="@string/ws506a" />
 
                             <RadioButton
                                 android:id="@+id/ws506b"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{wsg.ws506.equals(`2`)}"
                                 android:onClick="@{()->wsg.setWs506(`2`)}"
                                 android:text="@string/ws506b" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
 
                 <!-- ws507  Radio   -->
