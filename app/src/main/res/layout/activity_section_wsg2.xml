@@ -39,7 +39,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
 
 
             <LinearLayout
@@ -333,6 +334,7 @@
                                 android:id="@+id/ws206"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:onCheckedChanged="@{()-> ws208.clearCheck() + ws210.clearCheck()}"
                                 android:orientation="horizontal">
 
                                 <RadioButton
