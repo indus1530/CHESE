@@ -532,6 +532,7 @@ public class WSG extends BaseObservable implements Observable {
 
     public void setWs208(String ws208) {
         this.ws208 = ws208;
+        setWs20896x(ws208.equals("96") ? this.ws20896x : "");
         notifyPropertyChanged(BR.ws208);
     }
 
@@ -562,6 +563,7 @@ public class WSG extends BaseObservable implements Observable {
 
     public void setWs210(String ws210) {
         this.ws210 = ws210;
+        setWs21096x(ws210.equals("96") ? this.ws21096x : "");
         notifyPropertyChanged(BR.ws210);
     }
 
