@@ -470,6 +470,13 @@ public class WSG extends BaseObservable implements Observable {
 
     public void setWs203(String ws203) {
         this.ws203 = ws203;
+        setWs204(ws203.equals("2") ? "" : this.ws204);
+        setWs205(ws203.equals("2") ? "" : this.ws205);
+        setWs206(ws203.equals("2") ? "" : this.ws206);
+        setWs207(ws203.equals("2") ? "" : this.ws207);
+        setWs208(ws203.equals("2") ? "" : this.ws208);
+        setWs209(ws203.equals("2") ? "" : this.ws209);
+        setWs210(ws203.equals("2") ? "" : this.ws210);
         notifyPropertyChanged(BR.ws203);
     }
 
@@ -480,6 +487,7 @@ public class WSG extends BaseObservable implements Observable {
 
     public void setWs204(String ws204) {
         this.ws204 = ws204;
+        setWs205(ws204.equals("2") ? "" : this.ws205);
         notifyPropertyChanged(BR.ws204);
     }
 
@@ -500,6 +508,10 @@ public class WSG extends BaseObservable implements Observable {
 
     public void setWs206(String ws206) {
         this.ws206 = ws206;
+        setWs207(ws206.equals("2") ? "" : this.ws207);
+        setWs208(ws206.equals("2") ? "" : this.ws208);
+        setWs209(ws206.equals("2") ? "" : this.ws209);
+        setWs210(ws206.equals("2") ? "" : this.ws210);
         notifyPropertyChanged(BR.ws206);
     }
 

@@ -77,6 +77,7 @@
                             style="@style/sub_labels"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:textColor="@color/black"
                             android:text="@={vhc.v301}" />
 
                     </LinearLayout>
