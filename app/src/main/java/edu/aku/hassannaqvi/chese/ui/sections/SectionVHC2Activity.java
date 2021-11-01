@@ -56,8 +56,8 @@ public class SectionVHC2Activity extends AppCompatActivity {
 
 
     public void btnEnd(View view) {
+        setResult(RESULT_CANCELED);
         finish();
-        startActivity(new Intent(this, MainActivity.class));
     }
 
 
@@ -84,6 +84,7 @@ public class SectionVHC2Activity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         setResult(RESULT_CANCELED);
+        finish();
     }
 
 }

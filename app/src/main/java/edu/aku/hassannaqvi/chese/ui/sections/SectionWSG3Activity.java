@@ -13,7 +13,6 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
-import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGTable;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
@@ -62,8 +61,8 @@ public class SectionWSG3Activity extends AppCompatActivity {
 
 
     public void BtnEnd(View view) {
+        setResult(RESULT_CANCELED);
         finish();
-        startActivity(new Intent(this, MainActivity.class));
     }
 
 
@@ -89,8 +88,8 @@ public class SectionWSG3Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
+        finish();
     }
 
 

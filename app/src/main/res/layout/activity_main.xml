@@ -189,7 +189,7 @@
                                 android:textSize="16sp" />
 
                             <TextView
-                                android:id="@+id/secb"
+                                android:id="@+id/vhc2"
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
@@ -199,11 +199,11 @@
                                 android:onClick="sectionPress"
                                 android:padding="8dp"
                                 android:shadowRadius="8"
-                                android:text="B"
+                                android:text="VHC2"
                                 android:textSize="16sp" />
 
                             <TextView
-                                android:id="@+id/secc"
+                                android:id="@+id/vhc3"
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
@@ -213,11 +213,11 @@
                                 android:onClick="sectionPress"
                                 android:padding="8dp"
                                 android:shadowRadius="8"
-                                android:text="C"
+                                android:text="VHC3"
                                 android:textSize="16sp" />
 
                             <TextView
-                                android:id="@+id/secd"
+                                android:id="@+id/vhc4"
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
@@ -227,7 +227,7 @@
                                 android:onClick="sectionPress"
                                 android:padding="8dp"
                                 android:shadowRadius="8"
-                                android:text="D"
+                                android:text="VHC4"
                                 android:textSize="16sp" />
 
                         </LinearLayout>
@@ -239,7 +239,7 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/sece"
+                                android:id="@+id/wsg2"
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
@@ -249,11 +249,11 @@
                                 android:onClick="sectionPress"
                                 android:padding="8dp"
                                 android:shadowRadius="8"
-                                android:text="E"
+                                android:text="WSG2"
                                 android:textSize="16sp" />
 
                             <TextView
-                                android:id="@+id/secf"
+                                android:id="@+id/wsg3"
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
@@ -263,11 +263,11 @@
                                 android:onClick="sectionPress"
                                 android:padding="8dp"
                                 android:shadowRadius="8"
-                                android:text="F"
+                                android:text="WSG3"
                                 android:textSize="16sp" />
 
                             <TextView
-                                android:id="@+id/secg"
+                                android:id="@+id/wsg4"
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
@@ -277,11 +277,11 @@
                                 android:onClick="sectionPress"
                                 android:padding="8dp"
                                 android:shadowRadius="8"
-                                android:text="G"
+                                android:text="WSG4"
                                 android:textSize="16sp" />
 
                             <TextView
-                                android:id="@+id/sech"
+                                android:id="@+id/wsg5"
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
@@ -291,7 +291,7 @@
                                 android:onClick="sectionPress"
                                 android:padding="8dp"
                                 android:shadowRadius="8"
-                                android:text="H"
+                                android:text="WSG5"
                                 android:textSize="16sp" />
 
                         </LinearLayout>

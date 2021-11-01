@@ -347,6 +347,9 @@ public class VHC extends BaseObservable implements Observable {
 
     public void setV203(String v203) {
         this.v203 = v203;
+        setV204(v203.equals("2") ? "" : this.v204);
+        setV205(v203.equals("2") ? "" : this.v205);
+        setV206(v203.equals("2") ? "" : this.v206);
         notifyPropertyChanged(BR.v203);
     }
 
@@ -367,6 +370,7 @@ public class VHC extends BaseObservable implements Observable {
 
     public void setV205(String v205) {
         this.v205 = v205;
+        setV20596x(v205.equals("96") ? this.v20596x : "");
         notifyPropertyChanged(BR.v205);
     }
 

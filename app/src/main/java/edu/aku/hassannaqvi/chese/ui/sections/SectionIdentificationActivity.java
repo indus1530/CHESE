@@ -21,7 +21,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts;
 import edu.aku.hassannaqvi.chese.core.MainApp;
@@ -83,9 +82,7 @@ public class SectionIdentificationActivity extends AppCompatActivity {
 
 
     private boolean addForm() {
-
         //if (!form.get_ID().equals("")) return true;
-
         long rowid = db.addForm(form);
         form.setId(String.valueOf(rowid));
         if (rowid > 0) {
@@ -104,10 +101,10 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         if (!hfFormExists()) {
             saveDraft();
         }
-        // if (addForm()) {
-        finish();
-        startActivity(new Intent(this, MainActivity.class));
-        //}
+        if (addForm()) {
+            finish();
+            startActivity(new Intent(this, SectionAActivity.class));
+        }
     }
 
 
