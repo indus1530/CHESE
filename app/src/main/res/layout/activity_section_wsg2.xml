@@ -73,14 +73,16 @@
                             android:gravity="center"
                             android:text="@string/ws201" />
 
-                        <EditText
+                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
                             android:id="@+id/ws201"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:hint="@string/ws201"
-                            android:text="@={wsg.ws201}" />
+                            android:hint="yyyy-MM-dd"
+                            android:text="@={wsg.ws201}"
+                            app:dateFormat="yyyy-MM-dd"
+                            app:maxDate="CR-DATE" />
 
                     </LinearLayout>
 
@@ -110,13 +112,15 @@
                             android:gravity="center"
                             android:text="@string/ws202" />
 
-                        <EditText
+                        <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
                             android:id="@+id/ws202"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:hint="HH:mm"
                             android:gravity="center"
-                            android:hint="@string/ws202"
+                            android:inputType="number"
+                            app:timeFormat="HH:mm"
                             android:text="@={wsg.ws202}" />
 
                     </LinearLayout>

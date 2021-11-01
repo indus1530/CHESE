@@ -18,6 +18,7 @@ import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGTable;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionWsg2Binding;
+import edu.aku.hassannaqvi.chese.utils.DateUtilsKt;
 
 
 public class SectionWSG2Activity extends AppCompatActivity {
@@ -30,6 +31,7 @@ public class SectionWSG2Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_wsg2);
         bi.setCallback(this);
         bi.setWsg(wsg);
+        bi.ws201.setMinDate(DateUtilsKt.getDaysBack("yyyy-MM-dd", -7));
     }
 
 
