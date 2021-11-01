@@ -1,7 +1,6 @@
 package edu.aku.hassannaqvi.chese.ui.sections;
 
 import static edu.aku.hassannaqvi.chese.core.MainApp.appInfo;
-import static edu.aku.hassannaqvi.chese.core.MainApp.form;
 import static edu.aku.hassannaqvi.chese.core.MainApp.wsg;
 
 import android.content.Intent;
@@ -16,7 +15,7 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
-import edu.aku.hassannaqvi.chese.contracts.TableContracts;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGTable;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionWsg2Binding;
 
@@ -36,7 +35,7 @@ public class SectionWSG2Activity extends AppCompatActivity {
 
     private boolean updateDB() {
         DatabaseHelper db = appInfo.getDbHelper();
-        int updcount = db.updatesWSGColumn(TableContracts.WSGTable.COLUMN_SWS2, wsg.sWS2toString());
+        int updcount = db.updatesWSGColumn(WSGTable.COLUMN_SWS2, wsg.sWS2toString());
         if (updcount == 1) {
             return true;
         } else {
@@ -68,13 +67,13 @@ public class SectionWSG2Activity extends AppCompatActivity {
     }
 
     private boolean addForm() {
-        if (!form.getId().equals("")) return true;
+        if (!wsg.getId().equals("")) return true;
         DatabaseHelper db = appInfo.dbHelper;
         long rowid = db.addWSG(wsg);
         wsg.setId(String.valueOf(rowid));
         if (rowid > 0) {
             wsg.setUid(wsg.getDeviceId() + wsg.getId());
-            db.updatesWSGColumn(TableContracts.WSGTable.COLUMN_UID, wsg.getUid());
+            db.updatesWSGColumn(WSGTable.COLUMN_UID, wsg.getUid());
             return true;
         } else {
             Toast.makeText(this, "Failed to update DB", Toast.LENGTH_SHORT).show();

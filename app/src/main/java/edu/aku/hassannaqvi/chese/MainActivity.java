@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import edu.aku.hassannaqvi.chese.core.AndroidManager;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.Forms;
+import edu.aku.hassannaqvi.chese.data.model.VHC;
+import edu.aku.hassannaqvi.chese.data.model.WSG;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionAActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionIdentificationActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionVHC2Activity;
@@ -49,27 +51,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, SectionAActivity.class));
                 break;
             case R.id.secb:
-                MainApp.form = new Forms();
+                MainApp.wsg = new WSG();
                 startActivity(new Intent(this, SectionWSG2Activity.class));
                 break;
             case R.id.secc:
-                MainApp.form = new Forms();
+                MainApp.wsg = new WSG();
                 startActivity(new Intent(this, SectionWSG3Activity.class));
                 break;
             case R.id.secd:
-                MainApp.form = new Forms();
+                MainApp.wsg = new WSG();
                 startActivity(new Intent(this, SectionWSG5Activity.class));
                 break;
             case R.id.sece:
-                MainApp.form = new Forms();
+                MainApp.vhc = new VHC();
                 startActivity(new Intent(this, SectionVHC2Activity.class));
                 break;
             case R.id.secf:
-                MainApp.form = new Forms();
+                MainApp.vhc = new VHC();
                 startActivity(new Intent(this, SectionVHC3Activity.class));
                 break;
             case R.id.secg:
-                MainApp.form = new Forms();
+                MainApp.vhc = new VHC();
                 startActivity(new Intent(this, SectionVHC4Activity.class));
                 break;
             case R.id.openDBManager:

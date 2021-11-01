@@ -1,7 +1,6 @@
 package edu.aku.hassannaqvi.chese.ui.sections;
 
 import static edu.aku.hassannaqvi.chese.core.MainApp.appInfo;
-import static edu.aku.hassannaqvi.chese.core.MainApp.form;
 import static edu.aku.hassannaqvi.chese.core.MainApp.wsg;
 
 import android.content.Intent;
@@ -74,7 +73,7 @@ public class SectionWSG3Activity extends AppCompatActivity {
 
 
     private boolean addForm() {
-        if (!form.getId().equals("")) return true;
+        if (!wsg.getId().equals("")) return true;
         DatabaseHelper db = appInfo.dbHelper;
         long rowid = db.addWSG(wsg);
         wsg.setId(String.valueOf(rowid));
