@@ -103,7 +103,7 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         }
         if (addForm()) {
             finish();
-            startActivity(new Intent(this, SectionAActivity.class));
+            startActivity(new Intent(this, SectionLHWActivity.class));
         }
     }
 

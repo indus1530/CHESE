@@ -11,8 +11,8 @@ import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.Forms;
 import edu.aku.hassannaqvi.chese.data.model.VHC;
 import edu.aku.hassannaqvi.chese.data.model.WSG;
-import edu.aku.hassannaqvi.chese.ui.sections.SectionAActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionIdentificationActivity;
+import edu.aku.hassannaqvi.chese.ui.sections.SectionLHWActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionVHC2Activity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionVHC3Activity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionVHC4Activity;
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.seca:
                 MainApp.form = new Forms();
-                startActivity(new Intent(this, SectionAActivity.class));
+                startActivity(new Intent(this, SectionLHWActivity.class));
                 break;
             case R.id.vhc2:
                 MainApp.vhc = new VHC();

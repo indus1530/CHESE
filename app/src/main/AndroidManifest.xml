@@ -57,7 +57,7 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionAActivity"
+            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionLHWActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />

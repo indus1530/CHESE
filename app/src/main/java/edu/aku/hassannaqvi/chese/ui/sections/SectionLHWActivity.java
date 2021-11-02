@@ -13,14 +13,20 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.FormsTable;
+import edu.aku.hassannaqvi.chese.core.MainApp;
+import edu.aku.hassannaqvi.chese.data.model.Forms;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionABinding;
 
 
-public class SectionAActivity extends AppCompatActivity {
+public class SectionLHWActivity extends AppCompatActivity {
     ActivitySectionABinding bi;
     int photoCount = 0;
 
@@ -54,6 +60,29 @@ public class SectionAActivity extends AppCompatActivity {
             finish();
             startActivity(new Intent(this, MainActivity.class));
         }
+    }
+
+
+    private void saveDraft() {
+
+        //if (!form.getId().equals("")) return;
+
+        form = new Forms();
+        form.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
+        form.setUserName(MainApp.userName);
+        form.setDeviceId(MainApp.appInfo.getDeviceID());
+        form.setDeviceTag(MainApp.appInfo.getTagName());
+        form.setAppver(MainApp.appInfo.getAppVersion());
+
+        /*form.setDistrictName(bi.distname.getSelectedItem().toString());
+        form.setDistrictCode(districtCodes.get(bi.distname.getSelectedItemPosition()));
+
+        form.setHfName(bi.facilityname.getSelectedItem().toString());
+        form.setHfCode(hfCodes.get(bi.facilityname.getSelectedItemPosition()));
+
+        form.setReportingMonth(bi.reportMonth.getSelectedItem().toString());*/
+        //   form.setReportingYear(bi.reportingyear.getText().toString().isEmpty() ? "-1" : bi.reportingyear.getText().toString());
+
     }
 
 
