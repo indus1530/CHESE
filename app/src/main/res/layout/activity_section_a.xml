@@ -35,13 +35,12 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:title="@string/sec01title"
             app:titleTextAppearance="@style/Toolbar.TitleText" />
-        <!--app:subtitle="@string/sectionb1"
-        app:subtitleTextAppearance="@style/Toolbar.SubtitleText"-->
 
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
 
 
             <LinearLayout
