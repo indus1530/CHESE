@@ -23,17 +23,17 @@ import edu.aku.hassannaqvi.chese.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.Forms;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
-import edu.aku.hassannaqvi.chese.databinding.ActivitySectionABinding;
+import edu.aku.hassannaqvi.chese.databinding.ActivitySectionLhwBinding;
 
 
 public class SectionLHWActivity extends AppCompatActivity {
-    ActivitySectionABinding bi;
+    ActivitySectionLhwBinding bi;
     int photoCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_a);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_lhw);
         setSupportActionBar(bi.toolbar);
         bi.setCallback(this);
         bi.setForm(form);
