@@ -21,14 +21,15 @@ public class MainApp extends Application {
     public static final String PROJECT_NAME = "CHESE";
     public static final String DIST_ID = null;
     public static final String SYNC_LOGIN = "sync_login";
-    public static final String _IP = "https://vcoe1.aku.edu";// .LIVE server
+    //public static final String _IP = "https://vcoe1.aku.edu";// .LIVE server
+    public static final String _IP = "http://cls-pae-fp51764/dmusites";// .TEST server
     //public static final String _IP = "http://f38158/smk_hfa";// .TEST server
     //public static final String _IP = "http://43.245.131.159:8080";// .TEST server
-    public static final String _HOST_URL = MainApp._IP + "/smk_fi/api/";// .TEST server;
+    public static final String _HOST_URL = MainApp._IP + "/uen_smk_rsd/api/";// .TEST server;
     public static final String _SERVER_URL = "sync.php";
     public static final String _SERVER_GET_URL = "getData.php";
     public static final String _PHOTO_UPLOAD_URL = _HOST_URL + "uploads.php";
-    public static final String _UPDATE_URL = MainApp._IP + "/smk_fi/app/smk_rsd";
+    public static final String _UPDATE_URL = MainApp._IP + "/uen_smk_rsd/app/smk_rsd";
     public static final String DeviceURL = "devices.php";
 
     public static final int HOUSEHOLDS_TO_RANDOMISE = 10;

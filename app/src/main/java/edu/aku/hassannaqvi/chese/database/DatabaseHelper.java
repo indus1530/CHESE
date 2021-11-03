@@ -25,6 +25,7 @@ import edu.aku.hassannaqvi.chese.data.model.VHC;
 import edu.aku.hassannaqvi.chese.data.model.WSG;
 import edu.aku.hassannaqvi.chese.models.Districts;
 import edu.aku.hassannaqvi.chese.models.HealthFacilities;
+import edu.aku.hassannaqvi.chese.models.LHW;
 import edu.aku.hassannaqvi.chese.models.Users;
 import edu.aku.hassannaqvi.chese.models.Users.UsersTable;
 import edu.aku.hassannaqvi.chese.models.VersionApp;
@@ -56,6 +57,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CreateSQL.SQL_CREATE_VERSIONAPP);
 
         db.execSQL(CreateSQL.SQL_CREATE_HEALTH_FACILITIES);
+        db.execSQL(CreateSQL.SQL_CREATE_LHW);
 
     }
 
@@ -755,6 +757,45 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return insertCount;
     }
 
+    //    Sync LHW
+    public int syncLHW(JSONArray jsonArray) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(LHW.LHWTable.TABLE_NAME, null, null);
+        int insertCount = 0;
+        try {
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject json = jsonArray.getJSONObject(i);
+                LHW lhw = new LHW();
+                lhw.sync(json);
+                ContentValues values = new ContentValues();
+
+                values.put(LHW.LHWTable.COLUMN_DISTRICT_CODE, lhw.getDistrict_code());
+                values.put(LHW.LHWTable.COLUMN_TEHSIL_CODE, lhw.getTehsil_code());
+                values.put(LHW.LHWTable.COLUMN_TEHSIL_NAME, lhw.getTehsil_name());
+                values.put(LHW.LHWTable.COLUMN_UC_CODE, lhw.getUc_code());
+                values.put(LHW.LHWTable.COLUMN_UC_NAME, lhw.getUc_name());
+                values.put(LHW.LHWTable.COLUMN_HF_CODE, lhw.getHf_code());
+                values.put(LHW.LHWTable.COLUMN_HF_NAME, lhw.getHf_name());
+                values.put(LHW.LHWTable.COLUMN_LHW_CODE, lhw.getLhw_code());
+                values.put(LHW.LHWTable.COLUMN_LHW_NAME, lhw.getLhw_name());
+                values.put(LHW.LHWTable.COLUMN_LHW_CNIC, lhw.getLhw_cnic());
+                values.put(LHW.LHWTable.COLUMN_LHW_SUPERVISOR, lhw.getLhw_supervisor());
+
+                long rowID = db.insert(LHW.LHWTable.TABLE_NAME, null, values);
+                if (rowID != -1) insertCount++;
+            }
+            db.close();
+
+        } catch (Exception e) {
+            Log.d(TAG, "syncLhw(e): " + e);
+            db.close();
+        } finally {
+            db.close();
+        }
+        return insertCount;
+    }
+
 
     //get UnSyncedTables
     public JSONArray getUnsyncedForms() {
@@ -1091,6 +1132,191 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return hf;
+    }
+
+    public ArrayList<LHW> getTehsilByDist(String distid) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause = LHW.LHWTable.COLUMN_DISTRICT_CODE + "=?";
+        String[] whereArgs = {distid};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = LHW.LHWTable.COLUMN_TEHSIL_NAME + " ASC";
+
+        ArrayList<LHW> lhw = new ArrayList<>();
+        try {
+            c = db.query(
+                    LHW.LHWTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                lhw.add(new LHW().hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return lhw;
+    }
+
+    public ArrayList<LHW> getUcByTehil(String teh) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause = LHW.LHWTable.COLUMN_TEHSIL_CODE + "=?";
+        String[] whereArgs = {teh};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = LHW.LHWTable.COLUMN_UC_NAME + " ASC";
+
+        ArrayList<LHW> lhw = new ArrayList<>();
+        try {
+            c = db.query(
+                    LHW.LHWTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                lhw.add(new LHW().hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return lhw;
+    }
+
+    public ArrayList<LHW> getHfByUc(String uc) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause = LHW.LHWTable.COLUMN_UC_CODE + "=?";
+        String[] whereArgs = {uc};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = LHW.LHWTable.COLUMN_HF_NAME + " ASC";
+
+        ArrayList<LHW> lhw = new ArrayList<>();
+        try {
+            c = db.query(
+                    LHW.LHWTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                lhw.add(new LHW().hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return lhw;
+    }
+
+    public ArrayList<LHW> getHfByTehsil(String tehsil) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause = LHW.LHWTable.COLUMN_TEHSIL_CODE + "=?";
+        String[] whereArgs = {tehsil};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = LHW.LHWTable.COLUMN_HF_NAME + " ASC";
+
+        ArrayList<LHW> lhw = new ArrayList<>();
+        try {
+            c = db.query(
+                    LHW.LHWTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                lhw.add(new LHW().hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return lhw;
+    }
+
+    public ArrayList<LHW> getLhwByHf(String hf) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause = LHW.LHWTable.COLUMN_HF_CODE + "=?";
+        String[] whereArgs = {hf};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = LHW.LHWTable.COLUMN_LHW_NAME + " ASC";
+
+        ArrayList<LHW> lhw = new ArrayList<>();
+        try {
+            c = db.query(
+                    LHW.LHWTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                lhw.add(new LHW().hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return lhw;
     }
 
 

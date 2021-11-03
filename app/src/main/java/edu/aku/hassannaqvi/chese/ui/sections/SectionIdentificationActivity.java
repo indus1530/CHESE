@@ -44,16 +44,9 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_identification);
         db = MainApp.appInfo.dbHelper;
-
-        setupSkips();
         setSupportActionBar(bi.toolbar);
         populateSpinner(this);
 
-
-    }
-
-
-    private void setupSkips() {
 
     }
 

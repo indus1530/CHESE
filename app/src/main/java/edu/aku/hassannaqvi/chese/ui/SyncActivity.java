@@ -57,6 +57,7 @@ import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySyncBinding;
 import edu.aku.hassannaqvi.chese.models.Districts;
 import edu.aku.hassannaqvi.chese.models.HealthFacilities;
+import edu.aku.hassannaqvi.chese.models.LHW;
 import edu.aku.hassannaqvi.chese.models.Users;
 import edu.aku.hassannaqvi.chese.models.VersionApp;
 import edu.aku.hassannaqvi.chese.workers.DataDownWorkerALL;
@@ -173,6 +174,7 @@ public class SyncActivity extends AppCompatActivity {
                     downloadTables.add(new SyncModel(VersionApp.VersionAppTable.TABLE_NAME));
                     downloadTables.add(new SyncModel(Districts.TableDistricts.TABLE_NAME));
                     downloadTables.add(new SyncModel(HealthFacilities.TableHealthFacilities.TABLE_NAME));
+                    downloadTables.add(new SyncModel(LHW.LHWTable.TABLE_NAME));
 
 
                     /*String select = " idCamp, camp_no, dist_id, district, ucCode, ucName, area_name, plan_date ";
@@ -269,6 +271,11 @@ public class SyncActivity extends AppCompatActivity {
                                         case HealthFacilities.TableHealthFacilities.TABLE_NAME:
                                             jsonArray = new JSONArray(result);
                                             insertCount = db.syncHealthFacilities(jsonArray);
+                                            Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
+                                            break;
+                                        case LHW.LHWTable.TABLE_NAME:
+                                            jsonArray = new JSONArray(result);
+                                            insertCount = db.syncLHW(jsonArray);
                                             Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
                                             break;
                                       /*   case UCs.TableUCs.TABLE_NAME:

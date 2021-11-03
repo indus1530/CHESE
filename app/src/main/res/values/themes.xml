@@ -227,8 +227,8 @@
     </style>
 
     <style name="quesNum">
-        <item name="android:background">@color/colorAccent</item>
-        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorAccentLight</item>
+        <item name="android:textColor">@color/colorAccent</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:padding">8dp</item>
         <item name="android:minHeight">52dp</item>

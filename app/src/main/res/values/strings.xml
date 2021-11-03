@@ -197,13 +197,13 @@
 
 
     <!--WSG-WOMEN SUPPORT GROUP Strings-->
-    <string name="a101">District</string>
-    <string name="a102">Tehsil</string>
-    <string name="a103">Name of Reporting/Associated Health Facility</string>
-    <string name="a104">Name/Code of LHW</string>
-    <string name="a104n">Name</string>
-    <string name="a104c">Code</string>
-    <string name="a105">Name of Supervisor</string>
+    <string name="a101"> District</string>
+    <string name="a102"> Tehsil</string>
+    <string name="a103"> Reporting HF </string>
+    <string name="a104"> Name/Code of LHW </string>
+    <string name="a104n"> LHW Name </string>
+    <string name="a104c"> LHW Code </string>
+    <string name="a105"> LHW Supervisor </string>
     <string name="secws2title">Section 02: LHW Session Information</string>
     <string name="ws201">Date of Session</string>
     <string name="ws202">Time of Session Start</string>

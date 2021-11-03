@@ -2,10 +2,7 @@ package edu.aku.hassannaqvi.chese.database
 
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.*
 import edu.aku.hassannaqvi.chese.core.MainApp.PROJECT_NAME
-import edu.aku.hassannaqvi.chese.models.Districts
-import edu.aku.hassannaqvi.chese.models.HealthFacilities
-import edu.aku.hassannaqvi.chese.models.Users
-import edu.aku.hassannaqvi.chese.models.VersionApp
+import edu.aku.hassannaqvi.chese.models.*
 
 object CreateSQL {
     const val DATABASE_NAME = "$PROJECT_NAME.db"
@@ -126,6 +123,22 @@ object CreateSQL {
                 + HealthFacilities.TableHealthFacilities.COLUMN_HF_NAME + " TEXT,"
                 + HealthFacilities.TableHealthFacilities.COLUMN_DISTRICT_CODE + " TEXT,"
                 + HealthFacilities.TableHealthFacilities.COLUMN_TEHSIL_ID + " TEXT"
+                + " );")
+
+    const val SQL_CREATE_LHW =
+        ("CREATE TABLE " + LHW.LHWTable.TABLE_NAME + "("
+                + LHW.LHWTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + LHW.LHWTable.COLUMN_DISTRICT_CODE + " TEXT,"
+                + LHW.LHWTable.COLUMN_TEHSIL_CODE + " TEXT,"
+                + LHW.LHWTable.COLUMN_TEHSIL_NAME + " TEXT,"
+                + LHW.LHWTable.COLUMN_UC_CODE + " TEXT,"
+                + LHW.LHWTable.COLUMN_UC_NAME + " TEXT,"
+                + LHW.LHWTable.COLUMN_HF_CODE + " TEXT,"
+                + LHW.LHWTable.COLUMN_HF_NAME + " TEXT,"
+                + LHW.LHWTable.COLUMN_LHW_CODE + " TEXT,"
+                + LHW.LHWTable.COLUMN_LHW_NAME + " TEXT,"
+                + LHW.LHWTable.COLUMN_LHW_CNIC + " TEXT,"
+                + LHW.LHWTable.COLUMN_LHW_SUPERVISOR + " TEXT"
                 + " );")
 
 

@@ -1,14 +1,15 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <data>
 
         <import type="android.view.View" />
 
-        <variable
+        <!--<variable
             name="form"
-            type="edu.aku.hassannaqvi.chese.data.model.Forms" />
+            type="edu.aku.hassannaqvi.chese.data.model.Forms" />-->
 
         <variable
             name="callback"
@@ -55,32 +56,33 @@
                     android:id="@+id/fldGrpCVa101"
                     style="@style/cardView">
 
-                        <LinearLayout
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_a101" />
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/a101" />
+
+                        <Spinner
+                            android:id="@+id/a101"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
+                            android:layout_height="match_parent"
+                            android:minHeight="56dp"
+                            android:prompt="@string/a101"
+                            android:spinnerMode="dropdown" />
 
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="@string/Q_a101" />
-
-                            <TextView
-                                android:layout_width="150dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="@string/a101" />
-
-                            <EditText
-                                android:id="@+id/a101"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/a101"
-                                android:text="@={form.a101}" />
-
-                        </LinearLayout>
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
@@ -90,32 +92,33 @@
                     android:id="@+id/fldGrpCVa102"
                     style="@style/cardView">
 
-                        <LinearLayout
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_a102" />
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/a102" />
+
+                        <Spinner
+                            android:id="@+id/a102"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
+                            android:layout_height="match_parent"
+                            android:minHeight="56dp"
+                            android:prompt="@string/a102"
+                            android:spinnerMode="dropdown" />
 
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="@string/Q_a102" />
-
-                            <TextView
-                                android:layout_width="150dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="@string/a102" />
-
-                            <EditText
-                                android:id="@+id/a102"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/a102"
-                                android:text="@={form.a102}" />
-
-                        </LinearLayout>
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
@@ -128,33 +131,28 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_a103" />
 
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="@string/Q_a103" />
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/a103" />
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/a103" />
-
-                        </LinearLayout>
-
-                        <EditText
+                        <Spinner
                             android:id="@+id/a103"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/a103"
-                            android:text="@={form.a103}" />
+                            android:layout_height="match_parent"
+                            android:minHeight="56dp"
+                            android:prompt="@string/a103"
+                            android:spinnerMode="dropdown" />
 
                     </LinearLayout>
 
@@ -184,102 +182,74 @@
                                 android:text="@string/Q_a104" />
 
                             <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/a104" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                style="@style/sub_labels"
                                 android:layout_width="150dp"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
                                 android:text="@string/a104n" />
 
-                            <EditText
+                            <Spinner
                                 android:id="@+id/a104n"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
-                                android:hint="@string/a104n"
-                                android:text="@={form.a104n}" />
+                                android:minHeight="56dp"
+                                android:prompt="@string/a104n"
+                                android:spinnerMode="dropdown" />
 
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/lhw"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="vertical"
+                            android:visibility="gone"
+                            tools:visibility="visible">
 
-                            <TextView
-                                style="@style/sub_labels"
-                                android:layout_width="150dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="@string/a104c" />
-
-                            <com.edittextpicker.aliazaz.EditTextPicker
-                                android:id="@+id/a104c"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:hint="###"
-                                android:inputType="number"
-                                android:maxLength="3"
-                                android:text="@={form.a104c}"
-                                app:maxValue="100"
-                                app:minValue="0"
-                                app:type="range" />
+                                android:orientation="horizontal">
 
-                        </LinearLayout>
+                                <TextView
+                                    style="@style/sub_labels"
+                                    android:layout_width="212dp"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/a104c" />
 
+                                <TextView
+                                    style="@style/sub_labels"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/a105" />
 
-                    </LinearLayout>
+                            </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
-
-
-                <!-- a105  Input   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVa105"
-                    style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="@string/Q_a105" />
-
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/a105" />
-                        </LinearLayout>
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/a105"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
-                            android:hint="@string/a105"
-                            android:text="@={form.a105}" />
+                                <TextView
+                                    android:id="@+id/a104c"
+                                    style="@style/sub_labels"
+                                    android:layout_width="212dp"
+                                    android:layout_height="match_parent"
+                                    android:minHeight="56dp"
+                                    android:text="@string/a104c"
+                                    android:textColor="@color/green" />
+
+                                <TextView
+                                    android:id="@+id/a105"
+                                    style="@style/sub_labels"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:minHeight="56dp"
+                                    android:text="@string/a105"
+                                    android:textColor="@color/green" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
