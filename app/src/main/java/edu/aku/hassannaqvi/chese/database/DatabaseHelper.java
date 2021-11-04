@@ -749,7 +749,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
 
         } catch (Exception e) {
-            Log.d(TAG, "syncLhw(e): " + e);
+            Log.d(TAG, "syncHF(e): " + e);
             db.close();
         } finally {
             db.close();
@@ -758,14 +758,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //    Sync LHW
-    public int syncLHW(JSONArray jsonArray) {
+    public int syncLHW(JSONArray lhwList) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(LHW.LHWTable.TABLE_NAME, null, null);
         int insertCount = 0;
         try {
-
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject json = jsonArray.getJSONObject(i);
+            for (int i = 0; i < lhwList.length(); i++) {
+                JSONObject json = lhwList.getJSONObject(i);
                 LHW lhw = new LHW();
                 lhw.sync(json);
                 ContentValues values = new ContentValues();

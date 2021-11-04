@@ -27,10 +27,10 @@ class Districts {
     }
 
     object TableDistricts : BaseColumns {
-        const val TABLE_NAME = "district"
+        const val TABLE_NAME = "districts"
         const val COLUMN_NAME_NULLABLE = "nullColumnHack"
         const val COLUMN_ID = "_ID"
-        const val COLUMN_DISTRICT_CODE = "dist_id"
-        const val COLUMN_DISTRICT_NAME = "district"
+        const val COLUMN_DISTRICT_CODE = "district_code"
+        const val COLUMN_DISTRICT_NAME = "district_name"
     }
 }

@@ -58,7 +58,7 @@ class LHW {
         const val TABLE_NAME = "lhw"
         const val COLUMN_NAME_NULLABLE = "nullColumnHack"
         const val COLUMN_ID = "_ID"
-        const val COLUMN_DISTRICT_CODE = "dist_id"
+        const val COLUMN_DISTRICT_CODE = "district_code"
         const val COLUMN_TEHSIL_CODE = "tehsil_id"
         const val COLUMN_TEHSIL_NAME = "tehsil"
         const val COLUMN_UC_CODE = "uc_id"
