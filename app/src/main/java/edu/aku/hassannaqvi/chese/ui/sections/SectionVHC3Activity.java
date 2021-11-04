@@ -1,6 +1,7 @@
 package edu.aku.hassannaqvi.chese.ui.sections;
 
 import static edu.aku.hassannaqvi.chese.core.MainApp.appInfo;
+import static edu.aku.hassannaqvi.chese.core.MainApp.attendees;
 import static edu.aku.hassannaqvi.chese.core.MainApp.vhc;
 
 import android.content.Intent;
@@ -28,7 +29,7 @@ public class SectionVHC3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_vhc3);
         bi.setCallback(this);
-        bi.setVhc(vhc);
+        bi.setAttendees(attendees);
     }
 
 

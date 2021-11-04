@@ -11,6 +11,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Random;
 
+import edu.aku.hassannaqvi.chese.data.model.Attendees;
 import edu.aku.hassannaqvi.chese.data.model.Forms;
 import edu.aku.hassannaqvi.chese.data.model.VHC;
 import edu.aku.hassannaqvi.chese.data.model.WSG;
@@ -45,6 +46,7 @@ public class MainApp extends Application {
     public static Forms form;
     public static WSG wsg;
     public static VHC vhc;
+    public static Attendees attendees;
     public static AppInfo appInfo;
     public static Users user;
     public static Boolean admin = false;
