@@ -14,10 +14,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import edu.aku.hassannaqvi.chese.BR;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.chese.core.MainApp;
@@ -35,11 +31,9 @@ public class Forms extends BaseObservable implements Observable {
     private String userName = StringUtils.EMPTY;
     private String sysDate = StringUtils.EMPTY;
     private String districtCode = StringUtils.EMPTY;
-    private String districtName = StringUtils.EMPTY;
+    private String tehsilCode = StringUtils.EMPTY;
     private String hfCode = StringUtils.EMPTY;
-    private String hfName = StringUtils.EMPTY;
-    private String reportingMonth = StringUtils.EMPTY;
-    private String reportingYear = StringUtils.EMPTY;
+    private String lhwCode = StringUtils.EMPTY;
     private String deviceId = StringUtils.EMPTY;
     private String deviceTag = StringUtils.EMPTY;
     private String appver = StringUtils.EMPTY;
@@ -57,14 +51,10 @@ public class Forms extends BaseObservable implements Observable {
     private String a104n = StringUtils.EMPTY;
     private String a104c = StringUtils.EMPTY;
     private String a105 = StringUtils.EMPTY;
+    private String sessionType = StringUtils.EMPTY;
 
 
     public Forms() {
-        setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
-        setUserName(MainApp.user.getUserName());
-        //setDeviceId(MainApp.deviceid);
-        setAppver(MainApp.appInfo.getAppVersion());
-        setAppver(MainApp.appInfo.getAppVersion());
     }
 
     @Bindable
@@ -131,12 +121,12 @@ public class Forms extends BaseObservable implements Observable {
     }
 
     @Bindable
-    public String getDistrictName() {
-        return districtName;
+    public String getLhwCode() {
+        return lhwCode;
     }
 
-    public Forms setDistrictName(String districtName) {
-        this.districtName = districtName;
+    public Forms setLhwCode(String lhwCode) {
+        this.lhwCode = lhwCode;
         return this;
     }
 
@@ -151,32 +141,12 @@ public class Forms extends BaseObservable implements Observable {
     }
 
     @Bindable
-    public String getHfName() {
-        return hfName;
+    public String getTehsilCode() {
+        return tehsilCode;
     }
 
-    public Forms setHfName(String hfName) {
-        this.hfName = hfName;
-        return this;
-    }
-
-    @Bindable
-    public String getReportingMonth() {
-        return reportingMonth;
-    }
-
-    public Forms setReportingMonth(String reportingMonth) {
-        this.reportingMonth = reportingMonth;
-        return this;
-    }
-
-    @Bindable
-    public String getReportingYear() {
-        return reportingYear;
-    }
-
-    public Forms setReportingYear(String reportingYear) {
-        this.reportingYear = reportingYear;
+    public Forms setTehsilCode(String tehsilCode) {
+        this.tehsilCode = tehsilCode;
         return this;
     }
 
@@ -321,6 +291,16 @@ public class Forms extends BaseObservable implements Observable {
         notifyPropertyChanged(BR.a105);
     }
 
+    @Bindable
+    public String getSessionType() {
+        return sessionType;
+    }
+
+    public void setSessionType(String sessionType) {
+        this.sessionType = sessionType;
+        notifyPropertyChanged(BR.sessionType);
+    }
+
 
     public Forms Sync(JSONObject jsonObject) throws JSONException {
         this.id = jsonObject.getString(FormsTable.COLUMN_ID);
@@ -328,11 +308,9 @@ public class Forms extends BaseObservable implements Observable {
         this.userName = jsonObject.getString(FormsTable.COLUMN_USERNAME);
         this.sysDate = jsonObject.getString(FormsTable.COLUMN_SYSDATE);
         this.districtCode = jsonObject.getString(FormsTable.COLUMN_DISTRICT_CODE);
-        this.districtName = jsonObject.getString(FormsTable.COLUMN_DISTRICT_NAME);
+        this.tehsilCode = jsonObject.getString(FormsTable.COLUMN_TEHSIL_CODE);
         this.hfCode = jsonObject.getString(FormsTable.COLUMN_HF_CODE);
-        this.hfName = jsonObject.getString(FormsTable.COLUMN_HF_NAME);
-        this.reportingMonth = jsonObject.getString(FormsTable.COLUMN_REPORTING_MONTH);
-        this.reportingYear = jsonObject.getString(FormsTable.COLUMN_REPORTING_YEAR);
+        this.lhwCode = jsonObject.getString(FormsTable.COLUMN_LHW_CODE);
         this.deviceId = jsonObject.getString(FormsTable.COLUMN_DEVICEID);
         this.deviceTag = jsonObject.getString(FormsTable.COLUMN_DEVICETAGID);
         this.appver = jsonObject.getString(FormsTable.COLUMN_APPVERSION);
@@ -348,6 +326,7 @@ public class Forms extends BaseObservable implements Observable {
         this.a104n = jsonObject.getString(FormsTable.COLUMN_A104N);
         this.a104c = jsonObject.getString(FormsTable.COLUMN_A104C);
         this.a105 = jsonObject.getString(FormsTable.COLUMN_A105);
+        this.sessionType = jsonObject.getString(FormsTable.COLUMN_SESSION_TYPE);
 
         return this;
 
@@ -360,11 +339,9 @@ public class Forms extends BaseObservable implements Observable {
         this.userName = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_USERNAME));
         this.sysDate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SYSDATE));
         this.districtCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DISTRICT_CODE));
-        this.districtName = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DISTRICT_NAME));
+        this.tehsilCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_TEHSIL_CODE));
         this.hfCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_HF_CODE));
-        this.hfName = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_HF_NAME));
-        this.reportingMonth = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_REPORTING_MONTH));
-        this.reportingYear = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_REPORTING_YEAR));
+        this.lhwCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_LHW_CODE));
         this.deviceId = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICEID));
         this.deviceTag = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICETAGID));
         this.appver = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_APPVERSION));
@@ -380,6 +357,7 @@ public class Forms extends BaseObservable implements Observable {
         this.a104n = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_A104N));
         this.a104c = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_A104C));
         this.a105 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_A105));
+        this.sessionType = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SESSION_TYPE));
 
         return this;
     }
@@ -400,11 +378,9 @@ public class Forms extends BaseObservable implements Observable {
             json.put(FormsTable.COLUMN_USERNAME, this.userName);
             json.put(FormsTable.COLUMN_SYSDATE, this.sysDate);
             json.put(FormsTable.COLUMN_DISTRICT_CODE, this.districtCode);
-            json.put(FormsTable.COLUMN_DISTRICT_NAME, this.districtName);
+            json.put(FormsTable.COLUMN_TEHSIL_CODE, this.tehsilCode);
             json.put(FormsTable.COLUMN_HF_CODE, this.hfCode);
-            json.put(FormsTable.COLUMN_HF_NAME, this.hfName);
-            json.put(FormsTable.COLUMN_REPORTING_MONTH, this.reportingMonth);
-            json.put(FormsTable.COLUMN_REPORTING_YEAR, this.reportingYear);
+            json.put(FormsTable.COLUMN_LHW_CODE, this.lhwCode);
             json.put(FormsTable.COLUMN_DEVICEID, this.deviceId);
             json.put(FormsTable.COLUMN_DEVICETAGID, this.deviceTag);
             json.put(FormsTable.COLUMN_APPVERSION, this.appver);
@@ -420,6 +396,7 @@ public class Forms extends BaseObservable implements Observable {
             json.put(FormsTable.COLUMN_A104N, this.a104n);
             json.put(FormsTable.COLUMN_A104C, this.a104c);
             json.put(FormsTable.COLUMN_A105, this.a105);
+            json.put(FormsTable.COLUMN_SESSION_TYPE, this.sessionType);
             return json;
         } catch (JSONException e) {
             e.printStackTrace();

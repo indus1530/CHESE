@@ -25,11 +25,9 @@ object CreateSQL {
             + FormsTable.COLUMN_SYNCED_DATE + " TEXT,"
             + FormsTable.COLUMN_APPVERSION + " TEXT,"
             + FormsTable.COLUMN_DISTRICT_CODE + " TEXT,"
-            + FormsTable.COLUMN_DISTRICT_NAME + " TEXT,"
+            + FormsTable.COLUMN_TEHSIL_CODE + " TEXT,"
             + FormsTable.COLUMN_HF_CODE + " TEXT,"
-            + FormsTable.COLUMN_HF_NAME + " TEXT,"
-            + FormsTable.COLUMN_REPORTING_MONTH + " TEXT,"
-            + FormsTable.COLUMN_REPORTING_YEAR + " TEXT,"
+            + FormsTable.COLUMN_LHW_CODE + " TEXT,"
             + FormsTable.COLUMN_A101 + " TEXT,"
             + FormsTable.COLUMN_A102 + " TEXT,"
             + FormsTable.COLUMN_A103 + " TEXT,"
@@ -102,6 +100,8 @@ object CreateSQL {
 
     const val SQL_CREATE_DISTRICTS = ("CREATE TABLE " + Districts.TableDistricts.TABLE_NAME + "("
             + Districts.TableDistricts.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + Districts.TableDistricts.COLUMN_PROVINCE_NAME + " TEXT,"
+            + Districts.TableDistricts.COLUMN_PROVINCE_CODE + " TEXT,"
             + Districts.TableDistricts.COLUMN_DISTRICT_NAME + " TEXT,"
             + Districts.TableDistricts.COLUMN_DISTRICT_CODE + " TEXT"
             + " );")

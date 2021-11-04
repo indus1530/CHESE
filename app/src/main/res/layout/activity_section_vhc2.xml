@@ -73,14 +73,16 @@
                                 android:layout_weight="1"
                                 android:text="@string/v201" />
 
-                            <EditText
+                            <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
                                 android:id="@+id/v201"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:hint="@string/v201"
-                                android:text="@={vhc.v201}" />
+                                android:hint="yyyy-MM-dd"
+                                android:text="@={vhc.v201}"
+                                app:dateFormat="yyyy-MM-dd"
+                                app:maxDate="CR-DATE" />
 
                         </LinearLayout>
 
@@ -110,13 +112,15 @@
                                 android:layout_weight="1"
                                 android:text="@string/v202" />
 
-                            <EditText
+                            <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
                                 android:id="@+id/v202"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:hint="HH:mm"
                                 android:gravity="center"
-                                android:hint="@string/v202"
+                                android:inputType="number"
+                                app:timeFormat="HH:mm"
                                 android:text="@={vhc.v202}" />
 
                         </LinearLayout>

@@ -85,11 +85,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_USERNAME, form.getUserName());
         values.put(FormsTable.COLUMN_SYSDATE, form.getSysDate());
         values.put(FormsTable.COLUMN_DISTRICT_CODE, form.getDistrictCode());
-        values.put(FormsTable.COLUMN_DISTRICT_NAME, form.getDistrictName());
+        values.put(FormsTable.COLUMN_TEHSIL_CODE, form.getTehsilCode());
         values.put(FormsTable.COLUMN_HF_CODE, form.getHfCode());
-        values.put(FormsTable.COLUMN_HF_NAME, form.getHfName());
-        values.put(FormsTable.COLUMN_REPORTING_MONTH, form.getReportingMonth());
-        values.put(FormsTable.COLUMN_REPORTING_YEAR, form.getReportingYear());
+        values.put(FormsTable.COLUMN_LHW_CODE, form.getLhwCode());
         values.put(FormsTable.COLUMN_A101, form.getA101());
         values.put(FormsTable.COLUMN_A102, form.getA102());
         values.put(FormsTable.COLUMN_A103, form.getA103());
@@ -435,8 +433,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String whereClause;
         whereClause = FormsTable.COLUMN_HF_CODE + "=? AND " +
+                FormsTable.COLUMN_DISTRICT_CODE + "=? AND " +
+                FormsTable.COLUMN_TEHSIL_CODE + "=? AND " +
                 FormsTable.COLUMN_HF_CODE + "=? AND " +
-                FormsTable.COLUMN_HF_NAME + "=? AND " +
+                FormsTable.COLUMN_LHW_CODE + "=? AND " +
                 FormsTable.COLUMN_SYNCED + " is null AND " +
                 FormsTable.COLUMN_ISTATUS + "=?";
 
@@ -707,8 +707,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 districts.sync(json);
                 ContentValues values = new ContentValues();
 
-                values.put(Districts.TableDistricts.COLUMN_DISTRICT_NAME, districts.getDistrictName());
+                values.put(Districts.TableDistricts.COLUMN_PROVINCE_CODE, districts.getProvinceCode());
+                values.put(Districts.TableDistricts.COLUMN_PROVINCE_NAME, districts.getProvinceName());
                 values.put(Districts.TableDistricts.COLUMN_DISTRICT_CODE, districts.getDistrictCode());
+                values.put(Districts.TableDistricts.COLUMN_DISTRICT_NAME, districts.getDistrictName());
 
                 long rowID = db.insert(Districts.TableDistricts.TABLE_NAME, null, values);
                 if (rowID != -1) insertCount++;
@@ -875,8 +877,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable._ID,
                 FormsTable.COLUMN_UID,
                 FormsTable.COLUMN_SYSDATE,
+                FormsTable.COLUMN_DISTRICT_CODE,
+                FormsTable.COLUMN_TEHSIL_CODE,
                 FormsTable.COLUMN_HF_CODE,
-                FormsTable.COLUMN_HF_NAME,
+                FormsTable.COLUMN_LHW_CODE,
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_SYNCED,
         };
@@ -902,8 +906,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 fc.setId(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
                 fc.setUid(c.getString(c.getColumnIndex(FormsTable.COLUMN_UID)));
                 fc.setSysDate(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYSDATE)));
+                fc.setDistrictCode(c.getString(c.getColumnIndex(FormsTable.COLUMN_DISTRICT_CODE)));
+                fc.setTehsilCode(c.getString(c.getColumnIndex(FormsTable.COLUMN_TEHSIL_CODE)));
                 fc.setHfCode(c.getString(c.getColumnIndex(FormsTable.COLUMN_HF_CODE)));
-                fc.setHfName(c.getString(c.getColumnIndex(FormsTable.COLUMN_HF_NAME)));
+                fc.setLhwCode(c.getString(c.getColumnIndex(FormsTable.COLUMN_LHW_CODE)));
                 fc.setiStatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
                 fc.setSynced(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED)));
                 allFC.add(fc);
@@ -1136,7 +1142,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public ArrayList<LHW> getTehsilByDist(String distid) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
-        String[] columns = null;
+        String[] columns = {"DISTINCT " +
+                LHW.LHWTable.COLUMN_TEHSIL_CODE,
+                LHW.LHWTable.COLUMN_TEHSIL_NAME
+        };
 
         String whereClause = LHW.LHWTable.COLUMN_DISTRICT_CODE + "=?";
         String[] whereArgs = {distid};
@@ -1157,7 +1166,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                lhw.add(new LHW().hydrate(c));
+                lhw.add(new LHW().hydrateTehsil(c));
             }
         } finally {
             if (c != null) {
@@ -1173,7 +1182,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public ArrayList<LHW> getUcByTehil(String teh) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
-        String[] columns = null;
+        String[] columns = {"DISTINCT " +
+                LHW.LHWTable.COLUMN_UC_CODE,
+                LHW.LHWTable.COLUMN_UC_NAME
+        };
 
         String whereClause = LHW.LHWTable.COLUMN_TEHSIL_CODE + "=?";
         String[] whereArgs = {teh};
@@ -1194,7 +1206,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                lhw.add(new LHW().hydrate(c));
+                lhw.add(new LHW().hydrateUC(c));
             }
         } finally {
             if (c != null) {
@@ -1210,7 +1222,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public ArrayList<LHW> getHfByUc(String uc) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
-        String[] columns = null;
+        String[] columns = {"DISTINCT " +
+                LHW.LHWTable.COLUMN_HF_CODE,
+                LHW.LHWTable.COLUMN_HF_NAME
+        };
 
         String whereClause = LHW.LHWTable.COLUMN_UC_CODE + "=?";
         String[] whereArgs = {uc};
@@ -1231,7 +1246,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                lhw.add(new LHW().hydrate(c));
+                lhw.add(new LHW().hydrateHF(c));
             }
         } finally {
             if (c != null) {
@@ -1247,7 +1262,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public ArrayList<LHW> getHfByTehsil(String tehsil) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
-        String[] columns = null;
+        String[] columns = {"DISTINCT " +
+                LHW.LHWTable.COLUMN_HF_CODE,
+                LHW.LHWTable.COLUMN_HF_NAME
+        };
 
         String whereClause = LHW.LHWTable.COLUMN_TEHSIL_CODE + "=?";
         String[] whereArgs = {tehsil};
@@ -1268,7 +1286,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                lhw.add(new LHW().hydrate(c));
+                lhw.add(new LHW().hydrateHF(c));
             }
         } finally {
             if (c != null) {
@@ -1284,7 +1302,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public ArrayList<LHW> getLhwByHf(String hf) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
-        String[] columns = null;
+        String[] columns = {"DISTINCT " +
+                LHW.LHWTable.COLUMN_LHW_CODE,
+                LHW.LHWTable.COLUMN_LHW_NAME,
+                LHW.LHWTable.COLUMN_LHW_SUPERVISOR
+        };
 
         String whereClause = LHW.LHWTable.COLUMN_HF_CODE + "=?";
         String[] whereArgs = {hf};
@@ -1305,7 +1327,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                lhw.add(new LHW().hydrate(c));
+                lhw.add(new LHW().hydrateLHW(c));
             }
         } finally {
             if (c != null) {
@@ -1369,7 +1391,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String whereClause;
         whereClause =
                 FormsTable.COLUMN_HF_CODE + "=? AND " +
-                        FormsTable.COLUMN_REPORTING_MONTH + "=?";
+                        FormsTable.COLUMN_TEHSIL_CODE + "=?";
 
         String[] whereArgs = {hfCode, rMonth};
 

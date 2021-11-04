@@ -62,13 +62,13 @@ public class SectionIdentificationActivity extends AppCompatActivity {
         form.setDeviceTag(MainApp.appInfo.getTagName());
         form.setAppver(MainApp.appInfo.getAppVersion());
 
-        form.setDistrictName(bi.distname.getSelectedItem().toString());
+        form.setLhwCode(bi.distname.getSelectedItem().toString());
         form.setDistrictCode(districtCodes.get(bi.distname.getSelectedItemPosition()));
 
-        form.setHfName(bi.facilityname.getSelectedItem().toString());
+        /*form.setHfName(bi.facilityname.getSelectedItem().toString());*/
         form.setHfCode(hfCodes.get(bi.facilityname.getSelectedItemPosition()));
 
-        form.setReportingMonth(bi.reportMonth.getSelectedItem().toString());
+        form.setTehsilCode(bi.reportMonth.getSelectedItem().toString());
         //   form.setReportingYear(bi.reportingyear.getText().toString().isEmpty() ? "-1" : bi.reportingyear.getText().toString());
 
     }

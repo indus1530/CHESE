@@ -10,17 +10,23 @@ import org.json.JSONObject
  * @update ali.azaz
  */
 class Districts {
+    var provinceCode: String = ""
+    var provinceName: String = ""
     var districtCode: String = ""
     var districtName: String = ""
 
     @Throws(JSONException::class)
     fun sync(jsonObject: JSONObject): Districts {
+        provinceCode = jsonObject.getString(TableDistricts.COLUMN_PROVINCE_CODE)
+        provinceName = jsonObject.getString(TableDistricts.COLUMN_PROVINCE_NAME)
         districtCode = jsonObject.getString(TableDistricts.COLUMN_DISTRICT_CODE)
         districtName = jsonObject.getString(TableDistricts.COLUMN_DISTRICT_NAME)
         return this
     }
 
     fun hydrate(cursor: Cursor): Districts {
+        provinceCode = cursor.getString(cursor.getColumnIndex(TableDistricts.COLUMN_PROVINCE_CODE))
+        provinceName = cursor.getString(cursor.getColumnIndex(TableDistricts.COLUMN_PROVINCE_NAME))
         districtCode = cursor.getString(cursor.getColumnIndex(TableDistricts.COLUMN_DISTRICT_CODE))
         districtName = cursor.getString(cursor.getColumnIndex(TableDistricts.COLUMN_DISTRICT_NAME))
         return this
@@ -30,6 +36,8 @@ class Districts {
         const val TABLE_NAME = "districts"
         const val COLUMN_NAME_NULLABLE = "nullColumnHack"
         const val COLUMN_ID = "_ID"
+        const val COLUMN_PROVINCE_CODE = "pro_id"
+        const val COLUMN_PROVINCE_NAME = "province"
         const val COLUMN_DISTRICT_CODE = "district_code"
         const val COLUMN_DISTRICT_NAME = "district_name"
     }

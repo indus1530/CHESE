@@ -35,22 +35,23 @@ import edu.aku.hassannaqvi.chese.models.LHW;
 
 public class SectionLHWActivity extends AppCompatActivity {
     ActivitySectionLhwBinding bi;
-    private List<String> districtCode, tehsilCode, ucCode, hfCode, lhwCode;
-    private List<String> districtName, tehsilName, ucName, hfName, lhwName;
-    private List<String> lhwSupervisor;
+    private List<String> districtCode, tehsilCode, hfCode, lhwCode;
+    private List<String> districtName, tehsilName, hfName, lhwName;
+    private List<String> lhwSupervisor, sessionType;
     private DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_lhw);
+        bi.setCallback(this);
         db = MainApp.appInfo.dbHelper;
         setSupportActionBar(bi.toolbar);
         populateSpinner(this);
     }
 
 
-    private boolean updateDB() {
+    /*private boolean updateDB() {
         DatabaseHelper db = appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsTable.COLUMN_A101, form.getA101());
         if (updcount == 1) {
@@ -59,23 +60,21 @@ public class SectionLHWActivity extends AppCompatActivity {
             Toast.makeText(this, "SORRY! Failed to update DB", Toast.LENGTH_SHORT).show();
             return false;
         }
-    }
+    }*/
 
 
     public void btnContinue(View view) {
         if (!formValidation()) return;
-        if (!addForm()) return;
-        if (updateDB()) {
+        saveDraft();
+        if (addForm()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, bi.type.getSelectedItemPosition() == 1 ? SectionVHC2Activity.class : SectionWSG2Activity.class));
         }
     }
 
 
     private void saveDraft() {
-
-        //if (!form.getId().equals("")) return;
 
         form = new Forms();
         form.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
@@ -84,14 +83,20 @@ public class SectionLHWActivity extends AppCompatActivity {
         form.setDeviceTag(MainApp.appInfo.getTagName());
         form.setAppver(MainApp.appInfo.getAppVersion());
 
-        /*form.setDistrictName(bi.distname.getSelectedItem().toString());
-        form.setDistrictCode(districtCodes.get(bi.distname.getSelectedItemPosition()));
+        form.setA101(bi.a101.getSelectedItem().toString());
+        form.setDistrictCode(districtCode.get(bi.a101.getSelectedItemPosition()));
 
-        form.setHfName(bi.facilityname.getSelectedItem().toString());
-        form.setHfCode(hfCodes.get(bi.facilityname.getSelectedItemPosition()));
+        form.setA102(bi.a101.getSelectedItem().toString());
+        form.setTehsilCode(tehsilCode.get(bi.a102.getSelectedItemPosition()));
 
-        form.setReportingMonth(bi.reportMonth.getSelectedItem().toString());*/
-        //   form.setReportingYear(bi.reportingyear.getText().toString().isEmpty() ? "-1" : bi.reportingyear.getText().toString());
+        form.setA103(bi.a103.getSelectedItem().toString());
+        form.setHfCode(hfCode.get(bi.a103.getSelectedItemPosition()));
+
+        form.setA104n(bi.a104n.getSelectedItem().toString());
+        form.setA104c(lhwCode.get(bi.a104n.getSelectedItemPosition()));
+        form.setA105(lhwSupervisor.get(bi.a104n.getSelectedItemPosition()));
+        form.setLhwCode(lhwCode.get(bi.a104n.getSelectedItemPosition()));
+        form.setSessionType(bi.type.getSelectedItem().toString());
 
     }
 
@@ -203,6 +208,9 @@ public class SectionLHWActivity extends AppCompatActivity {
                     lhwSupervisor.add(p.getLhw_supervisor());
                 }
 
+                bi.lhw.setVisibility(View.GONE);
+                bi.a104c.setText("");
+                bi.a105.setText("");
                 bi.a104n.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, lhwName));
             }
 
@@ -216,8 +224,15 @@ public class SectionLHWActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 if (position == 0) return;
+                bi.lhw.setVisibility(View.VISIBLE);
                 bi.a104c.setText(lhwCode.get(position));
                 bi.a105.setText(lhwSupervisor.get(position));
+
+                sessionType = new ArrayList<>();
+                sessionType.add("....");
+                sessionType.add("VHC: Village Health Committee");
+                sessionType.add("WSG: Women Support Group");
+                bi.type.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, sessionType));
             }
 
             @Override

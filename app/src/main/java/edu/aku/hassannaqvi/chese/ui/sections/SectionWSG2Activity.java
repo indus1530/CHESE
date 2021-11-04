@@ -16,6 +16,7 @@ import com.validatorcrawler.aliazaz.Validator;
 import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGTable;
+import edu.aku.hassannaqvi.chese.data.model.WSG;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionWsg2Binding;
 import edu.aku.hassannaqvi.chese.utils.DateUtilsKt;
@@ -30,8 +31,9 @@ public class SectionWSG2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_wsg2);
         bi.setCallback(this);
+        if (wsg == null) wsg = new WSG();
         bi.setWsg(wsg);
-        bi.ws201.setMinDate(DateUtilsKt.getDaysBack("yyyy-MM-dd", -7));
+        bi.ws201.setMinDate(DateUtilsKt.getMonthsBack("yyyy-MM-dd", -1));
     }
 
 

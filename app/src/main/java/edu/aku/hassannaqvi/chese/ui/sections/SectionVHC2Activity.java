@@ -16,6 +16,7 @@ import com.validatorcrawler.aliazaz.Validator;
 import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCTable;
+import edu.aku.hassannaqvi.chese.data.model.VHC;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc2Binding;
 
@@ -28,6 +29,7 @@ public class SectionVHC2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_vhc2);
         bi.setCallback(this);
+        if (vhc == null) vhc = new VHC();
         bi.setVhc(vhc);
     }
 
