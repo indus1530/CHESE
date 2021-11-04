@@ -16,10 +16,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.AttendeesTable;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCTable;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGTable;
 import edu.aku.hassannaqvi.chese.core.MainApp;
+import edu.aku.hassannaqvi.chese.data.model.Attendees;
 import edu.aku.hassannaqvi.chese.data.model.Forms;
 import edu.aku.hassannaqvi.chese.data.model.VHC;
 import edu.aku.hassannaqvi.chese.data.model.WSG;
@@ -171,6 +173,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         newRowId = db.insert(
                 VHCTable.TABLE_NAME,
                 VHCTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+
+    public Long addAttendees(Attendees atn) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(AttendeesTable.COLUMN_PROJECT_NAME, atn.getProjectName());
+        values.put(AttendeesTable.COLUMN_UID, atn.getUid());
+        values.put(AttendeesTable.COLUMN_UUID, atn.getUid());
+        values.put(AttendeesTable.COLUMN_USERNAME, atn.getUserName());
+        values.put(AttendeesTable.COLUMN_SYSDATE, atn.getSysDate());
+        values.put(AttendeesTable.COLUMN_SESSION_TYPE, atn.getSessionType());
+        values.put(AttendeesTable.COLUMN_DISTRICT_CODE, atn.getDistrictCode());
+        values.put(AttendeesTable.COLUMN_DISTRICT_NAME, atn.getDistrictName());
+        values.put(AttendeesTable.COLUMN_TEHSIL_CODE, atn.getTehsilCode());
+        values.put(AttendeesTable.COLUMN_TEHSIL_NAME, atn.getTehsilName());
+        values.put(AttendeesTable.COLUMN_HF_CODE, atn.getHfCode());
+        values.put(AttendeesTable.COLUMN_HF_NAME, atn.getHfName());
+        values.put(AttendeesTable.COLUMN_LHW_CODE, atn.getLhwCode());
+        values.put(AttendeesTable.COLUMN_LHW_NAME, atn.getLhwName());
+        values.put(AttendeesTable.COLUMN_SV3, atn.sV3toString());
+        values.put(AttendeesTable.COLUMN_ISTATUS, atn.getiStatus());
+        values.put(AttendeesTable.COLUMN_ISTATUS96x, atn.getiStatus96x());
+        values.put(AttendeesTable.COLUMN_ENDINGDATETIME, atn.getEndTime());
+        values.put(AttendeesTable.COLUMN_DEVICETAGID, atn.getDeviceTag());
+        values.put(AttendeesTable.COLUMN_DEVICEID, atn.getDeviceId());
+        values.put(AttendeesTable.COLUMN_APPVERSION, atn.getAppver());
+        long newRowId;
+        newRowId = db.insert(
+                AttendeesTable.TABLE_NAME,
+                AttendeesTable.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
@@ -550,6 +585,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(MainApp.vhc.getId())};
 
         return db.update(VHCTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+    public int updatesAtenColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = AttendeesTable._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.attendees.getId())};
+
+        return db.update(AttendeesTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);

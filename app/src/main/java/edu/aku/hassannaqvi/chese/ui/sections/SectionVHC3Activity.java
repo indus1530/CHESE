@@ -2,7 +2,9 @@ package edu.aku.hassannaqvi.chese.ui.sections;
 
 import static edu.aku.hassannaqvi.chese.core.MainApp.appInfo;
 import static edu.aku.hassannaqvi.chese.core.MainApp.attendees;
+import static edu.aku.hassannaqvi.chese.core.MainApp.form;
 import static edu.aku.hassannaqvi.chese.core.MainApp.vhc;
+import static edu.aku.hassannaqvi.chese.core.MainApp.wsg;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +18,7 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
-import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCTable;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.AttendeesTable;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc3Binding;
 
@@ -29,13 +31,12 @@ public class SectionVHC3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_vhc3);
         bi.setCallback(this);
-        bi.setAttendees(attendees);
     }
 
 
     private boolean updateDB() {
         DatabaseHelper db = appInfo.getDbHelper();
-        int updcount = db.updatesVHCColumn(VHCTable.COLUMN_SV3, vhc.sV3toString());
+        int updcount = db.updatesAtenColumn(AttendeesTable.COLUMN_SV3, attendees.sV3toString());
         if (updcount == 1) {
             return true;
         } else {
@@ -68,13 +69,16 @@ public class SectionVHC3Activity extends AppCompatActivity {
 
 
     private boolean addForm() {
-        if (!vhc.getId().equals("")) return true;
+        if (!attendees.getId().equals("")) return true;
         DatabaseHelper db = appInfo.dbHelper;
-        long rowid = db.addVHC(vhc);
-        vhc.setId(String.valueOf(rowid));
+        long rowid = db.addAttendees(attendees);
+        attendees.setId(String.valueOf(rowid));
         if (rowid > 0) {
-            vhc.setUid(vhc.getDeviceId() + vhc.getId());
-            db.updatesVHCColumn(VHCTable.COLUMN_UID, vhc.getUid());
+            attendees.setUid(attendees.getDeviceId() + attendees.getId());
+            db.updatesAtenColumn(AttendeesTable.COLUMN_UID, attendees.getUid());
+            if (form.getSessionType().contains("VHC"))
+                db.updatesAtenColumn(AttendeesTable.COLUMN_UUID, vhc.getUid());
+            else db.updatesAtenColumn(AttendeesTable.COLUMN_UUID, wsg.getUid());
             return true;
         } else {
             Toast.makeText(this, "Failed to update DB", Toast.LENGTH_SHORT).show();

@@ -13,7 +13,6 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
-import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGTable;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
@@ -51,7 +50,7 @@ public class SectionWSG5Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, SectionVHC3Activity.class));
         }
     }
 

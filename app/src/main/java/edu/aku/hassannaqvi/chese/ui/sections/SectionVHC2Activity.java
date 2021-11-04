@@ -13,7 +13,6 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
-import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCTable;
 import edu.aku.hassannaqvi.chese.data.model.VHC;
@@ -32,7 +31,7 @@ public class SectionVHC2Activity extends AppCompatActivity {
         bi.setCallback(this);
         if (vhc == null) vhc = new VHC();
         bi.setVhc(vhc);
-        bi.v201.setMinDate(DateUtilsKt.getMonthsBack("dd-MM-yyyy", -1));
+        bi.v201.setMinDate(DateUtilsKt.getMonthsBack("dd/MM/yyyy", -1));
     }
 
 
@@ -54,7 +53,7 @@ public class SectionVHC2Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, SectionVHC3Activity.class));
         }
     }
 
