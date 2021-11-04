@@ -32,7 +32,7 @@ public class SectionVHC2Activity extends AppCompatActivity {
         bi.setCallback(this);
         if (vhc == null) vhc = new VHC();
         bi.setVhc(vhc);
-        bi.v201.setMinDate(DateUtilsKt.getMonthsBack("yyyy/MM/dd", -1));
+        bi.v201.setMinDate(DateUtilsKt.getMonthsBack("dd-MM-yyyy", -1));
     }
 
 
