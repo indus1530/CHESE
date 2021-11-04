@@ -19,6 +19,7 @@ import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCTable;
 import edu.aku.hassannaqvi.chese.data.model.VHC;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc2Binding;
+import edu.aku.hassannaqvi.chese.utils.DateUtilsKt;
 
 
 public class SectionVHC2Activity extends AppCompatActivity {
@@ -31,6 +32,7 @@ public class SectionVHC2Activity extends AppCompatActivity {
         bi.setCallback(this);
         if (vhc == null) vhc = new VHC();
         bi.setVhc(vhc);
+        bi.v201.setMinDate(DateUtilsKt.getMonthsBack("yyyy-MM-dd", -1));
     }
 
 

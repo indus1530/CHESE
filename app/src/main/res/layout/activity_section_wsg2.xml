@@ -79,10 +79,10 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:hint="yyyy-MM-dd"
+                            android:hint="YYYY-MM-DD"
                             android:text="@={wsg.ws201}"
-                            app:dateFormat="yyyy-MM-dd"
-                            app:maxDate="CR-DATE" />
+                            app:dateFormat="yyyy/MM/dd"
+                            app:maxDate="CR_DATE" />
 
                     </LinearLayout>
 
