@@ -33,7 +33,7 @@ public class SectionWSG2Activity extends AppCompatActivity {
         bi.setCallback(this);
         if (wsg == null) wsg = new WSG();
         bi.setWsg(wsg);
-        bi.ws201.setMinDate(DateUtilsKt.getMonthsBack("yyyy-MM-dd", -1));
+        bi.ws201.setMinDate(DateUtilsKt.getMonthsBack("yyyy/MM/dd", -1));
     }
 
 
