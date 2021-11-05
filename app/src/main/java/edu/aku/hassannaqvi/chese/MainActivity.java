@@ -3,8 +3,11 @@ package edu.aku.hassannaqvi.chese;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Locale;
 
 import edu.aku.hassannaqvi.chese.core.AndroidManager;
 import edu.aku.hassannaqvi.chese.core.MainApp;
@@ -29,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         if (MainApp.admin) {
             findViewById(R.id.adminView).setVisibility(View.VISIBLE);
         }
+        TextView username = (TextView) findViewById(R.id.username);
+        username.setText("User Name: " + MainApp.user.getFullname().toUpperCase(Locale.ROOT));
     }
 
 
