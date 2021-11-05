@@ -103,7 +103,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
-    public Long addWSG(WSGForm wsgForm) {
+    public Long addWSGForm(WSGForm wsgForm) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(WSGFormTable.COLUMN_PROJECT_NAME, wsgForm.getProjectName());
@@ -112,13 +112,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(WSGFormTable.COLUMN_SYSDATE, wsgForm.getSysDate());
         values.put(WSGFormTable.COLUMN_DISTRICT_CODE, wsgForm.getDistrictCode());
         values.put(WSGFormTable.COLUMN_DISTRICT_NAME, wsgForm.getDistrictName());
+        values.put(WSGFormTable.COLUMN_TEHSIL_CODE, wsgForm.getTehsilCode());
+        values.put(WSGFormTable.COLUMN_TEHSIL_NAME, wsgForm.getTehsilName());
         values.put(WSGFormTable.COLUMN_HF_CODE, wsgForm.getHfCode());
         values.put(WSGFormTable.COLUMN_HF_NAME, wsgForm.getHfName());
-        values.put(WSGFormTable.COLUMN_REPORTING_MONTH, wsgForm.getTehsilCode());
-        values.put(WSGFormTable.COLUMN_REPORTING_YEAR, wsgForm.getTehsilName());
+        values.put(WSGFormTable.COLUMN_LHW_CODE, wsgForm.getLhwCode());
+        values.put(WSGFormTable.COLUMN_LHW_NAME, wsgForm.getLhwName());
+        values.put(WSGFormTable.COLUMN_LHW_SUPERVISOR, wsgForm.getLhwSupervisor());
         values.put(WSGFormTable.COLUMN_SWS2, wsgForm.sWS2toString());
-        values.put(WSGFormTable.COLUMN_SWS3, wsgForm.sWS41toString());
-        values.put(WSGFormTable.COLUMN_SWS41, wsgForm.sWS42toString());
+        values.put(WSGFormTable.COLUMN_SWS41, wsgForm.sWS41toString());
+        values.put(WSGFormTable.COLUMN_SWS42, wsgForm.sWS42toString());
         values.put(WSGFormTable.COLUMN_SWS5, wsgForm.sWS5toString());
         values.put(WSGFormTable.COLUMN_ISTATUS, wsgForm.getiStatus());
         values.put(WSGFormTable.COLUMN_ISTATUS96x, wsgForm.getiStatus96x());
@@ -211,7 +214,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<VHCForm> getFormsByDate(String sysdate) {
+    public ArrayList<VHCForm> getVHCormByDate(String sysdate) {
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -840,6 +843,106 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allForms;
     }
 
+    public JSONArray getUnsyncedWSGForm() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = WSGFormTable.COLUMN_SYNCED + " is null AND "
+                + WSGFormTable.COLUMN_ISTATUS + "= '1' ";
+
+        String[] whereArgs = null;
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = WSGFormTable.COLUMN_ID + " ASC";
+
+        JSONArray allForms = new JSONArray();
+        try {
+            c = db.query(
+                    WSGFormTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                /** WorkManager Upload
+                 /*Form fc = new Form();
+                 allFC.add(fc.Hydrate(c));*/
+                Log.d(TAG, "getUnsyncedWSGForm: " + c.getCount());
+                WSGForm wsgForm = new WSGForm();
+                allForms.put(wsgForm.Hydrate(c).toJSONObject());
+
+
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        Log.d(TAG, "getUnsyncedWSGForm: " + allForms.toString().length());
+        Log.d(TAG, "getUnsyncedWSGForm: " + allForms);
+        return allForms;
+    }
+
+    public JSONArray getUnsyncedAttendees() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = AttendeesTable.COLUMN_SYNCED + " is null AND "
+                + AttendeesTable.COLUMN_ISTATUS + "= '1' ";
+
+        String[] whereArgs = null;
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = AttendeesTable.COLUMN_ID + " ASC";
+
+        JSONArray allForms = new JSONArray();
+        try {
+            c = db.query(
+                    AttendeesTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                /** WorkManager Upload
+                 /*Form fc = new Form();
+                 allFC.add(fc.Hydrate(c));*/
+                Log.d(TAG, "getUnsyncedAttendees: " + c.getCount());
+                Attendees atn = new Attendees();
+                allForms.put(atn.Hydrate(c).toJSONObject());
+
+
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        Log.d(TAG, "getUnsyncedAttendees: " + allForms.toString().length());
+        Log.d(TAG, "getUnsyncedAttendees: " + allForms);
+        return allForms;
+    }
+
 
     //update SyncedTables
     public void updateSyncedVHCForm(String id) {
@@ -856,6 +959,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int count = db.update(
                 VHCFormTable.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateSyncedWSGForm(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(WSGFormTable.COLUMN_SYNCED, true);
+        values.put(WSGFormTable.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = WSGFormTable.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                WSGFormTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);

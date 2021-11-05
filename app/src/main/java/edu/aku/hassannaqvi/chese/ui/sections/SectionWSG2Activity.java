@@ -72,7 +72,7 @@ public class SectionWSG2Activity extends AppCompatActivity {
     private boolean addForm() {
         if (!wsgForm.getId().equals("")) return true;
         DatabaseHelper db = appInfo.dbHelper;
-        long rowid = db.addWSG(wsgForm);
+        long rowid = db.addWSGForm(wsgForm);
         wsgForm.setId(String.valueOf(rowid));
         if (rowid > 0) {
             wsgForm.setUid(wsgForm.getDeviceId() + wsgForm.getId());
