@@ -14,10 +14,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import edu.aku.hassannaqvi.chese.BR;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGFormTable;
 import edu.aku.hassannaqvi.chese.core.MainApp;
@@ -36,10 +32,13 @@ public class WSGForm extends BaseObservable implements Observable {
     private String sysDate = StringUtils.EMPTY;
     private String districtCode = StringUtils.EMPTY;
     private String districtName = StringUtils.EMPTY;
+    private String tehsilCode = StringUtils.EMPTY;
+    private String tehsilName = StringUtils.EMPTY;
     private String hfCode = StringUtils.EMPTY;
     private String hfName = StringUtils.EMPTY;
-    private String reportingMonth = StringUtils.EMPTY;
-    private String reportingYear = StringUtils.EMPTY;
+    private String lhwCode = StringUtils.EMPTY;
+    private String lhwName = StringUtils.EMPTY;
+    private String lhwSupervisor = StringUtils.EMPTY;
     private String deviceId = StringUtils.EMPTY;
     private String deviceTag = StringUtils.EMPTY;
     private String appver = StringUtils.EMPTY;
@@ -52,8 +51,8 @@ public class WSGForm extends BaseObservable implements Observable {
 
     // SECTION VARIABLES
     private String sWS2 = StringUtils.EMPTY;
-    private String sWS3 = StringUtils.EMPTY;
-    private String sWS4 = StringUtils.EMPTY;
+    private String sWS41 = StringUtils.EMPTY;
+    private String sWS42 = StringUtils.EMPTY;
     private String sWS5 = StringUtils.EMPTY;
 
     // FIELD VARIABLES
@@ -69,14 +68,6 @@ public class WSGForm extends BaseObservable implements Observable {
     private String ws209 = StringUtils.EMPTY;
     private String ws210 = StringUtils.EMPTY;
     private String ws21096x = StringUtils.EMPTY;
-    private String ws301 = StringUtils.EMPTY;
-    private String ws302 = StringUtils.EMPTY;
-    private String ws303 = StringUtils.EMPTY;
-    private String ws304 = StringUtils.EMPTY;
-    private String ws305 = StringUtils.EMPTY;
-    private String ws306 = StringUtils.EMPTY;
-    private String ws307 = StringUtils.EMPTY;
-    private String ws308 = StringUtils.EMPTY;
     private String ws401a = StringUtils.EMPTY;
     private String ws401b = StringUtils.EMPTY;
     private String ws401c = StringUtils.EMPTY;
@@ -201,11 +192,6 @@ public class WSGForm extends BaseObservable implements Observable {
 
 
     public WSGForm() {
-        setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
-        setUserName(MainApp.user.getUserName());
-        //setDeviceId(MainApp.deviceid);
-        setAppver(MainApp.appInfo.getAppVersion());
-        setAppver(MainApp.appInfo.getAppVersion());
     }
 
     @Bindable
@@ -282,6 +268,26 @@ public class WSGForm extends BaseObservable implements Observable {
     }
 
     @Bindable
+    public String getTehsilCode() {
+        return tehsilCode;
+    }
+
+    public WSGForm setTehsilCode(String tehsilCode) {
+        this.tehsilCode = tehsilCode;
+        return this;
+    }
+
+    @Bindable
+    public String getTehsilName() {
+        return tehsilName;
+    }
+
+    public WSGForm setTehsilName(String tehsilName) {
+        this.tehsilName = tehsilName;
+        return this;
+    }
+
+    @Bindable
     public String getHfCode() {
         return hfCode;
     }
@@ -302,22 +308,32 @@ public class WSGForm extends BaseObservable implements Observable {
     }
 
     @Bindable
-    public String getReportingMonth() {
-        return reportingMonth;
+    public String getLhwCode() {
+        return lhwCode;
     }
 
-    public WSGForm setReportingMonth(String reportingMonth) {
-        this.reportingMonth = reportingMonth;
+    public WSGForm setLhwCode(String lhwCode) {
+        this.lhwCode = lhwCode;
         return this;
     }
 
     @Bindable
-    public String getReportingYear() {
-        return reportingYear;
+    public String getLhwName() {
+        return lhwName;
     }
 
-    public WSGForm setReportingYear(String reportingYear) {
-        this.reportingYear = reportingYear;
+    public WSGForm setLhwName(String lhwName) {
+        this.lhwName = lhwName;
+        return this;
+    }
+
+    @Bindable
+    public String getLhwSupervisor() {
+        return lhwSupervisor;
+    }
+
+    public WSGForm setLhwSupervisor(String lhwSupervisor) {
+        this.lhwSupervisor = lhwSupervisor;
         return this;
     }
 
@@ -413,23 +429,23 @@ public class WSGForm extends BaseObservable implements Observable {
     }
 
     @Bindable
-    public String getsWS3() {
-        return sWS3;
+    public String getsWS41() {
+        return sWS41;
     }
 
-    public void setsWS3(String sWS3) {
-        this.sWS3 = sWS3;
-        notifyPropertyChanged(BR.sWS3);
+    public void setsWS41(String sWS41) {
+        this.sWS41 = sWS41;
+        notifyPropertyChanged(BR.sWS41);
     }
 
     @Bindable
-    public String getsWS4() {
-        return sWS4;
+    public String getsWS42() {
+        return sWS42;
     }
 
-    public void setsWS4(String sWS4) {
-        this.sWS4 = sWS4;
-        notifyPropertyChanged(BR.sWS4);
+    public void setsWS42(String sWS42) {
+        this.sWS42 = sWS42;
+        notifyPropertyChanged(BR.sWS42);
     }
 
     @Bindable
@@ -577,85 +593,8 @@ public class WSGForm extends BaseObservable implements Observable {
         notifyPropertyChanged(BR.ws21096x);
     }
 
-    @Bindable
-    public String getWs301() {
-        return ws301;
-    }
 
-    public void setWs301(String ws301) {
-        this.ws301 = ws301;
-        notifyPropertyChanged(BR.ws301);
-    }
 
-    @Bindable
-    public String getWs302() {
-        return ws302;
-    }
-
-    public void setWs302(String ws302) {
-        this.ws302 = ws302;
-        notifyPropertyChanged(BR.ws302);
-    }
-
-    @Bindable
-    public String getWs303() {
-        return ws303;
-    }
-
-    public void setWs303(String ws303) {
-        this.ws303 = ws303;
-        notifyPropertyChanged(BR.ws303);
-    }
-
-    @Bindable
-    public String getWs304() {
-        return ws304;
-    }
-
-    public void setWs304(String ws304) {
-        this.ws304 = ws304;
-        notifyPropertyChanged(BR.ws304);
-    }
-
-    @Bindable
-    public String getWs305() {
-        return ws305;
-    }
-
-    public void setWs305(String ws305) {
-        this.ws305 = ws305;
-        notifyPropertyChanged(BR.ws305);
-    }
-
-    @Bindable
-    public String getWs306() {
-        return ws306;
-    }
-
-    public void setWs306(String ws306) {
-        this.ws306 = ws306;
-        notifyPropertyChanged(BR.ws306);
-    }
-
-    @Bindable
-    public String getWs307() {
-        return ws307;
-    }
-
-    public void setWs307(String ws307) {
-        this.ws307 = ws307;
-        notifyPropertyChanged(BR.ws307);
-    }
-
-    @Bindable
-    public String getWs308() {
-        return ws308;
-    }
-
-    public void setWs308(String ws308) {
-        this.ws308 = ws308;
-        notifyPropertyChanged(BR.ws308);
-    }
 
     @Bindable
     public String getWs401a() {
@@ -1875,10 +1814,13 @@ public class WSGForm extends BaseObservable implements Observable {
         this.sysDate = jsonObject.getString(WSGFormTable.COLUMN_SYSDATE);
         this.districtCode = jsonObject.getString(WSGFormTable.COLUMN_DISTRICT_CODE);
         this.districtName = jsonObject.getString(WSGFormTable.COLUMN_DISTRICT_NAME);
+        this.tehsilCode = jsonObject.getString(WSGFormTable.COLUMN_TEHSIL_CODE);
+        this.tehsilName = jsonObject.getString(WSGFormTable.COLUMN_TEHSIL_NAME);
         this.hfCode = jsonObject.getString(WSGFormTable.COLUMN_HF_CODE);
         this.hfName = jsonObject.getString(WSGFormTable.COLUMN_HF_NAME);
-        this.reportingMonth = jsonObject.getString(WSGFormTable.COLUMN_REPORTING_MONTH);
-        this.reportingYear = jsonObject.getString(WSGFormTable.COLUMN_REPORTING_YEAR);
+        this.lhwCode = jsonObject.getString(WSGFormTable.COLUMN_LHW_CODE);
+        this.lhwName = jsonObject.getString(WSGFormTable.COLUMN_LHW_NAME);
+        this.lhwSupervisor = jsonObject.getString(WSGFormTable.COLUMN_LHW_SUPERVISOR);
         this.deviceId = jsonObject.getString(WSGFormTable.COLUMN_DEVICEID);
         this.deviceTag = jsonObject.getString(WSGFormTable.COLUMN_DEVICETAGID);
         this.appver = jsonObject.getString(WSGFormTable.COLUMN_APPVERSION);
@@ -1889,8 +1831,8 @@ public class WSGForm extends BaseObservable implements Observable {
         this.syncDate = jsonObject.getString(WSGFormTable.COLUMN_SYNCED_DATE);
 
         this.sWS2 = jsonObject.getString(WSGFormTable.COLUMN_SWS2);
-        this.sWS3 = jsonObject.getString(WSGFormTable.COLUMN_SWS3);
-        this.sWS4 = jsonObject.getString(WSGFormTable.COLUMN_SWS41);
+        this.sWS41 = jsonObject.getString(WSGFormTable.COLUMN_SWS41);
+        this.sWS42 = jsonObject.getString(WSGFormTable.COLUMN_SWS42);
         this.sWS5 = jsonObject.getString(WSGFormTable.COLUMN_SWS5);
 
         return this;
@@ -1905,10 +1847,13 @@ public class WSGForm extends BaseObservable implements Observable {
         this.sysDate = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_SYSDATE));
         this.districtCode = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_DISTRICT_CODE));
         this.districtName = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_DISTRICT_NAME));
+        this.tehsilCode = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_TEHSIL_CODE));
+        this.tehsilName = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_TEHSIL_NAME));
         this.hfCode = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_HF_CODE));
         this.hfName = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_HF_NAME));
-        this.reportingMonth = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_REPORTING_MONTH));
-        this.reportingYear = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_REPORTING_YEAR));
+        this.lhwCode = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_LHW_CODE));
+        this.lhwName = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_LHW_NAME));
+        this.lhwSupervisor = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_LHW_SUPERVISOR));
         this.deviceId = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_DEVICEID));
         this.deviceTag = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_DEVICETAGID));
         this.appver = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_APPVERSION));
@@ -1922,8 +1867,8 @@ public class WSGForm extends BaseObservable implements Observable {
         //this.sA = cursor.getString(cursor.getColumnIndex(WSGTable.COLUMN_SA));
 
         sWS2Hydrate(cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_SWS2)));
-        sWS3Hydrate(cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_SWS3)));
-        sWS4Hydrate(cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_SWS41)));
+        sWS41Hydrate(cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_SWS41)));
+        sWS42Hydrate(cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_SWS42)));
         sWS5Hydrate(cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_SWS5)));
 
         return this;
@@ -1959,25 +1904,7 @@ public class WSGForm extends BaseObservable implements Observable {
         return json.toString();
     }
 
-    public String sWS3toString() {
-        JSONObject json = new JSONObject();
-        try {
-            json.put("ws301", ws301)
-                    .put("ws302", ws302)
-                    .put("ws303", ws303)
-                    .put("ws304", ws304)
-                    .put("ws305", ws305)
-                    .put("ws306", ws306)
-                    .put("ws307", ws307)
-                    .put("ws308", ws308);
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return "\"error\":, \"" + e.getMessage() + "\"";
-        }
-        return json.toString();
-    }
-
-    public String sWS4toString() {
+    public String sWS41toString() {
         JSONObject json = new JSONObject();
         try {
             json.put("ws401a", ws401a)
@@ -2038,8 +1965,18 @@ public class WSGForm extends BaseObservable implements Observable {
                     .put("ws407g", ws407g)
                     .put("ws407h", ws407h)
                     .put("ws407i", ws407i)
-                    .put("ws407j", ws407j)
-                    .put("ws408a", ws408a)
+                    .put("ws407j", ws407j);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "\"error\":, \"" + e.getMessage() + "\"";
+        }
+        return json.toString();
+    }
+
+    public String sWS42toString() {
+        JSONObject json = new JSONObject();
+        try {
+            json.put("ws408a", ws408a)
                     .put("ws408b", ws408b)
                     .put("ws408c", ws408c)
                     .put("ws408d", ws408d)
@@ -2128,10 +2065,13 @@ public class WSGForm extends BaseObservable implements Observable {
             json.put(WSGFormTable.COLUMN_SYSDATE, this.sysDate);
             json.put(WSGFormTable.COLUMN_DISTRICT_CODE, this.districtCode);
             json.put(WSGFormTable.COLUMN_DISTRICT_NAME, this.districtName);
+            json.put(WSGFormTable.COLUMN_TEHSIL_CODE, this.tehsilCode);
+            json.put(WSGFormTable.COLUMN_TEHSIL_NAME, this.tehsilName);
             json.put(WSGFormTable.COLUMN_HF_CODE, this.hfCode);
             json.put(WSGFormTable.COLUMN_HF_NAME, this.hfName);
-            json.put(WSGFormTable.COLUMN_REPORTING_MONTH, this.reportingMonth);
-            json.put(WSGFormTable.COLUMN_REPORTING_YEAR, this.reportingYear);
+            json.put(WSGFormTable.COLUMN_LHW_CODE, this.lhwCode);
+            json.put(WSGFormTable.COLUMN_LHW_NAME, this.lhwName);
+            json.put(WSGFormTable.COLUMN_LHW_SUPERVISOR, this.lhwSupervisor);
             json.put(WSGFormTable.COLUMN_DEVICEID, this.deviceId);
             json.put(WSGFormTable.COLUMN_DEVICETAGID, this.deviceTag);
             json.put(WSGFormTable.COLUMN_APPVERSION, this.appver);
@@ -2142,8 +2082,8 @@ public class WSGForm extends BaseObservable implements Observable {
             json.put(WSGFormTable.COLUMN_SYNCED_DATE, this.syncDate);
             json.put(WSGFormTable.COLUMN_SYNCED_DATE, this.syncDate);
             json.put(WSGFormTable.COLUMN_SWS2, new JSONObject(sWS2toString()));
-            json.put(WSGFormTable.COLUMN_SWS3, new JSONObject(sWS3toString()));
-            json.put(WSGFormTable.COLUMN_SWS41, new JSONObject(sWS4toString()));
+            json.put(WSGFormTable.COLUMN_SWS41, new JSONObject(sWS41toString()));
+            json.put(WSGFormTable.COLUMN_SWS42, new JSONObject(sWS42toString()));
             json.put(WSGFormTable.COLUMN_SWS5, new JSONObject(sWS5toString()));
             return json;
         } catch (JSONException e) {
@@ -2176,26 +2116,7 @@ public class WSGForm extends BaseObservable implements Observable {
         }
     }
 
-    public void sWS3Hydrate(String string) {
-        if (string != null) {
-            try {
-                JSONObject json = null;
-                json = new JSONObject(string);
-                this.ws301 = json.getString("ws301");
-                this.ws302 = json.getString("ws302");
-                this.ws303 = json.getString("ws303");
-                this.ws304 = json.getString("ws304");
-                this.ws305 = json.getString("ws305");
-                this.ws306 = json.getString("ws306");
-                this.ws307 = json.getString("ws307");
-                this.ws308 = json.getString("ws308");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void sWS4Hydrate(String string) {
+    public void sWS41Hydrate(String string) {
         if (string != null) {
             try {
                 JSONObject json = null;
@@ -2259,6 +2180,17 @@ public class WSGForm extends BaseObservable implements Observable {
                 this.ws407h = json.getString("ws407h");
                 this.ws407i = json.getString("ws407i");
                 this.ws407j = json.getString("ws407j");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void sWS42Hydrate(String string) {
+        if (string != null) {
+            try {
+                JSONObject json = null;
+                json = new JSONObject(string);
                 this.ws408a = json.getString("ws408a");
                 this.ws408b = json.getString("ws408b");
                 this.ws408c = json.getString("ws408c");

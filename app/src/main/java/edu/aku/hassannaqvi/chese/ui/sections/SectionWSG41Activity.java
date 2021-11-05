@@ -27,13 +27,13 @@ public class SectionWSG41Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_wsg41);
         bi.setCallback(this);
-        bi.setWsg(wsgForm);
+        bi.setWsgForm(wsgForm);
     }
 
 
     private boolean updateDB() {
         DatabaseHelper db = appInfo.getDbHelper();
-        int updcount = db.updatesWSGFormColumn(WSGFormTable.COLUMN_SWS41, wsgForm.sWS4toString());
+        int updcount = db.updatesWSGFormColumn(WSGFormTable.COLUMN_SWS41, wsgForm.sWS41toString());
         if (updcount == 1) {
             return true;
         } else {

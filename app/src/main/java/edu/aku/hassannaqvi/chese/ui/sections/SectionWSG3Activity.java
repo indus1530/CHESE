@@ -38,7 +38,7 @@ public class SectionWSG3Activity extends AppCompatActivity {
 
     private boolean updateDB() {
         DatabaseHelper db = appInfo.getDbHelper();
-        int updcount = db.updatesWSGFormColumn(WSGFormTable.COLUMN_SWS3, wsgForm.sWS3toString());
+        int updcount = db.updatesWSGFormColumn(WSGFormTable.COLUMN_SWS3, wsgForm.sWS41toString());
         if (updcount == 1) {
             return true;
         } else {

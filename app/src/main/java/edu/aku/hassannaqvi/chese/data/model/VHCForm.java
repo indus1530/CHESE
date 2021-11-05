@@ -61,14 +61,6 @@ public class VHCForm extends BaseObservable implements Observable {
     private String v205 = StringUtils.EMPTY;
     private String v20596x = StringUtils.EMPTY;
     private String v206 = StringUtils.EMPTY;
-    private String v301 = StringUtils.EMPTY;
-    private String v302 = StringUtils.EMPTY;
-    private String v303 = StringUtils.EMPTY;
-    private String v304 = StringUtils.EMPTY;
-    private String v305 = StringUtils.EMPTY;
-    private String v306 = StringUtils.EMPTY;
-    private String v307 = StringUtils.EMPTY;
-    private String v308 = StringUtils.EMPTY;
     private String v401 = StringUtils.EMPTY;
     private String v402 = StringUtils.EMPTY;
     private String v403 = StringUtils.EMPTY;
@@ -408,85 +400,7 @@ public class VHCForm extends BaseObservable implements Observable {
         notifyPropertyChanged(BR.v206);
     }
 
-    @Bindable
-    public String getV301() {
-        return v301;
-    }
 
-    public void setV301(String v301) {
-        this.v301 = v301;
-        notifyPropertyChanged(BR.v301);
-    }
-
-    @Bindable
-    public String getV302() {
-        return v302;
-    }
-
-    public void setV302(String v302) {
-        this.v302 = v302;
-        notifyPropertyChanged(BR.v302);
-    }
-
-    @Bindable
-    public String getV303() {
-        return v303;
-    }
-
-    public void setV303(String v303) {
-        this.v303 = v303;
-        notifyPropertyChanged(BR.v303);
-    }
-
-    @Bindable
-    public String getV304() {
-        return v304;
-    }
-
-    public void setV304(String v304) {
-        this.v304 = v304;
-        notifyPropertyChanged(BR.v304);
-    }
-
-    @Bindable
-    public String getV305() {
-        return v305;
-    }
-
-    public void setV305(String v305) {
-        this.v305 = v305;
-        notifyPropertyChanged(BR.v305);
-    }
-
-    @Bindable
-    public String getV306() {
-        return v306;
-    }
-
-    public void setV306(String v306) {
-        this.v306 = v306;
-        notifyPropertyChanged(BR.v306);
-    }
-
-    @Bindable
-    public String getV307() {
-        return v307;
-    }
-
-    public void setV307(String v307) {
-        this.v307 = v307;
-        notifyPropertyChanged(BR.v307);
-    }
-
-    @Bindable
-    public String getV308() {
-        return v308;
-    }
-
-    public void setV308(String v308) {
-        this.v308 = v308;
-        notifyPropertyChanged(BR.v308);
-    }
 
     @Bindable
     public String getV401() {

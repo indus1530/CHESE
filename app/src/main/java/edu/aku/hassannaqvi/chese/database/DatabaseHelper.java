@@ -114,11 +114,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(WSGFormTable.COLUMN_DISTRICT_NAME, wsgForm.getDistrictName());
         values.put(WSGFormTable.COLUMN_HF_CODE, wsgForm.getHfCode());
         values.put(WSGFormTable.COLUMN_HF_NAME, wsgForm.getHfName());
-        values.put(WSGFormTable.COLUMN_REPORTING_MONTH, wsgForm.getReportingMonth());
-        values.put(WSGFormTable.COLUMN_REPORTING_YEAR, wsgForm.getReportingYear());
+        values.put(WSGFormTable.COLUMN_REPORTING_MONTH, wsgForm.getTehsilCode());
+        values.put(WSGFormTable.COLUMN_REPORTING_YEAR, wsgForm.getTehsilName());
         values.put(WSGFormTable.COLUMN_SWS2, wsgForm.sWS2toString());
-        values.put(WSGFormTable.COLUMN_SWS3, wsgForm.sWS3toString());
-        values.put(WSGFormTable.COLUMN_SWS41, wsgForm.sWS4toString());
+        values.put(WSGFormTable.COLUMN_SWS3, wsgForm.sWS41toString());
+        values.put(WSGFormTable.COLUMN_SWS41, wsgForm.sWS42toString());
         values.put(WSGFormTable.COLUMN_SWS5, wsgForm.sWS5toString());
         values.put(WSGFormTable.COLUMN_ISTATUS, wsgForm.getiStatus());
         values.put(WSGFormTable.COLUMN_ISTATUS96x, wsgForm.getiStatus96x());
