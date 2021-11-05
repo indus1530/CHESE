@@ -8,9 +8,9 @@
 
         <import type="android.view.View" />
 
-        <variable
+        <!--<variable
             name="form"
-            type="edu.aku.hassannaqvi.chese.data.model.Forms" />
+            type="edu.aku.hassannaqvi.chese.data.model.Forms" />-->
     </data>
 
 

@@ -550,7 +550,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public int updateEnding() {
+    public int updateVHCEnding() {
         SQLiteDatabase db = this.getReadableDatabase();
 
         // New value for one column
@@ -565,6 +565,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(MainApp.vhcForm.getId())};
 
         return db.update(VHCFormTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+
+    public int updateWSGEnding() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // New value for one column
+        ContentValues values = new ContentValues();
+        values.put(WSGFormTable.COLUMN_ISTATUS, MainApp.wsgForm.getiStatus());
+        //values.put(VHCFormTable.COLUMN_ISTATUS, MainApp.form.getHh26());
+        values.put(WSGFormTable.COLUMN_ISTATUS96x, MainApp.wsgForm.getiStatus96x());
+        values.put(WSGFormTable.COLUMN_ENDINGDATETIME, MainApp.wsgForm.getEndTime());
+
+        // Which row to update, based on the ID
+        String selection = WSGFormTable.COLUMN_ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.wsgForm.getId())};
+
+        return db.update(WSGFormTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);

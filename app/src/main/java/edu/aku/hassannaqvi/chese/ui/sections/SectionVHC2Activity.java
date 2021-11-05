@@ -30,7 +30,7 @@ public class SectionVHC2Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_vhc2);
         bi.setCallback(this);
         if (vhcForm == null) vhcForm = new VHCForm();
-        bi.setVhc(vhcForm);
+        bi.setVhcForm(vhcForm);
         bi.v201.setMinDate(DateUtilsKt.getMonthsBack("dd/MM/yyyy", -1));
     }
 
@@ -53,7 +53,7 @@ public class SectionVHC2Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, SectionVHC3Activity.class));
+            startActivity(new Intent(this, SectionVHC3Activity.class).putExtra("sessionType", "VHC"));
         }
     }
 

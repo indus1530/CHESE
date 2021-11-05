@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.chese.ui;
 
-import static edu.aku.hassannaqvi.chese.core.MainApp.form;
+import static edu.aku.hassannaqvi.chese.core.MainApp.vhcForm;
 import static edu.aku.hassannaqvi.chese.utils.extension.ActivityExtKt.gotoActivity;
 
 import android.os.Bundle;
@@ -26,18 +26,18 @@ import edu.aku.hassannaqvi.chese.databinding.ActivityEndingBinding;
 public class EndingActivity extends AppCompatActivity {
 
     ActivityEndingBinding bi;
-    int sectionMainCheck;
+    String sesstionType;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_ending);
-        bi.setForm(MainApp.form);
+        //bi.setForm(MainApp.form);
         setSupportActionBar(bi.toolbar);
 
         boolean check = getIntent().getBooleanExtra("complete", false);
-        //sectionMainCheck = getIntent().getIntExtra(SECTION_MAIN_CHECK_FOR_END, 0);
+        sesstionType = getIntent().getStringExtra("sessionType");
 
         if (check) {
             bi.istatusa.setEnabled(true);
@@ -54,11 +54,11 @@ public class EndingActivity extends AppCompatActivity {
 
     private void saveDraft() {
 
-        form.setiStatus(bi.istatusa.isChecked() ? "1"
+        vhcForm.setiStatus(bi.istatusa.isChecked() ? "1"
                 : bi.istatusb.isChecked() ? "2"
                 /*: bi.istatusc.isChecked() ? "3"*/
                 : "-1");
-        form.setEndTime(new SimpleDateFormat("dd-MM-yy HH:mm", Locale.ENGLISH).format(new Date().getTime()));
+        vhcForm.setEndTime(new SimpleDateFormat("dd-MM-yy HH:mm", Locale.ENGLISH).format(new Date().getTime()));
 
     }
 
@@ -77,7 +77,7 @@ public class EndingActivity extends AppCompatActivity {
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
         //int updcount = db.updatesFormColumn(Form.FormsTable.COLUMN_ISTATUS, form.getiStatus());
-        int updcount = db.updateEnding();
+        int updcount = db.updateVHCEnding();
         if (updcount > 0) return true;
         else {
             Toast.makeText(this, "SORRY! Failed to update DB", Toast.LENGTH_SHORT).show();

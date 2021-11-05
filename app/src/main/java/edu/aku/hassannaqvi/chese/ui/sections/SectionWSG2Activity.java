@@ -31,7 +31,7 @@ public class SectionWSG2Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_wsg2);
         bi.setCallback(this);
         if (wsgForm == null) wsgForm = new WSGForm();
-        bi.setWsg(wsgForm);
+        bi.setWsgForm(wsgForm);
         bi.ws201.setMinDate(DateUtilsKt.getMonthsBack("dd/MM/yyyy", -1));
     }
 
@@ -54,7 +54,7 @@ public class SectionWSG2Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, SectionVHC3Activity.class));
+            startActivity(new Intent(this, SectionVHC3Activity.class).putExtra("sessionType", "WSG"));
         }
     }
 

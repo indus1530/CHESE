@@ -29,7 +29,7 @@ public class SectionWSG5Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_wsg5);
         bi.setCallback(this);
-        bi.setWsg(wsgForm);
+        bi.setWsgForm(wsgForm);
     }
 
 
@@ -51,7 +51,7 @@ public class SectionWSG5Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true).putExtra("sessionType", "WSG"));
         }
     }
 

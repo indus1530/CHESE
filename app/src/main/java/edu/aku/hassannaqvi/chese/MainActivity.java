@@ -41,13 +41,18 @@ public class MainActivity extends AppCompatActivity {
     public void sectionPress(View v) {
         Intent oF = null;
         switch (v.getId()) {
-            case R.id.openForm:
+            case R.id.openVhcForm:
                 /*MainApp.form = new Forms();
                 startActivity(new Intent(this, SectionIdentificationActivity.class));
                 break;*/
             case R.id.seca:
-                MainApp.form = new Forms();
+                MainApp.vhcForm = new VHCForm();
                 startActivity(new Intent(this, SectionVHC1Activity.class));
+                break;
+            case R.id.openWsgForm:
+            case R.id.wsg3:
+                MainApp.wsgForm = new WSGForm();
+                startActivity(new Intent(this, SectionWSG1Activity.class));
                 break;
             case R.id.vhc2:
                 MainApp.vhcForm = new VHCForm();
@@ -65,10 +70,6 @@ public class MainActivity extends AppCompatActivity {
                 MainApp.wsgForm = new WSGForm();
                 startActivity(new Intent(this, SectionWSG2Activity.class));
                 break;
-            case R.id.wsg3:
-                MainApp.wsgForm = new WSGForm();
-                startActivity(new Intent(this, SectionWSG1Activity.class));
-                break;
             case R.id.wsg4:
                 MainApp.wsgForm = new WSGForm();
                 startActivity(new Intent(this, SectionWSG41Activity.class));
@@ -78,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, SectionWSG5Activity.class));
                 break;
             case R.id.openDBManager:
-                MainApp.form = new Forms();
                 startActivity(new Intent(this, AndroidManager.class));
                 break;
         }

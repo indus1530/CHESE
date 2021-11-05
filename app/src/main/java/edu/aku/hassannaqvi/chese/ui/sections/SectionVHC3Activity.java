@@ -2,7 +2,8 @@ package edu.aku.hassannaqvi.chese.ui.sections;
 
 import static edu.aku.hassannaqvi.chese.core.MainApp.appInfo;
 import static edu.aku.hassannaqvi.chese.core.MainApp.attendees;
-import static edu.aku.hassannaqvi.chese.core.MainApp.form;
+import static edu.aku.hassannaqvi.chese.core.MainApp.vhcForm;
+import static edu.aku.hassannaqvi.chese.core.MainApp.wsgForm;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc3Binding;
 
 public class SectionVHC3Activity extends AppCompatActivity {
     ActivitySectionVhc3Binding bi;
+    String sessionType;
     int sno = 1;
 
     @Override
@@ -36,6 +38,8 @@ public class SectionVHC3Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_vhc3);
         bi.setCallback(this);
         bi.v301.setText(sno);
+
+        sessionType = getIntent().getStringExtra("sessionType");
     }
 
 
@@ -60,7 +64,7 @@ public class SectionVHC3Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, form.getSessionType().contains("WSG") ? SectionWSG41Activity.class : SectionVHC4Activity.class));
+            startActivity(new Intent(this, sessionType.equals("WSG") ? SectionWSG41Activity.class : SectionVHC4Activity.class));
         }
     }
 
@@ -68,20 +72,36 @@ public class SectionVHC3Activity extends AppCompatActivity {
 
         attendees = new Attendees();
         attendees.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
-        attendees.setUuid(form.getUid());
         attendees.setUserName(MainApp.user.getUserName());
         attendees.setDeviceId(MainApp.appInfo.getDeviceID());
         attendees.setDeviceTag(MainApp.appInfo.getTagName());
         attendees.setAppver(MainApp.appInfo.getAppVersion());
-        attendees.setDistrictCode(form.getDistrictCode());
-        attendees.setDistrictName(form.getA101());
-        attendees.setTehsilCode(form.getTehsilCode());
-        attendees.setTehsilName(form.getA102());
-        attendees.setHfCode(form.getHfCode());
-        attendees.setHfName(form.getA103());
-        attendees.setLhwCode(form.getLhwCode());
-        attendees.setLhwName(form.getA104n());
-        attendees.setSessionType(form.getSessionType());
+
+        if (sessionType.equals("WSG")) {
+            attendees.setUuid(wsgForm.getUid());
+            attendees.setDistrictCode(wsgForm.getDistrictCode());
+            attendees.setDistrictName(wsgForm.getDistrictName());
+            attendees.setTehsilCode(wsgForm.getTehsilCode());
+            attendees.setTehsilName(wsgForm.getTehsilName());
+            attendees.setHfCode(wsgForm.getHfCode());
+            attendees.setHfName(wsgForm.getHfName());
+            attendees.setLhwCode(wsgForm.getLhwCode());
+            attendees.setLhwName(wsgForm.getLhwName());
+        }
+
+        if (sessionType.equals("VHC")) {
+            attendees.setUuid(vhcForm.getUid());
+            attendees.setDistrictCode(vhcForm.getDistrictCode());
+            attendees.setDistrictName(vhcForm.getDistrictName());
+            attendees.setTehsilCode(vhcForm.getTehsilCode());
+            attendees.setTehsilName(vhcForm.getTehsilName());
+            attendees.setHfCode(vhcForm.getHfCode());
+            attendees.setHfName(vhcForm.getHfName());
+            attendees.setLhwCode(vhcForm.getLhwCode());
+            attendees.setLhwName(vhcForm.getLhwName());
+        }
+
+        attendees.setSessionType(sessionType);
         attendees.setiStatus("1");
 
         attendees.setV301(bi.v301.getText().toString().trim().isEmpty() ? "-1" : bi.v301.getText().toString());
@@ -140,7 +160,7 @@ public class SectionVHC3Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, SectionVHC3Activity.class));
+            startActivity(new Intent(this, SectionVHC3Activity.class).putExtra("sessionType", sessionType));
         }
     }
 

@@ -29,7 +29,7 @@ public class SectionVHC4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_vhc4);
         bi.setCallback(this);
-        bi.setVhc(vhcForm);
+        bi.setVhcForm(vhcForm);
     }
 
 
@@ -51,7 +51,7 @@ public class SectionVHC4Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true).putExtra("sessionType", "VHC"));
         }
     }
 
