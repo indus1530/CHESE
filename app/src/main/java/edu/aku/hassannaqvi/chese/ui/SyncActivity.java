@@ -49,7 +49,7 @@ import java.util.concurrent.TimeUnit;
 import edu.aku.hassannaqvi.chese.CONSTANTS;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.adapters.SyncListAdapter;
-import edu.aku.hassannaqvi.chese.contracts.TableContracts.FormsTable;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCFormTable;
 import edu.aku.hassannaqvi.chese.core.AppInfo;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.SyncModel;
@@ -145,9 +145,9 @@ public class SyncActivity extends AppCompatActivity {
                 uploadTables.clear();
                 MainApp.uploadData.clear();
 
-                // FORMS RSD
-                uploadTables.add(new SyncModel(FormsTable.TABLE_NAME));
-                MainApp.uploadData.add(db.getUnsyncedForms());
+                // VHCFORM
+                uploadTables.add(new SyncModel(VHCFormTable.TABLE_NAME));
+                MainApp.uploadData.add(db.getUnsyncedVHCForm());
 
                 MainApp.downloadData = new String[uploadTables.size()];
 

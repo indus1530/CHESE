@@ -1,7 +1,7 @@
 package edu.aku.hassannaqvi.chese.ui.sections;
 
 import static edu.aku.hassannaqvi.chese.core.MainApp.appInfo;
-import static edu.aku.hassannaqvi.chese.core.MainApp.vhc;
+import static edu.aku.hassannaqvi.chese.core.MainApp.vhcForm;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,8 +14,8 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import edu.aku.hassannaqvi.chese.R;
-import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCTable;
-import edu.aku.hassannaqvi.chese.data.model.VHC;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCFormTable;
+import edu.aku.hassannaqvi.chese.data.model.VHCForm;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc2Binding;
 import edu.aku.hassannaqvi.chese.utils.DateUtilsKt;
@@ -29,15 +29,15 @@ public class SectionVHC2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_vhc2);
         bi.setCallback(this);
-        if (vhc == null) vhc = new VHC();
-        bi.setVhc(vhc);
+        if (vhcForm == null) vhcForm = new VHCForm();
+        bi.setVhc(vhcForm);
         bi.v201.setMinDate(DateUtilsKt.getMonthsBack("dd/MM/yyyy", -1));
     }
 
 
     private boolean updateDB() {
         DatabaseHelper db = appInfo.getDbHelper();
-        int updcount = db.updatesVHCColumn(VHCTable.COLUMN_SV2, vhc.sV2toString());
+        int updcount = db.updatesVHCFormColumn(VHCFormTable.COLUMN_SV2, vhcForm.sV2toString());
         if (updcount == 1) {
             return true;
         } else {
@@ -70,13 +70,13 @@ public class SectionVHC2Activity extends AppCompatActivity {
 
 
     private boolean addForm() {
-        if (!vhc.getId().equals("")) return true;
+        if (!vhcForm.getId().equals("")) return true;
         DatabaseHelper db = appInfo.dbHelper;
-        long rowid = db.addVHC(vhc);
-        vhc.setId(String.valueOf(rowid));
+        long rowid = db.addVHCForm(vhcForm);
+        vhcForm.setId(String.valueOf(rowid));
         if (rowid > 0) {
-            vhc.setUid(vhc.getDeviceId() + vhc.getId());
-            db.updatesVHCColumn(VHCTable.COLUMN_UID, vhc.getUid());
+            vhcForm.setUid(vhcForm.getDeviceId() + vhcForm.getId());
+            db.updatesVHCFormColumn(VHCFormTable.COLUMN_UID, vhcForm.getUid());
             return true;
         } else {
             Toast.makeText(this, "Failed to update DB", Toast.LENGTH_SHORT).show();

@@ -7,8 +7,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="vhc"
-            type="edu.aku.hassannaqvi.chese.data.model.VHC" />
+            name="vhcForm"
+            type="edu.aku.hassannaqvi.chese.data.model.VHCForm" />
 
         <variable
             name="callback"
@@ -91,8 +91,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v401.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV401(`1`)}"
+                                android:checked="@{vhcForm.v401.equals(`1`)}"
+                                android:onClick="@{()->vhcForm.setV401(`1`)}"
                                 android:text="@string/v401a" />
 
                             <RadioButton
@@ -100,8 +100,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v401.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV401(`2`)}"
+                                android:checked="@{vhcForm.v401.equals(`2`)}"
+                                android:onClick="@{()->vhcForm.setV401(`2`)}"
                                 android:text="@string/v401b" />
 
                         </RadioGroup>
@@ -151,8 +151,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v402.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV402(`1`)}"
+                                android:checked="@{vhcForm.v402.equals(`1`)}"
+                                android:onClick="@{()->vhcForm.setV402(`1`)}"
                                 android:text="@string/v402a" />
 
                             <RadioButton
@@ -160,8 +160,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v402.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV402(`2`)}"
+                                android:checked="@{vhcForm.v402.equals(`2`)}"
+                                android:onClick="@{()->vhcForm.setV402(`2`)}"
                                 android:text="@string/v402b" />
 
                         </RadioGroup>
@@ -211,8 +211,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v403.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV403(`1`)}"
+                                android:checked="@{vhcForm.v403.equals(`1`)}"
+                                android:onClick="@{()->vhcForm.setV403(`1`)}"
                                 android:text="@string/v403a" />
 
                             <RadioButton
@@ -220,8 +220,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v403.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV403(`2`)}"
+                                android:checked="@{vhcForm.v403.equals(`2`)}"
+                                android:onClick="@{()->vhcForm.setV403(`2`)}"
                                 android:text="@string/v403b" />
 
                         </RadioGroup>
@@ -271,8 +271,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v404.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV404(`1`)}"
+                                android:checked="@{vhcForm.v404.equals(`1`)}"
+                                android:onClick="@{()->vhcForm.setV404(`1`)}"
                                 android:text="@string/v404a" />
 
                             <RadioButton
@@ -280,8 +280,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v404.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV404(`2`)}"
+                                android:checked="@{vhcForm.v404.equals(`2`)}"
+                                android:onClick="@{()->vhcForm.setV404(`2`)}"
                                 android:text="@string/v404b" />
 
                         </RadioGroup>
@@ -331,8 +331,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v405.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV405(`1`)}"
+                                android:checked="@{vhcForm.v405.equals(`1`)}"
+                                android:onClick="@{()->vhcForm.setV405(`1`)}"
                                 android:text="@string/v405a" />
 
                             <RadioButton
@@ -340,8 +340,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v405.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV405(`2`)}"
+                                android:checked="@{vhcForm.v405.equals(`2`)}"
+                                android:onClick="@{()->vhcForm.setV405(`2`)}"
                                 android:text="@string/v405b" />
 
                         </RadioGroup>
@@ -391,8 +391,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v406.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV406(`1`)}"
+                                android:checked="@{vhcForm.v406.equals(`1`)}"
+                                android:onClick="@{()->vhcForm.setV406(`1`)}"
                                 android:text="@string/v406a" />
 
                             <RadioButton
@@ -400,8 +400,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v406.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV406(`2`)}"
+                                android:checked="@{vhcForm.v406.equals(`2`)}"
+                                android:onClick="@{()->vhcForm.setV406(`2`)}"
                                 android:text="@string/v406b" />
 
                         </RadioGroup>
@@ -451,8 +451,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v407.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV407(`1`)}"
+                                android:checked="@{vhcForm.v407.equals(`1`)}"
+                                android:onClick="@{()->vhcForm.setV407(`1`)}"
                                 android:text="@string/v407a" />
 
                             <RadioButton
@@ -460,8 +460,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v407.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV407(`2`)}"
+                                android:checked="@{vhcForm.v407.equals(`2`)}"
+                                android:onClick="@{()->vhcForm.setV407(`2`)}"
                                 android:text="@string/v407b" />
 
                         </RadioGroup>
@@ -511,8 +511,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v408.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV408(`1`)}"
+                                android:checked="@{vhcForm.v408.equals(`1`)}"
+                                android:onClick="@{()->vhcForm.setV408(`1`)}"
                                 android:text="@string/v408a" />
 
                             <RadioButton
@@ -520,8 +520,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v408.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV408(`2`)}"
+                                android:checked="@{vhcForm.v408.equals(`2`)}"
+                                android:onClick="@{()->vhcForm.setV408(`2`)}"
                                 android:text="@string/v408b" />
 
                         </RadioGroup>
@@ -571,8 +571,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v409.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV409(`1`)}"
+                                android:checked="@{vhcForm.v409.equals(`1`)}"
+                                android:onClick="@{()->vhcForm.setV409(`1`)}"
                                 android:text="@string/v409a" />
 
                             <RadioButton
@@ -580,8 +580,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v409.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV409(`2`)}"
+                                android:checked="@{vhcForm.v409.equals(`2`)}"
+                                android:onClick="@{()->vhcForm.setV409(`2`)}"
                                 android:text="@string/v409b" />
 
                         </RadioGroup>
@@ -631,8 +631,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v410.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV410(`1`)}"
+                                android:checked="@{vhcForm.v410.equals(`1`)}"
+                                android:onClick="@{()->vhcForm.setV410(`1`)}"
                                 android:text="@string/v410a" />
 
                             <RadioButton
@@ -640,8 +640,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v410.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV410(`2`)}"
+                                android:checked="@{vhcForm.v410.equals(`2`)}"
+                                android:onClick="@{()->vhcForm.setV410(`2`)}"
                                 android:text="@string/v410b" />
 
                         </RadioGroup>
@@ -691,8 +691,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v411.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV411(`1`)}"
+                                android:checked="@{vhcForm.v411.equals(`1`)}"
+                                android:onClick="@{()->vhcForm.setV411(`1`)}"
                                 android:text="@string/v411a" />
 
                             <RadioButton
@@ -700,8 +700,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v411.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV411(`2`)}"
+                                android:checked="@{vhcForm.v411.equals(`2`)}"
+                                android:onClick="@{()->vhcForm.setV411(`2`)}"
                                 android:text="@string/v411b" />
 
                         </RadioGroup>
@@ -751,8 +751,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v412.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV412(`1`)}"
+                                android:checked="@{vhcForm.v412.equals(`1`)}"
+                                android:onClick="@{()->vhcForm.setV412(`1`)}"
                                 android:text="@string/v412a" />
 
                             <RadioButton
@@ -760,8 +760,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v412.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV412(`2`)}"
+                                android:checked="@{vhcForm.v412.equals(`2`)}"
+                                android:onClick="@{()->vhcForm.setV412(`2`)}"
                                 android:text="@string/v412b" />
 
                         </RadioGroup>
@@ -811,8 +811,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v413.equals(`1`)}"
-                                android:onClick="@{()->vhc.setV413(`1`)}"
+                                android:checked="@{vhcForm.v413.equals(`1`)}"
+                                android:onClick="@{()->vhcForm.setV413(`1`)}"
                                 android:text="@string/v413a" />
 
                             <RadioButton
@@ -820,8 +820,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{vhc.v413.equals(`2`)}"
-                                android:onClick="@{()->vhc.setV413(`2`)}"
+                                android:checked="@{vhcForm.v413.equals(`2`)}"
+                                android:onClick="@{()->vhcForm.setV413(`2`)}"
                                 android:text="@string/v413b" />
 
                         </RadioGroup>
@@ -861,7 +861,7 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:hint="@string/v414"
-                                android:text="@={vhc.v414}" />
+                                android:text="@={vhcForm.v414}" />
 
                         </LinearLayout>
 

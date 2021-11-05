@@ -26,7 +26,6 @@ import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.chese.core.MainApp;
-import edu.aku.hassannaqvi.chese.data.model.Forms;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionLhwBinding;
 import edu.aku.hassannaqvi.chese.models.Districts;

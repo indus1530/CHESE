@@ -14,16 +14,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import edu.aku.hassannaqvi.chese.BR;
-import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCTable;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCFormTable;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 
 
-public class VHC extends BaseObservable implements Observable {
+public class VHCForm extends BaseObservable implements Observable {
 
     private final String TAG = "VHC";
     private final transient PropertyChangeRegistry propertyChangeRegistry = new PropertyChangeRegistry();
@@ -36,10 +32,13 @@ public class VHC extends BaseObservable implements Observable {
     private String sysDate = StringUtils.EMPTY;
     private String districtCode = StringUtils.EMPTY;
     private String districtName = StringUtils.EMPTY;
+    private String tehsilCode = StringUtils.EMPTY;
+    private String tehsilName = StringUtils.EMPTY;
     private String hfCode = StringUtils.EMPTY;
     private String hfName = StringUtils.EMPTY;
-    private String reportingMonth = StringUtils.EMPTY;
-    private String reportingYear = StringUtils.EMPTY;
+    private String lhwCode = StringUtils.EMPTY;
+    private String lhwName = StringUtils.EMPTY;
+    private String lhwSupervisor = StringUtils.EMPTY;
     private String deviceId = StringUtils.EMPTY;
     private String deviceTag = StringUtils.EMPTY;
     private String appver = StringUtils.EMPTY;
@@ -52,7 +51,6 @@ public class VHC extends BaseObservable implements Observable {
 
     // SECTION VARIABLES
     private String sV2 = StringUtils.EMPTY;
-    private String sV3 = StringUtils.EMPTY;
     private String sV4 = StringUtils.EMPTY;
 
     // FIELD VARIABLES
@@ -87,12 +85,7 @@ public class VHC extends BaseObservable implements Observable {
     private String v414 = StringUtils.EMPTY;
 
 
-    public VHC() {
-        setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
-        setUserName(MainApp.user.getUserName());
-        //setDeviceId(MainApp.deviceid);
-        setAppver(MainApp.appInfo.getAppVersion());
-        setAppver(MainApp.appInfo.getAppVersion());
+    public VHCForm() {
     }
 
     @Bindable
@@ -123,7 +116,7 @@ public class VHC extends BaseObservable implements Observable {
         return uid;
     }
 
-    public VHC setUid(String uid) {
+    public VHCForm setUid(String uid) {
         this.uid = uid;
         return this;
     }
@@ -133,7 +126,7 @@ public class VHC extends BaseObservable implements Observable {
         return userName;
     }
 
-    public VHC setUserName(String userName) {
+    public VHCForm setUserName(String userName) {
         this.userName = userName;
         return this;
     }
@@ -143,7 +136,7 @@ public class VHC extends BaseObservable implements Observable {
         return sysDate;
     }
 
-    public VHC setSysDate(String sysDate) {
+    public VHCForm setSysDate(String sysDate) {
         this.sysDate = sysDate;
         return this;
     }
@@ -153,7 +146,7 @@ public class VHC extends BaseObservable implements Observable {
         return districtCode;
     }
 
-    public VHC setDistrictCode(String districtCode) {
+    public VHCForm setDistrictCode(String districtCode) {
         this.districtCode = districtCode;
         return this;
     }
@@ -163,8 +156,28 @@ public class VHC extends BaseObservable implements Observable {
         return districtName;
     }
 
-    public VHC setDistrictName(String districtName) {
+    public VHCForm setDistrictName(String districtName) {
         this.districtName = districtName;
+        return this;
+    }
+
+    @Bindable
+    public String getTehsilCode() {
+        return tehsilCode;
+    }
+
+    public VHCForm setTehsilCode(String tehsilCode) {
+        this.tehsilCode = tehsilCode;
+        return this;
+    }
+
+    @Bindable
+    public String getTehsilName() {
+        return tehsilName;
+    }
+
+    public VHCForm setTehsilName(String tehsilName) {
+        this.tehsilName = tehsilName;
         return this;
     }
 
@@ -173,7 +186,7 @@ public class VHC extends BaseObservable implements Observable {
         return hfCode;
     }
 
-    public VHC setHfCode(String hfCode) {
+    public VHCForm setHfCode(String hfCode) {
         this.hfCode = hfCode;
         return this;
     }
@@ -183,28 +196,38 @@ public class VHC extends BaseObservable implements Observable {
         return hfName;
     }
 
-    public VHC setHfName(String hfName) {
+    public VHCForm setHfName(String hfName) {
         this.hfName = hfName;
         return this;
     }
 
     @Bindable
-    public String getReportingMonth() {
-        return reportingMonth;
+    public String getLhwCode() {
+        return lhwCode;
     }
 
-    public VHC setReportingMonth(String reportingMonth) {
-        this.reportingMonth = reportingMonth;
+    public VHCForm setLhwCode(String lhwCode) {
+        this.lhwCode = lhwCode;
         return this;
     }
 
     @Bindable
-    public String getReportingYear() {
-        return reportingYear;
+    public String getLhwName() {
+        return lhwName;
     }
 
-    public VHC setReportingYear(String reportingYear) {
-        this.reportingYear = reportingYear;
+    public VHCForm setLhwName(String lhwName) {
+        this.lhwName = lhwName;
+        return this;
+    }
+
+    @Bindable
+    public String getLhwSupervisor() {
+        return lhwSupervisor;
+    }
+
+    public VHCForm setLhwSupervisor(String lhwSupervisor) {
+        this.lhwSupervisor = lhwSupervisor;
         return this;
     }
 
@@ -213,7 +236,7 @@ public class VHC extends BaseObservable implements Observable {
         return deviceId;
     }
 
-    public VHC setDeviceId(String deviceId) {
+    public VHCForm setDeviceId(String deviceId) {
         this.deviceId = deviceId;
         return this;
     }
@@ -223,7 +246,7 @@ public class VHC extends BaseObservable implements Observable {
         return deviceTag;
     }
 
-    public VHC setDeviceTag(String deviceTag) {
+    public VHCForm setDeviceTag(String deviceTag) {
         this.deviceTag = deviceTag;
         return this;
     }
@@ -233,7 +256,7 @@ public class VHC extends BaseObservable implements Observable {
         return appver;
     }
 
-    public VHC setAppver(String appver) {
+    public VHCForm setAppver(String appver) {
         this.appver = appver;
         return this;
     }
@@ -243,7 +266,7 @@ public class VHC extends BaseObservable implements Observable {
         return endTime;
     }
 
-    public VHC setEndTime(String endTime) {
+    public VHCForm setEndTime(String endTime) {
         this.endTime = endTime;
         return this;
     }
@@ -253,7 +276,7 @@ public class VHC extends BaseObservable implements Observable {
         return iStatus;
     }
 
-    public VHC setiStatus(String iStatus) {
+    public VHCForm setiStatus(String iStatus) {
         this.iStatus = iStatus;
         return this;
     }
@@ -263,7 +286,7 @@ public class VHC extends BaseObservable implements Observable {
         return iStatus96x;
     }
 
-    public VHC setiStatus96x(String iStatus96x) {
+    public VHCForm setiStatus96x(String iStatus96x) {
         this.iStatus96x = iStatus96x;
         return this;
     }
@@ -273,7 +296,7 @@ public class VHC extends BaseObservable implements Observable {
         return synced;
     }
 
-    public VHC setSynced(String synced) {
+    public VHCForm setSynced(String synced) {
         this.synced = synced;
         return this;
     }
@@ -283,7 +306,7 @@ public class VHC extends BaseObservable implements Observable {
         return syncDate;
     }
 
-    public VHC setSyncDate(String syncDate) {
+    public VHCForm setSyncDate(String syncDate) {
         this.syncDate = syncDate;
         return this;
     }
@@ -293,21 +316,12 @@ public class VHC extends BaseObservable implements Observable {
         return sV2;
     }
 
-    public VHC setsV2(String sV2) {
+    public VHCForm setsV2(String sV2) {
         this.sV2 = sV2;
         return this;
         //notifyPropertyChanged(BR.sA);
     }
 
-    @Bindable
-    public String getsV3() {
-        return sV3;
-    }
-
-    public void setsV3(String sV3) {
-        this.sV3 = sV3;
-        notifyPropertyChanged(BR.sV3);
-    }
 
     @Bindable
     public String getsV4() {
@@ -615,59 +629,65 @@ public class VHC extends BaseObservable implements Observable {
     }
 
 
-    public VHC Sync(JSONObject jsonObject) throws JSONException {
-        this.id = jsonObject.getString(VHCTable.COLUMN_ID);
-        this.uid = jsonObject.getString(VHCTable.COLUMN_UID);
-        this.userName = jsonObject.getString(VHCTable.COLUMN_USERNAME);
-        this.sysDate = jsonObject.getString(VHCTable.COLUMN_SYSDATE);
-        this.districtCode = jsonObject.getString(VHCTable.COLUMN_DISTRICT_CODE);
-        this.districtName = jsonObject.getString(VHCTable.COLUMN_DISTRICT_NAME);
-        this.hfCode = jsonObject.getString(VHCTable.COLUMN_HF_CODE);
-        this.hfName = jsonObject.getString(VHCTable.COLUMN_HF_NAME);
-        this.reportingMonth = jsonObject.getString(VHCTable.COLUMN_REPORTING_MONTH);
-        this.reportingYear = jsonObject.getString(VHCTable.COLUMN_REPORTING_YEAR);
-        this.deviceId = jsonObject.getString(VHCTable.COLUMN_DEVICEID);
-        this.deviceTag = jsonObject.getString(VHCTable.COLUMN_DEVICETAGID);
-        this.appver = jsonObject.getString(VHCTable.COLUMN_APPVERSION);
-        this.endTime = jsonObject.getString(VHCTable.COLUMN_ENDINGDATETIME);
-        this.iStatus = jsonObject.getString(VHCTable.COLUMN_ISTATUS);
-        this.iStatus96x = jsonObject.getString(VHCTable.COLUMN_ISTATUS96x);
-        this.synced = jsonObject.getString(VHCTable.COLUMN_SYNCED);
-        this.syncDate = jsonObject.getString(VHCTable.COLUMN_SYNCED_DATE);
+    public VHCForm Sync(JSONObject jsonObject) throws JSONException {
+        this.id = jsonObject.getString(VHCFormTable.COLUMN_ID);
+        this.uid = jsonObject.getString(VHCFormTable.COLUMN_UID);
+        this.userName = jsonObject.getString(VHCFormTable.COLUMN_USERNAME);
+        this.sysDate = jsonObject.getString(VHCFormTable.COLUMN_SYSDATE);
+        this.districtCode = jsonObject.getString(VHCFormTable.COLUMN_DISTRICT_CODE);
+        this.districtName = jsonObject.getString(VHCFormTable.COLUMN_DISTRICT_NAME);
+        this.tehsilCode = jsonObject.getString(VHCFormTable.COLUMN_TEHSIL_CODE);
+        this.tehsilName = jsonObject.getString(VHCFormTable.COLUMN_TEHSIL_NAME);
+        this.hfCode = jsonObject.getString(VHCFormTable.COLUMN_HF_CODE);
+        this.hfName = jsonObject.getString(VHCFormTable.COLUMN_HF_NAME);
+        this.lhwCode = jsonObject.getString(VHCFormTable.COLUMN_LHW_CODE);
+        this.lhwName = jsonObject.getString(VHCFormTable.COLUMN_LHW_NAME);
+        this.lhwSupervisor = jsonObject.getString(VHCFormTable.COLUMN_LHW_SUPERVISOR);
+        this.deviceId = jsonObject.getString(VHCFormTable.COLUMN_DEVICEID);
+        this.deviceTag = jsonObject.getString(VHCFormTable.COLUMN_DEVICETAGID);
+        this.appver = jsonObject.getString(VHCFormTable.COLUMN_APPVERSION);
+        this.endTime = jsonObject.getString(VHCFormTable.COLUMN_ENDINGDATETIME);
+        this.iStatus = jsonObject.getString(VHCFormTable.COLUMN_ISTATUS);
+        this.iStatus96x = jsonObject.getString(VHCFormTable.COLUMN_ISTATUS96x);
+        this.synced = jsonObject.getString(VHCFormTable.COLUMN_SYNCED);
+        this.syncDate = jsonObject.getString(VHCFormTable.COLUMN_SYNCED_DATE);
 
-        this.sV2 = jsonObject.getString(VHCTable.COLUMN_SV2);
+        this.sV2 = jsonObject.getString(VHCFormTable.COLUMN_SV2);
+        this.sV4 = jsonObject.getString(VHCFormTable.COLUMN_SV4);
 
         return this;
 
     }
 
 
-    public VHC Hydrate(Cursor cursor) {
-        this.id = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_ID));
-        this.uid = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_UID));
-        this.userName = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_USERNAME));
-        this.sysDate = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_SYSDATE));
-        this.districtCode = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_DISTRICT_CODE));
-        this.districtName = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_DISTRICT_NAME));
-        this.hfCode = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_HF_CODE));
-        this.hfName = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_HF_NAME));
-        this.reportingMonth = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_REPORTING_MONTH));
-        this.reportingYear = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_REPORTING_YEAR));
-        this.deviceId = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_DEVICEID));
-        this.deviceTag = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_DEVICETAGID));
-        this.appver = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_APPVERSION));
-        this.endTime = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_ENDINGDATETIME));
-        this.iStatus = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_ISTATUS));
-        this.iStatus96x = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_ISTATUS96x));
-        this.synced = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_SYNCED));
-        this.syncDate = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_SYNCED_DATE));
+    public VHCForm Hydrate(Cursor cursor) {
+        this.id = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_ID));
+        this.uid = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_UID));
+        this.userName = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_USERNAME));
+        this.sysDate = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_SYSDATE));
+        this.districtCode = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_DISTRICT_CODE));
+        this.districtName = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_DISTRICT_NAME));
+        this.tehsilCode = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_TEHSIL_CODE));
+        this.tehsilName = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_TEHSIL_NAME);
+        this.hfCode = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_HF_CODE));
+        this.hfName = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_HF_NAME));
+        this.lhwCode = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_LHW_CODE));
+        this.lhwName = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_LHW_NAME));
+        this.lhwSupervisor = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_LHW_SUPERVISOR));
+        this.deviceId = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_DEVICEID));
+        this.deviceTag = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_DEVICETAGID));
+        this.appver = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_APPVERSION));
+        this.endTime = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_ENDINGDATETIME));
+        this.iStatus = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_ISTATUS));
+        this.iStatus96x = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_ISTATUS96x));
+        this.synced = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_SYNCED));
+        this.syncDate = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_SYNCED_DATE));
 
         //For childCount
         //this.sA = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_SA));
 
-        sV2Hydrate(cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_SV2)));
-        sV3Hydrate(cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_SV3)));
-        sV4Hydrate(cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_SV4)));
+        sV2Hydrate(cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_SV2)));
+        sV4Hydrate(cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_SV4)));
 
         return this;
     }
@@ -676,7 +696,7 @@ public class VHC extends BaseObservable implements Observable {
     //TODO: Try this instead of toJSONObject
     @Override
     public String toString() {
-        return new GsonBuilder().create().toJson(this, VHC.class);
+        return new GsonBuilder().create().toJson(this, VHCForm.class);
     }
 
 
@@ -690,24 +710,6 @@ public class VHC extends BaseObservable implements Observable {
                     .put("v205", v205)
                     .put("v20596x", v20596x)
                     .put("v206", v206);
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return "\"error\":, \"" + e.getMessage() + "\"";
-        }
-        return json.toString();
-    }
-
-    public String sV3toString() {
-        JSONObject json = new JSONObject();
-        try {
-            json.put("v301", v301)
-                    .put("v302", v302)
-                    .put("v303", v303)
-                    .put("v304", v304)
-                    .put("v305", v305)
-                    .put("v306", v306)
-                    .put("v307", v307)
-                    .put("v308", v308);
         } catch (JSONException e) {
             e.printStackTrace();
             return "\"error\":, \"" + e.getMessage() + "\"";
@@ -743,28 +745,30 @@ public class VHC extends BaseObservable implements Observable {
     public JSONObject toJSONObject() {
         JSONObject json = new JSONObject();
         try {
-            json.put(VHCTable.COLUMN_ID, this.id);
-            json.put(VHCTable.COLUMN_UID, this.uid);
-            json.put(VHCTable.COLUMN_USERNAME, this.userName);
-            json.put(VHCTable.COLUMN_SYSDATE, this.sysDate);
-            json.put(VHCTable.COLUMN_DISTRICT_CODE, this.districtCode);
-            json.put(VHCTable.COLUMN_DISTRICT_NAME, this.districtName);
-            json.put(VHCTable.COLUMN_HF_CODE, this.hfCode);
-            json.put(VHCTable.COLUMN_HF_NAME, this.hfName);
-            json.put(VHCTable.COLUMN_REPORTING_MONTH, this.reportingMonth);
-            json.put(VHCTable.COLUMN_REPORTING_YEAR, this.reportingYear);
-            json.put(VHCTable.COLUMN_DEVICEID, this.deviceId);
-            json.put(VHCTable.COLUMN_DEVICETAGID, this.deviceTag);
-            json.put(VHCTable.COLUMN_APPVERSION, this.appver);
-            json.put(VHCTable.COLUMN_ENDINGDATETIME, this.endTime);
-            json.put(VHCTable.COLUMN_ISTATUS, this.iStatus);
-            json.put(VHCTable.COLUMN_ISTATUS96x, this.iStatus96x);
-            json.put(VHCTable.COLUMN_SYNCED, this.synced);
-            json.put(VHCTable.COLUMN_SYNCED_DATE, this.syncDate);
-            json.put(VHCTable.COLUMN_SYNCED_DATE, this.syncDate);
-            json.put(VHCTable.COLUMN_SV2, new JSONObject(sV2toString()));
-            json.put(VHCTable.COLUMN_SV3, new JSONObject(sV3toString()));
-            json.put(VHCTable.COLUMN_SV4, new JSONObject(sV4toString()));
+            json.put(VHCFormTable.COLUMN_ID, this.id);
+            json.put(VHCFormTable.COLUMN_UID, this.uid);
+            json.put(VHCFormTable.COLUMN_USERNAME, this.userName);
+            json.put(VHCFormTable.COLUMN_SYSDATE, this.sysDate);
+            json.put(VHCFormTable.COLUMN_DISTRICT_CODE, this.districtCode);
+            json.put(VHCFormTable.COLUMN_DISTRICT_NAME, this.districtName);
+            json.put(VHCFormTable.COLUMN_TEHSIL_CODE, this.tehsilCode);
+            json.put(VHCFormTable.COLUMN_TEHSIL_NAME, this.tehsilName);
+            json.put(VHCFormTable.COLUMN_HF_CODE, this.hfCode);
+            json.put(VHCFormTable.COLUMN_HF_NAME, this.hfName);
+            json.put(VHCFormTable.COLUMN_LHW_CODE, this.lhwCode);
+            json.put(VHCFormTable.COLUMN_LHW_NAME, this.lhwName);
+            json.put(VHCFormTable.COLUMN_LHW_SUPERVISOR, this.lhwSupervisor);
+            json.put(VHCFormTable.COLUMN_DEVICEID, this.deviceId);
+            json.put(VHCFormTable.COLUMN_DEVICETAGID, this.deviceTag);
+            json.put(VHCFormTable.COLUMN_APPVERSION, this.appver);
+            json.put(VHCFormTable.COLUMN_ENDINGDATETIME, this.endTime);
+            json.put(VHCFormTable.COLUMN_ISTATUS, this.iStatus);
+            json.put(VHCFormTable.COLUMN_ISTATUS96x, this.iStatus96x);
+            json.put(VHCFormTable.COLUMN_SYNCED, this.synced);
+            json.put(VHCFormTable.COLUMN_SYNCED_DATE, this.syncDate);
+            json.put(VHCFormTable.COLUMN_SYNCED_DATE, this.syncDate);
+            json.put(VHCFormTable.COLUMN_SV2, new JSONObject(sV2toString()));
+            json.put(VHCFormTable.COLUMN_SV4, new JSONObject(sV4toString()));
             return json;
         } catch (JSONException e) {
             e.printStackTrace();
@@ -785,25 +789,6 @@ public class VHC extends BaseObservable implements Observable {
                 this.v205 = json.getString("v205");
                 this.v20596x = json.getString("v20596x");
                 this.v206 = json.getString("v206");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void sV3Hydrate(String string) {
-        if (string != null) {
-            try {
-                JSONObject json = null;
-                json = new JSONObject(string);
-                this.v301 = json.getString("v301");
-                this.v302 = json.getString("v302");
-                this.v303 = json.getString("v303");
-                this.v304 = json.getString("v304");
-                this.v305 = json.getString("v305");
-                this.v306 = json.getString("v306");
-                this.v307 = json.getString("v307");
-                this.v308 = json.getString("v308");
             } catch (JSONException e) {
                 e.printStackTrace();
             }

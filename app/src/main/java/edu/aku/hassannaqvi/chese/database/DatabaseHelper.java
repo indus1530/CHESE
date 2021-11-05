@@ -17,14 +17,12 @@ import java.util.Collection;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.AttendeesTable;
-import edu.aku.hassannaqvi.chese.contracts.TableContracts.FormsTable;
-import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCTable;
-import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGTable;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCFormTable;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGFormTable;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.Attendees;
-import edu.aku.hassannaqvi.chese.data.model.Forms;
-import edu.aku.hassannaqvi.chese.data.model.VHC;
-import edu.aku.hassannaqvi.chese.data.model.WSG;
+import edu.aku.hassannaqvi.chese.data.model.VHCForm;
+import edu.aku.hassannaqvi.chese.data.model.WSGForm;
 import edu.aku.hassannaqvi.chese.models.Districts;
 import edu.aku.hassannaqvi.chese.models.HealthFacilities;
 import edu.aku.hassannaqvi.chese.models.LHW;
@@ -53,9 +51,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CreateSQL.SQL_CREATE_USERS);
         db.execSQL(CreateSQL.SQL_CREATE_DISTRICTS);
 
-        db.execSQL(CreateSQL.SQL_CREATE_FORMS);
-        db.execSQL(CreateSQL.SQL_CREATE_VHC);
-        db.execSQL(CreateSQL.SQL_CREATE_WSG);
+        db.execSQL(CreateSQL.SQL_CREATE_VHCFORM);
+        db.execSQL(CreateSQL.SQL_CREATE_WSGFORM);
         db.execSQL(CreateSQL.SQL_CREATE_ATTENDEES);
         db.execSQL(CreateSQL.SQL_CREATE_VERSIONAPP);
 
@@ -73,111 +70,69 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    /*
-     * Addition in DB
-     * */
-    public Long addForm(Forms form) {
-
-        // Gets the data repository in write mode
+    /*Addition in DB*/
+    public Long addVHCForm(VHCForm vhcForm) {
         SQLiteDatabase db = this.getWritableDatabase();
-
-// Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(FormsTable.COLUMN_PROJECT_NAME, form.getProjectName());
-        values.put(FormsTable.COLUMN_UID, form.getUid());
-        values.put(FormsTable.COLUMN_USERNAME, form.getUserName());
-        values.put(FormsTable.COLUMN_SYSDATE, form.getSysDate());
-        values.put(FormsTable.COLUMN_DISTRICT_CODE, form.getDistrictCode());
-        values.put(FormsTable.COLUMN_TEHSIL_CODE, form.getTehsilCode());
-        values.put(FormsTable.COLUMN_HF_CODE, form.getHfCode());
-        values.put(FormsTable.COLUMN_LHW_CODE, form.getLhwCode());
-        values.put(FormsTable.COLUMN_A101, form.getA101());
-        values.put(FormsTable.COLUMN_A102, form.getA102());
-        values.put(FormsTable.COLUMN_A103, form.getA103());
-        values.put(FormsTable.COLUMN_A104N, form.getA104n());
-        values.put(FormsTable.COLUMN_A104C, form.getA104c());
-        values.put(FormsTable.COLUMN_A105, form.getA105());
-
-        values.put(FormsTable.COLUMN_ISTATUS, form.getiStatus());
-        values.put(FormsTable.COLUMN_ISTATUS96x, form.getiStatus96x());
-        values.put(FormsTable.COLUMN_ENDINGDATETIME, form.getEndTime());
-
-        values.put(FormsTable.COLUMN_DEVICETAGID, form.getDeviceTag());
-        values.put(FormsTable.COLUMN_DEVICEID, form.getDeviceId());
-        values.put(FormsTable.COLUMN_APPVERSION, form.getAppver());
-
-        // Insert the new row, returning the primary key value of the new row
+        values.put(VHCFormTable.COLUMN_PROJECT_NAME, vhcForm.getProjectName());
+        values.put(VHCFormTable.COLUMN_UID, vhcForm.getUid());
+        values.put(VHCFormTable.COLUMN_USERNAME, vhcForm.getUserName());
+        values.put(VHCFormTable.COLUMN_SYSDATE, vhcForm.getSysDate());
+        values.put(VHCFormTable.COLUMN_DISTRICT_CODE, vhcForm.getDistrictCode());
+        values.put(VHCFormTable.COLUMN_DISTRICT_NAME, vhcForm.getDistrictName());
+        values.put(VHCFormTable.COLUMN_TEHSIL_CODE, vhcForm.getTehsilCode());
+        values.put(VHCFormTable.COLUMN_TEHSIL_NAME, vhcForm.getTehsilName());
+        values.put(VHCFormTable.COLUMN_HF_CODE, vhcForm.getHfCode());
+        values.put(VHCFormTable.COLUMN_HF_NAME, vhcForm.getHfName());
+        values.put(VHCFormTable.COLUMN_LHW_CODE, vhcForm.getLhwCode());
+        values.put(VHCFormTable.COLUMN_LHW_NAME, vhcForm.getLhwName());
+        values.put(VHCFormTable.COLUMN_LHW_SUPERVISOR, vhcForm.getLhwSupervisor());
+        values.put(VHCFormTable.COLUMN_SV2, vhcForm.sV2toString());
+        values.put(VHCFormTable.COLUMN_SV4, vhcForm.sV4toString());
+        values.put(VHCFormTable.COLUMN_ISTATUS, vhcForm.getiStatus());
+        values.put(VHCFormTable.COLUMN_ISTATUS96x, vhcForm.getiStatus96x());
+        values.put(VHCFormTable.COLUMN_ENDINGDATETIME, vhcForm.getEndTime());
+        values.put(VHCFormTable.COLUMN_DEVICETAGID, vhcForm.getDeviceTag());
+        values.put(VHCFormTable.COLUMN_DEVICEID, vhcForm.getDeviceId());
+        values.put(VHCFormTable.COLUMN_APPVERSION, vhcForm.getAppver());
         long newRowId;
         newRowId = db.insert(
-                FormsTable.TABLE_NAME,
-                FormsTable.COLUMN_NAME_NULLABLE,
+                VHCFormTable.TABLE_NAME,
+                VHCFormTable.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
 
-
-    public Long addWSG(WSG wsg) {
+    public Long addWSG(WSGForm wsgForm) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(WSGTable.COLUMN_PROJECT_NAME, wsg.getProjectName());
-        values.put(WSGTable.COLUMN_UID, wsg.getUid());
-        values.put(WSGTable.COLUMN_USERNAME, wsg.getUserName());
-        values.put(WSGTable.COLUMN_SYSDATE, wsg.getSysDate());
-        values.put(WSGTable.COLUMN_DISTRICT_CODE, wsg.getDistrictCode());
-        values.put(WSGTable.COLUMN_DISTRICT_NAME, wsg.getDistrictName());
-        values.put(WSGTable.COLUMN_HF_CODE, wsg.getHfCode());
-        values.put(WSGTable.COLUMN_HF_NAME, wsg.getHfName());
-        values.put(WSGTable.COLUMN_REPORTING_MONTH, wsg.getReportingMonth());
-        values.put(WSGTable.COLUMN_REPORTING_YEAR, wsg.getReportingYear());
-        values.put(WSGTable.COLUMN_SWS2, wsg.sWS2toString());
-        values.put(WSGTable.COLUMN_SWS3, wsg.sWS3toString());
-        values.put(WSGTable.COLUMN_SWS4, wsg.sWS4toString());
-        values.put(WSGTable.COLUMN_SWS5, wsg.sWS5toString());
-        values.put(WSGTable.COLUMN_ISTATUS, wsg.getiStatus());
-        values.put(WSGTable.COLUMN_ISTATUS96x, wsg.getiStatus96x());
-        values.put(WSGTable.COLUMN_ENDINGDATETIME, wsg.getEndTime());
-        values.put(WSGTable.COLUMN_DEVICETAGID, wsg.getDeviceTag());
-        values.put(WSGTable.COLUMN_DEVICEID, wsg.getDeviceId());
-        values.put(WSGTable.COLUMN_APPVERSION, wsg.getAppver());
+        values.put(WSGFormTable.COLUMN_PROJECT_NAME, wsgForm.getProjectName());
+        values.put(WSGFormTable.COLUMN_UID, wsgForm.getUid());
+        values.put(WSGFormTable.COLUMN_USERNAME, wsgForm.getUserName());
+        values.put(WSGFormTable.COLUMN_SYSDATE, wsgForm.getSysDate());
+        values.put(WSGFormTable.COLUMN_DISTRICT_CODE, wsgForm.getDistrictCode());
+        values.put(WSGFormTable.COLUMN_DISTRICT_NAME, wsgForm.getDistrictName());
+        values.put(WSGFormTable.COLUMN_HF_CODE, wsgForm.getHfCode());
+        values.put(WSGFormTable.COLUMN_HF_NAME, wsgForm.getHfName());
+        values.put(WSGFormTable.COLUMN_REPORTING_MONTH, wsgForm.getReportingMonth());
+        values.put(WSGFormTable.COLUMN_REPORTING_YEAR, wsgForm.getReportingYear());
+        values.put(WSGFormTable.COLUMN_SWS2, wsgForm.sWS2toString());
+        values.put(WSGFormTable.COLUMN_SWS3, wsgForm.sWS3toString());
+        values.put(WSGFormTable.COLUMN_SWS41, wsgForm.sWS4toString());
+        values.put(WSGFormTable.COLUMN_SWS5, wsgForm.sWS5toString());
+        values.put(WSGFormTable.COLUMN_ISTATUS, wsgForm.getiStatus());
+        values.put(WSGFormTable.COLUMN_ISTATUS96x, wsgForm.getiStatus96x());
+        values.put(WSGFormTable.COLUMN_ENDINGDATETIME, wsgForm.getEndTime());
+        values.put(WSGFormTable.COLUMN_DEVICETAGID, wsgForm.getDeviceTag());
+        values.put(WSGFormTable.COLUMN_DEVICEID, wsgForm.getDeviceId());
+        values.put(WSGFormTable.COLUMN_APPVERSION, wsgForm.getAppver());
         long newRowId;
         newRowId = db.insert(
-                WSGTable.TABLE_NAME,
-                WSGTable.COLUMN_NAME_NULLABLE,
+                WSGFormTable.TABLE_NAME,
+                WSGFormTable.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
-
-
-    public Long addVHC(VHC vhc) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(VHCTable.COLUMN_PROJECT_NAME, vhc.getProjectName());
-        values.put(VHCTable.COLUMN_UID, vhc.getUid());
-        values.put(VHCTable.COLUMN_USERNAME, vhc.getUserName());
-        values.put(VHCTable.COLUMN_SYSDATE, vhc.getSysDate());
-        values.put(VHCTable.COLUMN_DISTRICT_CODE, vhc.getDistrictCode());
-        values.put(VHCTable.COLUMN_DISTRICT_NAME, vhc.getDistrictName());
-        values.put(VHCTable.COLUMN_HF_CODE, vhc.getHfCode());
-        values.put(VHCTable.COLUMN_HF_NAME, vhc.getHfName());
-        values.put(VHCTable.COLUMN_REPORTING_MONTH, vhc.getReportingMonth());
-        values.put(VHCTable.COLUMN_REPORTING_YEAR, vhc.getReportingYear());
-        values.put(VHCTable.COLUMN_SV2, vhc.sV2toString());
-        values.put(VHCTable.COLUMN_SV3, vhc.sV3toString());
-        values.put(VHCTable.COLUMN_SV4, vhc.sV4toString());
-        values.put(VHCTable.COLUMN_ISTATUS, vhc.getiStatus());
-        values.put(VHCTable.COLUMN_ISTATUS96x, vhc.getiStatus96x());
-        values.put(VHCTable.COLUMN_ENDINGDATETIME, vhc.getEndTime());
-        values.put(VHCTable.COLUMN_DEVICETAGID, vhc.getDeviceTag());
-        values.put(VHCTable.COLUMN_DEVICEID, vhc.getDeviceId());
-        values.put(VHCTable.COLUMN_APPVERSION, vhc.getAppver());
-        long newRowId;
-        newRowId = db.insert(
-                VHCTable.TABLE_NAME,
-                VHCTable.COLUMN_NAME_NULLABLE,
-                values);
-        return newRowId;
-    }
-
 
     public Long addAttendees(Attendees atn) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -256,30 +211,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<Forms> getFormsByDate(String sysdate) {
+    public ArrayList<VHCForm> getFormsByDate(String sysdate) {
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                FormsTable._ID,
-                FormsTable.COLUMN_UID,
-                FormsTable.COLUMN_SYSDATE,
-                FormsTable.COLUMN_USERNAME,
-                FormsTable.COLUMN_ISTATUS,
-                FormsTable.COLUMN_ISTATUS96x,
-                FormsTable.COLUMN_ENDINGDATETIME,
-                FormsTable.COLUMN_SYNCED,
+                VHCFormTable._ID,
+                VHCFormTable.COLUMN_UID,
+                VHCFormTable.COLUMN_SYSDATE,
+                VHCFormTable.COLUMN_USERNAME,
+                VHCFormTable.COLUMN_ISTATUS,
+                VHCFormTable.COLUMN_ISTATUS96x,
+                VHCFormTable.COLUMN_ENDINGDATETIME,
+                VHCFormTable.COLUMN_SYNCED,
 
         };
-        String whereClause = FormsTable.COLUMN_SYSDATE + " Like ? ";
+        String whereClause = VHCFormTable.COLUMN_SYSDATE + " Like ? ";
         String[] whereArgs = new String[]{"%" + sysdate + " %"};
         String groupBy = null;
         String having = null;
-        String orderBy = FormsTable.COLUMN_ID + " ASC";
-        ArrayList<Forms> allForms = new ArrayList<>();
+        String orderBy = VHCFormTable.COLUMN_ID + " ASC";
+        ArrayList<VHCForm> allForms = new ArrayList<>();
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    VHCFormTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -288,12 +243,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                Forms form = new Forms();
-                form.setId(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
-                form.setUid(c.getString(c.getColumnIndex(FormsTable.COLUMN_UID)));
-                form.setSysDate(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYSDATE)));
-                form.setUserName(c.getString(c.getColumnIndex(FormsTable.COLUMN_USERNAME)));
-                allForms.add(form);
+                VHCForm vhcForm = new VHCForm();
+                vhcForm.setId(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_ID)));
+                vhcForm.setUid(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_UID)));
+                vhcForm.setSysDate(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_SYSDATE)));
+                vhcForm.setUserName(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_USERNAME)));
+                allForms.add(vhcForm);
             }
         } finally {
             if (c != null) {
@@ -462,31 +417,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allDC;
     }*/
 
-    public Forms getFormByClusterHH(String distCode, String subAreaCode, String hh) {
+    public VHCForm getFormByClusterHH(String distCode, String subAreaCode, String hh) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = null;
 
         String whereClause;
-        whereClause = FormsTable.COLUMN_HF_CODE + "=? AND " +
-                FormsTable.COLUMN_DISTRICT_CODE + "=? AND " +
-                FormsTable.COLUMN_TEHSIL_CODE + "=? AND " +
-                FormsTable.COLUMN_HF_CODE + "=? AND " +
-                FormsTable.COLUMN_LHW_CODE + "=? AND " +
-                FormsTable.COLUMN_SYNCED + " is null AND " +
-                FormsTable.COLUMN_ISTATUS + "=?";
+        whereClause = VHCFormTable.COLUMN_HF_CODE + "=? AND " +
+                VHCFormTable.COLUMN_DISTRICT_CODE + "=? AND " +
+                VHCFormTable.COLUMN_TEHSIL_CODE + "=? AND " +
+                VHCFormTable.COLUMN_HF_CODE + "=? AND " +
+                VHCFormTable.COLUMN_LHW_CODE + "=? AND " +
+                VHCFormTable.COLUMN_SYNCED + " is null AND " +
+                VHCFormTable.COLUMN_ISTATUS + "=?";
 
         String[] whereArgs = {distCode, subAreaCode, hh, "2"};
 
         String groupBy = null;
         String having = null;
 
-        String orderBy = FormsTable.COLUMN_ID + " ASC";
+        String orderBy = VHCFormTable.COLUMN_ID + " ASC";
 
-        Forms allFC = null;
+        VHCForm allFC = null;
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    VHCFormTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -495,7 +450,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                allFC = new Forms().Hydrate(c);
+                allFC = new VHCForm().Hydrate(c);
             }
         } finally {
             if (c != null) {
@@ -546,46 +501,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public int updatesFormColumn(String column, String value) {
+    public int updatesVHCFormColumn(String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(column, value);
 
-        String selection = FormsTable._ID + " =? ";
-        String[] selectionArgs = {String.valueOf(MainApp.form.getId())};
+        String selection = VHCFormTable._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.vhcForm.getId())};
 
-        return db.update(FormsTable.TABLE_NAME,
+        return db.update(VHCFormTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
     }
 
-    public int updatesWSGColumn(String column, String value) {
+    public int updatesWSGFormColumn(String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(column, value);
 
-        String selection = WSGTable._ID + " =? ";
-        String[] selectionArgs = {String.valueOf(MainApp.wsg.getId())};
+        String selection = WSGFormTable._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.wsgForm.getId())};
 
-        return db.update(WSGTable.TABLE_NAME,
-                values,
-                selection,
-                selectionArgs);
-    }
-
-    public int updatesVHCColumn(String column, String value) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(column, value);
-
-        String selection = VHCTable._ID + " =? ";
-        String[] selectionArgs = {String.valueOf(MainApp.vhc.getId())};
-
-        return db.update(VHCTable.TABLE_NAME,
+        return db.update(WSGFormTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -612,16 +552,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // New value for one column
         ContentValues values = new ContentValues();
-        values.put(FormsTable.COLUMN_ISTATUS, MainApp.form.getiStatus());
-        //values.put(Form.FormsTable.COLUMN_ISTATUS, MainApp.form.getHh26());
-        values.put(FormsTable.COLUMN_ISTATUS96x, MainApp.form.getiStatus96x());
-        values.put(FormsTable.COLUMN_ENDINGDATETIME, MainApp.form.getEndTime());
+        values.put(VHCFormTable.COLUMN_ISTATUS, MainApp.vhcForm.getiStatus());
+        //values.put(VHCFormTable.COLUMN_ISTATUS, MainApp.form.getHh26());
+        values.put(VHCFormTable.COLUMN_ISTATUS96x, MainApp.vhcForm.getiStatus96x());
+        values.put(VHCFormTable.COLUMN_ENDINGDATETIME, MainApp.vhcForm.getEndTime());
 
         // Which row to update, based on the ID
-        String selection = FormsTable.COLUMN_ID + " =? ";
-        String[] selectionArgs = {String.valueOf(MainApp.form.getId())};
+        String selection = VHCFormTable.COLUMN_ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.vhcForm.getId())};
 
-        return db.update(FormsTable.TABLE_NAME,
+        return db.update(VHCFormTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -850,26 +790,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //get UnSyncedTables
-    public JSONArray getUnsyncedForms() {
+    public JSONArray getUnsyncedVHCForm() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = null;
 
         String whereClause;
-        whereClause = FormsTable.COLUMN_SYNCED + " is null AND "
-                + FormsTable.COLUMN_ISTATUS + "= '1' ";
+        whereClause = VHCFormTable.COLUMN_SYNCED + " is null AND "
+                + VHCFormTable.COLUMN_ISTATUS + "= '1' ";
 
         String[] whereArgs = null;
 
         String groupBy = null;
         String having = null;
 
-        String orderBy = FormsTable.COLUMN_ID + " ASC";
+        String orderBy = VHCFormTable.COLUMN_ID + " ASC";
 
         JSONArray allForms = new JSONArray();
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    VHCFormTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -881,9 +821,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 /** WorkManager Upload
                  /*Form fc = new Form();
                  allFC.add(fc.Hydrate(c));*/
-                Log.d(TAG, "getUnsyncedForms: " + c.getCount());
-                Forms form = new Forms();
-                allForms.put(form.Hydrate(c).toJSONObject());
+                Log.d(TAG, "getUnsyncedVHCForm: " + c.getCount());
+                VHCForm vhcForm = new VHCForm();
+                allForms.put(vhcForm.Hydrate(c).toJSONObject());
 
 
             }
@@ -895,56 +835,56 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.close();
             }
         }
-        Log.d(TAG, "getUnsyncedForms: " + allForms.toString().length());
-        Log.d(TAG, "getUnsyncedForms: " + allForms);
+        Log.d(TAG, "getUnsyncedVHCForm: " + allForms.toString().length());
+        Log.d(TAG, "getUnsyncedVHCForm: " + allForms);
         return allForms;
     }
 
 
     //update SyncedTables
-    public void updateSyncedFormsRSD(String id) {
+    public void updateSyncedVHCForm(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(FormsTable.COLUMN_SYNCED, true);
-        values.put(FormsTable.COLUMN_SYNCED_DATE, new Date().toString());
+        values.put(VHCFormTable.COLUMN_SYNCED, true);
+        values.put(VHCFormTable.COLUMN_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = FormsTable.COLUMN_ID + " = ?";
+        String where = VHCFormTable.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
 
         int count = db.update(
-                FormsTable.TABLE_NAME,
+                VHCFormTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
     }
 
-    public ArrayList<Forms> getUnclosedForms() {
+    public ArrayList<VHCForm> getUnclosedVHCForm() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                FormsTable._ID,
-                FormsTable.COLUMN_UID,
-                FormsTable.COLUMN_SYSDATE,
-                FormsTable.COLUMN_DISTRICT_CODE,
-                FormsTable.COLUMN_TEHSIL_CODE,
-                FormsTable.COLUMN_HF_CODE,
-                FormsTable.COLUMN_LHW_CODE,
-                FormsTable.COLUMN_ISTATUS,
-                FormsTable.COLUMN_SYNCED,
+                VHCFormTable._ID,
+                VHCFormTable.COLUMN_UID,
+                VHCFormTable.COLUMN_SYSDATE,
+                VHCFormTable.COLUMN_DISTRICT_CODE,
+                VHCFormTable.COLUMN_TEHSIL_CODE,
+                VHCFormTable.COLUMN_HF_CODE,
+                VHCFormTable.COLUMN_LHW_CODE,
+                VHCFormTable.COLUMN_ISTATUS,
+                VHCFormTable.COLUMN_SYNCED,
         };
-        String whereClause = FormsTable.COLUMN_ISTATUS + " = ''";
+        String whereClause = VHCFormTable.COLUMN_ISTATUS + " = ''";
         String[] whereArgs = null;
 //        String[] whereArgs = new String[]{"%" + spDateT.substring(0, 8).trim() + "%"};
         String groupBy = null;
         String having = null;
-        String orderBy = FormsTable.COLUMN_ID + " ASC";
-        ArrayList<Forms> allFC = new ArrayList<>();
+        String orderBy = VHCFormTable.COLUMN_ID + " ASC";
+        ArrayList<VHCForm> allFC = new ArrayList<>();
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    VHCFormTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -953,16 +893,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                Forms fc = new Forms();
-                fc.setId(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
-                fc.setUid(c.getString(c.getColumnIndex(FormsTable.COLUMN_UID)));
-                fc.setSysDate(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYSDATE)));
-                fc.setDistrictCode(c.getString(c.getColumnIndex(FormsTable.COLUMN_DISTRICT_CODE)));
-                fc.setTehsilCode(c.getString(c.getColumnIndex(FormsTable.COLUMN_TEHSIL_CODE)));
-                fc.setHfCode(c.getString(c.getColumnIndex(FormsTable.COLUMN_HF_CODE)));
-                fc.setLhwCode(c.getString(c.getColumnIndex(FormsTable.COLUMN_LHW_CODE)));
-                fc.setiStatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
-                fc.setSynced(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED)));
+                VHCForm fc = new VHCForm();
+                fc.setId(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_ID)));
+                fc.setUid(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_UID)));
+                fc.setSysDate(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_SYSDATE)));
+                fc.setDistrictCode(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_DISTRICT_CODE)));
+                fc.setTehsilCode(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_TEHSIL_CODE)));
+                fc.setHfCode(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_HF_CODE)));
+                fc.setLhwCode(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_LHW_CODE)));
+                fc.setiStatus(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_ISTATUS)));
+                fc.setSynced(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_SYNCED)));
                 allFC.add(fc);
             }
         } finally {
@@ -976,35 +916,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFC;
     }
 
-    public Collection<Forms> getTodayForms(String sysdate) {
+    public Collection<VHCForm> getTodayForms(String sysdate) {
 
         // String sysdate =  spDateT.substring(0, 8).trim()
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                FormsTable.COLUMN_ID,
-                FormsTable.COLUMN_UID,
-                FormsTable.COLUMN_SYSDATE,
+                VHCFormTable.COLUMN_ID,
+                VHCFormTable.COLUMN_UID,
+                VHCFormTable.COLUMN_SYSDATE,
 /*                FormsTable.COLUMN_MH02,
                 FormsTable.COLUMN_MH06,
                 FormsTable.COLUMN_MH07,
                 FormsTable.COLUMN_SA,*/
-                FormsTable.COLUMN_SYNCED,
+                VHCFormTable.COLUMN_SYNCED,
 
 
         };
-        String whereClause = FormsTable.COLUMN_SYSDATE + " Like ? ";
+        String whereClause = VHCFormTable.COLUMN_SYSDATE + " Like ? ";
         String[] whereArgs = new String[]{"%" + sysdate + " %"};
 //        String[] whereArgs = new String[]{"%" + spDateT.substring(0, 8).trim() + "%"};
         String groupBy = null;
         String having = null;
 
-        String orderBy = FormsTable.COLUMN_ID + " DESC";
+        String orderBy = VHCFormTable.COLUMN_ID + " DESC";
 
-        Collection<Forms> allFC = new ArrayList<>();
+        Collection<VHCForm> allFC = new ArrayList<>();
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    VHCFormTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -1013,7 +953,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                Forms fc = new Forms();
+                VHCForm fc = new VHCForm();
              /*   fc.setId(c.getString(c.getColumnIndex(MHTable.COLUMN_ID)));
                 fc.setUid(c.getString(c.getColumnIndex(MHTable.COLUMN_UID)));
                 fc.setSysDate(c.getString(c.getColumnIndex(MHTable.COLUMN_SYSDATE)));
@@ -1434,27 +1374,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return c.getCount() > 0;
     }
 
-    public Forms getFormByHF(String hfCode, String rMonth) {
+    public VHCForm getVHCFormByHF(String hfCode, String rMonth) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = null;
 
         String whereClause;
         whereClause =
-                FormsTable.COLUMN_HF_CODE + "=? AND " +
-                        FormsTable.COLUMN_TEHSIL_CODE + "=?";
+                VHCFormTable.COLUMN_HF_CODE + "=? AND " +
+                        VHCFormTable.COLUMN_TEHSIL_CODE + "=?";
 
         String[] whereArgs = {hfCode, rMonth};
 
         String groupBy = null;
         String having = null;
 
-        String orderBy = FormsTable.COLUMN_ID + " ASC";
+        String orderBy = VHCFormTable.COLUMN_ID + " ASC";
 
-        Forms allFC = null;
+        VHCForm allFC = null;
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    VHCFormTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -1463,7 +1403,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                allFC = new Forms().Hydrate(c);
+                allFC = new VHCForm().Hydrate(c);
             }
         } finally {
             if (c != null) {

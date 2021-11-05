@@ -7,8 +7,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="wsg"
-            type="edu.aku.hassannaqvi.chese.data.model.WSG" />
+            name="wsgForm"
+            type="edu.aku.hassannaqvi.chese.data.model.WSGForm" />
 
         <variable
             name="callback"
@@ -99,8 +99,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws401a.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs401a(`1`)}"
+                                android:checked="@{wsgForm.ws401a.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs401a(`1`)}"
                                 android:text="@string/ws401aa" />
 
                             <RadioButton
@@ -108,8 +108,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws401a.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs401a(`2`)}"
+                                android:checked="@{wsgForm.ws401a.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs401a(`2`)}"
                                 android:text="@string/ws401ab" />
 
                         </RadioGroup>
@@ -133,8 +133,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws401b.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs401b(`1`)}"
+                                android:checked="@{wsgForm.ws401b.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs401b(`1`)}"
                                 android:text="@string/ws401ba" />
 
                             <RadioButton
@@ -142,8 +142,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws401b.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs401b(`2`)}"
+                                android:checked="@{wsgForm.ws401b.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs401b(`2`)}"
                                 android:text="@string/ws401bb" />
 
                         </RadioGroup>
@@ -167,8 +167,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws401c.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs401c(`1`)}"
+                                android:checked="@{wsgForm.ws401c.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs401c(`1`)}"
                                 android:text="@string/ws401ca" />
 
                             <RadioButton
@@ -176,8 +176,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws401c.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs401c(`2`)}"
+                                android:checked="@{wsgForm.ws401c.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs401c(`2`)}"
                                 android:text="@string/ws401cb" />
 
                         </RadioGroup>
@@ -201,8 +201,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws401d.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs401d(`1`)}"
+                                android:checked="@{wsgForm.ws401d.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs401d(`1`)}"
                                 android:text="@string/ws401da" />
 
                             <RadioButton
@@ -210,8 +210,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws401d.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs401d(`2`)}"
+                                android:checked="@{wsgForm.ws401d.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs401d(`2`)}"
                                 android:text="@string/ws401db" />
 
                         </RadioGroup>
@@ -235,8 +235,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws401e.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs401e(`1`)}"
+                                android:checked="@{wsgForm.ws401e.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs401e(`1`)}"
                                 android:text="@string/ws401ea" />
 
                             <RadioButton
@@ -244,8 +244,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws401e.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs401e(`2`)}"
+                                android:checked="@{wsgForm.ws401e.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs401e(`2`)}"
                                 android:text="@string/ws401eb" />
 
                         </RadioGroup>
@@ -303,8 +303,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402a.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs402a(`1`)}"
+                                android:checked="@{wsgForm.ws402a.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs402a(`1`)}"
                                 android:text="@string/ws402aa" />
 
                             <RadioButton
@@ -312,8 +312,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402a.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs402a(`2`)}"
+                                android:checked="@{wsgForm.ws402a.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs402a(`2`)}"
                                 android:text="@string/ws402ab" />
 
                         </RadioGroup>
@@ -337,8 +337,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402b.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs402b(`1`)}"
+                                android:checked="@{wsgForm.ws402b.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs402b(`1`)}"
                                 android:text="@string/ws402ba" />
 
                             <RadioButton
@@ -346,8 +346,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402b.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs402b(`2`)}"
+                                android:checked="@{wsgForm.ws402b.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs402b(`2`)}"
                                 android:text="@string/ws402bb" />
 
                         </RadioGroup>
@@ -371,8 +371,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402c.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs402c(`1`)}"
+                                android:checked="@{wsgForm.ws402c.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs402c(`1`)}"
                                 android:text="@string/ws402ca" />
 
                             <RadioButton
@@ -380,8 +380,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402c.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs402c(`2`)}"
+                                android:checked="@{wsgForm.ws402c.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs402c(`2`)}"
                                 android:text="@string/ws402cb" />
 
                         </RadioGroup>
@@ -405,8 +405,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402d.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs402d(`1`)}"
+                                android:checked="@{wsgForm.ws402d.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs402d(`1`)}"
                                 android:text="@string/ws402da" />
 
                             <RadioButton
@@ -414,8 +414,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402d.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs402d(`2`)}"
+                                android:checked="@{wsgForm.ws402d.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs402d(`2`)}"
                                 android:text="@string/ws402db" />
 
                         </RadioGroup>
@@ -439,8 +439,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402e.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs402e(`1`)}"
+                                android:checked="@{wsgForm.ws402e.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs402e(`1`)}"
                                 android:text="@string/ws402ea" />
 
                             <RadioButton
@@ -448,8 +448,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402e.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs402e(`2`)}"
+                                android:checked="@{wsgForm.ws402e.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs402e(`2`)}"
                                 android:text="@string/ws402eb" />
 
                         </RadioGroup>
@@ -473,8 +473,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402f.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs402f(`1`)}"
+                                android:checked="@{wsgForm.ws402f.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs402f(`1`)}"
                                 android:text="@string/ws402fa" />
 
                             <RadioButton
@@ -482,8 +482,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402f.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs402f(`2`)}"
+                                android:checked="@{wsgForm.ws402f.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs402f(`2`)}"
                                 android:text="@string/ws402fb" />
 
                         </RadioGroup>
@@ -507,8 +507,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402g.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs402g(`1`)}"
+                                android:checked="@{wsgForm.ws402g.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs402g(`1`)}"
                                 android:text="@string/ws402ga" />
 
                             <RadioButton
@@ -516,8 +516,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402g.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs402g(`2`)}"
+                                android:checked="@{wsgForm.ws402g.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs402g(`2`)}"
                                 android:text="@string/ws402gb" />
 
                         </RadioGroup>
@@ -541,8 +541,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402h.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs402h(`1`)}"
+                                android:checked="@{wsgForm.ws402h.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs402h(`1`)}"
                                 android:text="@string/ws402ha" />
 
                             <RadioButton
@@ -550,8 +550,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402h.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs402h(`2`)}"
+                                android:checked="@{wsgForm.ws402h.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs402h(`2`)}"
                                 android:text="@string/ws402hb" />
 
                         </RadioGroup>
@@ -575,8 +575,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402i.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs402i(`1`)}"
+                                android:checked="@{wsgForm.ws402i.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs402i(`1`)}"
                                 android:text="@string/ws402ia" />
 
                             <RadioButton
@@ -584,8 +584,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws402i.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs402i(`2`)}"
+                                android:checked="@{wsgForm.ws402i.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs402i(`2`)}"
                                 android:text="@string/ws402ib" />
 
                         </RadioGroup>
@@ -643,8 +643,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws403a.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs403a(`1`)}"
+                                android:checked="@{wsgForm.ws403a.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs403a(`1`)}"
                                 android:text="@string/ws403aa" />
 
                             <RadioButton
@@ -652,8 +652,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws403a.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs403a(`2`)}"
+                                android:checked="@{wsgForm.ws403a.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs403a(`2`)}"
                                 android:text="@string/ws403ab" />
 
                         </RadioGroup>
@@ -677,8 +677,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws403b.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs403b(`1`)}"
+                                android:checked="@{wsgForm.ws403b.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs403b(`1`)}"
                                 android:text="@string/ws403ba" />
 
                             <RadioButton
@@ -686,8 +686,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws403b.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs403b(`2`)}"
+                                android:checked="@{wsgForm.ws403b.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs403b(`2`)}"
                                 android:text="@string/ws403bb" />
 
                         </RadioGroup>
@@ -711,8 +711,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws403c.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs403c(`1`)}"
+                                android:checked="@{wsgForm.ws403c.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs403c(`1`)}"
                                 android:text="@string/ws403ca" />
 
                             <RadioButton
@@ -720,8 +720,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws403c.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs403c(`2`)}"
+                                android:checked="@{wsgForm.ws403c.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs403c(`2`)}"
                                 android:text="@string/ws403cb" />
 
                         </RadioGroup>
@@ -745,8 +745,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws403d.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs403d(`1`)}"
+                                android:checked="@{wsgForm.ws403d.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs403d(`1`)}"
                                 android:text="@string/ws403da" />
 
                             <RadioButton
@@ -754,8 +754,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws403d.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs403d(`2`)}"
+                                android:checked="@{wsgForm.ws403d.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs403d(`2`)}"
                                 android:text="@string/ws403db" />
 
                         </RadioGroup>
@@ -813,8 +813,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404a.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs404a(`1`)}"
+                                android:checked="@{wsgForm.ws404a.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs404a(`1`)}"
                                 android:text="@string/ws404aa" />
 
                             <RadioButton
@@ -822,8 +822,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404a.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs404a(`2`)}"
+                                android:checked="@{wsgForm.ws404a.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs404a(`2`)}"
                                 android:text="@string/ws404ab" />
 
                         </RadioGroup>
@@ -847,8 +847,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404b.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs404b(`1`)}"
+                                android:checked="@{wsgForm.ws404b.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs404b(`1`)}"
                                 android:text="@string/ws404ba" />
 
                             <RadioButton
@@ -856,8 +856,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404b.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs404b(`2`)}"
+                                android:checked="@{wsgForm.ws404b.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs404b(`2`)}"
                                 android:text="@string/ws404bb" />
 
                         </RadioGroup>
@@ -881,8 +881,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404c.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs404c(`1`)}"
+                                android:checked="@{wsgForm.ws404c.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs404c(`1`)}"
                                 android:text="@string/ws404ca" />
 
                             <RadioButton
@@ -890,8 +890,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404c.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs404c(`2`)}"
+                                android:checked="@{wsgForm.ws404c.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs404c(`2`)}"
                                 android:text="@string/ws404cb" />
 
                         </RadioGroup>
@@ -915,8 +915,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404d.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs404d(`1`)}"
+                                android:checked="@{wsgForm.ws404d.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs404d(`1`)}"
                                 android:text="@string/ws404da" />
 
                             <RadioButton
@@ -924,8 +924,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404d.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs404d(`2`)}"
+                                android:checked="@{wsgForm.ws404d.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs404d(`2`)}"
                                 android:text="@string/ws404db" />
 
                         </RadioGroup>
@@ -949,8 +949,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404e.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs404e(`1`)}"
+                                android:checked="@{wsgForm.ws404e.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs404e(`1`)}"
                                 android:text="@string/ws404ea" />
 
                             <RadioButton
@@ -958,8 +958,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404e.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs404e(`2`)}"
+                                android:checked="@{wsgForm.ws404e.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs404e(`2`)}"
                                 android:text="@string/ws404eb" />
 
                         </RadioGroup>
@@ -983,8 +983,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404f.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs404f(`1`)}"
+                                android:checked="@{wsgForm.ws404f.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs404f(`1`)}"
                                 android:text="@string/ws404fa" />
 
                             <RadioButton
@@ -992,8 +992,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404f.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs404f(`2`)}"
+                                android:checked="@{wsgForm.ws404f.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs404f(`2`)}"
                                 android:text="@string/ws404fb" />
 
                         </RadioGroup>
@@ -1017,8 +1017,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404g.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs404g(`1`)}"
+                                android:checked="@{wsgForm.ws404g.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs404g(`1`)}"
                                 android:text="@string/ws404ga" />
 
                             <RadioButton
@@ -1026,8 +1026,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404g.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs404g(`2`)}"
+                                android:checked="@{wsgForm.ws404g.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs404g(`2`)}"
                                 android:text="@string/ws404gb" />
 
                         </RadioGroup>
@@ -1051,8 +1051,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404h.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs404h(`1`)}"
+                                android:checked="@{wsgForm.ws404h.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs404h(`1`)}"
                                 android:text="@string/ws404ha" />
 
                             <RadioButton
@@ -1060,8 +1060,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404h.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs404h(`2`)}"
+                                android:checked="@{wsgForm.ws404h.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs404h(`2`)}"
                                 android:text="@string/ws404hb" />
 
                         </RadioGroup>
@@ -1085,8 +1085,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404i.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs404i(`1`)}"
+                                android:checked="@{wsgForm.ws404i.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs404i(`1`)}"
                                 android:text="@string/ws404ia" />
 
                             <RadioButton
@@ -1094,8 +1094,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404i.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs404i(`2`)}"
+                                android:checked="@{wsgForm.ws404i.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs404i(`2`)}"
                                 android:text="@string/ws404ib" />
 
                         </RadioGroup>
@@ -1119,8 +1119,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404k.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs404k(`1`)}"
+                                android:checked="@{wsgForm.ws404k.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs404k(`1`)}"
                                 android:text="@string/ws404ka" />
 
                             <RadioButton
@@ -1128,8 +1128,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws404k.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs404k(`2`)}"
+                                android:checked="@{wsgForm.ws404k.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs404k(`2`)}"
                                 android:text="@string/ws404kb" />
 
                         </RadioGroup>
@@ -1187,8 +1187,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405a.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs405a(`1`)}"
+                                android:checked="@{wsgForm.ws405a.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs405a(`1`)}"
                                 android:text="@string/ws405aa" />
 
                             <RadioButton
@@ -1196,8 +1196,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405a.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs405a(`2`)}"
+                                android:checked="@{wsgForm.ws405a.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs405a(`2`)}"
                                 android:text="@string/ws405ab" />
 
                         </RadioGroup>
@@ -1221,8 +1221,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405b.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs405b(`1`)}"
+                                android:checked="@{wsgForm.ws405b.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs405b(`1`)}"
                                 android:text="@string/ws405ba" />
 
                             <RadioButton
@@ -1230,8 +1230,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405b.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs405b(`2`)}"
+                                android:checked="@{wsgForm.ws405b.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs405b(`2`)}"
                                 android:text="@string/ws405bb" />
 
                         </RadioGroup>
@@ -1255,8 +1255,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405c.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs405c(`1`)}"
+                                android:checked="@{wsgForm.ws405c.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs405c(`1`)}"
                                 android:text="@string/ws405ca" />
 
                             <RadioButton
@@ -1264,8 +1264,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405c.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs405c(`2`)}"
+                                android:checked="@{wsgForm.ws405c.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs405c(`2`)}"
                                 android:text="@string/ws405cb" />
 
                         </RadioGroup>
@@ -1289,8 +1289,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405d.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs405d(`1`)}"
+                                android:checked="@{wsgForm.ws405d.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs405d(`1`)}"
                                 android:text="@string/ws405da" />
 
                             <RadioButton
@@ -1298,8 +1298,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405d.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs405d(`2`)}"
+                                android:checked="@{wsgForm.ws405d.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs405d(`2`)}"
                                 android:text="@string/ws405db" />
 
                         </RadioGroup>
@@ -1323,8 +1323,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405e.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs405e(`1`)}"
+                                android:checked="@{wsgForm.ws405e.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs405e(`1`)}"
                                 android:text="@string/ws405ea" />
 
                             <RadioButton
@@ -1332,8 +1332,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405e.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs405e(`2`)}"
+                                android:checked="@{wsgForm.ws405e.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs405e(`2`)}"
                                 android:text="@string/ws405eb" />
 
                         </RadioGroup>
@@ -1357,8 +1357,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405f.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs405f(`1`)}"
+                                android:checked="@{wsgForm.ws405f.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs405f(`1`)}"
                                 android:text="@string/ws405fa" />
 
                             <RadioButton
@@ -1366,8 +1366,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405f.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs405f(`2`)}"
+                                android:checked="@{wsgForm.ws405f.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs405f(`2`)}"
                                 android:text="@string/ws405fb" />
 
                         </RadioGroup>
@@ -1391,8 +1391,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405g.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs405g(`1`)}"
+                                android:checked="@{wsgForm.ws405g.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs405g(`1`)}"
                                 android:text="@string/ws405ga" />
 
                             <RadioButton
@@ -1400,8 +1400,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405g.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs405g(`2`)}"
+                                android:checked="@{wsgForm.ws405g.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs405g(`2`)}"
                                 android:text="@string/ws405gb" />
 
                         </RadioGroup>
@@ -1425,8 +1425,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405h.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs405h(`1`)}"
+                                android:checked="@{wsgForm.ws405h.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs405h(`1`)}"
                                 android:text="@string/ws405ha" />
 
                             <RadioButton
@@ -1434,8 +1434,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405h.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs405h(`2`)}"
+                                android:checked="@{wsgForm.ws405h.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs405h(`2`)}"
                                 android:text="@string/ws405hb" />
 
                         </RadioGroup>
@@ -1459,8 +1459,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405i.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs405i(`1`)}"
+                                android:checked="@{wsgForm.ws405i.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs405i(`1`)}"
                                 android:text="@string/ws405ia" />
 
                             <RadioButton
@@ -1468,8 +1468,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405i.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs405i(`2`)}"
+                                android:checked="@{wsgForm.ws405i.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs405i(`2`)}"
                                 android:text="@string/ws405ib" />
 
                         </RadioGroup>
@@ -1493,8 +1493,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405j.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs405j(`1`)}"
+                                android:checked="@{wsgForm.ws405j.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs405j(`1`)}"
                                 android:text="@string/ws405ja" />
 
                             <RadioButton
@@ -1502,8 +1502,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405j.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs405j(`2`)}"
+                                android:checked="@{wsgForm.ws405j.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs405j(`2`)}"
                                 android:text="@string/ws405jb" />
 
                         </RadioGroup>
@@ -1527,8 +1527,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405k.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs405k(`1`)}"
+                                android:checked="@{wsgForm.ws405k.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs405k(`1`)}"
                                 android:text="@string/ws405ka" />
 
                             <RadioButton
@@ -1536,8 +1536,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405k.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs405k(`2`)}"
+                                android:checked="@{wsgForm.ws405k.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs405k(`2`)}"
                                 android:text="@string/ws405kb" />
 
                         </RadioGroup>
@@ -1561,8 +1561,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405l.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs405l(`1`)}"
+                                android:checked="@{wsgForm.ws405l.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs405l(`1`)}"
                                 android:text="@string/ws405la" />
 
                             <RadioButton
@@ -1570,8 +1570,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws405l.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs405l(`2`)}"
+                                android:checked="@{wsgForm.ws405l.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs405l(`2`)}"
                                 android:text="@string/ws405lb" />
 
                         </RadioGroup>
@@ -1629,8 +1629,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406a.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs406a(`1`)}"
+                                android:checked="@{wsgForm.ws406a.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs406a(`1`)}"
                                 android:text="@string/ws406aa" />
 
                             <RadioButton
@@ -1638,8 +1638,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406a.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs406a(`2`)}"
+                                android:checked="@{wsgForm.ws406a.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs406a(`2`)}"
                                 android:text="@string/ws406ab" />
 
                         </RadioGroup>
@@ -1663,8 +1663,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406b.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs406b(`1`)}"
+                                android:checked="@{wsgForm.ws406b.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs406b(`1`)}"
                                 android:text="@string/ws406ba" />
 
                             <RadioButton
@@ -1672,8 +1672,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406b.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs406b(`2`)}"
+                                android:checked="@{wsgForm.ws406b.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs406b(`2`)}"
                                 android:text="@string/ws406bb" />
 
                         </RadioGroup>
@@ -1697,8 +1697,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406c.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs406c(`1`)}"
+                                android:checked="@{wsgForm.ws406c.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs406c(`1`)}"
                                 android:text="@string/ws406ca" />
 
                             <RadioButton
@@ -1706,8 +1706,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406c.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs406c(`2`)}"
+                                android:checked="@{wsgForm.ws406c.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs406c(`2`)}"
                                 android:text="@string/ws406cb" />
 
                         </RadioGroup>
@@ -1731,8 +1731,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406d.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs406d(`1`)}"
+                                android:checked="@{wsgForm.ws406d.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs406d(`1`)}"
                                 android:text="@string/ws406da" />
 
                             <RadioButton
@@ -1740,8 +1740,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406d.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs406d(`2`)}"
+                                android:checked="@{wsgForm.ws406d.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs406d(`2`)}"
                                 android:text="@string/ws406db" />
 
                         </RadioGroup>
@@ -1765,8 +1765,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406e.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs406e(`1`)}"
+                                android:checked="@{wsgForm.ws406e.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs406e(`1`)}"
                                 android:text="@string/ws406ea" />
 
                             <RadioButton
@@ -1774,8 +1774,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406e.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs406e(`2`)}"
+                                android:checked="@{wsgForm.ws406e.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs406e(`2`)}"
                                 android:text="@string/ws406eb" />
 
                         </RadioGroup>
@@ -1799,8 +1799,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406f.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs406f(`1`)}"
+                                android:checked="@{wsgForm.ws406f.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs406f(`1`)}"
                                 android:text="@string/ws406fa" />
 
                             <RadioButton
@@ -1808,8 +1808,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406f.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs406f(`2`)}"
+                                android:checked="@{wsgForm.ws406f.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs406f(`2`)}"
                                 android:text="@string/ws406fb" />
 
                         </RadioGroup>
@@ -1840,8 +1840,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406g.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs406g(`1`)}"
+                                android:checked="@{wsgForm.ws406g.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs406g(`1`)}"
                                 android:text="@string/ws406ga" />
 
                             <RadioButton
@@ -1849,8 +1849,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406g.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs406g(`2`)}"
+                                android:checked="@{wsgForm.ws406g.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs406g(`2`)}"
                                 android:text="@string/ws406gb" />
 
                         </RadioGroup>
@@ -1874,8 +1874,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406h.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs406h(`1`)}"
+                                android:checked="@{wsgForm.ws406h.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs406h(`1`)}"
                                 android:text="@string/ws406ha" />
 
                             <RadioButton
@@ -1883,8 +1883,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406h.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs406h(`2`)}"
+                                android:checked="@{wsgForm.ws406h.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs406h(`2`)}"
                                 android:text="@string/ws406hb" />
 
                         </RadioGroup>
@@ -1908,8 +1908,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406i.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs406i(`1`)}"
+                                android:checked="@{wsgForm.ws406i.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs406i(`1`)}"
                                 android:text="@string/ws406ia" />
 
                             <RadioButton
@@ -1917,8 +1917,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws406i.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs406i(`2`)}"
+                                android:checked="@{wsgForm.ws406i.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs406i(`2`)}"
                                 android:text="@string/ws406ib" />
 
                         </RadioGroup>
@@ -1976,8 +1976,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407a.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs407a(`1`)}"
+                                android:checked="@{wsgForm.ws407a.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs407a(`1`)}"
                                 android:text="@string/ws407aa" />
 
                             <RadioButton
@@ -1985,8 +1985,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407a.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs407a(`2`)}"
+                                android:checked="@{wsgForm.ws407a.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs407a(`2`)}"
                                 android:text="@string/ws407ab" />
 
                         </RadioGroup>
@@ -2017,8 +2017,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407b.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs407b(`1`)}"
+                                android:checked="@{wsgForm.ws407b.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs407b(`1`)}"
                                 android:text="@string/ws407ba" />
 
                             <RadioButton
@@ -2026,8 +2026,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407b.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs407b(`2`)}"
+                                android:checked="@{wsgForm.ws407b.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs407b(`2`)}"
                                 android:text="@string/ws407bb" />
 
                         </RadioGroup>
@@ -2051,8 +2051,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407c.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs407c(`1`)}"
+                                android:checked="@{wsgForm.ws407c.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs407c(`1`)}"
                                 android:text="@string/ws407ca" />
 
                             <RadioButton
@@ -2060,8 +2060,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407c.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs407c(`2`)}"
+                                android:checked="@{wsgForm.ws407c.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs407c(`2`)}"
                                 android:text="@string/ws407cb" />
 
                         </RadioGroup>
@@ -2085,8 +2085,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407d.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs407d(`1`)}"
+                                android:checked="@{wsgForm.ws407d.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs407d(`1`)}"
                                 android:text="@string/ws407da" />
 
                             <RadioButton
@@ -2094,8 +2094,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407d.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs407d(`2`)}"
+                                android:checked="@{wsgForm.ws407d.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs407d(`2`)}"
                                 android:text="@string/ws407db" />
 
                         </RadioGroup>
@@ -2119,8 +2119,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407e.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs407e(`1`)}"
+                                android:checked="@{wsgForm.ws407e.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs407e(`1`)}"
                                 android:text="@string/ws407ea" />
 
                             <RadioButton
@@ -2128,8 +2128,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407e.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs407e(`2`)}"
+                                android:checked="@{wsgForm.ws407e.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs407e(`2`)}"
                                 android:text="@string/ws407eb" />
 
                         </RadioGroup>
@@ -2153,8 +2153,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407f.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs407f(`1`)}"
+                                android:checked="@{wsgForm.ws407f.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs407f(`1`)}"
                                 android:text="@string/ws407fa" />
 
                             <RadioButton
@@ -2162,8 +2162,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407f.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs407f(`2`)}"
+                                android:checked="@{wsgForm.ws407f.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs407f(`2`)}"
                                 android:text="@string/ws407fb" />
 
                         </RadioGroup>
@@ -2187,8 +2187,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407g.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs407g(`1`)}"
+                                android:checked="@{wsgForm.ws407g.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs407g(`1`)}"
                                 android:text="@string/ws407ga" />
 
                             <RadioButton
@@ -2196,8 +2196,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407g.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs407g(`2`)}"
+                                android:checked="@{wsgForm.ws407g.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs407g(`2`)}"
                                 android:text="@string/ws407gb" />
 
                         </RadioGroup>
@@ -2221,8 +2221,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407h.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs407h(`1`)}"
+                                android:checked="@{wsgForm.ws407h.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs407h(`1`)}"
                                 android:text="@string/ws407ha" />
 
                             <RadioButton
@@ -2230,8 +2230,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407h.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs407h(`2`)}"
+                                android:checked="@{wsgForm.ws407h.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs407h(`2`)}"
                                 android:text="@string/ws407hb" />
 
                         </RadioGroup>
@@ -2255,8 +2255,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407i.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs407i(`1`)}"
+                                android:checked="@{wsgForm.ws407i.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs407i(`1`)}"
                                 android:text="@string/ws407ia" />
 
                             <RadioButton
@@ -2264,8 +2264,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407i.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs407i(`2`)}"
+                                android:checked="@{wsgForm.ws407i.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs407i(`2`)}"
                                 android:text="@string/ws407ib" />
 
                         </RadioGroup>
@@ -2289,8 +2289,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407j.equals(`1`)}"
-                                android:onClick="@{()->wsg.setWs407j(`1`)}"
+                                android:checked="@{wsgForm.ws407j.equals(`1`)}"
+                                android:onClick="@{()->wsgForm.setWs407j(`1`)}"
                                 android:text="@string/ws407ja" />
 
                             <RadioButton
@@ -2298,8 +2298,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{wsg.ws407j.equals(`2`)}"
-                                android:onClick="@{()->wsg.setWs407j(`2`)}"
+                                android:checked="@{wsgForm.ws407j.equals(`2`)}"
+                                android:onClick="@{()->wsgForm.setWs407j(`2`)}"
                                 android:text="@string/ws407jb" />
 
                         </RadioGroup>

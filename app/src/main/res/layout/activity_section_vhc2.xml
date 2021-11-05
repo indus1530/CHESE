@@ -7,8 +7,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="vhc"
-            type="edu.aku.hassannaqvi.chese.data.model.VHC" />
+            name="vhcForm"
+            type="edu.aku.hassannaqvi.chese.data.model.VHCForm" />
 
         <variable
             name="callback"
@@ -80,7 +80,7 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:hint="YYYY-MM-DD"
-                                android:text="@={vhc.v201}"
+                                android:text="@={vhcForm.v201}"
                                 app:dateFormat="yyyy/MM/dd"
                                 app:maxDate="CR_DATE" />
 
@@ -122,7 +122,7 @@
                                 android:inputType="number"
                                 app:is24HourView="true"
                                 app:timeFormat="HH:mm"
-                                android:text="@={vhc.v202}" />
+                                android:text="@={vhcForm.v202}" />
 
                         </LinearLayout>
 
@@ -165,8 +165,8 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:checked="@{vhc.v203.equals(`1`)}"
-                                    android:onClick="@{()->vhc.setV203(`1`)}"
+                                    android:checked="@{vhcForm.v203.equals(`1`)}"
+                                    android:onClick="@{()->vhcForm.setV203(`1`)}"
                                     android:text="@string/v203a" />
 
                                 <RadioButton
@@ -174,8 +174,8 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:checked="@{vhc.v203.equals(`2`)}"
-                                    android:onClick="@{()->vhc.setV203(`2`)}"
+                                    android:checked="@{vhcForm.v203.equals(`2`)}"
+                                    android:onClick="@{()->vhcForm.setV203(`2`)}"
                                     android:text="@string/v203b" />
 
                             </RadioGroup>
@@ -190,7 +190,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="@{vhc.v203.equals(`2`) ? View.GONE : View.VISIBLE}">
+                    android:visibility="@{vhcForm.v203.equals(`2`) ? View.GONE : View.VISIBLE}">
 
 
                     <!-- v204  Radio   -->
@@ -233,8 +233,8 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:checked="@{vhc.v204.equals(`1`)}"
-                                    android:onClick="@{()->vhc.setV204(`1`)}"
+                                    android:checked="@{vhcForm.v204.equals(`1`)}"
+                                    android:onClick="@{()->vhcForm.setV204(`1`)}"
                                     android:text="@string/v204a" />
 
                                 <RadioButton
@@ -242,8 +242,8 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:checked="@{vhc.v204.equals(`2`)}"
-                                    android:onClick="@{()->vhc.setV204(`2`)}"
+                                    android:checked="@{vhcForm.v204.equals(`2`)}"
+                                    android:onClick="@{()->vhcForm.setV204(`2`)}"
                                     android:text="@string/v204b" />
 
                             </RadioGroup>
@@ -291,48 +291,48 @@
                                     android:id="@+id/v205a"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:checked="@{vhc.v205.equals(`1`)}"
-                                    android:onClick="@{()->vhc.setV205(`1`)}"
+                                    android:checked="@{vhcForm.v205.equals(`1`)}"
+                                    android:onClick="@{()->vhcForm.setV205(`1`)}"
                                     android:text="@string/v205a" />
 
                                 <RadioButton
                                     android:id="@+id/v205b"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:checked="@{vhc.v205.equals(`2`)}"
-                                    android:onClick="@{()->vhc.setV205(`2`)}"
+                                    android:checked="@{vhcForm.v205.equals(`2`)}"
+                                    android:onClick="@{()->vhcForm.setV205(`2`)}"
                                     android:text="@string/v205b" />
 
                                 <RadioButton
                                     android:id="@+id/v205c"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:checked="@{vhc.v205.equals(`3`)}"
-                                    android:onClick="@{()->vhc.setV205(`3`)}"
+                                    android:checked="@{vhcForm.v205.equals(`3`)}"
+                                    android:onClick="@{()->vhcForm.setV205(`3`)}"
                                     android:text="@string/v205c" />
 
                                 <RadioButton
                                     android:id="@+id/v205d"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:checked="@{vhc.v205.equals(`4`)}"
-                                    android:onClick="@{()->vhc.setV205(`4`)}"
+                                    android:checked="@{vhcForm.v205.equals(`4`)}"
+                                    android:onClick="@{()->vhcForm.setV205(`4`)}"
                                     android:text="@string/v205d" />
 
                                 <RadioButton
                                     android:id="@+id/v205e"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:checked="@{vhc.v205.equals(`5`)}"
-                                    android:onClick="@{()->vhc.setV205(`5`)}"
+                                    android:checked="@{vhcForm.v205.equals(`5`)}"
+                                    android:onClick="@{()->vhcForm.setV205(`5`)}"
                                     android:text="@string/v205e" />
 
                                 <RadioButton
                                     android:id="@+id/v20596"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:checked="@{vhc.v205.equals(`96`)}"
-                                    android:onClick="@{()->vhc.setV205(`96`)}"
+                                    android:checked="@{vhcForm.v205.equals(`96`)}"
+                                    android:onClick="@{()->vhcForm.setV205(`96`)}"
                                     android:text="@string/v20596" />
 
                                 <EditText
@@ -342,8 +342,8 @@
                                     android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
                                     android:hint="@string/v20596"
                                     android:tag="v20596"
-                                    android:text="@={vhc.v20596x}"
-                                    android:visibility="@{vhc.v205.equals(`96`) ? View.VISIBLE : View.GONE}" />
+                                    android:text="@={vhcForm.v20596x}"
+                                    android:visibility="@{vhcForm.v205.equals(`96`) ? View.VISIBLE : View.GONE}" />
 
                             </RadioGroup>
 
@@ -384,7 +384,7 @@
                                 android:hint="##"
                                 android:inputType="number"
                                 android:maxLength="2"
-                                android:text="@={vhc.v206}"
+                                android:text="@={vhcForm.v206}"
                                 app:maxValue="15"
                                 app:minValue="1"
                                 app:type="range" />
