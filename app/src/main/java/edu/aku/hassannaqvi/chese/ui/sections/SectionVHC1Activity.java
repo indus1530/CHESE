@@ -233,5 +233,40 @@ public class SectionVHC1Activity extends AppCompatActivity {
         });
     }
 
+    /*private boolean hfFormExists() {
+        form = new Forms();
+        form = db.getFormByHF(hfCodes.get(bi.facilityname.getSelectedItemPosition()), bi.reportMonth.getSelectedItem().toString());
+        return form != null;
+    }*/
+
+
+
+
+    /*private boolean addForm() {
+        //if (!form.get_ID().equals("")) return true;
+        long rowid = db.addForm(form);
+        form.setId(String.valueOf(rowid));
+        if (rowid > 0) {
+            form.setUid(form.getDeviceId() + form.getId());
+            db.updatesFormColumn(TableContracts.FormsTable.COLUMN_UID, form.getUid());
+            return true;
+        } else {
+            Toast.makeText(this, "Failed to update DB", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
+
+    public void BtnContinue(View view) {
+        if (!formValidation()) return;
+        if (!hfFormExists()) {
+            saveDraft();
+        }
+        if (addForm()) {
+            finish();
+            startActivity(new Intent(this, SectionVHC1Activity.class));
+        }
+    }*/
+
 
 }

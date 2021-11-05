@@ -582,7 +582,7 @@ public class VHCForm extends BaseObservable implements Observable {
         this.districtCode = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_DISTRICT_CODE));
         this.districtName = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_DISTRICT_NAME));
         this.tehsilCode = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_TEHSIL_CODE));
-        this.tehsilName = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_TEHSIL_NAME);
+        this.tehsilName = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_TEHSIL_NAME));
         this.hfCode = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_HF_CODE));
         this.hfName = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_HF_NAME));
         this.lhwCode = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_LHW_CODE));
