@@ -6,9 +6,9 @@
 
         <import type="android.view.View" />
 
-        <variable
+        <!--<variable
             name="attendees"
-            type="edu.aku.hassannaqvi.chese.data.model.Attendees" />
+            type="edu.aku.hassannaqvi.chese.data.model.Attendees" />-->
 
         <variable
             name="callback"
@@ -79,7 +79,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:textColor="@color/black"
-                            android:text="@={attendees.v301}" />
+                            android:text="@string/v301" />
 
                     </LinearLayout>
 
@@ -114,8 +114,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
-                            android:hint="@string/v302"
-                            android:text="@={attendees.v302}" />
+                            android:hint="@string/v302" />
 
                     </LinearLayout>
 
@@ -153,7 +152,6 @@
                             android:hint="##"
                             android:inputType="number"
                             android:maxLength="2"
-                            android:text="@={attendees.v303}"
                             app:maxValue="80"
                             app:minValue="14"
                             app:type="range" />
@@ -201,104 +199,78 @@
                                 android:id="@+id/v304a"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v304.equals(`1`)}"
-                                android:onClick="@{()->attendees.setV304(`1`)}"
                                 android:text="@string/v304a" />
 
                             <RadioButton
                                 android:id="@+id/v304b"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v304.equals(`2`)}"
-                                android:onClick="@{()->attendees.setV304(`2`)}"
                                 android:text="@string/v304b" />
 
                             <RadioButton
                                 android:id="@+id/v304c"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v304.equals(`3`)}"
-                                android:onClick="@{()->attendees.setV304(`3`)}"
                                 android:text="@string/v304c" />
 
                             <RadioButton
                                 android:id="@+id/v304d"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v304.equals(`4`)}"
-                                android:onClick="@{()->attendees.setV304(`4`)}"
                                 android:text="@string/v304d" />
 
                             <RadioButton
                                 android:id="@+id/v304e"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v304.equals(`5`)}"
-                                android:onClick="@{()->attendees.setV304(`5`)}"
                                 android:text="@string/v304e" />
 
                             <RadioButton
                                 android:id="@+id/v304f"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v304.equals(`6`)}"
-                                android:onClick="@{()->attendees.setV304(`6`)}"
                                 android:text="@string/v304f" />
 
                             <RadioButton
                                 android:id="@+id/v304g"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v304.equals(`7`)}"
-                                android:onClick="@{()->attendees.setV304(`7`)}"
                                 android:text="@string/v304g" />
 
                             <RadioButton
                                 android:id="@+id/v304h"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v304.equals(`8`)}"
-                                android:onClick="@{()->attendees.setV304(`8`)}"
                                 android:text="@string/v304h" />
 
                             <RadioButton
                                 android:id="@+id/v304i"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v304.equals(`9`)}"
-                                android:onClick="@{()->attendees.setV304(`9`)}"
                                 android:text="@string/v304i" />
 
                             <RadioButton
                                 android:id="@+id/v304j"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v304.equals(`10`)}"
-                                android:onClick="@{()->attendees.setV304(`10`)}"
                                 android:text="@string/v304j" />
 
                             <RadioButton
                                 android:id="@+id/v304k"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v304.equals(`11`)}"
-                                android:onClick="@{()->attendees.setV304(`11`)}"
                                 android:text="@string/v304k" />
 
                             <RadioButton
                                 android:id="@+id/v30498"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v304.equals(`98`)}"
-                                android:onClick="@{()->attendees.setV304(`98`)}"
                                 android:text="@string/v30498" />
 
                             <RadioButton
                                 android:id="@+id/v30499"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v304.equals(`99`)}"
-                                android:onClick="@{()->attendees.setV304(`99`)}"
                                 android:text="@string/v30499" />
 
                         </RadioGroup>
@@ -346,89 +318,67 @@
                                 android:id="@+id/v305a"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v305.equals(`1`)}"
-                                android:onClick="@{()->attendees.setV305(`1`)}"
                                 android:text="@string/v305a" />
 
                             <RadioButton
                                 android:id="@+id/v305b"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v305.equals(`2`)}"
-                                android:onClick="@{()->attendees.setV305(`2`)}"
                                 android:text="@string/v305b" />
 
                             <RadioButton
                                 android:id="@+id/v305c"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v305.equals(`3`)}"
-                                android:onClick="@{()->attendees.setV305(`3`)}"
                                 android:text="@string/v305c" />
 
                             <RadioButton
                                 android:id="@+id/v305d"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v305.equals(`4`)}"
-                                android:onClick="@{()->attendees.setV305(`4`)}"
                                 android:text="@string/v305d" />
 
                             <RadioButton
                                 android:id="@+id/v305e"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v305.equals(`5`)}"
-                                android:onClick="@{()->attendees.setV305(`5`)}"
                                 android:text="@string/v305e" />
 
                             <RadioButton
                                 android:id="@+id/v305f"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v305.equals(`6`)}"
-                                android:onClick="@{()->attendees.setV305(`6`)}"
                                 android:text="@string/v305f" />
 
                             <RadioButton
                                 android:id="@+id/v305g"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v305.equals(`7`)}"
-                                android:onClick="@{()->attendees.setV305(`7`)}"
                                 android:text="@string/v305g" />
 
                             <RadioButton
                                 android:id="@+id/v305h"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v305.equals(`8`)}"
-                                android:onClick="@{()->attendees.setV305(`8`)}"
                                 android:text="@string/v305h" />
+
+                            <RadioButton
+                                android:id="@+id/lhwv305i"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/lhwv305i" />
 
                             <RadioButton
                                 android:id="@+id/v30598"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v305.equals(`98`)}"
-                                android:onClick="@{()->attendees.setV305(`98`)}"
                                 android:text="@string/v30598" />
 
                             <RadioButton
                                 android:id="@+id/v30599"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v305.equals(`99`)}"
-                                android:onClick="@{()->attendees.setV305(`99`)}"
                                 android:text="@string/v30599" />
-
-                            <RadioButton
-                                android:id="@+id/lhwv305i"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:checked="@{attendees.v305.equals(`9`)}"
-                                android:onClick="@{()->attendees.setV305(`9`)}"
-                                android:text="@string/lhwv305i" />
 
                         </RadioGroup>
 
@@ -475,32 +425,24 @@
                                 android:id="@+id/v306a"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v306.equals(`1`)}"
-                                android:onClick="@{()->attendees.setV306(`1`)}"
                                 android:text="@string/v306a" />
 
                             <RadioButton
                                 android:id="@+id/v306b"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v306.equals(`2`)}"
-                                android:onClick="@{()->attendees.setV306(`2`)}"
                                 android:text="@string/v306b" />
 
                             <RadioButton
                                 android:id="@+id/v306c"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v306.equals(`3`)}"
-                                android:onClick="@{()->attendees.setV306(`3`)}"
                                 android:text="@string/v306c" />
 
                             <RadioButton
                                 android:id="@+id/v306d"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{attendees.v306.equals(`4`)}"
-                                android:onClick="@{()->attendees.setV306(`4`)}"
                                 android:text="@string/v306d" />
 
                         </RadioGroup>
@@ -550,8 +492,6 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{attendees.v307.equals(`1`)}"
-                                android:onClick="@{()->attendees.setV307(`1`)}"
                                 android:text="@string/v307a" />
 
                             <RadioButton
@@ -559,8 +499,6 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{attendees.v307.equals(`2`)}"
-                                android:onClick="@{()->attendees.setV307(`2`)}"
                                 android:text="@string/v307b" />
 
                         </RadioGroup>
@@ -610,8 +548,6 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{attendees.v308.equals(`1`)}"
-                                android:onClick="@{()->attendees.setV308(`1`)}"
                                 android:text="@string/v308a" />
 
                             <RadioButton
@@ -619,8 +555,6 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:checked="@{attendees.v308.equals(`2`)}"
-                                android:onClick="@{()->attendees.setV308(`2`)}"
                                 android:text="@string/v308b" />
 
                         </RadioGroup>
@@ -645,8 +579,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
-                        android:onClick="btnEnd"
-                        android:text="Cancel"
+                        android:onClick="addMore"
+                        android:text="Add Attendees"
                         android:textColor="@color/colorPrimary"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -660,7 +594,7 @@
                         android:backgroundTint="@color/colorAccent"
                         android:backgroundTintMode="src_atop"
                         android:onClick="btnContinue"
-                        android:text="Save"
+                        android:text="Next"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />

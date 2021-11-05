@@ -93,9 +93,9 @@ public class SectionLHWActivity extends AppCompatActivity {
         form.setHfCode(hfCode.get(bi.a103.getSelectedItemPosition()));
 
         form.setA104n(bi.a104n.getSelectedItem().toString());
+        form.setLhwCode(lhwCode.get(bi.a104n.getSelectedItemPosition()));
         form.setA104c(lhwCode.get(bi.a104n.getSelectedItemPosition()));
         form.setA105(lhwSupervisor.get(bi.a104n.getSelectedItemPosition()));
-        form.setLhwCode(lhwCode.get(bi.a104n.getSelectedItemPosition()));
         form.setSessionType(bi.type.getSelectedItem().toString());
 
     }

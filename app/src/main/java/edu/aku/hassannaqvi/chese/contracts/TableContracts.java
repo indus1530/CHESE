@@ -73,8 +73,8 @@ public class TableContracts {
         public static final String COLUMN_SYSDATE = "sysdate";
         public static final String COLUMN_DISTRICT_CODE = "districtCode";
         public static final String COLUMN_DISTRICT_NAME = "districtName";
-        public static final String COLUMN_TEHSIL_CODE = "districtCode";
-        public static final String COLUMN_TEHSIL_NAME = "districtName";
+        public static final String COLUMN_TEHSIL_CODE = "tehsilCode";
+        public static final String COLUMN_TEHSIL_NAME = "tehsilName";
         public static final String COLUMN_HF_CODE = "hfCode";
         public static final String COLUMN_HF_NAME = "hfName";
         public static final String COLUMN_LHW_CODE = "lhwCode";

@@ -56,6 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CreateSQL.SQL_CREATE_FORMS);
         db.execSQL(CreateSQL.SQL_CREATE_VHC);
         db.execSQL(CreateSQL.SQL_CREATE_WSG);
+        db.execSQL(CreateSQL.SQL_CREATE_ATTENDEES);
         db.execSQL(CreateSQL.SQL_CREATE_VERSIONAPP);
 
         db.execSQL(CreateSQL.SQL_CREATE_HEALTH_FACILITIES);
@@ -183,7 +184,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(AttendeesTable.COLUMN_PROJECT_NAME, atn.getProjectName());
         values.put(AttendeesTable.COLUMN_UID, atn.getUid());
-        values.put(AttendeesTable.COLUMN_UUID, atn.getUid());
+        values.put(AttendeesTable.COLUMN_UUID, atn.getUuid());
         values.put(AttendeesTable.COLUMN_USERNAME, atn.getUserName());
         values.put(AttendeesTable.COLUMN_SYSDATE, atn.getSysDate());
         values.put(AttendeesTable.COLUMN_SESSION_TYPE, atn.getSessionType());

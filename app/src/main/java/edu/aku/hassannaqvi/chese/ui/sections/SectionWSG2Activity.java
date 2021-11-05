@@ -32,7 +32,7 @@ public class SectionWSG2Activity extends AppCompatActivity {
         bi.setCallback(this);
         if (wsg == null) wsg = new WSG();
         bi.setWsg(wsg);
-        bi.ws201.setMinDate(DateUtilsKt.getMonthsBack("dd-MM-yyyy", -1));
+        bi.ws201.setMinDate(DateUtilsKt.getMonthsBack("dd/MM/yyyy", -1));
     }
 
 
@@ -54,7 +54,7 @@ public class SectionWSG2Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, SectionWSG41Activity.class));
+            startActivity(new Intent(this, SectionVHC3Activity.class));
         }
     }
 

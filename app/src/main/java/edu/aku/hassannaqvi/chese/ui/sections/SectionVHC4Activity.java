@@ -17,6 +17,7 @@ import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCTable;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc4Binding;
+import edu.aku.hassannaqvi.chese.ui.EndingActivity;
 
 
 public class SectionVHC4Activity extends AppCompatActivity {
@@ -50,7 +51,7 @@ public class SectionVHC4Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, SectionVHC3Activity.class));
+            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
         }
     }
 
