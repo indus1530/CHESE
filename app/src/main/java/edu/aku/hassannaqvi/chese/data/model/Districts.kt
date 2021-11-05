@@ -33,7 +33,7 @@ class Districts {
     }
 
     object TableDistricts : BaseColumns {
-        const val TABLE_NAME = "districts"
+        const val TABLE_NAME = "District"
         const val COLUMN_NAME_NULLABLE = "nullColumnHack"
         const val COLUMN_ID = "_ID"
         const val COLUMN_PROVINCE_CODE = "pro_id"
