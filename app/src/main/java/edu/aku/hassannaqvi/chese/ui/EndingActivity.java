@@ -1,6 +1,7 @@
 package edu.aku.hassannaqvi.chese.ui;
 
 import static edu.aku.hassannaqvi.chese.core.MainApp.vhcForm;
+import static edu.aku.hassannaqvi.chese.core.MainApp.wsgForm;
 import static edu.aku.hassannaqvi.chese.utils.extension.ActivityExtKt.gotoActivity;
 
 import android.os.Bundle;
@@ -54,12 +55,21 @@ public class EndingActivity extends AppCompatActivity {
 
     private void saveDraft() {
 
-        vhcForm.setiStatus(bi.istatusa.isChecked() ? "1"
-                : bi.istatusb.isChecked() ? "2"
-                /*: bi.istatusc.isChecked() ? "3"*/
-                : "-1");
-        vhcForm.setEndTime(new SimpleDateFormat("dd-MM-yy HH:mm", Locale.ENGLISH).format(new Date().getTime()));
+        if (sesstionType.equals("VHC")) {
+            vhcForm.setiStatus(bi.istatusa.isChecked() ? "1"
+                    : bi.istatusb.isChecked() ? "2"
+                    /*: bi.istatusc.isChecked() ? "3"*/
+                    : "-1");
+            vhcForm.setEndTime(new SimpleDateFormat("dd-MM-yy HH:mm", Locale.ENGLISH).format(new Date().getTime()));
+        }
 
+        if (sesstionType.equals("WSG")) {
+            wsgForm.setiStatus(bi.istatusa.isChecked() ? "1"
+                    : bi.istatusb.isChecked() ? "2"
+                    /*: bi.istatusc.isChecked() ? "3"*/
+                    : "-1");
+            wsgForm.setEndTime(new SimpleDateFormat("dd-MM-yy HH:mm", Locale.ENGLISH).format(new Date().getTime()));
+        }
     }
 
 
@@ -77,7 +87,7 @@ public class EndingActivity extends AppCompatActivity {
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
         //int updcount = db.updatesFormColumn(Form.FormsTable.COLUMN_ISTATUS, form.getiStatus());
-        int updcount = db.updateVHCEnding();
+        int updcount = sesstionType.equals("VHC") ? db.updateVHCEnding() : db.updateWSGEnding();
         if (updcount > 0) return true;
         else {
             Toast.makeText(this, "SORRY! Failed to update DB", Toast.LENGTH_SHORT).show();
