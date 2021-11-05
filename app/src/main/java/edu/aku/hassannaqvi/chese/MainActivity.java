@@ -10,12 +10,12 @@ import edu.aku.hassannaqvi.chese.core.AndroidManager;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.VHCForm;
 import edu.aku.hassannaqvi.chese.data.model.WSGForm;
-import edu.aku.hassannaqvi.chese.ui.sections.SectionLHWActivity;
+import edu.aku.hassannaqvi.chese.ui.sections.SectionVHC1Activity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionVHC2Activity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionVHC3Activity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionVHC4Activity;
+import edu.aku.hassannaqvi.chese.ui.sections.SectionWSG1Activity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionWSG2Activity;
-import edu.aku.hassannaqvi.chese.ui.sections.SectionWSG3Activity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionWSG41Activity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionWSG5Activity;
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 break;*/
             case R.id.seca:
                 MainApp.form = new Forms();
-                startActivity(new Intent(this, SectionLHWActivity.class));
+                startActivity(new Intent(this, SectionVHC1Activity.class));
                 break;
             case R.id.vhc2:
                 MainApp.vhcForm = new VHCForm();
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.wsg3:
                 MainApp.wsgForm = new WSGForm();
-                startActivity(new Intent(this, SectionWSG3Activity.class));
+                startActivity(new Intent(this, SectionWSG1Activity.class));
                 break;
             case R.id.wsg4:
                 MainApp.wsgForm = new WSGForm();

@@ -1,7 +1,7 @@
 package edu.aku.hassannaqvi.chese.ui.sections;
 
 import static edu.aku.hassannaqvi.chese.core.MainApp.appInfo;
-import static edu.aku.hassannaqvi.chese.core.MainApp.form;
+import static edu.aku.hassannaqvi.chese.core.MainApp.vhcForm;
 
 import android.content.Context;
 import android.content.Intent;
@@ -24,25 +24,26 @@ import java.util.Locale;
 
 import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
-import edu.aku.hassannaqvi.chese.contracts.TableContracts.FormsTable;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCFormTable;
 import edu.aku.hassannaqvi.chese.core.MainApp;
+import edu.aku.hassannaqvi.chese.data.model.VHCForm;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
-import edu.aku.hassannaqvi.chese.databinding.ActivitySectionLhwBinding;
+import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc1Binding;
 import edu.aku.hassannaqvi.chese.models.Districts;
 import edu.aku.hassannaqvi.chese.models.LHW;
 
 
-public class SectionLHWActivity extends AppCompatActivity {
-    ActivitySectionLhwBinding bi;
+public class SectionVHC1Activity extends AppCompatActivity {
+    ActivitySectionVhc1Binding bi;
     private List<String> districtCode, tehsilCode, hfCode, lhwCode;
     private List<String> districtName, tehsilName, hfName, lhwName;
-    private List<String> lhwSupervisor, sessionType;
+    private List<String> lhwSupervisor;
     private DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_lhw);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_vhc1);
         bi.setCallback(this);
         db = MainApp.appInfo.dbHelper;
         setSupportActionBar(bi.toolbar);
@@ -68,34 +69,32 @@ public class SectionLHWActivity extends AppCompatActivity {
         if (addForm()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, bi.type.getSelectedItemPosition() == 1 ? SectionVHC2Activity.class : SectionWSG2Activity.class));
+            startActivity(new Intent(this, SectionVHC2Activity.class));
         }
     }
 
 
     private void saveDraft() {
 
-        form = new Forms();
-        form.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
-        form.setUserName(MainApp.user.getUserName());
-        form.setDeviceId(MainApp.appInfo.getDeviceID());
-        form.setDeviceTag(MainApp.appInfo.getTagName());
-        form.setAppver(MainApp.appInfo.getAppVersion());
+        vhcForm = new VHCForm();
+        vhcForm.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
+        vhcForm.setUserName(MainApp.user.getUserName());
+        vhcForm.setDeviceId(MainApp.appInfo.getDeviceID());
+        vhcForm.setDeviceTag(MainApp.appInfo.getTagName());
+        vhcForm.setAppver(MainApp.appInfo.getAppVersion());
 
-        form.setA101(bi.a101.getSelectedItem().toString());
-        form.setDistrictCode(districtCode.get(bi.a101.getSelectedItemPosition()));
+        vhcForm.setDistrictName(bi.a101.getSelectedItem().toString());
+        vhcForm.setDistrictCode(districtCode.get(bi.a101.getSelectedItemPosition()));
 
-        form.setA102(bi.a101.getSelectedItem().toString());
-        form.setTehsilCode(tehsilCode.get(bi.a102.getSelectedItemPosition()));
+        vhcForm.setTehsilName(bi.a101.getSelectedItem().toString());
+        vhcForm.setTehsilCode(tehsilCode.get(bi.a102.getSelectedItemPosition()));
 
-        form.setA103(bi.a103.getSelectedItem().toString());
-        form.setHfCode(hfCode.get(bi.a103.getSelectedItemPosition()));
+        vhcForm.setHfName(bi.a103.getSelectedItem().toString());
+        vhcForm.setHfCode(hfCode.get(bi.a103.getSelectedItemPosition()));
 
-        form.setA104n(bi.a104n.getSelectedItem().toString());
-        form.setLhwCode(lhwCode.get(bi.a104n.getSelectedItemPosition()));
-        form.setA104c(lhwCode.get(bi.a104n.getSelectedItemPosition()));
-        form.setA105(lhwSupervisor.get(bi.a104n.getSelectedItemPosition()));
-        form.setSessionType(bi.type.getSelectedItem().toString());
+        vhcForm.setLhwName(bi.a104n.getSelectedItem().toString());
+        vhcForm.setLhwCode(lhwCode.get(bi.a104n.getSelectedItemPosition()));
+        vhcForm.setLhwSupervisor(lhwSupervisor.get(bi.a104n.getSelectedItemPosition()));
 
     }
 
@@ -111,13 +110,13 @@ public class SectionLHWActivity extends AppCompatActivity {
     }
 
     private boolean addForm() {
-        if (!form.getId().equals("")) return true;
+        if (!vhcForm.getId().equals("")) return true;
         DatabaseHelper db = appInfo.dbHelper;
-        long rowid = db.addForm(form);
-        form.setId(String.valueOf(rowid));
+        long rowid = db.addVHCForm(vhcForm);
+        vhcForm.setId(String.valueOf(rowid));
         if (rowid > 0) {
-            form.setUid(form.getDeviceId() + form.getId());
-            db.updatesFormColumn(FormsTable.COLUMN_UID, form.getUid());
+            vhcForm.setUid(vhcForm.getDeviceId() + vhcForm.getId());
+            db.updatesVHCFormColumn(VHCFormTable.COLUMN_UID, vhcForm.getUid());
             return true;
         } else {
             Toast.makeText(this, "Failed to update DB", Toast.LENGTH_SHORT).show();
@@ -226,12 +225,6 @@ public class SectionLHWActivity extends AppCompatActivity {
                 bi.lhw.setVisibility(View.VISIBLE);
                 bi.a104c.setText(lhwCode.get(position));
                 bi.a105.setText(lhwSupervisor.get(position));
-
-                sessionType = new ArrayList<>();
-                sessionType.add("....");
-                sessionType.add("VHC: Village Health Committee");
-                sessionType.add("WSG: Women Support Group");
-                bi.type.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, sessionType));
             }
 
             @Override

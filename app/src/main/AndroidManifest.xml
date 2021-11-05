@@ -57,7 +57,7 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionLHWActivity"
+            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionVHC1Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
@@ -81,7 +81,7 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionWSG3Activity"
+            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionWSG1Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />

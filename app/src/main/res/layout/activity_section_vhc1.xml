@@ -13,7 +13,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.chese.ui.sections.SectionLHWActivity" />
+            type="edu.aku.hassannaqvi.chese.ui.sections.SectionVHC1Activity" />
 
     </data>
 
@@ -256,39 +256,7 @@
                 </androidx.cardview.widget.CardView>
 
 
-                <!-- TYPE  Input   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVtype"
-                    style="@style/cardView">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="TYPE" />
-
-                        <TextView
-                            android:layout_width="150dp"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text=" Session Type ? " />
-
-                        <Spinner
-                            android:id="@+id/type"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:minHeight="56dp"
-                            android:spinnerMode="dropdown" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
 
 
                 <!--EndButton LinearLayout-->
