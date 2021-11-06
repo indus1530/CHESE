@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             findViewById(R.id.adminView).setVisibility(View.VISIBLE);
         }
         TextView username = (TextView) findViewById(R.id.username);
-        username.setText("User Name: " + MainApp.user.getFullname().toUpperCase(Locale.ROOT));
+        username.setText(MainApp.user.getFullname().toUpperCase(Locale.ROOT));
     }
 
 
