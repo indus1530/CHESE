@@ -67,11 +67,11 @@ public class SectionVHC3Activity extends AppCompatActivity {
             if (sessionType.contains("VHC"))
                 startActivity(new Intent(this, SectionVHC4Activity.class));
             else {
-                if (Integer.parseInt(wsgForm.getWs210()) > 14)
+                if (wsgForm.getWs210().equals("96"))
                     startActivity(new Intent(this, SectionWSG5Activity.class));
-                if (Integer.parseInt(wsgForm.getWs210()) > 7)
+                if (Integer.parseInt(wsgForm.getWs210()) >= 8 && Integer.parseInt(wsgForm.getWs210()) <= 14)
                     startActivity(new Intent(this, SectionWSG42Activity.class));
-                if (Integer.parseInt(wsgForm.getWs210()) <= 7)
+                if (Integer.parseInt(wsgForm.getWs210()) >= 1 && Integer.parseInt(wsgForm.getWs210()) <= 7)
                     startActivity(new Intent(this, SectionWSG41Activity.class));
             }
         }
