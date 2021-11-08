@@ -834,17 +834,18 @@
                 <!-- v414  Input   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVv414"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="gone">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
 
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:text="@string/Q_v414" />
 
