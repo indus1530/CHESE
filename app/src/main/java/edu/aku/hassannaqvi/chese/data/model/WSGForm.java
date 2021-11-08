@@ -579,6 +579,131 @@ public class WSGForm extends BaseObservable implements Observable {
 
     public void setWs210(String ws210) {
         this.ws210 = ws210;
+
+        setWs401a(ws210.equals("1") ? this.ws401a : "");
+        setWs401b(ws210.equals("1") ? this.ws401b : "");
+        setWs401c(ws210.equals("1") ? this.ws401c : "");
+        setWs401d(ws210.equals("1") ? this.ws401d : "");
+        setWs401e(ws210.equals("1") ? this.ws401e : "");
+
+        setWs402a(ws210.equals("2") ? this.ws402a : "");
+        setWs402b(ws210.equals("2") ? this.ws402b : "");
+        setWs402c(ws210.equals("2") ? this.ws402c : "");
+        setWs402d(ws210.equals("2") ? this.ws402d : "");
+        setWs402e(ws210.equals("2") ? this.ws402e : "");
+        setWs402f(ws210.equals("2") ? this.ws402f : "");
+        setWs402g(ws210.equals("2") ? this.ws402g : "");
+        setWs402h(ws210.equals("2") ? this.ws402h : "");
+        setWs402i(ws210.equals("2") ? this.ws402i : "");
+
+        setWs403a(ws210.equals("3") ? this.ws403a : "");
+        setWs403b(ws210.equals("3") ? this.ws403b : "");
+        setWs403c(ws210.equals("3") ? this.ws403c : "");
+        setWs403d(ws210.equals("3") ? this.ws403d : "");
+        setWs404a(ws210.equals("4") ? this.ws404a : "");
+        setWs404b(ws210.equals("4") ? this.ws404b : "");
+        setWs404c(ws210.equals("4") ? this.ws404c : "");
+        setWs404d(ws210.equals("4") ? this.ws404d : "");
+        setWs404e(ws210.equals("4") ? this.ws404e : "");
+        setWs404f(ws210.equals("4") ? this.ws404f : "");
+        setWs404g(ws210.equals("4") ? this.ws404g : "");
+        setWs404h(ws210.equals("4") ? this.ws404h : "");
+        setWs404i(ws210.equals("4") ? this.ws404i : "");
+        setWs404k(ws210.equals("4") ? this.ws404k : "");
+
+        setWs405a(ws210.equals("5") ? this.ws405a : "");
+        setWs405b(ws210.equals("5") ? this.ws405b : "");
+        setWs405c(ws210.equals("5") ? this.ws405c : "");
+        setWs405d(ws210.equals("5") ? this.ws405d : "");
+        setWs405e(ws210.equals("5") ? this.ws405e : "");
+        setWs405f(ws210.equals("5") ? this.ws405f : "");
+        setWs405g(ws210.equals("5") ? this.ws405g : "");
+        setWs405h(ws210.equals("5") ? this.ws405h : "");
+        setWs405i(ws210.equals("5") ? this.ws405i : "");
+        setWs405j(ws210.equals("5") ? this.ws405j : "");
+        setWs405k(ws210.equals("5") ? this.ws405k : "");
+        setWs405l(ws210.equals("5") ? this.ws405l : "");
+
+        setWs406a(ws210.equals("6") ? this.ws406a : "");
+        setWs406b(ws210.equals("6") ? this.ws406b : "");
+        setWs406c(ws210.equals("6") ? this.ws406c : "");
+        setWs406d(ws210.equals("6") ? this.ws406d : "");
+        setWs406e(ws210.equals("6") ? this.ws406e : "");
+        setWs406f(ws210.equals("6") ? this.ws406f : "");
+        setWs406g(ws210.equals("6") ? this.ws406g : "");
+        setWs406h(ws210.equals("6") ? this.ws406h : "");
+        setWs406i(ws210.equals("6") ? this.ws406i : "");
+
+        setWs407a(ws210.equals("7") ? this.ws407a : "");
+        setWs407b(ws210.equals("7") ? this.ws407b : "");
+        setWs407c(ws210.equals("7") ? this.ws407c : "");
+        setWs407d(ws210.equals("7") ? this.ws407d : "");
+        setWs407e(ws210.equals("7") ? this.ws407e : "");
+        setWs407f(ws210.equals("7") ? this.ws407f : "");
+        setWs407g(ws210.equals("7") ? this.ws407g : "");
+        setWs407h(ws210.equals("7") ? this.ws407h : "");
+        setWs407i(ws210.equals("7") ? this.ws407i : "");
+        setWs407j(ws210.equals("7") ? this.ws407j : "");
+
+        setWs408a(ws210.equals("8") ? this.ws408a : "");
+        setWs408b(ws210.equals("8") ? this.ws408b : "");
+        setWs408c(ws210.equals("8") ? this.ws408c : "");
+        setWs408d(ws210.equals("8") ? this.ws408d : "");
+        setWs408e(ws210.equals("8") ? this.ws408e : "");
+        setWs408f(ws210.equals("8") ? this.ws408f : "");
+        setWs408g(ws210.equals("8") ? this.ws408g : "");
+        setWs408h(ws210.equals("8") ? this.ws408h : "");
+
+        setWs409a(ws210.equals("9") ? this.ws409a : "");
+        setWs409b(ws210.equals("9") ? this.ws409b : "");
+        setWs409c(ws210.equals("9") ? this.ws409c : "");
+        setWs409d(ws210.equals("9") ? this.ws409d : "");
+        setWs409e(ws210.equals("9") ? this.ws409e : "");
+        setWs409f(ws210.equals("9") ? this.ws409f : "");
+        setWs409g(ws210.equals("9") ? this.ws409g : "");
+        setWs409h(ws210.equals("9") ? this.ws409h : "");
+        setWs409i(ws210.equals("9") ? this.ws409i : "");
+
+        setWs410a(ws210.equals("10") ? this.ws410a : "");
+        setWs410b(ws210.equals("10") ? this.ws410b : "");
+        setWs410c(ws210.equals("10") ? this.ws410c : "");
+        setWs410d(ws210.equals("10") ? this.ws410d : "");
+        setWs410e(ws210.equals("10") ? this.ws410e : "");
+
+        setWs411a(ws210.equals("11") ? this.ws411a : "");
+        setWs411b(ws210.equals("11") ? this.ws411b : "");
+        setWs411c(ws210.equals("11") ? this.ws411c : "");
+        setWs411d(ws210.equals("11") ? this.ws411d : "");
+        setWs411e(ws210.equals("11") ? this.ws411e : "");
+        setWs411f(ws210.equals("11") ? this.ws411f : "");
+        setWs411g(ws210.equals("11") ? this.ws411g : "");
+
+        setWs412a(ws210.equals("12") ? this.ws412a : "");
+        setWs412b(ws210.equals("12") ? this.ws412b : "");
+        setWs412c(ws210.equals("12") ? this.ws412c : "");
+        setWs412d(ws210.equals("12") ? this.ws412d : "");
+        setWs412e(ws210.equals("12") ? this.ws412e : "");
+        setWs412f(ws210.equals("12") ? this.ws412f : "");
+
+        setWs413a(ws210.equals("13") ? this.ws413a : "");
+        setWs413b(ws210.equals("13") ? this.ws413b : "");
+        setWs413c(ws210.equals("13") ? this.ws413c : "");
+        setWs413d(ws210.equals("13") ? this.ws413d : "");
+        setWs413e(ws210.equals("13") ? this.ws413e : "");
+        setWs413f(ws210.equals("13") ? this.ws413f : "");
+        setWs413g(ws210.equals("13") ? this.ws413g : "");
+
+        setWs414a(ws210.equals("14") ? this.ws414a : "");
+        setWs414b(ws210.equals("14") ? this.ws414b : "");
+        setWs414c(ws210.equals("14") ? this.ws414c : "");
+        setWs414d(ws210.equals("14") ? this.ws414d : "");
+        setWs414e(ws210.equals("14") ? this.ws414e : "");
+        setWs414f(ws210.equals("14") ? this.ws414f : "");
+        setWs414g(ws210.equals("14") ? this.ws414g : "");
+        setWs414h(ws210.equals("14") ? this.ws414h : "");
+        setWs414i(ws210.equals("14") ? this.ws414i : "");
+        setWs414j(ws210.equals("14") ? this.ws414j : "");
+
         setWs21096x(ws210.equals("96") ? this.ws21096x : "");
         notifyPropertyChanged(BR.ws210);
     }
