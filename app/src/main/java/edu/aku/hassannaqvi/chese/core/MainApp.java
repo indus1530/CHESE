@@ -38,6 +38,7 @@ public class MainApp extends Application {
 
     public static final int MIN_ADOL = 10;
     public static final int MAX_ADOL = 19;
+    public static int sno = 0;
 
     public static File sdDir;
     public static String[] downloadData;

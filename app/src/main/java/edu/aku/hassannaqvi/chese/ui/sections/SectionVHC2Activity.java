@@ -15,6 +15,7 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCFormTable;
+import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.VHCForm;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc2Binding;
@@ -29,6 +30,7 @@ public class SectionVHC2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_vhc2);
         bi.setCallback(this);
+        MainApp.sno = 0;
         if (vhcForm == null) vhcForm = new VHCForm();
         bi.setVhcForm(vhcForm);
         bi.v201.setMinDate(DateUtilsKt.getMonthsBack("dd/MM/yyyy", -1));
@@ -53,7 +55,9 @@ public class SectionVHC2Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, SectionVHC3Activity.class).putExtra("sessionType", "VHC"));
+            if (bi.v203b.isChecked()) startActivity(new Intent(this, SectionVHC4Activity.class));
+            else
+                startActivity(new Intent(this, SectionVHC3Activity.class).putExtra("sessionType", "VHC"));
         }
     }
 

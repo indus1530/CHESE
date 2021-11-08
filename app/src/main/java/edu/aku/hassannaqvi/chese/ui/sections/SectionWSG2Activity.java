@@ -15,6 +15,7 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGFormTable;
+import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.WSGForm;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionWsg2Binding;
@@ -30,6 +31,7 @@ public class SectionWSG2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_wsg2);
         bi.setCallback(this);
+        MainApp.sno = 0;
         if (wsgForm == null) wsgForm = new WSGForm();
         bi.setWsgForm(wsgForm);
         bi.ws201.setMinDate(DateUtilsKt.getMonthsBack("dd/MM/yyyy", -1));
@@ -54,7 +56,10 @@ public class SectionWSG2Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, SectionVHC3Activity.class).putExtra("sessionType", "WSG"));
+            if (bi.ws203b.isChecked() || bi.ws206b.isChecked())
+                startActivity(new Intent(this, SectionWSG5Activity.class));
+            else
+                startActivity(new Intent(this, SectionVHC3Activity.class).putExtra("sessionType", "WSG"));
         }
     }
 

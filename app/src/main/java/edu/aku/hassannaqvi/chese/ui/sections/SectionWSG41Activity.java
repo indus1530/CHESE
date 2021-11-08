@@ -49,7 +49,7 @@ public class SectionWSG41Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, SectionWSG42Activity.class));
+            startActivity(new Intent(this, SectionWSG5Activity.class));
         }
     }
 

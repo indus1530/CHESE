@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.chese.ui.sections;
 
 import static edu.aku.hassannaqvi.chese.core.MainApp.appInfo;
 import static edu.aku.hassannaqvi.chese.core.MainApp.attendees;
+import static edu.aku.hassannaqvi.chese.core.MainApp.sno;
 import static edu.aku.hassannaqvi.chese.core.MainApp.vhcForm;
 import static edu.aku.hassannaqvi.chese.core.MainApp.wsgForm;
 
@@ -30,16 +31,16 @@ import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc3Binding;
 public class SectionVHC3Activity extends AppCompatActivity {
     ActivitySectionVhc3Binding bi;
     String sessionType;
-    int sno = 1;
+    int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_vhc3);
         bi.setCallback(this);
-        bi.v301.setText(String.valueOf(sno));
-
+        bi.v301.setText(String.valueOf(++MainApp.sno));
         sessionType = getIntent().getStringExtra("sessionType");
+        count = Integer.parseInt(sessionType.contains("VHC") ? vhcForm.getV206() : wsgForm.getWs209());
     }
 
 
@@ -48,7 +49,6 @@ public class SectionVHC3Activity extends AppCompatActivity {
         int updcount = db.updatesAtenColumn(AttendeesTable.COLUMN_SV3, attendees.sV3toString());
         if (updcount == 1) {
             db.updatesAtenColumn(AttendeesTable.COLUMN_ISTATUS, attendees.getiStatus());
-            sno++;
             return true;
         } else {
             Toast.makeText(this, "SORRY! updateDB Failed", Toast.LENGTH_SHORT).show();
@@ -64,7 +64,16 @@ public class SectionVHC3Activity extends AppCompatActivity {
         if (updateDB()) {
             setResult(2);
             finish();
-            startActivity(new Intent(this, sessionType.equals("WSG") ? SectionWSG41Activity.class : SectionVHC4Activity.class));
+            if (sessionType.contains("VHC"))
+                startActivity(new Intent(this, SectionVHC4Activity.class));
+            else {
+                if (Integer.parseInt(wsgForm.getWs210()) > 14)
+                    startActivity(new Intent(this, SectionWSG5Activity.class));
+                if (Integer.parseInt(wsgForm.getWs210()) > 7)
+                    startActivity(new Intent(this, SectionWSG42Activity.class));
+                if (Integer.parseInt(wsgForm.getWs210()) <= 7)
+                    startActivity(new Intent(this, SectionWSG41Activity.class));
+            }
         }
     }
 
@@ -154,6 +163,10 @@ public class SectionVHC3Activity extends AppCompatActivity {
 
 
     public void addMore(View view) {
+        if (sno >= count) {
+            Toast.makeText(this, "There are only " + count + " member, \nPLEASE SAVE", Toast.LENGTH_SHORT).show();
+            return;
+        }
         if (!formValidation()) return;
         saveDraft();
         if (!addForm()) return;
@@ -186,8 +199,10 @@ public class SectionVHC3Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        setResult(RESULT_CANCELED);
-        finish();
+        Toast.makeText(this, "SORRY! Back Press Not Allowed", Toast.LENGTH_SHORT).show();
+        /*setResult(RESULT_CANCELED);
+        MainApp.sno--;
+        finish();*/
     }
 
 }

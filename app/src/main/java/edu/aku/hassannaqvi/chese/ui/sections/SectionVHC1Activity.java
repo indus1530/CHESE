@@ -34,6 +34,7 @@ import edu.aku.hassannaqvi.chese.models.LHW;
 
 
 public class SectionVHC1Activity extends AppCompatActivity {
+    private static final String TAG = "SectionVHC1Activity";
     ActivitySectionVhc1Binding bi;
     private List<String> districtCode, tehsilCode, hfCode, lhwCode;
     private List<String> districtName, tehsilName, hfName, lhwName;
@@ -233,39 +234,37 @@ public class SectionVHC1Activity extends AppCompatActivity {
         });
     }
 
-    /*private boolean hfFormExists() {
-        form = new Forms();
-        form = db.getFormByHF(hfCodes.get(bi.facilityname.getSelectedItemPosition()), bi.reportMonth.getSelectedItem().toString());
-        return form != null;
-    }*/
+    /*private void saveDraftLHWForm() {
+        vhcForm = new VHCForm();
+        vhcForm.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
+        vhcForm.setUserName(MainApp.user.getUserName());
+        vhcForm.setDeviceId(MainApp.appInfo.getDeviceID());
+        vhcForm.setDeviceTag(MainApp.appInfo.getTagName());
+        vhcForm.setAppver(MainApp.appInfo.getAppVersion());
 
+        vhcForm.setDistrictName(bi.a101.getSelectedItem().toString());
+        vhcForm.setDistrictCode(districtCode.get(bi.a101.getSelectedItemPosition()));
 
+        vhcForm.setTehsilName(bi.a101.getSelectedItem().toString());
+        vhcForm.setTehsilCode(tehsilCode.get(bi.a102.getSelectedItemPosition()));
 
+        vhcForm.setHfName(bi.a103.getSelectedItem().toString());
+        vhcForm.setHfCode(hfCode.get(bi.a103.getSelectedItemPosition()));
 
-    /*private boolean addForm() {
-        //if (!form.get_ID().equals("")) return true;
-        long rowid = db.addForm(form);
-        form.setId(String.valueOf(rowid));
-        if (rowid > 0) {
-            form.setUid(form.getDeviceId() + form.getId());
-            db.updatesFormColumn(TableContracts.FormsTable.COLUMN_UID, form.getUid());
-            return true;
-        } else {
-            Toast.makeText(this, "Failed to update DB", Toast.LENGTH_SHORT).show();
-            return false;
-        }
+        vhcForm.setLhwName(bi.a104n.getSelectedItem().toString());
+        vhcForm.setLhwCode(lhwCode.get(bi.a104n.getSelectedItemPosition()));
+        vhcForm.setLhwSupervisor(lhwSupervisor.get(bi.a104n.getSelectedItemPosition()));
     }
 
-
-    public void BtnContinue(View view) {
-        if (!formValidation()) return;
-        if (!hfFormExists()) {
-            saveDraft();
+    private boolean formExist() {
+        vhcForm = new VHCForm();
+        try {
+            vhcForm = db.getLHWFormByLHWCode(lhwCodes.get(bi.a103.getSelectedItemPosition()));
+        } catch (JSONException e) {
+            Log.d(TAG, getString(R.string.hh_exists_form) + e.getMessage());
+            Toast.makeText(this, getString(R.string.hh_exists_form) + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        if (addForm()) {
-            finish();
-            startActivity(new Intent(this, SectionVHC1Activity.class));
-        }
+        return MainApp.LHWForm != null;
     }*/
 
 
