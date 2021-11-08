@@ -594,7 +594,8 @@
                 <!-- ws510  Input   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVws510"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
