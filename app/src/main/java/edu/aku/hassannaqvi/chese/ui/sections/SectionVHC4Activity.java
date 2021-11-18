@@ -47,7 +47,7 @@ public class SectionVHC4Activity extends AppCompatActivity {
 
     public void btnContinue(View view) {
         if (!formValidation()) return;
-        if (!addForm()) return;
+        //if (!addForm()) return;
         if (updateDB()) {
             setResult(2);
             finish();

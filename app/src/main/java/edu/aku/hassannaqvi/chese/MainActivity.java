@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*if (MainApp.admin) {
+        if (MainApp.admin) {
             findViewById(R.id.adminView).setVisibility(View.VISIBLE);
-        }*/
+        }
         TextView username = findViewById(R.id.username);
         username.setText(MainApp.user.getFullname().toUpperCase(Locale.ROOT));
     }
