@@ -1495,7 +1495,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
         String orderBy = UsersTable.COLUMN_ID + " ASC";
 
-        Users loggedInUser = null;
+        Users loggedInUser = new Users();
         try {
             c = db.query(
                     UsersTable.TABLE_NAME,  // The table to query
