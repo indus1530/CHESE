@@ -965,19 +965,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    //update SyncedTables
+    //updateSyncedTables
     public void updateSyncedVHCForm(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
         ContentValues values = new ContentValues();
         values.put(VHCFormTable.COLUMN_SYNCED, true);
         values.put(VHCFormTable.COLUMN_SYNCED_DATE, new Date().toString());
-
-// Which row to update, based on the title
         String where = VHCFormTable.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
-
         int count = db.update(
                 VHCFormTable.TABLE_NAME,
                 values,
@@ -987,18 +982,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void updateSyncedWSGForm(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
         ContentValues values = new ContentValues();
         values.put(WSGFormTable.COLUMN_SYNCED, true);
         values.put(WSGFormTable.COLUMN_SYNCED_DATE, new Date().toString());
-
-// Which row to update, based on the title
         String where = WSGFormTable.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
-
         int count = db.update(
                 WSGFormTable.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateSyncedAttendees(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(AttendeesTable.COLUMN_SYNCED, true);
+        values.put(AttendeesTable.COLUMN_SYNCED_DATE, new Date().toString());
+        String where = AttendeesTable.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+        int count = db.update(
+                AttendeesTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);

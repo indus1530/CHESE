@@ -41,6 +41,7 @@ public class SectionVHC3Activity extends AppCompatActivity {
         bi.v301.setText(String.valueOf(++MainApp.sno));
         sessionType = getIntent().getStringExtra("sessionType");
         count = Integer.parseInt(sessionType.contains("VHC") ? vhcForm.getV206() : wsgForm.getWs209());
+        bi.tx307.setText(sessionType.contains("VHC") ? R.string.v307 : R.string.ws307);
     }
 
 
