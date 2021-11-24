@@ -34,14 +34,14 @@ import edu.aku.hassannaqvi.chese.core.MainApp;
 public class DataUpWorkerALL extends Worker {
 
     private static final Object APP_NAME = PROJECT_NAME;
-    private final String TAG = "DataUploadWorkerEN()";
+    private final String TAG = "DataWorkerEN()";
 
     // to be initialised by workParams
     private final Context mContext;
     private final String uploadTable;
     private final JSONArray uploadData;
     private final URL serverURL = null;
-    private final String nTitle = "Naunehal: Data Upload";
+    private final String nTitle = PROJECT_NAME + ": Data Upload";
     private final int position;
     private final String uploadWhere;
     HttpURLConnection urlConnection;
@@ -203,21 +203,21 @@ public class DataUpWorkerALL extends Worker {
 
 
             //JSONObject jsonObjectCC = jsonArray.getJSONObject(0);
-            ///BE CAREFULL DATA.BUILDER CAN HAVE ONLY 1024O BYTES. EACH CHAR HAS 8 BYTES
-            if (result.toString().length() > 10240) {
+            ///BE CAREFULL DATA.BUILDER CAN HAVE ONLY 1024O BYTES. EACH CHAR HAS 8 BIT
+          /*  if (result.toString().length() > 10240) {
                 data = new Data.Builder()
-                        .putString("message", String.valueOf(result).substring(0, (10240 - 1) / 8))
+                        .putString("message", "Data Limit Reached ("+result.toString().length()+"/10240):"+String.valueOf(result).substring(0, (10240 - 1) / 8))
                         .putInt("position", this.position)
                         .build();
-            } else {
+            } else {*/
+            MainApp.downloadData[position] = result.toString();
 
-                MainApp.downloadData[position] = String.valueOf(result);
 
-                data = new Data.Builder()
-                        //.putString("message", String.valueOf(result))
-                        .putInt("position", this.position)
-                        .build();
-            }
+            data = new Data.Builder()
+                    //  .putString("message", String.valueOf(result))
+                    .putInt("position", this.position)
+                    .build();
+            /*   }*/
 
             displayNotification(nTitle, "Uploaded successfully");
             return Result.success(data);
@@ -251,7 +251,7 @@ public class DataUpWorkerALL extends Worker {
         NotificationCompat.Builder notification = new NotificationCompat.Builder(getApplicationContext(), "scrlog")
                 .setContentTitle(title)
                 .setContentText(task)
-                .setSmallIcon(R.mipmap.ic_launcher);
+                .setSmallIcon(R.drawable.app_icon);
 
         final int maxProgress = 100;
         int curProgress = 0;

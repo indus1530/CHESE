@@ -34,20 +34,17 @@ import edu.aku.hassannaqvi.chese.core.MainApp;
 public class DataDownWorkerALL extends Worker {
 
     private static final Object APP_NAME = PROJECT_NAME;
-    private final String TAG = "DataDownloadWorkerEN()";
+    private final String TAG = "DataWorkerEN()";
 
     private final int position;
     private final String uploadTable;
-    private final String uploadColumns;
     private final String uploadWhere;
-    //private final String uploadColumns;
     private final URL serverURL = null;
-    private final String nTitle = "SMKCE: Data Download";
+    private final String nTitle = "Naunehal: Data Download";
     HttpURLConnection urlConnection;
     private ProgressDialog pd;
     private int length;
     private Data data;
-
 
     public DataDownWorkerALL(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
@@ -55,8 +52,8 @@ public class DataDownWorkerALL extends Worker {
         uploadTable = workerParams.getInputData().getString("table");
         position = workerParams.getInputData().getInt("position", -2);
         Log.d(TAG, "DataDownWorkerALL: position " + position);
-        uploadColumns = workerParams.getInputData().getString("select");
-        uploadWhere = workerParams.getInputData().getString("filter");
+        //uploadColumns = workerParams.getInputData().getString("columns");
+        uploadWhere = workerParams.getInputData().getString("where");
 
 
     }
@@ -108,7 +105,7 @@ public class DataDownWorkerALL extends Worker {
             JSONArray jsonParam = new JSONArray();
 
             jsonTable.put("table", uploadTable);
-            jsonTable.put("select", uploadColumns);
+            //jsonTable.put("select", uploadColumns);
             jsonTable.put("filter", uploadWhere);
             //jsonTable.put("limit", "3");
             //jsonTable.put("orderby", "rand()");
@@ -244,6 +241,7 @@ public class DataDownWorkerALL extends Worker {
         NotificationCompat.Builder notification = new NotificationCompat.Builder(getApplicationContext(), "scrlog")
                 .setContentTitle(title)
                 .setContentText(task)
+                // .setSmallIcon(R.drawable.app_icon)
                 .setSmallIcon(R.mipmap.ic_launcher);
 
         final int maxProgress = 100;

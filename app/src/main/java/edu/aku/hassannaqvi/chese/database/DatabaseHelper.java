@@ -1004,6 +1004,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs);
     }
 
+    public void updateSyncedAttendees(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(WSGFormTable.COLUMN_SYNCED, true);
+        values.put(WSGFormTable.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = WSGFormTable.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                WSGFormTable.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
     public ArrayList<VHCForm> getUnclosedVHCForm() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
