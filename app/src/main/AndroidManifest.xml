@@ -130,7 +130,10 @@
 
         <meta-data
             android:name="YEK_REVRES"
-            android:value="L]MZL7]%cX8;P8F8V@ca#!0nSurvIv0r-t*L$`1`|@DR)TFe+?@mX;(,7+g,Jl" />
+            android:value="3sA!ttiTuDPr%esENc3WmZq4t7w!zSCnF)J@NcRfUjXn2r5u8x/A?D*G-KaPdSgV" />
+        <meta-data
+            android:name="YEK_TRATS"
+            android:value="3" />
 
 
     </application>
