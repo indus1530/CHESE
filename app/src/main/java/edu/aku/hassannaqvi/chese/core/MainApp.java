@@ -3,12 +3,19 @@ package edu.aku.hassannaqvi.chese.core;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
+
+import net.sqlcipher.database.SQLiteDatabase;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
@@ -28,7 +35,7 @@ public class MainApp extends Application {
     public static final String DIST_ID = null;
     public static final String SYNC_LOGIN = "sync_login";
     //public static final String _IP = "https://vcoe1.aku.edu";// .LIVE server
-    public static final String _IP = "http://cls-pae-fp51764";// .TEST server
+    public static final String _IP = "https://cls-pae-fp51764";// .TEST server
     //public static final String _IP = "http://f38158/smk_hfa";// .TEST server
     //public static final String _IP = "http://43.245.131.159:8080";// .TEST server
     public static final String _HOST_URL = MainApp._IP + "/uen_ph2/api/";// .TEST server;
@@ -37,6 +44,8 @@ public class MainApp extends Application {
     public static final String _PHOTO_UPLOAD_URL = _HOST_URL + "uploads.php";
     public static final String _UPDATE_URL = MainApp._IP + "/uen_ph2/app/smk_rsd";
     public static final String DeviceURL = "devices.php";
+    private static final String TAG = "MainApp";
+    public static String IBAHC = "";
 
     public static final int HOUSEHOLDS_TO_RANDOMISE = 10;
     public static final int MIN_MWRA = 14;
@@ -68,6 +77,7 @@ public class MainApp extends Application {
     public static int selectedFemale;
     SharedPreferences.Editor editor;
     SharedPreferences sharedPref;
+    public static String deviceid;
     String[] marker = new String[HOUSEHOLDS_TO_RANDOMISE];
 
     public static void hideSystemUI(View decorView) {
@@ -177,8 +187,36 @@ public class MainApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        appInfo = new AppInfo(this);
+         /*
+        RootBeer rootBeer = new RootBeer(this);
+        if (rootBeer.isRooted()) {
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
+        }*/
 
+        appInfo = new AppInfo(this);
+        sharedPref = getSharedPreferences(PROJECT_NAME, MODE_PRIVATE);
+        editor = sharedPref.edit();
+        deviceid = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+
+        initSecure();
+    }
+
+    private void initSecure() {
+        // Initialize SQLCipher library
+        SQLiteDatabase.loadLibs(this);
+
+        // Prepare encryption KEY
+        ApplicationInfo ai = null;
+        try {
+            ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            Bundle bundle = ai.metaData;
+            int TRATS = bundle.getInt("YEK_TRATS");
+            IBAHC = bundle.getString("YEK_REVRES").substring(TRATS, TRATS + 16);
+            Log.d(TAG, "onCreate: YEK_REVRES = " + IBAHC);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public static Boolean isNetworkAvailable(Context c) {

@@ -134,4 +134,12 @@ dependencies {
     // Android Debug Database Amitshekhar
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
 
+    // Sqlcipher
+    implementation "net.zetetic:android-database-sqlcipher:4.4.3"
+    implementation "androidx.sqlite:sqlite-ktx:2.1.0"
+    implementation "androidx.sqlite:sqlite:2.1.0"
+
+    //Rooted
+    implementation 'com.scottyab:rootbeer-lib:0.0.8'
+
 }
