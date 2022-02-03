@@ -13,6 +13,7 @@ import edu.aku.hassannaqvi.chese.core.AndroidManager;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.VHCForm;
 import edu.aku.hassannaqvi.chese.data.model.WSGForm;
+import edu.aku.hassannaqvi.chese.ui.ChangePasswordActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionVHC1Activity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionVHC2Activity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionVHC3Activity;
@@ -52,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.wsg3:
                 MainApp.wsgForm = new WSGForm();
                 startActivity(new Intent(this, SectionWSG1Activity.class));
+                break;
+            case R.id.changePassword:
+                startActivity(new Intent(this, ChangePasswordActivity.class));
                 break;
             case R.id.vhc2:
                 MainApp.vhcForm = new VHCForm();

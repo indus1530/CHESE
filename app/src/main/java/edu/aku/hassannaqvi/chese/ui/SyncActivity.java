@@ -56,7 +56,6 @@ import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySyncBinding;
 import edu.aku.hassannaqvi.chese.models.Districts;
 import edu.aku.hassannaqvi.chese.models.LHW;
-import edu.aku.hassannaqvi.chese.models.Users;
 import edu.aku.hassannaqvi.chese.models.VersionApp;
 import edu.aku.hassannaqvi.chese.workers.DataDownWorkerALL;
 import edu.aku.hassannaqvi.chese.workers.DataUpWorkerALL;
@@ -155,6 +154,15 @@ public class SyncActivity extends AppCompatActivity {
                 uploadTables.add(new SyncModel(WSGFormTable.TABLE_NAME));
                 MainApp.uploadData.add(db.getUnsyncedWSGForm());
 
+                //Entry Log
+                uploadTables.add(new SyncModel(TableContracts.EntryLogTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedEntryLog());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(SyncActivity.this, "JSONException(EntryLog)" + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
                 // Attendees
                 uploadTables.add(new SyncModel(AttendeesTable.TABLE_NAME));
                 MainApp.uploadData.add(db.getUnsyncedAttendees());
@@ -178,7 +186,7 @@ public class SyncActivity extends AppCompatActivity {
                 boolean sync_flag = getIntent().getBooleanExtra("login", false);
 
                 // Set tables to DOWNLOAD
-                downloadTables.add(new SyncModel(Users.UsersTable.TABLE_NAME));
+                downloadTables.add(new SyncModel(TableContracts.UsersTable.TABLE_NAME));
                 downloadTables.add(new SyncModel(VersionApp.VersionAppTable.TABLE_NAME));
                 downloadTables.add(new SyncModel(Districts.TableDistricts.TABLE_NAME));
                 /*downloadTables.add(new SyncModel(HealthFacilities.TableHealthFacilities.TABLE_NAME));*/
@@ -258,7 +266,7 @@ public class SyncActivity extends AppCompatActivity {
                                 JSONArray jsonArray = new JSONArray();
                                 int insertCount = 0;
                                 switch (tableName) {
-                                    case Users.UsersTable.TABLE_NAME:
+                                    case TableContracts.UsersTable.TABLE_NAME:
                                         jsonArray = new JSONArray(result);
                                         insertCount = db.syncUser(jsonArray);
                                         break;

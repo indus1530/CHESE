@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.chese.database;
 
 import static edu.aku.hassannaqvi.chese.core.MainApp.IBAHC;
 import static edu.aku.hassannaqvi.chese.core.MainApp.PROJECT_NAME;
+import static edu.aku.hassannaqvi.chese.core.UserAuth.checkPassword;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -11,27 +12,33 @@ import android.database.SQLException;
 import android.util.Log;
 
 import net.sqlcipher.database.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteException;
 import net.sqlcipher.database.SQLiteOpenHelper;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.AttendeesTable;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.EntryLogTable;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCFormTable;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGFormTable;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.Attendees;
+import edu.aku.hassannaqvi.chese.data.model.EntryLog;
+import edu.aku.hassannaqvi.chese.data.model.Users;
 import edu.aku.hassannaqvi.chese.data.model.VHCForm;
 import edu.aku.hassannaqvi.chese.data.model.WSGForm;
 import edu.aku.hassannaqvi.chese.models.Districts;
 import edu.aku.hassannaqvi.chese.models.HealthFacilities;
 import edu.aku.hassannaqvi.chese.models.LHW;
-import edu.aku.hassannaqvi.chese.models.Users;
-import edu.aku.hassannaqvi.chese.models.Users.UsersTable;
 import edu.aku.hassannaqvi.chese.models.VersionApp;
 import edu.aku.hassannaqvi.chese.models.VersionApp.VersionAppTable;
 
@@ -58,7 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CreateSQL.SQL_CREATE_USERS);
         db.execSQL(CreateSQL.SQL_CREATE_DISTRICTS);
-
+        db.execSQL(CreateSQL.SQL_CREATE_ENTRYLOGS);
         db.execSQL(CreateSQL.SQL_CREATE_VHCFORM);
         db.execSQL(CreateSQL.SQL_CREATE_WSGFORM);
         db.execSQL(CreateSQL.SQL_CREATE_ATTENDEES);
@@ -145,6 +152,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+    public Long addEntryLog(EntryLog entryLog) throws SQLiteException {
+        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
+        ContentValues values = new ContentValues();
+        values.put(EntryLogTable.COLUMN_PROJECT_NAME, entryLog.getProjectName());
+        values.put(EntryLogTable.COLUMN_UUID, entryLog.getUuid());
+        values.put(EntryLogTable.COLUMN_DISTRICT_CODE, entryLog.getDistrictCode());
+        values.put(EntryLogTable.COLUMN_TEHSIL_CODE, entryLog.getTehsilCode());
+        values.put(EntryLogTable.COLUMN_HF_CODE, entryLog.getHfCode());
+        values.put(EntryLogTable.COLUMN_LHW_CODE, entryLog.getLhwCode());
+        values.put(EntryLogTable.COLUMN_USERNAME, entryLog.getUserName());
+        values.put(EntryLogTable.COLUMN_SYSDATE, entryLog.getSysDate());
+        values.put(EntryLogTable.COLUMN_ISTATUS, entryLog.getiStatus());
+        values.put(EntryLogTable.COLUMN_ISTATUS96x, entryLog.getiStatus96x());
+        values.put(EntryLogTable.COLUMN_ENTRY_TYPE, entryLog.getEntryType());
+        values.put(EntryLogTable.COLUMN_ENTRY_DATE, entryLog.getEntryDate());
+        values.put(EntryLogTable.COLUMN_DEVICEID, entryLog.getDeviceId());
+        values.put(EntryLogTable.COLUMN_SYNCED, entryLog.getSynced());
+        values.put(EntryLogTable.COLUMN_SYNCED_DATE, entryLog.getSyncDate());
+        values.put(EntryLogTable.COLUMN_APPVERSION, entryLog.getAppver());
+
+        long newRowId;
+        newRowId = db.insertOrThrow(
+                EntryLogTable.TABLE_NAME,
+                EntryLogTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
     public Long addAttendees(Attendees atn) {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         ContentValues values = new ContentValues();
@@ -223,7 +258,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public ArrayList<VHCForm> getVHCormByDate(String sysdate) {
-
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = {
@@ -542,6 +576,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
     }
 
+    public int updatesEntryLogColumn(String column, String value, String id) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = EntryLogTable._ID + " =? ";
+        String[] selectionArgs = {id};
+
+        return db.update(EntryLogTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
     public int updatesAtenColumn(String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
 
@@ -686,7 +735,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return (int) count;
     }
 
-
     public int syncUser(JSONArray userList) {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(UsersTable.TABLE_NAME, null, null);
@@ -703,6 +751,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(UsersTable.COLUMN_USERNAME, user.getUserName());
                 values.put(UsersTable.COLUMN_PASSWORD, user.getPassword());
                 values.put(UsersTable.COLUMN_FULLNAME, user.getFullname());
+                values.put(UsersTable.COLUMN_ENABLED, user.getEnabled());
+                values.put(UsersTable.COLUMN_ISNEW_USER, user.getNewUser());
+                values.put(UsersTable.COLUMN_PWD_EXPIRY, user.getPwdExpiry());
+                values.put(UsersTable.COLUMN_DESIGNATION, user.getDesignation());
                 values.put(UsersTable.COLUMN_DIST_ID, user.getDist_id());
                 long rowID = db.insert(UsersTable.TABLE_NAME, null, values);
                 if (rowID != -1) insertCount++;
@@ -716,6 +768,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return insertCount;
     }
+
 
     //    Sync Districts
     public int syncDistricts(JSONArray districtsList) {
@@ -972,6 +1025,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allForms;
     }
 
+    public JSONArray getUnsyncedEntryLog() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c = null;
+        String[] columns = null;
+        String whereClause;
+        whereClause = EntryLogTable.COLUMN_SYNCED + " = '' ";
+
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+        String orderBy = EntryLogTable.COLUMN_ID + " ASC";
+
+        JSONArray all = new JSONArray();
+        c = db.query(
+                EntryLogTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            Log.d(TAG, "getUnsyncedEntryLog: " + c.getCount());
+            EntryLog entryLog = new EntryLog();
+            all.put(entryLog.Hydrate(c).toJSONObject());
+        }
+        Log.d(TAG, "getUnsyncedEntryLog: " + all.toString().length());
+        Log.d(TAG, "getUnsyncedEntryLog: " + all);
+        return all;
+    }
+
 
     //updateSyncedTables
     public void updateSyncedVHCForm(String id) {
@@ -997,6 +1082,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] whereArgs = {id};
         int count = db.update(
                 WSGFormTable.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateSyncedEntryLog(String id) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        ContentValues values = new ContentValues();
+        values.put(EntryLogTable.COLUMN_SYNCED, true);
+        values.put(EntryLogTable.COLUMN_SYNCED_DATE, new Date().toString());
+        String where = EntryLogTable.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+        int count = db.update(
+                EntryLogTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
@@ -1487,46 +1586,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean doLogin(String username, String password) {
+    //Functions that dealing with table data
+    //Functions that dealing with table data
+    public boolean doLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
-        String[] columns = {
-                UsersTable.COLUMN_ID,
-                UsersTable.COLUMN_USERNAME,
-                UsersTable.COLUMN_PASSWORD,
-                UsersTable.COLUMN_FULLNAME,
-                UsersTable.COLUMN_DIST_ID,
-        };
-        String whereClause = UsersTable.COLUMN_USERNAME + "=? AND " + UsersTable.COLUMN_PASSWORD + "=?";
-        String[] whereArgs = {username, password};
+        String[] columns = null;
+        String whereClause = UsersTable.COLUMN_USERNAME + "=? ";
+        String[] whereArgs = {username};
         String groupBy = null;
         String having = null;
         String orderBy = UsersTable.COLUMN_ID + " ASC";
 
         Users loggedInUser = new Users();
-        try {
-            c = db.query(
-                    UsersTable.TABLE_NAME,  // The table to query
-                    columns,                   // The columns to return
-                    whereClause,               // The columns for the WHERE clause
-                    whereArgs,                 // The values for the WHERE clause
-                    groupBy,                   // don't group the rows
-                    having,                    // don't filter by row groups
-                    orderBy                    // The sort order
-            );
-            while (c.moveToNext()) {
-                loggedInUser = new Users().hydrate(c);
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
+        c = db.query(
+                UsersTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            loggedInUser = new Users().hydrate(c);
+
         }
-        MainApp.user = loggedInUser;
-        return c.getCount() > 0;
+
+        c.close();
+
+        db.close();
+
+        if (checkPassword(password, loggedInUser.getPassword())) {
+            MainApp.user = loggedInUser;
+            //  MainApp.selectedDistrict = loggedInUser.getDist_id();
+            return c.getCount() > 0;
+        } else {
+            return false;
+        }
     }
 
     public VHCForm getVHCFormByHF(String hfCode, String rMonth) {
@@ -1571,5 +1668,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFC;
 
 
+    }
+
+    public int updatePassword(String hashedPassword) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+
+        ContentValues values = new ContentValues();
+        values.put(UsersTable.COLUMN_PASSWORD, hashedPassword);
+        values.put(UsersTable.COLUMN_ISNEW_USER, "");
+
+        String selection = UsersTable.COLUMN_USERNAME + " =? ";
+        String[] selectionArgs = {MainApp.user.getUserName()};
+
+        return db.update(UsersTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
     }
 }

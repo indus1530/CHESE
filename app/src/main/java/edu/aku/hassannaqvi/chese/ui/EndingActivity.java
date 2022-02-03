@@ -13,13 +13,17 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
+import net.sqlcipher.database.SQLiteException;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts;
 import edu.aku.hassannaqvi.chese.core.MainApp;
+import edu.aku.hassannaqvi.chese.data.model.EntryLog;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivityEndingBinding;
 
@@ -28,6 +32,7 @@ public class EndingActivity extends AppCompatActivity {
 
     ActivityEndingBinding bi;
     String sesstionType;
+    private DatabaseHelper db;
 
 
     @Override
@@ -77,11 +82,34 @@ public class EndingActivity extends AppCompatActivity {
         if (!formValidation()) return;
         saveDraft();
         if (UpdateDB()) {
+            recordEntry();
             finish();
             gotoActivity(this, MainActivity.class);
         } else {
             Toast.makeText(this, "Error in updating db!!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    private void recordEntry() {
+
+        EntryLog entryLog = new EntryLog();
+        entryLog.populateMeta(sesstionType);
+        Long rowId = null;
+        try {
+            rowId = db.addEntryLog(entryLog);
+        } catch (SQLiteException e) {
+            Toast.makeText(this, "SQLiteException(EntryLog)" + entryLog, Toast.LENGTH_SHORT).show();
+        }
+        if (rowId != -1) {
+            entryLog.setId(String.valueOf(rowId));
+            entryLog.setUid(entryLog.getDeviceId() + entryLog.getId());
+            db.updatesEntryLogColumn(TableContracts.EntryLogTable.COLUMN_UID, entryLog.getUid(), entryLog.getId());
+        } else {
+            Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
+
+        }
+
     }
 
     private boolean UpdateDB() {

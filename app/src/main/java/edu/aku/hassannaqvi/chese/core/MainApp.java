@@ -25,9 +25,9 @@ import java.util.List;
 import java.util.Random;
 
 import edu.aku.hassannaqvi.chese.data.model.Attendees;
+import edu.aku.hassannaqvi.chese.data.model.Users;
 import edu.aku.hassannaqvi.chese.data.model.VHCForm;
 import edu.aku.hassannaqvi.chese.data.model.WSGForm;
-import edu.aku.hassannaqvi.chese.models.Users;
 
 public class MainApp extends Application {
 
@@ -44,6 +44,8 @@ public class MainApp extends Application {
     public static final String _PHOTO_UPLOAD_URL = _HOST_URL + "uploads.php";
     public static final String _UPDATE_URL = MainApp._IP + "/uen_ph2/app/smk_rsd";
     public static final String DeviceURL = "devices.php";
+    public static final String _EMPTY_ = "";
+    public static final String _USER_URL = "resetpassword.php";
     private static final String TAG = "MainApp";
     public static String IBAHC = "";
 
@@ -64,6 +66,7 @@ public class MainApp extends Application {
     public static AppInfo appInfo;
     public static Users user;
     public static Boolean admin = false;
+    public static boolean superuser;
     public static List<JSONArray> uploadData;
     public static int fmCount;
     public static String fmPosition;
