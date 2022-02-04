@@ -23,7 +23,8 @@
             android:animateLayoutChanges="false"
             android:gravity="center"
             android:orientation="vertical">
-            <!-- CUSTOM TOOLBAR -->
+
+        <!-- CUSTOM TOOLBAR -->
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
@@ -241,5 +242,6 @@
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
+
 </layout>
 

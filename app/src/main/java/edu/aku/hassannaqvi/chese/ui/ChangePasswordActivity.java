@@ -28,7 +28,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 import edu.aku.hassannaqvi.chese.R;
-import edu.aku.hassannaqvi.chese.core.CipherSecure;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivityChangePasswordBinding;
@@ -78,7 +77,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         WorkManager workManager = WorkManager.getInstance(this);
 
         try {
-            String hashedPassword = generatePassword(bi.password2.getText().toString());
+            String hashedPassword = generatePassword(bi.password2.getText().toString(), null);
 
             Data data = new Data.Builder()
                     .putString("newPassword", hashedPassword)
@@ -187,9 +186,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
                             }
                         }
                     });
-
-
-            Log.d(TAG, "attemptReset: " + CipherSecure.encrypt(bi.password2.getText().toString()));
 
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();

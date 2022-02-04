@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.database.SQLException;
 import android.util.Log;
+import android.widget.Toast;
 
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteException;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import edu.aku.hassannaqvi.chese.contracts.TableContracts;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.AttendeesTable;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.EntryLogTable;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.UsersTable;
@@ -56,9 +58,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private final String TAG = "DatabaseHelper";
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_PASSWORD = IBAHC;
+    private final Context mContext;
 
     public DatabaseHelper(Context context) {
         super(context, CreateSQL.DATABASE_NAME, null, CreateSQL.DATABASE_VERSION);
+        mContext = context;
     }
 
     @Override
@@ -70,7 +74,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CreateSQL.SQL_CREATE_WSGFORM);
         db.execSQL(CreateSQL.SQL_CREATE_ATTENDEES);
         db.execSQL(CreateSQL.SQL_CREATE_VERSIONAPP);
-
         db.execSQL(CreateSQL.SQL_CREATE_HEALTH_FACILITIES);
         db.execSQL(CreateSQL.SQL_CREATE_LHW);
 
@@ -735,70 +738,57 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return (int) count;
     }
 
-    public int syncUser(JSONArray userList) {
+
+    public int syncUser(JSONArray userList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
-        db.delete(UsersTable.TABLE_NAME, null, null);
+        db.delete(TableContracts.UsersTable.TABLE_NAME, null, null);
         int insertCount = 0;
-        try {
-            for (int i = 0; i < userList.length(); i++) {
+        for (int i = 0; i < userList.length(); i++) {
 
-                JSONObject jsonObjectUser = userList.getJSONObject(i);
+            JSONObject jsonObjectUser = userList.getJSONObject(i);
 
-                Users user = new Users();
-                user.sync(jsonObjectUser);
-                ContentValues values = new ContentValues();
+            Users user = new Users();
+            user.sync(jsonObjectUser);
+            ContentValues values = new ContentValues();
 
-                values.put(UsersTable.COLUMN_USERNAME, user.getUserName());
-                values.put(UsersTable.COLUMN_PASSWORD, user.getPassword());
-                values.put(UsersTable.COLUMN_FULLNAME, user.getFullname());
-                values.put(UsersTable.COLUMN_ENABLED, user.getEnabled());
-                values.put(UsersTable.COLUMN_ISNEW_USER, user.getNewUser());
-                values.put(UsersTable.COLUMN_PWD_EXPIRY, user.getPwdExpiry());
-                values.put(UsersTable.COLUMN_DESIGNATION, user.getDesignation());
-                values.put(UsersTable.COLUMN_DIST_ID, user.getDist_id());
-                long rowID = db.insert(UsersTable.TABLE_NAME, null, values);
-                if (rowID != -1) insertCount++;
-            }
-
-        } catch (Exception e) {
-            Log.d(TAG, "syncUser(e): " + e);
-            db.close();
-        } finally {
-            db.close();
+            values.put(UsersTable.COLUMN_USERNAME, user.getUserName());
+            values.put(UsersTable.COLUMN_PASSWORD, user.getPassword());
+            values.put(UsersTable.COLUMN_FULLNAME, user.getFullname());
+            values.put(UsersTable.COLUMN_ENABLED, user.getEnabled());
+            values.put(UsersTable.COLUMN_ISNEW_USER, user.getNewUser());
+            values.put(UsersTable.COLUMN_PWD_EXPIRY, user.getPwdExpiry());
+            values.put(UsersTable.COLUMN_DESIGNATION, user.getDesignation());
+            values.put(UsersTable.COLUMN_DIST_ID, user.getDist_id());
+            long rowID = db.insert(TableContracts.UsersTable.TABLE_NAME, null, values);
+            if (rowID != -1) insertCount++;
         }
+
+
+        db.close();
         return insertCount;
     }
 
 
     //    Sync Districts
-    public int syncDistricts(JSONArray districtsList) {
+    public int syncDistricts(JSONArray districtsList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(Districts.TableDistricts.TABLE_NAME, null, null);
         int insertCount = 0;
-        try {
+        for (int i = 0; i < districtsList.length(); i++) {
+            JSONObject json = districtsList.getJSONObject(i);
+            Districts districts = new Districts();
+            districts.sync(json);
+            ContentValues values = new ContentValues();
 
-            for (int i = 0; i < districtsList.length(); i++) {
-                JSONObject json = districtsList.getJSONObject(i);
-                Districts districts = new Districts();
-                districts.sync(json);
-                ContentValues values = new ContentValues();
+            values.put(Districts.TableDistricts.COLUMN_PROVINCE_CODE, districts.getProvinceCode());
+            values.put(Districts.TableDistricts.COLUMN_PROVINCE_NAME, districts.getProvinceName());
+            values.put(Districts.TableDistricts.COLUMN_DISTRICT_CODE, districts.getDistrictCode());
+            values.put(Districts.TableDistricts.COLUMN_DISTRICT_NAME, districts.getDistrictName());
 
-                values.put(Districts.TableDistricts.COLUMN_PROVINCE_CODE, districts.getProvinceCode());
-                values.put(Districts.TableDistricts.COLUMN_PROVINCE_NAME, districts.getProvinceName());
-                values.put(Districts.TableDistricts.COLUMN_DISTRICT_CODE, districts.getDistrictCode());
-                values.put(Districts.TableDistricts.COLUMN_DISTRICT_NAME, districts.getDistrictName());
-
-                long rowID = db.insert(Districts.TableDistricts.TABLE_NAME, null, values);
-                if (rowID != -1) insertCount++;
-            }
-            db.close();
-
-        } catch (Exception e) {
-            Log.d(TAG, "syncLhw(e): " + e);
-            db.close();
-        } finally {
-            db.close();
+            long rowID = db.insert(Districts.TableDistricts.TABLE_NAME, null, values);
+            if (rowID != -1) insertCount++;
         }
+        db.close();
         return insertCount;
     }
 
@@ -836,46 +826,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //    Sync LHW
-    public int syncLHW(JSONArray lhwList) {
+    public int syncLHW(JSONArray lhwList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(LHW.LHWTable.TABLE_NAME, null, null);
         int insertCount = 0;
-        try {
-            for (int i = 0; i < lhwList.length(); i++) {
-                JSONObject json = lhwList.getJSONObject(i);
-                LHW lhw = new LHW();
-                lhw.sync(json);
-                ContentValues values = new ContentValues();
+        for (int i = 0; i < lhwList.length(); i++) {
+            JSONObject json = lhwList.getJSONObject(i);
+            LHW lhw = new LHW();
+            lhw.sync(json);
+            ContentValues values = new ContentValues();
 
-                values.put(LHW.LHWTable.COLUMN_DISTRICT_CODE, lhw.getDistrict_code());
-                values.put(LHW.LHWTable.COLUMN_TEHSIL_CODE, lhw.getTehsil_code());
-                values.put(LHW.LHWTable.COLUMN_TEHSIL_NAME, lhw.getTehsil_name());
-                values.put(LHW.LHWTable.COLUMN_UC_CODE, lhw.getUc_code());
-                values.put(LHW.LHWTable.COLUMN_UC_NAME, lhw.getUc_name());
-                values.put(LHW.LHWTable.COLUMN_HF_CODE, lhw.getHf_code());
-                values.put(LHW.LHWTable.COLUMN_HF_NAME, lhw.getHf_name());
-                values.put(LHW.LHWTable.COLUMN_LHW_CODE, lhw.getLhw_code());
-                values.put(LHW.LHWTable.COLUMN_LHW_NAME, lhw.getLhw_name());
-                values.put(LHW.LHWTable.COLUMN_LHW_CNIC, lhw.getLhw_cnic());
-                values.put(LHW.LHWTable.COLUMN_LHW_SUPERVISOR, lhw.getLhw_supervisor());
+            values.put(LHW.LHWTable.COLUMN_DISTRICT_CODE, lhw.getDistrict_code());
+            values.put(LHW.LHWTable.COLUMN_TEHSIL_CODE, lhw.getTehsil_code());
+            values.put(LHW.LHWTable.COLUMN_TEHSIL_NAME, lhw.getTehsil_name());
+            values.put(LHW.LHWTable.COLUMN_UC_CODE, lhw.getUc_code());
+            values.put(LHW.LHWTable.COLUMN_UC_NAME, lhw.getUc_name());
+            values.put(LHW.LHWTable.COLUMN_HF_CODE, lhw.getHf_code());
+            values.put(LHW.LHWTable.COLUMN_HF_NAME, lhw.getHf_name());
+            values.put(LHW.LHWTable.COLUMN_LHW_CODE, lhw.getLhw_code());
+            values.put(LHW.LHWTable.COLUMN_LHW_NAME, lhw.getLhw_name());
+            values.put(LHW.LHWTable.COLUMN_LHW_CNIC, lhw.getLhw_cnic());
+            values.put(LHW.LHWTable.COLUMN_LHW_SUPERVISOR, lhw.getLhw_supervisor());
 
-                long rowID = db.insert(LHW.LHWTable.TABLE_NAME, null, values);
-                if (rowID != -1) insertCount++;
-            }
-            db.close();
-
-        } catch (Exception e) {
-            Log.d(TAG, "syncLhw(e): " + e);
-            db.close();
-        } finally {
-            db.close();
+            long rowID = db.insert(LHW.LHWTable.TABLE_NAME, null, values);
+            if (rowID != -1) insertCount++;
         }
+            db.close();
         return insertCount;
     }
 
 
     //get UnSyncedTables
-    public JSONArray getUnsyncedVHCForm() {
+    public JSONArray getUnsyncedVHCForm() throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
@@ -892,40 +874,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = VHCFormTable.COLUMN_ID + " ASC";
 
         JSONArray allForms = new JSONArray();
-        try {
-            c = db.query(
-                    VHCFormTable.TABLE_NAME,  // The table to query
-                    columns,                   // The columns to return
-                    whereClause,               // The columns for the WHERE clause
-                    whereArgs,                 // The values for the WHERE clause
-                    groupBy,                   // don't group the rows
-                    having,                    // don't filter by row groups
-                    orderBy                    // The sort order
-            );
-            while (c.moveToNext()) {
-                /** WorkManager Upload
-                 /*Form fc = new Form();
-                 allFC.add(fc.Hydrate(c));*/
-                Log.d(TAG, "getUnsyncedVHCForm: " + c.getCount());
-                VHCForm vhcForm = new VHCForm();
-                allForms.put(vhcForm.Hydrate(c).toJSONObject());
-
-
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
+        c = db.query(
+                VHCFormTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            /** WorkManager Upload
+             /*Form fc = new Form();
+             allFC.add(fc.Hydrate(c));*/
+            Log.d(TAG, "getUnsyncedVHCForm: " + c.getCount());
+            VHCForm vhcForm = new VHCForm();
+            allForms.put(vhcForm.Hydrate(c).toJSONObject());
         }
-        Log.d(TAG, "getUnsyncedVHCForm: " + allForms.toString().length());
-        Log.d(TAG, "getUnsyncedVHCForm: " + allForms);
+        c.close();
+        db.close();
+
+        Log.d(TAG, "getUnsyncedVHCForms: " + allForms.toString().length());
+        Log.d(TAG, "getUnsyncedVHCForms: " + allForms);
         return allForms;
     }
 
-    public JSONArray getUnsyncedWSGForm() {
+    public JSONArray getUnsyncedWSGForm() throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
@@ -942,40 +916,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = WSGFormTable.COLUMN_ID + " ASC";
 
         JSONArray allForms = new JSONArray();
-        try {
-            c = db.query(
-                    WSGFormTable.TABLE_NAME,  // The table to query
-                    columns,                   // The columns to return
-                    whereClause,               // The columns for the WHERE clause
-                    whereArgs,                 // The values for the WHERE clause
-                    groupBy,                   // don't group the rows
-                    having,                    // don't filter by row groups
-                    orderBy                    // The sort order
-            );
-            while (c.moveToNext()) {
-                /** WorkManager Upload
-                 /*Form fc = new Form();
-                 allFC.add(fc.Hydrate(c));*/
-                Log.d(TAG, "getUnsyncedWSGForm: " + c.getCount());
-                WSGForm wsgForm = new WSGForm();
-                allForms.put(wsgForm.Hydrate(c).toJSONObject());
-
-
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
+        c = db.query(
+                WSGFormTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            /** WorkManager Upload
+             /*Form fc = new Form();
+             allFC.add(fc.Hydrate(c));*/
+            Log.d(TAG, "getUnsyncedWSGForm: " + c.getCount());
+            WSGForm wsgForm = new WSGForm();
+            allForms.put(wsgForm.Hydrate(c).toJSONObject());
         }
+        c.close();
+        db.close();
         Log.d(TAG, "getUnsyncedWSGForm: " + allForms.toString().length());
         Log.d(TAG, "getUnsyncedWSGForm: " + allForms);
         return allForms;
     }
 
-    public JSONArray getUnsyncedAttendees() {
+    public JSONArray getUnsyncedAttendees() throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
@@ -992,34 +957,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = AttendeesTable.COLUMN_ID + " ASC";
 
         JSONArray allForms = new JSONArray();
-        try {
-            c = db.query(
-                    AttendeesTable.TABLE_NAME,  // The table to query
-                    columns,                   // The columns to return
-                    whereClause,               // The columns for the WHERE clause
-                    whereArgs,                 // The values for the WHERE clause
-                    groupBy,                   // don't group the rows
-                    having,                    // don't filter by row groups
-                    orderBy                    // The sort order
-            );
-            while (c.moveToNext()) {
-                /** WorkManager Upload
-                 /*Form fc = new Form();
-                 allFC.add(fc.Hydrate(c));*/
-                Log.d(TAG, "getUnsyncedAttendees: " + c.getCount());
-                Attendees atn = new Attendees();
-                allForms.put(atn.Hydrate(c).toJSONObject());
 
-
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
+        c = db.query(
+                AttendeesTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            /** WorkManager Upload
+             /*Form fc = new Form();
+             allFC.add(fc.Hydrate(c));*/
+            Log.d(TAG, "getUnsyncedAttendees: " + c.getCount());
+            Attendees atn = new Attendees();
+            allForms.put(atn.Hydrate(c).toJSONObject());
         }
+        c.close();
+        db.close();
+
         Log.d(TAG, "getUnsyncedAttendees: " + allForms.toString().length());
         Log.d(TAG, "getUnsyncedAttendees: " + allForms);
         return allForms;
@@ -1616,7 +1574,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         c.close();
 
         db.close();
-
+        if (loggedInUser.getPassword().equals("")) {
+            Toast.makeText(mContext, "Stored password is invalid", Toast.LENGTH_SHORT).show();
+            return false;
+        }
         if (checkPassword(password, loggedInUser.getPassword())) {
             MainApp.user = loggedInUser;
             //  MainApp.selectedDistrict = loggedInUser.getDist_id();
@@ -1669,6 +1630,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     }
+
 
     public int updatePassword(String hashedPassword) {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);

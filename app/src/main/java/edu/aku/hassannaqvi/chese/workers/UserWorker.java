@@ -24,6 +24,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateExpiredException;
@@ -31,6 +34,9 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.CertificateNotYetValidException;
 import java.security.cert.X509Certificate;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
@@ -329,7 +335,7 @@ public class UserWorker extends Worker {
                     .build();
             return Result.failure(data);
 
-        } catch (IOException | JSONException e) {
+        } catch (IOException | JSONException | NoSuchPaddingException | NoSuchAlgorithmException | InvalidAlgorithmParameterException | InvalidKeyException | BadPaddingException | IllegalBlockSizeException e) {
             Log.d(TAG, "doWork (IO Error): " + e.getMessage());
             displayNotification(nTitle, "IO Error: " + e.getMessage());
             data = new Data.Builder()
@@ -341,7 +347,18 @@ public class UserWorker extends Worker {
         } finally {
 //            urlConnection.disconnect();
         }
-        result = new StringBuilder(CipherSecure.decrypt(result.toString()));
+        try {
+            result = new StringBuilder(CipherSecure.decrypt(result.toString()));
+        } catch (NoSuchPaddingException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | InvalidAlgorithmParameterException | InvalidKeyException e) {
+            Log.d(TAG, "doWork (Encryption Error): " + e.getMessage());
+            displayNotification(nTitle, "Encryption Error: " + e.getMessage());
+            data = new Data.Builder()
+                    .putString("error", "Encryption Error: " + e.getMessage())
+                    .build();
+
+            return Result.failure(data);
+
+        }
         longInfo("result-server(Decrypted): " + result);
 
         //Do something with the JSON string
