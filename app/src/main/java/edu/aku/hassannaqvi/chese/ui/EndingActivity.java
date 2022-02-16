@@ -41,6 +41,7 @@ public class EndingActivity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_ending);
         //bi.setForm(MainApp.form);
         setSupportActionBar(bi.toolbar);
+        db = MainApp.appInfo.dbHelper;
 
         boolean check = getIntent().getBooleanExtra("complete", false);
         sesstionType = getIntent().getStringExtra("sessionType");
@@ -131,7 +132,7 @@ public class EndingActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Toast.makeText(getApplicationContext(), "Back Press Not Allowed", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_LONG).show();
     }
 
 }
