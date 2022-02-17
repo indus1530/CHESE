@@ -348,7 +348,7 @@ public class SyncActivity extends AppCompatActivity {
                             syncListAdapter.updatesyncList(downloadTables);
 
                             bi.btnUpload.setVisibility(View.VISIBLE);
-                            bi.btnUploadPhotos.setVisibility(View.VISIBLE);
+//                            bi.btnUploadPhotos.setVisibility(View.VISIBLE);
 
 //                    pd.show();
                         } else {
