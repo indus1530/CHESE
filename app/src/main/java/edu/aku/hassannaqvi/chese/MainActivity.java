@@ -42,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
         Intent oF = null;
         switch (v.getId()) {
             case R.id.openVhcForm:
-                /*MainApp.form = new Forms();
-                startActivity(new Intent(this, SectionIdentificationActivity.class));
-                break;*/
             case R.id.seca:
                 MainApp.vhcForm = new VHCForm();
                 startActivity(new Intent(this, SectionVHC1Activity.class));
