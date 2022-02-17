@@ -83,7 +83,7 @@
                                 android:focusableInTouchMode="true"
                                 android:hint="YYYY-MM-DD"
                                 android:text="@={vhcForm.v201}"
-                                app:dateFormat="yyyy/MM/dd"
+                                app:dateFormat="yyyy-MM-dd"
                                 app:maxDate="CR_DATE" />
 
                         </LinearLayout>

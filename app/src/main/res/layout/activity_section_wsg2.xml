@@ -83,7 +83,7 @@
                             android:gravity="center"
                             android:hint="YYYY-MM-DD"
                             android:text="@={wsgForm.ws201}"
-                            app:dateFormat="yyyy/MM/dd"
+                            app:dateFormat="yyyy-MM-dd"
                             app:maxDate="CR_DATE" />
 
                     </LinearLayout>
