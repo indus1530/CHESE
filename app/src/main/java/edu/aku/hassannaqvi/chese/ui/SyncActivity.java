@@ -47,6 +47,7 @@ import java.util.concurrent.TimeUnit;
 
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.adapters.SyncListAdapter;
+import edu.aku.hassannaqvi.chese.contracts.TableContracts.AttendeesTable;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.EntryLogTable;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCFormTable;
@@ -165,6 +166,15 @@ public class SyncActivity extends AppCompatActivity {
                 uploadTables.add(new SyncModel(WSGFormTable.TABLE_NAME));
                 try {
                     uploadData.add(db.getUnsyncedWSGForm());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "JSONException(Form): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+                // Attendees
+                uploadTables.add(new SyncModel(AttendeesTable.TABLE_NAME));
+                try {
+                    uploadData.add(db.getUnsyncedAttendees());
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(this, "JSONException(Form): " + e.getMessage(), Toast.LENGTH_SHORT).show();
