@@ -15,10 +15,13 @@
     </style>
 
 
-    <!--    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-            <item name="android:typeface">sans</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
 
-        </style>-->
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:layoutDirection">ltr</item>
+        <item name="android:actionBarStyle">@style/topBarStyle</item>
+    </style>
 
     <!-- Base application theme. -->
     <style name="Theme.English" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -49,11 +52,11 @@
         <item name="android:textColorSecondary">@android:color/white</item>
     </style>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="fontFamily">@font/roboto</item>
-        <item name="android:layoutDirection">ltr</item>
-        <item name="android:actionBarStyle">@style/topBarStyle</item>
-    </style>
+    <!--    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+            <item name="fontFamily">@font/roboto</item>
+            <item name="android:layoutDirection">ltr</item>
+            <item name="android:actionBarStyle">@style/topBarStyle</item>
+        </style>-->
 
     <style name="AppThemeUrdu" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 

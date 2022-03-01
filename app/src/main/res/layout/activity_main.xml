@@ -29,12 +29,13 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:layoutDirection="ltr"
-                android:textAlignment="center"
-                app:layout_scrollFlags="scroll|enterAlways"
-                app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:titleTextColor="@color/black" />
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/CustomToolbarTheme"
+                app:popupTheme="@style/CustomPopupTheme"
+                app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
+                app:title="@string/app_name"
+                app:titleTextAppearance="@style/Toolbar.TitleText" />
 
 
             <ImageView
