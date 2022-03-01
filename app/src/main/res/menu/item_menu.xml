@@ -12,6 +12,7 @@
                 android:id="@+id/action_database"
                 android:title="@string/action_database" />
             <item
+                android:visible="false"
                 android:id="@+id/onSync"
                 android:title="Sync Data"
                 app:showAsAction="collapseActionView" />
