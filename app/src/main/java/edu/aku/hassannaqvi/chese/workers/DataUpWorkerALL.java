@@ -102,7 +102,7 @@ public class DataUpWorkerALL extends Worker {
 
             CertificateFactory cf = CertificateFactory.getInstance("X.509");
             AssetManager assetManager = context.getAssets();
-            InputStream caInput = assetManager.open("star_aku_edu.crt");
+            InputStream caInput = assetManager.open("vcoe1_aku_edu.cer");
             Certificate ca;
             try {
                 ca = cf.generateCertificate(caInput);
@@ -231,7 +231,7 @@ public class DataUpWorkerALL extends Worker {
         try {
             CertificateFactory cf = CertificateFactory.getInstance("X.509");
             AssetManager assetManager = mContext.getAssets();
-            caInput = assetManager.open("star_aku_edu.crt");
+            caInput = assetManager.open("vcoe1_aku_edu.cer");
 
 
             ca = cf.generateCertificate(caInput);
