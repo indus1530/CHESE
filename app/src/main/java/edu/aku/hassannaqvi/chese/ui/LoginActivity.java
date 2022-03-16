@@ -201,7 +201,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
             } else {
-                Toast.makeText(this, "Not create folder", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.folder_not_created), Toast.LENGTH_SHORT).show();
             }
         }
 

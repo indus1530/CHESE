@@ -22,6 +22,7 @@
     <string name="newPassword" translatable="false">New Password</string>
     <string name="confirmPassword" translatable="false">Confirm Password</string>
     <string name="btnResetPassword" translatable="false">Reset Password</string>
+    <string name="folder_not_created" translatable="false"> Folder Not Created </string>
     <string name="upd_db_error" translatable="false"> Updating Database… ERROR! </string>
     <string name="options" translatable="false">Options</string>
     <string name="action_database" translatable="false">Database Manager</string>
