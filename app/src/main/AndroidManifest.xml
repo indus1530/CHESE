@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:name="edu.aku.hassannaqvi.chese.core.MainApp"
+        android:name=".core.MainApp"
         android:allowBackup="true"
         android:fullBackupContent="false"
         android:icon="@drawable/app_icon"
@@ -31,7 +31,7 @@
 
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.LoginActivity"
+            android:name=".ui.LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -46,85 +46,84 @@
 
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.MainActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionVHC1Activity"
+            android:name=".ui.sections.SectionVHC1Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionWSG5Activity"
+            android:name=".ui.sections.SectionWSG5Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionVHC3Activity"
+            android:name=".ui.sections.SectionVHC3Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionWSG2Activity"
+            android:name=".ui.sections.SectionWSG2Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionWSG1Activity"
+            android:name=".ui.sections.SectionWSG1Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionWSG41Activity"
+            android:name=".ui.sections.SectionWSG41Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionWSG42Activity"
+            android:name=".ui.sections.SectionWSG42Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionVHC2Activity"
+            android:name=".ui.sections.SectionVHC2Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.sections.SectionVHC4Activity"
+            android:name=".ui.sections.SectionVHC4Activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.EndingActivity"
+            android:name=".ui.EndingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.English"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.SyncActivity"
+            android:name=".ui.SyncActivity"
             android:label="Download and Upload Data Activity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.core.AndroidManager"
+            android:name=".core.AndroidManager"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/android:Theme.Holo.Light.DarkActionBar" />
+            android:screenOrientation="portrait" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.chese.ui.TakePhoto"
+            android:name=".ui.TakePhoto"
             android:hardwareAccelerated="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />

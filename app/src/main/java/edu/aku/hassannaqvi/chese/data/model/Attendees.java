@@ -423,33 +423,33 @@ public class Attendees extends BaseObservable implements Observable {
 
 
     public Attendees Hydrate(Cursor cursor) {
-        this.id = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_ID));
-        this.uid = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_UID));
-        this.uuid = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_UUID));
-        this.userName = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_USERNAME));
-        this.sysDate = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_SYSDATE));
-        this.sessionType = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_SESSION_TYPE));
-        this.districtCode = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_DISTRICT_CODE));
-        this.districtName = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_DISTRICT_NAME));
-        this.tehsilCode = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_TEHSIL_CODE));
-        this.tehsilName = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_TEHSIL_NAME));
-        this.hfCode = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_HF_CODE));
-        this.hfName = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_HF_NAME));
-        this.lhwCode = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_LHW_CODE));
-        this.lhwName = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_LHW_NAME));
-        this.deviceId = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_DEVICEID));
-        this.deviceTag = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_DEVICETAGID));
-        this.appver = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_APPVERSION));
-        this.endTime = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_ENDINGDATETIME));
-        this.iStatus = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_ISTATUS));
-        this.iStatus96x = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_ISTATUS96x));
-        this.synced = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_SYNCED));
-        this.syncDate = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_SYNCED_DATE));
+        this.id = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_ID));
+        this.uid = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_UID));
+        this.uuid = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_UUID));
+        this.userName = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_USERNAME));
+        this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_SYSDATE));
+        this.sessionType = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_SESSION_TYPE));
+        this.districtCode = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_DISTRICT_CODE));
+        this.districtName = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_DISTRICT_NAME));
+        this.tehsilCode = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_TEHSIL_CODE));
+        this.tehsilName = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_TEHSIL_NAME));
+        this.hfCode = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_HF_CODE));
+        this.hfName = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_HF_NAME));
+        this.lhwCode = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_LHW_CODE));
+        this.lhwName = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_LHW_NAME));
+        this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_DEVICEID));
+        this.deviceTag = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_DEVICETAGID));
+        this.appver = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_APPVERSION));
+        this.endTime = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_ENDINGDATETIME));
+        this.iStatus = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_ISTATUS));
+        this.iStatus96x = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_ISTATUS96x));
+        this.synced = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_SYNCED));
+        this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_SYNCED_DATE));
 
         //For childCount
-        //this.sA = cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_SA));
+        //this.sA = cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_SA));
 
-        sV3Hydrate(cursor.getString(cursor.getColumnIndex(AttendeesTable.COLUMN_SV3)));
+        sV3Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(AttendeesTable.COLUMN_SV3)));
 
         return this;
     }

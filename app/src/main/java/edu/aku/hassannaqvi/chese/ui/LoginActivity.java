@@ -251,21 +251,21 @@ public class LoginActivity extends AppCompatActivity {
 
             // Check for a valid password, if the user entered one.
             if (password.length() < 8) {
-                bi.password.setError(getString(R.string.invalid_password));
+                bi.password.setError(getResources().getString(R.string.invalid_password));
                 focusView = bi.password;
                 return;
             }
 
             // Check for a valid username address.
             if (TextUtils.isEmpty(username)) {
-                bi.username.setError(getString(R.string.username_required));
+                bi.username.setError(getResources().getString(R.string.username_required));
                 focusView = bi.username;
                 return;
             }
 
             //if(!Validator.emptySpinner(this, bi.countrySwitch)) return;
             /*if (bi.countrySwitch.getSelectedItemPosition() == 0) {
-                bi.as1q01.setError(getString(R.string.as1q01));
+                bi.as1q01.setError(getResources().getString(R.string.as1q01));
                 return;
             }*/
             try {

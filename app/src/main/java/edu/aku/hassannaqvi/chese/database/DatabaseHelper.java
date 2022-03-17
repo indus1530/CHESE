@@ -292,10 +292,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 VHCForm vhcForm = new VHCForm();
-                vhcForm.setId(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_ID)));
-                vhcForm.setUid(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_UID)));
-                vhcForm.setSysDate(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_SYSDATE)));
-                vhcForm.setUserName(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_USERNAME)));
+                vhcForm.setId(c.getString(c.getColumnIndexOrThrow(VHCFormTable.COLUMN_ID)));
+                vhcForm.setUid(c.getString(c.getColumnIndexOrThrow(VHCFormTable.COLUMN_UID)));
+                vhcForm.setSysDate(c.getString(c.getColumnIndexOrThrow(VHCFormTable.COLUMN_SYSDATE)));
+                vhcForm.setUserName(c.getString(c.getColumnIndexOrThrow(VHCFormTable.COLUMN_USERNAME)));
                 allForms.add(vhcForm);
             }
         } finally {
@@ -1106,15 +1106,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 VHCForm fc = new VHCForm();
-                fc.setId(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_ID)));
-                fc.setUid(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_UID)));
-                fc.setSysDate(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_SYSDATE)));
-                fc.setDistrictCode(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_DISTRICT_CODE)));
-                fc.setTehsilCode(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_TEHSIL_CODE)));
-                fc.setHfCode(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_HF_CODE)));
-                fc.setLhwCode(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_LHW_CODE)));
-                fc.setiStatus(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_ISTATUS)));
-                fc.setSynced(c.getString(c.getColumnIndex(VHCFormTable.COLUMN_SYNCED)));
+                fc.setId(c.getString(c.getColumnIndexOrThrow(VHCFormTable.COLUMN_ID)));
+                fc.setUid(c.getString(c.getColumnIndexOrThrow(VHCFormTable.COLUMN_UID)));
+                fc.setSysDate(c.getString(c.getColumnIndexOrThrow(VHCFormTable.COLUMN_SYSDATE)));
+                fc.setDistrictCode(c.getString(c.getColumnIndexOrThrow(VHCFormTable.COLUMN_DISTRICT_CODE)));
+                fc.setTehsilCode(c.getString(c.getColumnIndexOrThrow(VHCFormTable.COLUMN_TEHSIL_CODE)));
+                fc.setHfCode(c.getString(c.getColumnIndexOrThrow(VHCFormTable.COLUMN_HF_CODE)));
+                fc.setLhwCode(c.getString(c.getColumnIndexOrThrow(VHCFormTable.COLUMN_LHW_CODE)));
+                fc.setiStatus(c.getString(c.getColumnIndexOrThrow(VHCFormTable.COLUMN_ISTATUS)));
+                fc.setSynced(c.getString(c.getColumnIndexOrThrow(VHCFormTable.COLUMN_SYNCED)));
                 allFC.add(fc);
             }
         } finally {
@@ -1166,14 +1166,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 VHCForm fc = new VHCForm();
-             /*   fc.setId(c.getString(c.getColumnIndex(MHTable.COLUMN_ID)));
-                fc.setUid(c.getString(c.getColumnIndex(MHTable.COLUMN_UID)));
-                fc.setSysDate(c.getString(c.getColumnIndex(MHTable.COLUMN_SYSDATE)));
-                fc.setMh02(c.getString(c.getColumnIndex(MHTable.COLUMN_MH02)));
-                fc.setMh06(c.getString(c.getColumnIndex(MHTable.COLUMN_MH06)));
-                fc.setMh07(c.getString(c.getColumnIndex(MHTable.COLUMN_MH07)));
-                fc.sAHydrate(c.getString(c.getColumnIndex(MHTable.COLUMN_SA)));
-                fc.setSynced(c.getString(c.getColumnIndex(MHTable.COLUMN_SYNCED)));*/
+             /*   fc.setId(c.getString(c.getColumnIndexOrThrow(MHTable.COLUMN_ID)));
+                fc.setUid(c.getString(c.getColumnIndexOrThrow(MHTable.COLUMN_UID)));
+                fc.setSysDate(c.getString(c.getColumnIndexOrThrow(MHTable.COLUMN_SYSDATE)));
+                fc.setMh02(c.getString(c.getColumnIndexOrThrow(MHTable.COLUMN_MH02)));
+                fc.setMh06(c.getString(c.getColumnIndexOrThrow(MHTable.COLUMN_MH06)));
+                fc.setMh07(c.getString(c.getColumnIndexOrThrow(MHTable.COLUMN_MH07)));
+                fc.sAHydrate(c.getString(c.getColumnIndexOrThrow(MHTable.COLUMN_SA)));
+                fc.setSynced(c.getString(c.getColumnIndexOrThrow(MHTable.COLUMN_SYNCED)));*/
                 allFC.add(fc);
             }
         } finally {

@@ -140,6 +140,6 @@ dependencies {
     implementation "androidx.sqlite:sqlite:2.1.0"
 
     //Rooted
-    implementation 'com.scottyab:rootbeer-lib:0.0.8'
+    implementation 'com.scottyab:rootbeer-lib:0.1.0'
 
 }

@@ -28,11 +28,14 @@ class HealthFacilities {
 
     fun hydrate(cursor: Cursor): HealthFacilities {
         dist_id =
-            cursor.getString(cursor.getColumnIndex(TableHealthFacilities.COLUMN_DISTRICT_CODE))
-        tehsilId = cursor.getString(cursor.getColumnIndex(TableHealthFacilities.COLUMN_TEHSIL_ID))
-        uc_Id = cursor.getString(cursor.getColumnIndex(TableHealthFacilities.COLUMN_UC_ID))
-        hfcode = cursor.getString(cursor.getColumnIndex(TableHealthFacilities.COLUMN_HF_CODE))
-        hf_name = cursor.getString(cursor.getColumnIndex(TableHealthFacilities.COLUMN_HF_NAME))
+            cursor.getString(cursor.getColumnIndexOrThrow(TableHealthFacilities.COLUMN_DISTRICT_CODE))
+        tehsilId =
+            cursor.getString(cursor.getColumnIndexOrThrow(TableHealthFacilities.COLUMN_TEHSIL_ID))
+        uc_Id = cursor.getString(cursor.getColumnIndexOrThrow(TableHealthFacilities.COLUMN_UC_ID))
+        hfcode =
+            cursor.getString(cursor.getColumnIndexOrThrow(TableHealthFacilities.COLUMN_HF_CODE))
+        hf_name =
+            cursor.getString(cursor.getColumnIndexOrThrow(TableHealthFacilities.COLUMN_HF_NAME))
 
         return this
     }

@@ -21,8 +21,8 @@ class Province {
     }
 
     fun hydrate(cursor: Cursor): Province {
-        province = cursor.getString(cursor.getColumnIndex(TableProvince.COLUMN_PROVINCE))
-        pro_Id = cursor.getString(cursor.getColumnIndex(TableProvince.COLUMN_PRO_ID))
+        province = cursor.getString(cursor.getColumnIndexOrThrow(TableProvince.COLUMN_PROVINCE))
+        pro_Id = cursor.getString(cursor.getColumnIndexOrThrow(TableProvince.COLUMN_PRO_ID))
 
         return this
     }

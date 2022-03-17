@@ -39,43 +39,46 @@ class LHW {
     }
 
     fun hydrate(cursor: Cursor): LHW {
-        district_code = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_DISTRICT_CODE))
-        tehsil_code = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_TEHSIL_CODE))
-        tehsil_name = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_TEHSIL_NAME))
-        uc_code = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_UC_CODE))
-        uc_name = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_UC_NAME))
-        hf_code = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_HF_CODE))
-        hf_name = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_HF_NAME))
-        lhw_code = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_LHW_CODE))
-        lhw_name = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_LHW_NAME))
-        lhw_cnic = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_LHW_CNIC))
-        lhw_supervisor = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_LHW_SUPERVISOR))
+        district_code =
+            cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_DISTRICT_CODE))
+        tehsil_code = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_TEHSIL_CODE))
+        tehsil_name = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_TEHSIL_NAME))
+        uc_code = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_UC_CODE))
+        uc_name = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_UC_NAME))
+        hf_code = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_HF_CODE))
+        hf_name = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_HF_NAME))
+        lhw_code = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_LHW_CODE))
+        lhw_name = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_LHW_NAME))
+        lhw_cnic = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_LHW_CNIC))
+        lhw_supervisor =
+            cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_LHW_SUPERVISOR))
 
         return this
     }
 
     fun hydrateTehsil(cursor: Cursor): LHW {
-        tehsil_code = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_TEHSIL_CODE))
-        tehsil_name = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_TEHSIL_NAME))
+        tehsil_code = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_TEHSIL_CODE))
+        tehsil_name = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_TEHSIL_NAME))
         return this
     }
 
     fun hydrateUC(cursor: Cursor): LHW {
-        uc_code = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_UC_CODE))
-        uc_name = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_UC_NAME))
+        uc_code = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_UC_CODE))
+        uc_name = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_UC_NAME))
         return this
     }
 
     fun hydrateHF(cursor: Cursor): LHW {
-        hf_code = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_HF_CODE))
-        hf_name = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_HF_NAME))
+        hf_code = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_HF_CODE))
+        hf_name = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_HF_NAME))
         return this
     }
 
     fun hydrateLHW(cursor: Cursor): LHW {
-        lhw_code = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_LHW_CODE))
-        lhw_name = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_LHW_NAME))
-        lhw_supervisor = cursor.getString(cursor.getColumnIndex(LHWTable.COLUMN_LHW_SUPERVISOR))
+        lhw_code = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_LHW_CODE))
+        lhw_name = cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_LHW_NAME))
+        lhw_supervisor =
+            cursor.getString(cursor.getColumnIndexOrThrow(LHWTable.COLUMN_LHW_SUPERVISOR))
         return this
     }
 

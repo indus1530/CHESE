@@ -1966,35 +1966,35 @@ public class WSGForm extends BaseObservable implements Observable {
 
 
     public WSGForm Hydrate(Cursor cursor) {
-        this.id = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_ID));
-        this.uid = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_UID));
-        this.userName = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_USERNAME));
-        this.sysDate = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_SYSDATE));
-        this.districtCode = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_DISTRICT_CODE));
-        this.districtName = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_DISTRICT_NAME));
-        this.tehsilCode = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_TEHSIL_CODE));
-        this.tehsilName = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_TEHSIL_NAME));
-        this.hfCode = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_HF_CODE));
-        this.hfName = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_HF_NAME));
-        this.lhwCode = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_LHW_CODE));
-        this.lhwName = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_LHW_NAME));
-        this.lhwSupervisor = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_LHW_SUPERVISOR));
-        this.deviceId = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_DEVICEID));
-        this.deviceTag = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_DEVICETAGID));
-        this.appver = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_APPVERSION));
-        this.endTime = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_ENDINGDATETIME));
-        this.iStatus = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_ISTATUS));
-        this.iStatus96x = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_ISTATUS96x));
-        this.synced = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_SYNCED));
-        this.syncDate = cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_SYNCED_DATE));
+        this.id = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_ID));
+        this.uid = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_UID));
+        this.userName = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_USERNAME));
+        this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_SYSDATE));
+        this.districtCode = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_DISTRICT_CODE));
+        this.districtName = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_DISTRICT_NAME));
+        this.tehsilCode = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_TEHSIL_CODE));
+        this.tehsilName = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_TEHSIL_NAME));
+        this.hfCode = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_HF_CODE));
+        this.hfName = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_HF_NAME));
+        this.lhwCode = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_LHW_CODE));
+        this.lhwName = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_LHW_NAME));
+        this.lhwSupervisor = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_LHW_SUPERVISOR));
+        this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_DEVICEID));
+        this.deviceTag = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_DEVICETAGID));
+        this.appver = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_APPVERSION));
+        this.endTime = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_ENDINGDATETIME));
+        this.iStatus = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_ISTATUS));
+        this.iStatus96x = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_ISTATUS96x));
+        this.synced = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_SYNCED));
+        this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_SYNCED_DATE));
 
         //For childCount
-        //this.sA = cursor.getString(cursor.getColumnIndex(WSGTable.COLUMN_SA));
+        //this.sA = cursor.getString(cursor.getColumnIndexOrThrow(WSGTable.COLUMN_SA));
 
-        sWS2Hydrate(cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_SWS2)));
-        sWS41Hydrate(cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_SWS41)));
-        sWS42Hydrate(cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_SWS42)));
-        sWS5Hydrate(cursor.getString(cursor.getColumnIndex(WSGFormTable.COLUMN_SWS5)));
+        sWS2Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_SWS2)));
+        sWS41Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_SWS41)));
+        sWS42Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_SWS42)));
+        sWS5Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(WSGFormTable.COLUMN_SWS5)));
 
         return this;
     }

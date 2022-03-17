@@ -575,33 +575,33 @@ public class VHCForm extends BaseObservable implements Observable {
 
 
     public VHCForm Hydrate(Cursor cursor) {
-        this.id = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_ID));
-        this.uid = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_UID));
-        this.userName = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_USERNAME));
-        this.sysDate = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_SYSDATE));
-        this.districtCode = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_DISTRICT_CODE));
-        this.districtName = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_DISTRICT_NAME));
-        this.tehsilCode = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_TEHSIL_CODE));
-        this.tehsilName = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_TEHSIL_NAME));
-        this.hfCode = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_HF_CODE));
-        this.hfName = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_HF_NAME));
-        this.lhwCode = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_LHW_CODE));
-        this.lhwName = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_LHW_NAME));
-        this.lhwSupervisor = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_LHW_SUPERVISOR));
-        this.deviceId = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_DEVICEID));
-        this.deviceTag = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_DEVICETAGID));
-        this.appver = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_APPVERSION));
-        this.endTime = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_ENDINGDATETIME));
-        this.iStatus = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_ISTATUS));
-        this.iStatus96x = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_ISTATUS96x));
-        this.synced = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_SYNCED));
-        this.syncDate = cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_SYNCED_DATE));
+        this.id = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_ID));
+        this.uid = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_UID));
+        this.userName = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_USERNAME));
+        this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_SYSDATE));
+        this.districtCode = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_DISTRICT_CODE));
+        this.districtName = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_DISTRICT_NAME));
+        this.tehsilCode = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_TEHSIL_CODE));
+        this.tehsilName = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_TEHSIL_NAME));
+        this.hfCode = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_HF_CODE));
+        this.hfName = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_HF_NAME));
+        this.lhwCode = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_LHW_CODE));
+        this.lhwName = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_LHW_NAME));
+        this.lhwSupervisor = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_LHW_SUPERVISOR));
+        this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_DEVICEID));
+        this.deviceTag = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_DEVICETAGID));
+        this.appver = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_APPVERSION));
+        this.endTime = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_ENDINGDATETIME));
+        this.iStatus = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_ISTATUS));
+        this.iStatus96x = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_ISTATUS96x));
+        this.synced = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_SYNCED));
+        this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_SYNCED_DATE));
 
         //For childCount
-        //this.sA = cursor.getString(cursor.getColumnIndex(VHCTable.COLUMN_SA));
+        //this.sA = cursor.getString(cursor.getColumnIndexOrThrow(VHCTable.COLUMN_SA));
 
-        sV2Hydrate(cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_SV2)));
-        sV4Hydrate(cursor.getString(cursor.getColumnIndex(VHCFormTable.COLUMN_SV4)));
+        sV2Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_SV2)));
+        sV4Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(VHCFormTable.COLUMN_SV4)));
 
         return this;
     }
