@@ -41,7 +41,7 @@ class HealthFacilities {
     }
 
     object TableHealthFacilities : BaseColumns {
-        const val TABLE_NAME = "healthfacilities"
+        const val TABLE_NAME = "healthfacility"
         const val COLUMN_NAME_NULLABLE = "nullColumnHack"
         const val COLUMN_ID = "_ID"
         const val COLUMN_DISTRICT_CODE = "dist_id"

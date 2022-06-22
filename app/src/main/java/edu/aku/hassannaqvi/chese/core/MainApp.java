@@ -49,7 +49,7 @@ public class MainApp extends Application {
     public static final String _APP_FOLDER = "../app/smk_rsd";
     public static final String DeviceURL = "devices.php";
     public static final String _EMPTY_ = "";
-    public static final String _USER_URL = "resetpassword.php";
+    public static final String _USER_URL = "resetpasswordGCM.php";
     private static final String TAG = "MainApp";
     public static String IBAHC = "";
     public static int TRATS = 8;

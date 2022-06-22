@@ -8,10 +8,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.MatrixCursor;
-import android.database.SQLException;
 import android.util.Log;
 import android.widget.Toast;
 
+import net.sqlcipher.SQLException;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteException;
 import net.sqlcipher.database.SQLiteOpenHelper;
@@ -250,9 +250,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
-            }
         }
         return allForms;
     }
@@ -300,9 +297,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
-            }
         }
         return allForms;
     }
@@ -340,9 +334,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
-            }
         }
         return all;
     }
@@ -379,9 +370,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
-            }
         }
         return all;
     }
@@ -416,9 +404,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } finally {
             if (c != null) {
                 c.close();
-            }
-            if (db != null) {
-                db.close();
             }
         }
         return hf;
@@ -501,9 +486,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } finally {
             if (c != null) {
                 c.close();
-            }
-            if (db != null) {
-                db.close();
             }
         }
         return allFC;
@@ -768,9 +750,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             long rowID = db.insert(TableContracts.UsersTable.TABLE_NAME, null, values);
             if (rowID != -1) insertCount++;
         }
-
-
-        db.close();
         return insertCount;
     }
 
@@ -794,40 +773,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             long rowID = db.insert(Districts.TableDistricts.TABLE_NAME, null, values);
             if (rowID != -1) insertCount++;
         }
-        db.close();
         return insertCount;
     }
 
     //    Sync HealthFacilities
-    public int syncHealthFacilities(JSONArray healthFacilitiesList) {
+    public int synchealthfacility(JSONArray healthFacilitiesList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(HealthFacilities.TableHealthFacilities.TABLE_NAME, null, null);
         int insertCount = 0;
-        try {
 
-            for (int i = 0; i < healthFacilitiesList.length(); i++) {
-                JSONObject json = healthFacilitiesList.getJSONObject(i);
-                HealthFacilities healthFacilities = new HealthFacilities();
-                healthFacilities.sync(json);
-                ContentValues values = new ContentValues();
 
-                values.put(HealthFacilities.TableHealthFacilities.COLUMN_HF_NAME, healthFacilities.getHf_name());
-                values.put(HealthFacilities.TableHealthFacilities.COLUMN_HF_CODE, healthFacilities.getHfcode());
-                values.put(HealthFacilities.TableHealthFacilities.COLUMN_TEHSIL_ID, healthFacilities.getTehsilId());
-                values.put(HealthFacilities.TableHealthFacilities.COLUMN_DISTRICT_CODE, healthFacilities.getDist_id());
-                values.put(HealthFacilities.TableHealthFacilities.COLUMN_UC_ID, healthFacilities.getUc_Id());
+        for (int i = 0; i < healthFacilitiesList.length(); i++) {
+            JSONObject json = healthFacilitiesList.getJSONObject(i);
+            HealthFacilities healthFacilities = new HealthFacilities();
+            healthFacilities.sync(json);
+            ContentValues values = new ContentValues();
 
-                long rowID = db.insert(HealthFacilities.TableHealthFacilities.TABLE_NAME, null, values);
-                if (rowID != -1) insertCount++;
-            }
-            db.close();
+            values.put(HealthFacilities.TableHealthFacilities.COLUMN_HF_NAME, healthFacilities.getHf_name());
+            values.put(HealthFacilities.TableHealthFacilities.COLUMN_HF_CODE, healthFacilities.getHfcode());
+            values.put(HealthFacilities.TableHealthFacilities.COLUMN_TEHSIL_ID, healthFacilities.getTehsilId());
+            values.put(HealthFacilities.TableHealthFacilities.COLUMN_DISTRICT_CODE, healthFacilities.getDist_id());
+            values.put(HealthFacilities.TableHealthFacilities.COLUMN_UC_ID, healthFacilities.getUc_Id());
 
-        } catch (Exception e) {
-            Log.d(TAG, "syncHF(e): " + e);
-            db.close();
-        } finally {
-            db.close();
+            long rowID = db.insert(HealthFacilities.TableHealthFacilities.TABLE_NAME, null, values);
+            if (rowID != -1) insertCount++;
         }
+
         return insertCount;
     }
 
@@ -857,7 +828,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             long rowID = db.insert(LHW.LHWTable.TABLE_NAME, null, values);
             if (rowID != -1) insertCount++;
         }
-            db.close();
         return insertCount;
     }
 
@@ -898,7 +868,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             allForms.put(vhcForm.Hydrate(c).toJSONObject());
         }
         c.close();
-        db.close();
 
         Log.d(TAG, "getUnsyncedVHCForms: " + allForms.toString().length());
         Log.d(TAG, "getUnsyncedVHCForms: " + allForms);
@@ -940,7 +909,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             allForms.put(wsgForm.Hydrate(c).toJSONObject());
         }
         c.close();
-        db.close();
         Log.d(TAG, "getUnsyncedWSGForm: " + allForms.toString().length());
         Log.d(TAG, "getUnsyncedWSGForm: " + allForms);
         return allForms;
@@ -982,7 +950,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             allForms.put(atn.Hydrate(c).toJSONObject());
         }
         c.close();
-        db.close();
 
         Log.d(TAG, "getUnsyncedAttendees: " + allForms.toString().length());
         Log.d(TAG, "getUnsyncedAttendees: " + allForms);
@@ -1127,9 +1094,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
-            }
         }
         return allFC;
     }
@@ -1185,9 +1149,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } finally {
             if (c != null) {
                 c.close();
-            }
-            if (db != null) {
-                db.close();
             }
         }
         return allFC;
@@ -1267,9 +1228,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
-            }
         }
         return all;
     }
@@ -1304,9 +1262,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
-            }
         }
         return all;
     }
@@ -1340,9 +1295,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } finally {
             if (c != null) {
                 c.close();
-            }
-            if (db != null) {
-                db.close();
             }
         }
         return hf;
@@ -1381,9 +1333,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
-            }
         }
         return lhw;
     }
@@ -1420,9 +1369,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } finally {
             if (c != null) {
                 c.close();
-            }
-            if (db != null) {
-                db.close();
             }
         }
         return lhw;
@@ -1461,9 +1407,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
-            }
         }
         return lhw;
     }
@@ -1500,9 +1443,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } finally {
             if (c != null) {
                 c.close();
-            }
-            if (db != null) {
-                db.close();
             }
         }
         return lhw;
@@ -1542,9 +1482,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
-            }
         }
         return lhw;
     }
@@ -1579,7 +1516,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         c.close();
 
-        db.close();
         if (loggedInUser.getPassword().equals("")) {
             Toast.makeText(mContext, "Stored password is invalid", Toast.LENGTH_SHORT).show();
             return false;
@@ -1627,9 +1563,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } finally {
             if (c != null) {
                 c.close();
-            }
-            if (db != null) {
-                db.close();
             }
         }
         return allFC;
