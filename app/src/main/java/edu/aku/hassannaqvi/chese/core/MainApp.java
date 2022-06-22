@@ -1,5 +1,8 @@
 package edu.aku.hassannaqvi.chese.core;
 
+import static edu.aku.hassannaqvi.chese.database.DatabaseHelper.DATABASE_NAME;
+import static edu.aku.hassannaqvi.chese.database.DatabaseHelper.DATABASE_PASSWORD;
+
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -39,15 +42,19 @@ public class MainApp extends Application {
     //public static final String _IP = "http://f38158/smk_hfa";// .TEST server
     //public static final String _IP = "http://43.245.131.159:8080";// .TEST server
     public static final String _HOST_URL = MainApp._IP + "/uen_ph2/api/";// .TEST server;
-    public static final String _SERVER_URL = "syncEnc.php";
-    public static final String _SERVER_GET_URL = "getDataEnc.php";
+    public static final String _SERVER_URL = "syncGCM.php";
+    public static final String _SERVER_GET_URL = "getDataGCM.php";
     public static final String _PHOTO_UPLOAD_URL = _HOST_URL + "uploads.php";
     public static final String _UPDATE_URL = MainApp._IP + "/uen_ph2/app/smk_rsd";
+    public static final String _APP_FOLDER = "../app/smk_rsd";
     public static final String DeviceURL = "devices.php";
     public static final String _EMPTY_ = "";
     public static final String _USER_URL = "resetpassword.php";
     private static final String TAG = "MainApp";
     public static String IBAHC = "";
+    public static int TRATS = 8;
+    public static SharedPreferences.Editor editor;
+
 
     public static final int HOUSEHOLDS_TO_RANDOMISE = 10;
     public static final int MIN_MWRA = 14;
@@ -78,7 +85,6 @@ public class MainApp extends Application {
     public static int randHHNoIndex;
     @NotNull
     public static int selectedFemale;
-    SharedPreferences.Editor editor;
     SharedPreferences sharedPref;
     public static String deviceid;
     String[] marker = new String[HOUSEHOLDS_TO_RANDOMISE];
@@ -208,14 +214,18 @@ public class MainApp extends Application {
     private void initSecure() {
         // Initialize SQLCipher library
         SQLiteDatabase.loadLibs(this);
-
+        File databaseFile = getDatabasePath(DATABASE_NAME);
+       /* databaseFile.mkdirs();
+        databaseFile.delete();*/
+        SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(databaseFile, DATABASE_PASSWORD, null);
         // Prepare encryption KEY
         ApplicationInfo ai = null;
         try {
             ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
             Bundle bundle = ai.metaData;
-            int TRATS = bundle.getInt("YEK_TRATS");
-            IBAHC = bundle.getString("YEK_REVRES").substring(TRATS, TRATS + 16);
+            TRATS = bundle.getInt("YEK_TRATS");
+            //IBAHC = bundle.getString("YEK_REVRES").substring(TRATS, TRATS + 16);
+            IBAHC = bundle.getString("YEK_REVRES");
             Log.d(TAG, "onCreate: YEK_REVRES = " + IBAHC);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();

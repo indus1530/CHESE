@@ -17,7 +17,7 @@
         android:layout_marginRight="24dp"
         android:layout_marginBottom="10dp"
         android:background="@color/white"
-        app:cardCornerRadius="2dp"
+        app:cardCornerRadius="12dp"
         app:cardElevation="1dp">
 
         <LinearLayout
@@ -52,12 +52,25 @@
 
                     <TextView
                         android:id="@+id/tv_table_name"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:textColor="@color/colorPrimary"
+                        android:includeFontPadding="false"
+                        android:textSize="20sp"
                         tools:text="Table Name" />
 
+                    <TextView
+                        android:id="@+id/tv_status"
+                        style="@style/TextAppearance.AppCompat.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="end|bottom"
+                        android:includeFontPadding="false"
+                        android:text="Status"
+                        android:textColor="@color/colorAccentLight"
+                        android:textSize="16sp"
+                        tools:text="Status" />
 
                     <ProgressBar
                         android:id="@+id/pb"
@@ -67,13 +80,14 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/tv_status"
+                    android:id="@+id/tv_msg"
                     style="@style/TextAppearance.AppCompat.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:layout_weight="1"
-                    tools:text="Status" />
+                    android:includeFontPadding="false"
+                    android:textSize="14sp"
+                    tools:text="message here" />
 
                 <View
                     android:layout_width="match_parent"
@@ -83,13 +97,14 @@
                     android:background="#7f7f7f7f" />
 
                 <TextView
-                    android:id="@+id/tv_msg"
+                    android:id="@+id/tvInfo"
                     style="@style/TextAppearance.AppCompat.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="12dp"
+                    tools:text="Status" />
 
-                    tools:text="message here" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

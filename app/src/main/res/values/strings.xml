@@ -20,6 +20,7 @@
     <string name="username" translatable="false"> Username </string>
     <string name="password" translatable="false">Password</string>
     <string name="newPassword" translatable="false">New Password</string>
+    <string name="oldPassword" translatable="false">Old Password</string>
     <string name="confirmPassword" translatable="false">Confirm Password</string>
     <string name="btnResetPassword" translatable="false">Reset Password</string>
     <string name="folder_not_created" translatable="false"> Folder Not Created </string>
