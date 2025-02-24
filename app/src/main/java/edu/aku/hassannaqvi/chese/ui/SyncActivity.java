@@ -222,11 +222,8 @@ public class SyncActivity extends AppCompatActivity {
                 if (sync_flag) {
                     select = " * ";
                     filter = " enabled = '1' ";
-
                     downloadTables.add(new SyncModel(UsersTable.TABLE_NAME));
                     downloadTables.add(new SyncModel(VersionApp.VersionAppTable.TABLE_NAME));
-                    downloadTables.add(new SyncModel(Districts.TableDistricts.TABLE_NAME));
-                    downloadTables.add(new SyncModel(LHW.LHWTable.TABLE_NAME));
 
 
                 } else {
@@ -234,6 +231,7 @@ public class SyncActivity extends AppCompatActivity {
 
                     select = " * ";
                     filter = " colflag is null AND dist_id = '" + MainApp.user.getDist_id() + "' ";
+                    downloadTables.add(new SyncModel(Districts.TableDistricts.TABLE_NAME, select, filter));
                     downloadTables.add(new SyncModel(LHW.LHWTable.TABLE_NAME, select, filter));
                     downloadTables.add(new SyncModel(HealthFacilities.TableHealthFacilities.TABLE_NAME, select, filter));
                 }
