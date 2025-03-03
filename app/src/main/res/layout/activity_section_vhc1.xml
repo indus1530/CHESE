@@ -2,7 +2,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <data>
 
         <import type="android.view.View" />
@@ -17,12 +16,10 @@
 
     </data>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
 
         <!-- CUSTOM TOOLBAR -->
         <androidx.appcompat.widget.Toolbar
@@ -37,19 +34,16 @@
             app:title="@string/sec01title"
             app:titleTextAppearance="@style/Toolbar.TitleText" />
 
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
-
 
             <LinearLayout
                 android:id="@+id/GrpName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
 
                 <!-- a101  Input   -->
                 <androidx.cardview.widget.CardView
@@ -69,23 +63,22 @@
                             android:text="@string/Q_a101" />
 
                         <TextView
-                            android:layout_width="150dp"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
+                            android:layout_weight="2"
                             android:gravity="center"
                             android:text="@string/a101" />
 
                         <Spinner
                             android:id="@+id/a101"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
+                            android:layout_weight="5"
                             android:minHeight="56dp"
                             android:prompt="@string/a101"
                             android:spinnerMode="dropdown" />
-
                     </LinearLayout>
-
                 </androidx.cardview.widget.CardView>
-
 
                 <!-- a102  Input   -->
                 <androidx.cardview.widget.CardView
@@ -105,23 +98,22 @@
                             android:text="@string/Q_a102" />
 
                         <TextView
-                            android:layout_width="150dp"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
+                            android:layout_weight="2"
                             android:gravity="center"
                             android:text="@string/a102" />
 
                         <Spinner
                             android:id="@+id/a102"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
+                            android:layout_weight="5"
                             android:minHeight="56dp"
                             android:prompt="@string/a102"
                             android:spinnerMode="dropdown" />
-
                     </LinearLayout>
-
                 </androidx.cardview.widget.CardView>
-
 
                 <!-- a103  Input   -->
                 <androidx.cardview.widget.CardView
@@ -141,23 +133,22 @@
                             android:text="@string/Q_a103" />
 
                         <TextView
-                            android:layout_width="150dp"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
+                            android:layout_weight="2"
                             android:gravity="center"
                             android:text="@string/a103" />
 
                         <Spinner
                             android:id="@+id/a103"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
+                            android:layout_weight="5"
                             android:minHeight="56dp"
                             android:prompt="@string/a103"
                             android:spinnerMode="dropdown" />
-
                     </LinearLayout>
-
                 </androidx.cardview.widget.CardView>
-
 
                 <!-- a104  Title   -->
                 <androidx.cardview.widget.CardView
@@ -182,19 +173,20 @@
                                 android:text="@string/Q_a104" />
 
                             <TextView
-                                android:layout_width="150dp"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
+                                android:layout_weight="2"
                                 android:gravity="center"
                                 android:text="@string/a104n" />
 
                             <Spinner
                                 android:id="@+id/a104n"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
+                                android:layout_weight="5"
                                 android:minHeight="56dp"
                                 android:prompt="@string/a104n"
                                 android:spinnerMode="dropdown" />
-
                         </LinearLayout>
 
                         <LinearLayout
@@ -212,16 +204,17 @@
 
                                 <TextView
                                     style="@style/sub_labels"
-                                    android:layout_width="212dp"
+                                    android:layout_width="0dp"
                                     android:layout_height="match_parent"
+                                    android:layout_weight="1.125"
                                     android:text="@string/a104c" />
 
                                 <TextView
                                     style="@style/sub_labels"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="match_parent"
+                                    android:layout_weight="2"
                                     android:text="@string/a105" />
-
                             </LinearLayout>
 
                             <LinearLayout
@@ -232,8 +225,9 @@
                                 <TextView
                                     android:id="@+id/a104c"
                                     style="@style/sub_labels"
-                                    android:layout_width="212dp"
+                                    android:layout_width="0dp"
                                     android:layout_height="match_parent"
+                                    android:layout_weight="1.125"
                                     android:minHeight="56dp"
                                     android:text="@string/a104c"
                                     android:textColor="@color/green" />
@@ -241,23 +235,16 @@
                                 <TextView
                                     android:id="@+id/a105"
                                     style="@style/sub_labels"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="match_parent"
+                                    android:layout_weight="2"
                                     android:minHeight="56dp"
                                     android:text="@string/a105"
                                     android:textColor="@color/green" />
-
                             </LinearLayout>
-
                         </LinearLayout>
-
                     </LinearLayout>
-
                 </androidx.cardview.widget.CardView>
-
-
-
-
 
                 <!--EndButton LinearLayout-->
                 <LinearLayout
@@ -297,13 +284,7 @@
                 </LinearLayout>
                 <!--EndButton LinearLayout-->
 
-
             </LinearLayout>
-
         </ScrollView>
-
-
     </LinearLayout>
-
-
 </layout>

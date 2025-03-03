@@ -1,5 +1,6 @@
-package edu.aku.hassannaqvi.chese;
+package edu.aku.hassannaqvi.chese.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,14 +13,13 @@ import androidx.databinding.DataBindingUtil;
 
 import java.util.Locale;
 
+import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.core.AndroidManager;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.VHCForm;
 import edu.aku.hassannaqvi.chese.data.model.WSGForm;
 import edu.aku.hassannaqvi.chese.database.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.chese.databinding.ActivityMainBinding;
-import edu.aku.hassannaqvi.chese.ui.ChangePasswordActivity;
-import edu.aku.hassannaqvi.chese.ui.SyncActivity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionVHC1Activity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionVHC2Activity;
 import edu.aku.hassannaqvi.chese.ui.sections.SectionVHC3Activity;
@@ -51,70 +51,75 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void sectionPress(View v) {
-        Intent oF = null;
+        Class<?> nextActivity = null;
+
         switch (v.getId()) {
             case R.id.openVhcForm:
             case R.id.seca:
                 MainApp.vhcForm = new VHCForm();
-                startActivity(new Intent(this, SectionVHC1Activity.class));
+                nextActivity = SectionVHC1Activity.class;
                 break;
             case R.id.openWsgForm:
             case R.id.wsg3:
                 MainApp.wsgForm = new WSGForm();
-                startActivity(new Intent(this, SectionWSG1Activity.class));
+                nextActivity = SectionWSG1Activity.class;
                 break;
             case R.id.changePassword:
-                startActivity(new Intent(this, ChangePasswordActivity.class));
+                nextActivity = ChangePasswordActivity.class;
                 break;
             case R.id.vhc2:
                 MainApp.vhcForm = new VHCForm();
-                startActivity(new Intent(this, SectionVHC2Activity.class));
+                nextActivity = SectionVHC2Activity.class;
                 break;
             case R.id.vhc3:
                 MainApp.vhcForm = new VHCForm();
-                startActivity(new Intent(this, SectionVHC3Activity.class));
+                nextActivity = SectionVHC3Activity.class;
                 break;
             case R.id.vhc4:
                 MainApp.vhcForm = new VHCForm();
-                startActivity(new Intent(this, SectionVHC4Activity.class));
+                nextActivity = SectionVHC4Activity.class;
                 break;
             case R.id.wsg2:
                 MainApp.wsgForm = new WSGForm();
-                startActivity(new Intent(this, SectionWSG2Activity.class));
+                nextActivity = SectionWSG2Activity.class;
                 break;
             case R.id.wsg4:
                 MainApp.wsgForm = new WSGForm();
-                startActivity(new Intent(this, SectionWSG41Activity.class));
+                nextActivity = SectionWSG41Activity.class;
                 break;
             case R.id.wsg5:
                 MainApp.wsgForm = new WSGForm();
-                startActivity(new Intent(this, SectionWSG5Activity.class));
+                nextActivity = SectionWSG5Activity.class;
                 break;
             case R.id.openDBManager:
-                startActivity(new Intent(this, AndroidManager.class));
+                nextActivity = AndroidManager.class;
                 break;
+        }
+        if (nextActivity != null) {
+            finish();
+            startActivity(new Intent(this, nextActivity));
         }
     }
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = null;
+        Class<?> nextActivity = null;
         switch (item.getItemId()) {
             case R.id.action_database:
-                intent = new Intent(MainActivity.this, AndroidDatabaseManager.class);
-                startActivity(intent);
+                nextActivity = AndroidDatabaseManager.class;
                 break;
             case R.id.onSync:
-                intent = new Intent(MainActivity.this, SyncActivity.class);
-                startActivity(intent);
+                nextActivity = SyncActivity.class;
                 break;
             case R.id.changePassword:
-                intent = new Intent(MainActivity.this, ChangePasswordActivity.class);
-                startActivity(intent);
+                nextActivity = ChangePasswordActivity.class;
                 break;
         }
-
+        if (nextActivity != null) {
+            finish();
+            startActivity(new Intent(this, nextActivity));
+        }
         return super.onOptionsItemSelected(item);
     }
 

@@ -18,6 +18,7 @@ import edu.aku.hassannaqvi.chese.contracts.TableContracts.WSGFormTable;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionWsg5Binding;
 import edu.aku.hassannaqvi.chese.ui.EndingActivity;
+import edu.aku.hassannaqvi.chese.utils.AppUtilsKt;
 
 
 public class SectionWSG5Activity extends AppCompatActivity {
@@ -73,7 +74,8 @@ public class SectionWSG5Activity extends AppCompatActivity {
         long rowid = db.addWSGForm(wsgForm);
         wsgForm.setId(String.valueOf(rowid));
         if (rowid > 0) {
-            wsgForm.setUid(wsgForm.getDeviceId() + wsgForm.getId());
+            //wsgForm.setUid(wsgForm.getDeviceId() + wsgForm.getId());
+            wsgForm.setUid(AppUtilsKt.generateUid());
             db.updatesWSGFormColumn(WSGFormTable.COLUMN_UID, wsgForm.getUid());
             return true;
         } else {

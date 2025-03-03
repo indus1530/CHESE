@@ -9,7 +9,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.chese.MainActivity" />
+            type="edu.aku.hassannaqvi.chese.ui.MainActivity" />
     </data>
 
     <LinearLayout

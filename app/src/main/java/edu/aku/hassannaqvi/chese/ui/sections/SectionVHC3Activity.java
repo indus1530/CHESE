@@ -26,6 +26,7 @@ import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.Attendees;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc3Binding;
+import edu.aku.hassannaqvi.chese.utils.AppUtilsKt;
 
 
 public class SectionVHC3Activity extends AppCompatActivity {
@@ -189,7 +190,8 @@ public class SectionVHC3Activity extends AppCompatActivity {
         long rowid = db.addAttendees(attendees);
         attendees.setId(String.valueOf(rowid));
         if (rowid > 0) {
-            attendees.setUid(attendees.getDeviceId() + attendees.getId());
+            //attendees.setUid(attendees.getDeviceId() + attendees.getId());
+            attendees.setUid(AppUtilsKt.generateUid());
             db.updatesAtenColumn(AttendeesTable.COLUMN_UID, attendees.getUid());
             return true;
         } else {

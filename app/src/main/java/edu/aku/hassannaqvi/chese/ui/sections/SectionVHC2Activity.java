@@ -19,6 +19,7 @@ import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.VHCForm;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc2Binding;
+import edu.aku.hassannaqvi.chese.utils.AppUtilsKt;
 import edu.aku.hassannaqvi.chese.utils.DateUtilsKt;
 
 
@@ -79,7 +80,8 @@ public class SectionVHC2Activity extends AppCompatActivity {
         long rowid = db.addVHCForm(vhcForm);
         vhcForm.setId(String.valueOf(rowid));
         if (rowid > 0) {
-            vhcForm.setUid(vhcForm.getDeviceId() + vhcForm.getId());
+            //vhcForm.setUid(vhcForm.getDeviceId() + vhcForm.getId());
+            vhcForm.setUid(AppUtilsKt.generateUid());
             db.updatesVHCFormColumn(VHCFormTable.COLUMN_UID, vhcForm.getUid());
             return true;
         } else {

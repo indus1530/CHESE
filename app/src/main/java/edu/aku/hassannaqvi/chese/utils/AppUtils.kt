@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import edu.aku.hassannaqvi.chese.R
+import edu.aku.hassannaqvi.chese.core.MainApp
 import edu.aku.hassannaqvi.chese.core.MainApp.PROJECT_NAME
 import edu.aku.hassannaqvi.chese.database.CreateSQL.DATABASE_COPY
 import edu.aku.hassannaqvi.chese.database.CreateSQL.DATABASE_NAME
@@ -235,3 +236,10 @@ fun String.shortStringLength(): String {
 }
 
 
+// Uid generation scheme
+fun generateUid(): String? {
+    // Uid Scheme = 6 characters of device id + current date time in millis
+    val deviceIdSS: String = MainApp.appInfo.deviceID.substring(0, 6)
+    val timeInMillis = System.currentTimeMillis()
+    return java.lang.String.format(Locale.ENGLISH, "%s%d", deviceIdSS, timeInMillis)
+}

@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import edu.aku.hassannaqvi.chese.MainActivity;
+import edu.aku.hassannaqvi.chese.ui.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCFormTable;
 import edu.aku.hassannaqvi.chese.core.MainApp;
@@ -31,6 +31,7 @@ import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc1Binding;
 import edu.aku.hassannaqvi.chese.models.Districts;
 import edu.aku.hassannaqvi.chese.models.LHW;
+import edu.aku.hassannaqvi.chese.utils.AppUtilsKt;
 
 
 public class SectionVHC1Activity extends AppCompatActivity {
@@ -116,7 +117,8 @@ public class SectionVHC1Activity extends AppCompatActivity {
         long rowid = db.addVHCForm(vhcForm);
         vhcForm.setId(String.valueOf(rowid));
         if (rowid > 0) {
-            vhcForm.setUid(vhcForm.getDeviceId() + vhcForm.getId());
+            //vhcForm.setUid(vhcForm.getDeviceId() + vhcForm.getId());
+            vhcForm.setUid(AppUtilsKt.generateUid());
             db.updatesVHCFormColumn(VHCFormTable.COLUMN_UID, vhcForm.getUid());
             return true;
         } else {

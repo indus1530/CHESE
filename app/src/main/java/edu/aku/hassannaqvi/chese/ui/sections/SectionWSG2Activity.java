@@ -19,6 +19,7 @@ import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.WSGForm;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionWsg2Binding;
+import edu.aku.hassannaqvi.chese.utils.AppUtilsKt;
 import edu.aku.hassannaqvi.chese.utils.DateUtilsKt;
 
 
@@ -80,7 +81,8 @@ public class SectionWSG2Activity extends AppCompatActivity {
         long rowid = db.addWSGForm(wsgForm);
         wsgForm.setId(String.valueOf(rowid));
         if (rowid > 0) {
-            wsgForm.setUid(wsgForm.getDeviceId() + wsgForm.getId());
+            //wsgForm.setUid(wsgForm.getDeviceId() + wsgForm.getId());
+            wsgForm.setUid(AppUtilsKt.generateUid());
             db.updatesWSGFormColumn(WSGFormTable.COLUMN_UID, wsgForm.getUid());
             return true;
         } else {

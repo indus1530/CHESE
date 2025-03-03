@@ -18,6 +18,7 @@ import edu.aku.hassannaqvi.chese.contracts.TableContracts.VHCFormTable;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivitySectionVhc4Binding;
 import edu.aku.hassannaqvi.chese.ui.EndingActivity;
+import edu.aku.hassannaqvi.chese.utils.AppUtilsKt;
 
 
 public class SectionVHC4Activity extends AppCompatActivity {
@@ -73,7 +74,8 @@ public class SectionVHC4Activity extends AppCompatActivity {
         long rowid = db.addVHCForm(vhcForm);
         vhcForm.setId(String.valueOf(rowid));
         if (rowid > 0) {
-            vhcForm.setUid(vhcForm.getDeviceId() + vhcForm.getId());
+            //vhcForm.setUid(vhcForm.getDeviceId() + vhcForm.getId());
+            vhcForm.setUid(AppUtilsKt.generateUid());
             db.updatesVHCFormColumn(VHCFormTable.COLUMN_UID, vhcForm.getUid());
             return true;
         } else {

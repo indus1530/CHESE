@@ -19,13 +19,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts;
 import edu.aku.hassannaqvi.chese.core.MainApp;
 import edu.aku.hassannaqvi.chese.data.model.EntryLog;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivityEndingBinding;
+import edu.aku.hassannaqvi.chese.utils.AppUtilsKt;
 
 
 public class EndingActivity extends AppCompatActivity {
@@ -104,7 +104,8 @@ public class EndingActivity extends AppCompatActivity {
         }
         if (rowId != -1) {
             entryLog.setId(String.valueOf(rowId));
-            entryLog.setUid(entryLog.getDeviceId() + entryLog.getId());
+            //entryLog.setUid(entryLog.getDeviceId() + entryLog.getId());
+            entryLog.setUid(AppUtilsKt.generateUid());
             db.updatesEntryLogColumn(TableContracts.EntryLogTable.COLUMN_UID, entryLog.getUid(), entryLog.getId());
         } else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();

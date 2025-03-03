@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.chese
+package edu.aku.hassannaqvi.chese.core
 
 class CONSTANTS {
     companion object {

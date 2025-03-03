@@ -55,7 +55,6 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import edu.aku.hassannaqvi.chese.MainActivity;
 import edu.aku.hassannaqvi.chese.R;
 import edu.aku.hassannaqvi.chese.contracts.TableContracts;
 import edu.aku.hassannaqvi.chese.core.AppInfo;
@@ -64,6 +63,7 @@ import edu.aku.hassannaqvi.chese.data.model.EntryLog;
 import edu.aku.hassannaqvi.chese.data.model.Users;
 import edu.aku.hassannaqvi.chese.database.DatabaseHelper;
 import edu.aku.hassannaqvi.chese.databinding.ActivityLoginBinding;
+import edu.aku.hassannaqvi.chese.utils.AppUtilsKt;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -332,7 +332,8 @@ public class LoginActivity extends AppCompatActivity {
         }
         if (rowId != -1) {
             entryLog.setId(String.valueOf(rowId));
-            entryLog.setUid(entryLog.getDeviceId() + entryLog.getId());
+            //entryLog.setUid(entryLog.getDeviceId() + entryLog.getId());
+            entryLog.setUid(AppUtilsKt.generateUid());
             db.updatesEntryLogColumn(TableContracts.EntryLogTable.COLUMN_UID, entryLog.getUid(), entryLog.getId());
         } else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
